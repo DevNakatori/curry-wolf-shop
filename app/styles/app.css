@@ -1,3 +1,4 @@
+
 :root {
   --aside-width: 400px;
   --cart-aside-summary-height-with-discount: 300px;
@@ -6,6 +7,7 @@
   --header-height: 64px;
   --color-dark: #000;
   --color-light: #fff;
+  --color-red: #D02523;
 }
 
 img {
@@ -129,7 +131,7 @@ aside li {
 */
 .header {
   align-items: center;
-  background: #fff;
+  background:  var(--color-red);
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
@@ -159,7 +161,9 @@ aside li {
     margin-left: 3rem;
   }
 }
-
+.header-menu-desktop a{
+  font-family: "Days One", sans-serif;
+}
 .header-menu-item {
   cursor: pointer;
 }
@@ -177,7 +181,7 @@ aside li {
 * --------------------------------------------------
 */
 .footer {
-  background: var(--color-dark);
+  background: var(--color-red);
   margin-top: auto;
 }
 
@@ -465,4 +469,147 @@ aside li {
 
 .account-logout {
   display: inline-block;
+}
+
+/* custom css start  */
+
+.container {
+  max-width: 1710px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 20px;
+}
+.inner-header {
+  display: flex;
+  align-items: center;
+}
+.header-menu-desktop {
+  display: flex;
+  grid-gap: 2.1875em;
+  margin-left: 2rem;
+}
+.header-menu-desktop a {
+  font-size: 25px;
+  line-height: 31px;
+  color: #fff !important;
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 25px;
+}
+.header {
+  padding: 18px 0;
+}
+.header-ctas {
+  grid-gap: 2rem;
+  grid-gap: 1rem;
+}
+nav.header-ctas a {
+  color: #fff;
+  position: relative;
+}
+nav.header-ctas a span {
+  position: absolute;
+  top: -7px;
+  right: -3px;
+}
+.footer {
+  padding: 73px 0 50px;
+  position: relative;
+}
+.footer-menu {
+  display: initial;
+  width: 23%;
+  border-right: 1px solid #fff;
+}
+.footer-contact .keep-wrap a {
+  text-decoration: none;
+}
+.footer-contact .keep-wrap a:hover {
+  text-decoration: none;
+}
+.footer-contact a {
+  text-decoration: underline;
+}
+.footer-icon a:first-child {
+  margin-left: 0;
+}
+.footer-child {
+  display: flex;
+  flex-wrap: wrap;
+}
+span.yellow-head {
+  font-size: 30px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fede03;
+  font-family: Days One, sans-serif;
+  margin-bottom: 32px;
+  display: block;
+}
+.footer-inner ul li {
+  display: block;
+  float: left;
+  width: 50%;
+  margin-bottom: 25px;
+}
+.footer-inner ul li a {
+  width: auto;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fede03;
+  font-family: Days One, sans-serif;
+}
+.footer-contact span, .footer-contact a {
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fff;
+  font-family: Days One, sans-serif;
+}
+.footer-contact > div {
+  margin-bottom: 25px;
+}
+.footer-contact-info {
+  display: flex;
+  width: calc(100% - 33%);
+  padding-left: 121px;
+  justify-content: space-between;
+}
+.footer-icon a {
+  margin: 0 14px;
+}
+.footer-contact span {
+  width: 100%;
+  display: block;
+  font-family: Days One, sans-serif;
+}
+.footer-location span {
+  width: 100%;
+  display: block;
+  padding-bottom: 25px;
+  font-size: 25px;
+  color: #fff;
+  line-height: 25px;
+  font-family: Days One, sans-serif;
+}
+img.footer-bg-img {
+  position: absolute;
+  bottom: 0;
+  right: 275px;
+}
+.header-menu-mobile {
+  grid-gap: 1rem;
+}
+@media (max-width: 768px) {
+  .header-menu-desktop {
+    grid-gap: 1.1875em;
+ }
+}
+@media (max-width: 767px) {
+  .header-menu-mobile a {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400 !important;
+ }
 }

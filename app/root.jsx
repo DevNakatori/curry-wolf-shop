@@ -10,10 +10,11 @@ import {
   ScrollRestoration,
   isRouteErrorResponse,
 } from '@remix-run/react';
-import favicon from './assets/favicon.svg';
+import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
 import {Layout} from '~/components/Layout';
+import fontStyles from './styles/font.css?url';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -37,6 +38,7 @@ export function links() {
   return [
     {rel: 'stylesheet', href: resetStyles},
     {rel: 'stylesheet', href: appStyles},
+    {rel: 'stylesheet', href: fontStyles},
     {
       rel: 'preconnect',
       href: 'https://cdn.shopify.com',
@@ -45,7 +47,7 @@ export function links() {
       rel: 'preconnect',
       href: 'https://shop.app',
     },
-    {rel: 'icon', type: 'image/svg+xml', href: favicon},
+    {rel: 'icon', type: 'image/png', href: favicon},
   ];
 }
 
@@ -63,7 +65,7 @@ export async function loader({context}) {
   const footerPromise = storefront.query(FOOTER_QUERY, {
     cache: storefront.CacheLong(),
     variables: {
-      footerMenuHandle: 'footer', // Adjust to your footer menu handle
+      footerMenuHandle: 'footer-1', // Adjust to your footer menu handle
     },
   });
 
@@ -71,7 +73,7 @@ export async function loader({context}) {
   const headerPromise = storefront.query(HEADER_QUERY, {
     cache: storefront.CacheLong(),
     variables: {
-      headerMenuHandle: 'main-menu', // Adjust to your header menu handle
+      headerMenuHandle: 'new-menu', // Adjust to your header menu handle
     },
   });
 

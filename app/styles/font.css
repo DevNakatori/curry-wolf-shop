@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Days One';
+    src: url('./fonts/DaysOne-Regular.eot');
+    src: url('./fonts/DaysOne-Regular.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/DaysOne-Regular.woff2') format('woff2'),
+        url('./fonts/DaysOne-Regular.woff') format('woff'),
+        url('./fonts/DaysOne-Regular.ttf') format('truetype'),
+        url('./fonts/DaysOne-Regular.svg#DaysOne-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
