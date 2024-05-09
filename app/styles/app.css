@@ -476,7 +476,7 @@ aside li {
 .container {
   max-width: 1710px;
   margin: 0 auto;
-  width: 100%;
+  width: auto;
   padding: 0 20px;
 }
 .inner-header {
@@ -498,6 +498,9 @@ aside li {
 }
 .header {
   padding: 18px 0;
+}
+.header .container{
+  width: 100%;
 }
 .header-ctas {
   grid-gap: 2rem;
@@ -535,7 +538,6 @@ nav.header-ctas a span {
 }
 .footer-child {
   display: flex;
-  flex-wrap: wrap;
 }
 span.yellow-head {
   font-size: 30px;
@@ -572,9 +574,10 @@ span.yellow-head {
 }
 .footer-contact-info {
   display: flex;
-  width: calc(100% - 33%);
+  width: calc(100% - 35%);
   padding-left: 121px;
   justify-content: space-between;
+  padding-top: 6px;
 }
 .footer-icon a {
   margin: 0 14px;
@@ -612,4 +615,251 @@ img.footer-bg-img {
     line-height: 18px;
     font-weight: 400 !important;
  }
+}
+
+select#custom-dropdown {
+	width: 100%;
+	border: 1px solid #fff;
+	background: transparent;
+	border-radius: 50px;
+	height: 35px;
+  font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #fff;
+	padding: 7px 20px;
+	display: flex;
+	align-items: center;
+	appearance: none;
+  background: url('/app/assets/Vector.svg') no-repeat center /contain;
+  background-position: 72% 50%;
+  background-size: 17px;
+}
+
+.language-switcher {
+	width: 97px;
+}
+
+select#custom-dropdown:focus-visible {
+	outline: 0 !important;
+}
+
+select#custom-dropdown option {
+	color: #000;
+}
+
+.header-ctas {
+	grid-gap: 1.5rem;
+}
+
+.footer-menu {
+	padding: 6px 30px 0 30px;
+}
+
+
+.footer {
+	background: #A80A15;
+}
+
+.footer-menu {
+	width: 24%
+}
+
+img.footer-bg-img {
+	right: 255px;
+}
+
+span.yellow-head {
+	margin-bottom: 30px;
+}
+
+
+@media (max-width: 1500px) {
+	.container {
+		max-width: 1500px;
+		width: auto;
+	}
+}
+
+@media (max-width: 1440px) {
+	.container {
+		max-width: 1340px;
+	}
+
+	img.footer-bg-img {
+		width: 230px;
+	}
+
+	.footer-contact span,
+	.footer-contact a,
+	.footer-location span,
+	.footer-inner ul li a {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 1380px) {
+	.container {
+		max-weight: 1170px;
+	}
+
+	span.yellow-head {
+		font-size: 22px;
+	}
+
+	.footer-contact-info {
+		padding-left: 60px;
+    
+	}
+
+	.footer-contact span,
+	.footer-contact a {
+		font-size: 18px;
+	}
+
+	.footer-contact-info {
+		gap: 20px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.container {
+		max-weight: 1040px;
+	}
+
+	.footer-icon a svg {
+		width: 27px;
+	}
+
+	.footer-icon a {
+		margin-right: 5px !important;
+	}
+
+	.footer-contact span,
+	.footer-contact a,
+	.footer-location span,
+	.footer-inner ul li a {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.container {
+		max-width: initial;
+	}
+
+}
+
+@media (max-width: 992px) {
+  .header-menu-desktop{grid-gap:2rem;}
+  .header-menu-desktop a{
+    font-size:18px;
+  }
+	.footer-child {
+		flex-direction: column;
+	}
+  
+  
+
+	.footer-menu {
+		padding: 6px 0px 0 0px;
+		border-bottom: 1px solid #fff;
+		border-right: 0;
+    width: 100%;
+	}
+
+	.footer-contact-info {
+		padding-top: 36px;
+		width: 100%;
+    padding-left: 0;
+	}
+
+	img.footer-bg-img {
+		width: 190px;
+	}
+
+	.footer-inner ul li {
+		width: 20%;
+	}
+}
+
+@media (max-width: 767px) {
+  nav.header-menu-desktop {
+    display: none;
+  }
+  .language-switcher {
+    display: none;
+  }
+  aside header h3{
+    font-size: 20px;
+    line-height: 20px;
+    font-family: Days One, sans-serif;
+  }
+  .header-menu-mobile a{
+    font-size: 18px;
+    line-height: 18px;
+    font-family: Days One, sans-serif;
+  }
+	.footer-contact-info {
+		flex-wrap: wrap;
+    padding-top: 35px;
+	}
+  .footer-inner ul li:last-child
+  {
+    margin-bottom: 0;
+  }
+  .footer-menu
+  {
+    border-bottom:0;
+  }
+  .footer-location span
+  {
+    padding-bottom: 5px;
+  }
+  .footer-sub-block:last-child
+  {
+    display: none;
+  }
+  span.yellow-head
+  {
+    margin-bottom:15px;
+  }
+  .footer-contact > div
+  {
+    margin-bottom: 5px;
+  }
+  .footer-inner ul li{
+    margin-bottom: 10px;
+  }
+	.footer-sub-block {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+  .footer-sub-block:first-child{margin-bottom: 18px;}
+
+	.footer-location span:last-child {
+		padding-bottom: 0;
+	}
+
+	.footer-inner ul li {
+		width: 100%;
+	}
+
+	img.footer-bg-img {
+    right: -59px;
+    bottom: 20px;
+    width: 225px;
+	}
+
+	.footer {
+		padding: 28px 0 20px;
+    overflow: hidden;
+	}
+  .footer-contact span, .footer-contact a, .footer-location span, .footer-inner ul li a{
+    line-height: 16px;
+  }
+  aside header .close{
+    font-size: 40px;
+    font-weight: normal;
+  }
 }
