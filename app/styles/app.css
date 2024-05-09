@@ -138,6 +138,7 @@ aside li {
   position: sticky;
   top: 0;
   z-index: 1;
+  background: #9B2220;
 }
 
 .header-menu-mobile-toggle {
@@ -604,6 +605,8 @@ img.footer-bg-img {
 .header-menu-mobile {
   grid-gap: 1rem;
 }
+img.mobile-logo,img.footer-mobile-img{display: none;}
+
 @media (max-width: 768px) {
   .header-menu-desktop {
     grid-gap: 1.1875em;
@@ -615,6 +618,17 @@ img.footer-bg-img {
     line-height: 18px;
     font-weight: 400 !important;
  }
+ img.mobile-logo,img.footer-mobile-img{display: block;}
+ img.footer-bg-img,a.mobile-hide{display: none;}
+ img.footer-mobile-img{    width: 150px;
+  position: absolute;
+  right: 0;
+  bottom: 13px;}
+  .footer .container{padding: 0 40px;}
+  img.desktop-logo{display: none;}
+  nav.header-ctas{width: 100%;justify-content: space-between;}
+  img.mobile-logo{width: 90px;}
+  .header{padding: 0;}
 }
 
 select#custom-dropdown {
@@ -751,14 +765,15 @@ span.yellow-head {
 }
 
 @media (max-width: 992px) {
-  .header-menu-desktop{grid-gap:2rem;}
+  .header-menu-desktop{grid-gap:1rem;}
   .header-menu-desktop a{
-    font-size:18px;
+    font-size:16px;
   }
+  a.mobile-hide svg{width: 30px;}
 	.footer-child {
 		flex-direction: column;
 	}
-  
+  select#custom-dropdown{font-size: 18px;}
   
 
 	.footer-menu {
@@ -767,7 +782,12 @@ span.yellow-head {
 		border-right: 0;
     width: 100%;
 	}
-
+  .header-ctas {
+    grid-gap: 1rem;
+}
+a.header-cart svg{width: 30px;height: 30px;}
+  .header-menu-desktop{margin-left: 0;}
+  img.desktop-logo{width: 120px;}
 	.footer-contact-info {
 		padding-top: 36px;
 		width: 100%;
@@ -781,6 +801,7 @@ span.yellow-head {
 	.footer-inner ul li {
 		width: 20%;
 	}
+  .language-switcher{width: 87px;}
 }
 
 @media (max-width: 767px) {
@@ -814,7 +835,7 @@ span.yellow-head {
   }
   .footer-location span
   {
-    padding-bottom: 5px;
+    padding-bottom: 10px;
   }
   .footer-sub-block:last-child
   {
@@ -852,15 +873,17 @@ span.yellow-head {
 	}
 
 	.footer {
-		padding: 28px 0 20px;
+		padding: 25px 0 20px;
     overflow: hidden;
 	}
   .footer-contact span, .footer-contact a, .footer-location span, .footer-inner ul li a{
-    line-height: 16px;
+    line-height: 18px;
   }
   
   aside header .close{
     font-size: 40px;
     font-weight: normal;
   }
+  nav.header-ctas a span{    top: -9px;}
+  a.header-cart{    top: 4px;}
 }
