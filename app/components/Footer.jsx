@@ -2,7 +2,7 @@ import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/lib/root-data';
 import {KeepInTouch} from '~/routes/footerData';
 import footerLogo from '../assets/footer-bg-logo.png';
-
+import footerLogoMob from '../assets/footer-mobile-logo.png';
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}
  */
@@ -18,6 +18,7 @@ export function Footer({menu, shop}) {
             <FooterMenu menu={menu} primaryDomainUrl={shop.primaryDomain.url} />
             <KeepInTouch />
             <img className="footer-bg-img" src={footerLogo} alt='footer-logo' />
+            <img className="footer-mobile-img" src={footerLogoMob} alt='footer-logo' />
          </div>
         </>
       )}

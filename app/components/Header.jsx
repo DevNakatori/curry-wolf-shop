@@ -13,7 +13,7 @@ export function Header({header, isLoggedIn, cart}) {
       <div className='container'>
       <div className='inner-header'>
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <img src={shopLogo} alt='logo' />
+        <img className="desktop-logo" src={shopLogo} alt='logo' />
         {/* <strong>{shop.name} </strong> */}
       </NavLink>
       <HeaderMenu
@@ -80,6 +80,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             to={url}
           >
             {item.title}
+        
           </NavLink>
         );
       })}
@@ -94,7 +95,7 @@ function HeaderCtas({isLoggedIn, cart}) {
   return (
     <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
-      <NavLink prefetch="intent" to="/account" style={activeLinkStyle}>
+      <NavLink prefetch="intent" className='mobile-hide' to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">
           <Await resolve={isLoggedIn} errorElement="Sign in">
             <svg width="41" height="41" viewBox="0 0 41 41" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -103,6 +104,7 @@ function HeaderCtas({isLoggedIn, cart}) {
           </Await>
         </Suspense>
       </NavLink>
+      <img className='mobile-logo' src={shopLogo} alt='logo' />
       {/* <SearchToggle /> */}
       <CartToggle cart={cart} />
       <div className='language-switcher'>
@@ -120,7 +122,13 @@ function HeaderCtas({isLoggedIn, cart}) {
 function HeaderMenuMobileToggle() {
   return (
     <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
-      <h3>☰</h3>
+      <h3>
+      <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0.0610352 1H23.1196" stroke="white"/>
+      <path d="M0.0610352 7H23.1196" stroke="white"/>
+      <path d="M0.0610352 13H23.1196" stroke="white"/>
+      </svg>
+</h3>
     </a>
   );
 }
