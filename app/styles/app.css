@@ -137,7 +137,7 @@ aside li {
   padding: 0 1rem;
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 999;
   background: #9B2220;
 }
 
@@ -887,3 +887,5 @@ a.header-cart svg{width: 30px;height: 30px;}
   nav.header-ctas a span{    top: -9px;}
   a.header-cart{    top: 4px;}
 }
+
+
