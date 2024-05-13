@@ -11,3 +11,15 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Block Berthold';
+    src: url('./fonts/BlockBE-Heavy.eot');
+    src: url('./fonts/BlockBE-Heavy.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/BlockBE-Heavy.woff2') format('woff2'),
+        url('./fonts/BlockBE-Heavy.woff') format('woff'),
+        url('./fonts/BlockBE-Heavy.ttf') format('truetype'),
+        url('./fonts/BlockBE-Heavy.svg#BlockBE-Heavy') format('svg');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}

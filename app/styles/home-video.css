@@ -1,15 +1,62 @@
-.video-container {
+.video-sec {
     position: relative;
+	background-color: #9B2220;
 }
-.overlay-video {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    z-index: 9;
-    background-color: rgba(255, 0, 0, 0.5);
+.video-sec video{width: 100%;}
+.video-content-wrap {
+	position: absolute;
     top: 0;
+    background: rgba(155, 34, 32, 0.8);
     left: 0;
+    right: 0;
+	height: 100%;
+}
+.first-time-video-text {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+.first-time-video-text h1,.second-time-video-text h2{
+	font-family: 'Block Berthold';
+	font-size:130px;
+	line-height:  105px;
+	color: #fff;
+}
+
+.second-time-video-text h2{text-align: center;}
+.c-s-image-section {
     display: flex;
     justify-content: center;
-    align-items: center;
-}   
+    max-width: 1194px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+.img-one {
+    width: 33.33%;
+}
+.img-one:nth-child(1){z-index: 1;}
+.img-one:nth-child(2){
+	margin-top: 55px;
+}
+.img-one:nth-child(3){
+	z-index: -1;
+    margin-top: -30px;
+    margin-left: -20px;
+}
+.yellow-btn{ -webkit-transition-duration: 0.3s; transition-duration: 0.3s;font-size: 20px;line-height: 19px;font-weight: 500;color: #000000;background-color: #FEDE03;box-shadow: 0px 4px 4px 0px #00000040;padding: 6px 28px;border-radius: 20px;text-decoration: none;}
+a.yellow-btn:hover {color: #000; -webkit-transform: scale(1.2);
+  transform: scale(1.2);}
+.c-s-btn {
+    text-align: center;
+}
+.hungry-wolf-sec {
+    display: flex;
+	justify-content: center;
+}
+.hungry-wolf-sec .h-w-box {
+    width: calc(100% / 3 - 20px);
+	text-align: center;
+}
+.hungry-wolf-sec .h-w-box  h3{font-size: 30px;line-height: 27px;font-weight: 400;color: #fff;font-family: 'Block Berthold';}
+.hungry-wolf-sec .h-w-box p{font-size: 20px;line-height: 19px;font-weight: 400;color: #fff;}
