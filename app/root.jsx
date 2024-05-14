@@ -16,7 +16,7 @@ import appStyles from './styles/app.css?url';
 import {Layout} from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import homePageStyles from './styles/home-video.css?url';
-import "../app/js/homepage.js";
+import "../app/assets/js/homepage.js";
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
