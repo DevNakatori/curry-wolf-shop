@@ -140,7 +140,9 @@ aside li {
   z-index: 999;
   background: #9B2220;
 }
-
+header.header.header-scrolled {
+  background: transparent;
+}
 .header-menu-mobile-toggle {
   @media (min-width: 48em) {
     display: none;
