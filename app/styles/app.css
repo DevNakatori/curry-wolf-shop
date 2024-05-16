@@ -139,6 +139,7 @@ aside li {
   background: #9B2220;
   box-shadow: 0px 4px 5px 0px #00000040;
   position: sticky;
+  top: 0;
 }
 header.header.header-scrolled {
   background: transparent;
@@ -893,5 +894,4 @@ a.header-cart svg{width: 30px;height: 30px;}
   nav.header-ctas a span{    top: -9px;}
   a.header-cart{    top: 4px;}
 }
-
 

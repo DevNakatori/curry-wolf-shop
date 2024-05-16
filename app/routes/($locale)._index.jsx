@@ -1,5 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
+import titleLogo from '../assets/CurryWolf_Logo.png';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -31,9 +32,7 @@ export default function Page() {
   /** @type {LoaderReturnData} */
   const {page} = useLoaderData();
   return (
-    <div className="index-wrapper">
-      <div dangerouslySetInnerHTML={{__html: page.body}} />
-    </div>
+      <div className="index-wrapper" dangerouslySetInnerHTML={{__html: page.body}} />
   );
 }
 
