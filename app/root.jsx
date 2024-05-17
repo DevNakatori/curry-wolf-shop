@@ -17,6 +17,7 @@ import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
+import {heroAnimation} from '../app/assets/js/hero-animation';
 // import "../app/assets/js/homepage.js";
 
 /**
@@ -105,7 +106,7 @@ export default function App() {
     useEffect(() => {
         const script = document.createElement('script');
 
-        script.src = "../app/assets/js/hero-animation.js";
+        script.src = heroAnimation;
         script.async = true;
 
         document.body.appendChild(script);
