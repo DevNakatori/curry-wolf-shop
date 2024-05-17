@@ -1,6 +1,5 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
-import titleLogo from '../assets/CurryWolf_Logo.png';
 
 /**
  * @type {MetaFunction<typeof loader>}

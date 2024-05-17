@@ -1,5 +1,5 @@
-import {useNonce} from '@shopify/hydrogen';
-import {defer} from '@shopify/remix-oxygen';
+import { useNonce } from '@shopify/hydrogen';
+import { defer } from '@shopify/remix-oxygen';
 import {
     Links,
     Meta,
@@ -13,17 +13,17 @@ import {
 import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
-import {Layout} from '~/components/Layout';
+import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
-
+// import "../app/assets/js/homepage.js";
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
  * @type {ShouldRevalidateFunction}
  */
-export const shouldRevalidate = ({formMethod, currentUrl, nextUrl}) => {
+export const shouldRevalidate = ({ formMethod, currentUrl, nextUrl }) => {
     // revalidate when a mutation is performed e.g add to cart, login...
     if (formMethod && formMethod !== 'GET') {
         return true;
@@ -39,10 +39,10 @@ export const shouldRevalidate = ({formMethod, currentUrl, nextUrl}) => {
 
 export function links() {
     return [
-    {rel: 'stylesheet', href: resetStyles},
-    {rel: 'stylesheet', href: appStyles},
-    {rel: 'stylesheet', href: fontStyles},
-    {rel: 'stylesheet', href: homePageStyles},
+        { rel: 'stylesheet', href: resetStyles },
+        { rel: 'stylesheet', href: appStyles },
+        { rel: 'stylesheet', href: fontStyles },
+        { rel: 'stylesheet', href: homePageStyles },
         {
             rel: 'preconnect',
             href: 'https://cdn.shopify.com',
@@ -51,15 +51,15 @@ export function links() {
             rel: 'preconnect',
             href: 'https://shop.app',
         },
-    {rel: 'icon', type: 'image/png', href: favicon},
+        { rel: 'icon', type: 'image/png', href: favicon },
     ];
 }
 
 /**
  * @param {LoaderFunctionArgs}
  */
-export async function loader({context}) {
-  const {storefront, customerAccount, cart} = context;
+export async function loader({ context }) {
+    const { storefront, customerAccount, cart } = context;
     const publicStoreDomain = context.env.PUBLIC_STORE_DOMAIN;
 
     const isLoggedInPromise = customerAccount.isLoggedIn();
@@ -105,7 +105,7 @@ export default function App() {
     useEffect(() => {
         const script = document.createElement('script');
 
-        script.src = "../app/assets/js/homepage.js";
+        script.src = "../app/assets/js/hero-animation.js";
         script.async = true;
 
         document.body.appendChild(script);
