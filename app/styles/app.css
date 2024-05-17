@@ -1,3 +1,4 @@
+
 :root {
   --aside-width: 400px;
   --cart-aside-summary-height-with-discount: 300px;
@@ -6,6 +7,7 @@
   --header-height: 64px;
   --color-dark: #000;
   --color-light: #fff;
+  --color-red: #D02523;
 }
 
 img {
@@ -129,15 +131,19 @@ aside li {
 */
 .header {
   align-items: center;
-  background: #fff;
+  background:  var(--color-red);
   display: flex;
   height: var(--header-height);
   padding: 0 1rem;
+  z-index: 999;
+  background: #9B2220;
+  box-shadow: 0px 4px 5px 0px #00000040;
   position: sticky;
   top: 0;
-  z-index: 1;
 }
-
+header.header.header-scrolled {
+  background: transparent;
+}
 .header-menu-mobile-toggle {
   @media (min-width: 48em) {
     display: none;
@@ -159,7 +165,9 @@ aside li {
     margin-left: 3rem;
   }
 }
-
+.header-menu-desktop a{
+  font-family: "Days One", sans-serif;
+}
 .header-menu-item {
   cursor: pointer;
 }
@@ -170,15 +178,19 @@ aside li {
   grid-gap: 1rem;
   margin-left: auto;
 }
-
+header.header.transparent {
+  background: transparent;
+  box-shadow: unset;
+}
 /*
 * --------------------------------------------------
 * components/Footer
 * --------------------------------------------------
 */
 .footer {
-  background: var(--color-dark);
+  background: var(--color-red);
   margin-top: auto;
+  z-index: 1;
 }
 
 .footer-menu {
@@ -466,3 +478,420 @@ aside li {
 .account-logout {
   display: inline-block;
 }
+
+/* custom css start  */
+
+.container {
+  max-width: 1710px;
+  margin: 0 auto;
+  width: auto;
+  padding: 0 20px;
+}
+.inner-header {
+  display: flex;
+  align-items: center;
+}
+.header-menu-desktop {
+  display: flex;
+  grid-gap: 2.1875em;
+  margin-left: 2rem;
+}
+.header-menu-desktop a {
+  font-size: 25px;
+  line-height: 31px;
+  color: #fff !important;
+  font-weight: 400 !important;
+  font-size: 20px;
+  line-height: 25px;
+}
+.header {
+  padding: 18px 0;
+}
+.header .container{
+  width: 100%;
+}
+.header-ctas {
+  grid-gap: 2rem;
+  grid-gap: 1rem;
+}
+nav.header-ctas a {
+  color: #fff;
+  position: relative;
+}
+nav.header-ctas a span {
+  position: absolute;
+  top: -7px;
+  right: -3px;
+}
+.footer {
+  padding: 73px 0 50px;
+  position: relative;
+}
+.footer-menu {
+  display: initial;
+  width: 23%;
+  border-right: 1px solid #fff;
+}
+.footer-contact .keep-wrap a {
+  text-decoration: none;
+}
+.footer-contact .keep-wrap a:hover {
+  text-decoration: none;
+}
+.footer-contact a {
+  text-decoration: underline;
+}
+.footer-icon a:first-child {
+  margin-left: 0;
+}
+.footer-child {
+  display: flex;
+}
+span.yellow-head {
+  font-size: 30px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fede03;
+  font-family: Days One, sans-serif;
+  margin-bottom: 32px;
+  display: block;
+}
+.footer-inner ul li {
+  display: block;
+  float: left;
+  width: 50%;
+  margin-bottom: 25px;
+}
+.footer-inner ul li a {
+  width: auto;
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fede03;
+  font-family: Days One, sans-serif;
+}
+.footer-contact span, .footer-contact a {
+  font-size: 25px;
+  line-height: 25px;
+  font-weight: 400 !important;
+  color: #fff;
+  font-family: Days One, sans-serif;
+}
+.footer-contact > div {
+  margin-bottom: 25px;
+}
+.footer-contact-info {
+  display: flex;
+  width: calc(100% - 35%);
+  padding-left: 121px;
+  justify-content: space-between;
+  padding-top: 6px;
+}
+.footer-icon a {
+  margin: 0 14px;
+}
+.footer-contact span {
+  width: 100%;
+  display: block;
+  font-family: Days One, sans-serif;
+}
+.footer-location span {
+  width: 100%;
+  display: block;
+  padding-bottom: 25px;
+  font-size: 25px;
+  color: #fff;
+  line-height: 25px;
+  font-family: Days One, sans-serif;
+}
+img.footer-bg-img {
+  position: absolute;
+  bottom: 0;
+  right: 275px;
+}
+.header-menu-mobile {
+  grid-gap: 1rem;
+}
+img.mobile-logo,img.footer-mobile-img{display: none;}
+
+@media (max-width: 768px) {
+  .header-menu-desktop {
+    grid-gap: 1.1875em;
+ }
+}
+@media (max-width: 767px) {
+  .header-menu-mobile a {
+    font-size: 18px;
+    line-height: 18px;
+    font-weight: 400 !important;
+ }
+ img.mobile-logo,img.footer-mobile-img{display: block;}
+ img.footer-bg-img,a.mobile-hide{display: none;}
+ img.footer-mobile-img{    width: 150px;
+  position: absolute;
+  right: 0;
+  bottom: 13px;}
+  .footer .container{padding: 0 40px;}
+  img.desktop-logo{display: none;}
+  nav.header-ctas{width: 100%;justify-content: space-between;}
+  img.mobile-logo{width: 90px;}
+  .header{padding: 0;}
+}
+
+select#custom-dropdown {
+	width: 100%;
+	border: 1px solid #fff;
+	background: transparent;
+	border-radius: 50px;
+	height: 35px;
+  font-size: 20px;
+	line-height: 20px;
+	font-weight: 400;
+	color: #fff;
+	padding: 7px 20px;
+	display: flex;
+	align-items: center;
+	appearance: none;
+  background: url('/app/assets/Vector.svg') no-repeat center /contain;
+  background-position: 72% 50%;
+  background-size: 17px;
+}
+
+.language-switcher {
+	width: 97px;
+}
+
+select#custom-dropdown:focus-visible {
+	outline: 0 !important;
+}
+
+select#custom-dropdown option {
+	color: #000;
+}
+
+.header-ctas {
+	grid-gap: 1.5rem;
+}
+
+.footer-menu {
+	padding: 6px 30px 0 30px;
+}
+
+
+.footer {
+	background: #A80A15;
+}
+
+.footer-menu {
+	width: 24%
+}
+
+img.footer-bg-img {
+	right: 255px;
+}
+
+span.yellow-head {
+	margin-bottom: 30px;
+}
+
+
+@media (max-width: 1500px) {
+	.container {
+		max-width: 1500px;
+		width: auto;
+	}
+}
+
+@media (max-width: 1440px) {
+	.container {
+		max-width: 1340px;
+	}
+
+	img.footer-bg-img {
+		width: 230px;
+	}
+
+	.footer-contact span,
+	.footer-contact a,
+	.footer-location span,
+	.footer-inner ul li a {
+		font-size: 20px;
+	}
+}
+
+@media (max-width: 1380px) {
+	.container {
+		max-weight: 1170px;
+	}
+
+	span.yellow-head {
+		font-size: 22px;
+	}
+
+	.footer-contact-info {
+		padding-left: 60px;
+    
+	}
+
+	.footer-contact span,
+	.footer-contact a {
+		font-size: 18px;
+	}
+
+	.footer-contact-info {
+		gap: 20px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.container {
+		max-weight: 1040px;
+	}
+
+	.footer-icon a svg {
+		width: 27px;
+	}
+
+	.footer-icon a {
+		margin-right: 5px !important;
+	}
+
+	.footer-contact span,
+	.footer-contact a,
+	.footer-location span,
+	.footer-inner ul li a {
+		font-size: 16px;
+	}
+}
+
+@media (max-width: 1100px) {
+	.container {
+		max-width: initial;
+	}
+
+}
+
+@media (max-width: 992px) {
+  .header-menu-desktop{grid-gap:1rem;}
+  .header-menu-desktop a{
+    font-size:16px;
+  }
+  a.mobile-hide svg{width: 30px;}
+	.footer-child {
+		flex-direction: column;
+	}
+  select#custom-dropdown{font-size: 18px;}
+  
+
+	.footer-menu {
+		padding: 6px 0px 0 0px;
+		border-bottom: 1px solid #fff;
+		border-right: 0;
+    width: 100%;
+	}
+  .header-ctas {
+    grid-gap: 1rem;
+}
+a.header-cart svg{width: 30px;height: 30px;}
+  .header-menu-desktop{margin-left: 0;}
+  img.desktop-logo{width: 120px;}
+	.footer-contact-info {
+		padding-top: 36px;
+		width: 100%;
+    padding-left: 0;
+	}
+
+	img.footer-bg-img {
+		width: 190px;
+	}
+
+	.footer-inner ul li {
+		width: 20%;
+	}
+  .language-switcher{width: 87px;}
+}
+
+@media (max-width: 767px) {
+  nav.header-menu-desktop {
+    display: none;
+  }
+  .language-switcher {
+    display: none;
+  }
+  aside header h3{
+    font-size: 20px;
+    line-height: 20px;
+    font-family: Days One, sans-serif;
+  }
+  .header-menu-mobile a{
+    font-size: 18px;
+    line-height: 18px;
+    font-family: Days One, sans-serif;
+  }
+	.footer-contact-info {
+		flex-wrap: wrap;
+    padding-top: 35px;
+	}
+  .footer-inner ul li:last-child
+  {
+    margin-bottom: 0;
+  }
+  .footer-menu
+  {
+    border-bottom:0;
+  }
+  .footer-location span
+  {
+    padding-bottom: 10px;
+  }
+  .footer-sub-block:last-child
+  {
+    display: none;
+  }
+  span.yellow-head
+  {
+    margin-bottom:15px;
+  }
+  .footer-contact > div
+  {
+    margin-bottom: 5px;
+  }
+  .footer-inner ul li{
+    margin-bottom: 10px;
+  }
+	.footer-sub-block {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+  .footer-sub-block:first-child{margin-bottom: 18px;}
+
+	.footer-location span:last-child {
+		padding-bottom: 0;
+	}
+
+	.footer-inner ul li {
+		width: 100%;
+	}
+
+	img.footer-bg-img {
+    right: -59px;
+    bottom: 20px;
+    width: 225px;
+	}
+
+	.footer {
+		padding: 25px 0 20px;
+    overflow: hidden;
+	}
+  .footer-contact span, .footer-contact a, .footer-location span, .footer-inner ul li a{
+    line-height: 18px;
+  }
+  
+  aside header .close{
+    font-size: 40px;
+    font-weight: normal;
+  }
+  nav.header-ctas a span{    top: -9px;}
+  a.header-cart{    top: 4px;}
+}
+

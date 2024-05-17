@@ -1,156 +1,59 @@
-import {defer} from '@shopify/remix-oxygen';
-import {Await, useLoaderData, Link} from '@remix-run/react';
-import {Suspense} from 'react';
-import {Image, Money} from '@shopify/hydrogen';
+import {json} from '@shopify/remix-oxygen';
+import {useLoaderData} from '@remix-run/react';
 
 /**
- * @type {MetaFunction}
+ * @type {MetaFunction<typeof loader>}
  */
-export const meta = () => {
-  return [{title: 'Hydrogen | Home'}];
+export const meta = ({data}) => {
+  return [{title: `Curry Wolf | Home`}];
 };
 
 /**
  * @param {LoaderFunctionArgs}
  */
-export async function loader({context}) {
-  const {storefront} = context;
-  const {collections} = await storefront.query(FEATURED_COLLECTION_QUERY);
-  const featuredCollection = collections.nodes[0];
-  const recommendedProducts = storefront.query(RECOMMENDED_PRODUCTS_QUERY);
+export async function loader({params, context}) {
+  const handle = params.handle || 'index';
 
-  return defer({featuredCollection, recommendedProducts});
+  const {page} = await context.storefront.query(PAGE_QUERY, {
+    variables: {
+      handle: handle,
+    },
+  });
+
+  if (!page) {
+    throw new Response('Not Found', {status: 404});
+  }
+
+  return json({page});
 }
 
-export default function Homepage() {
+export default function Page() {
   /** @type {LoaderReturnData} */
-  const data = useLoaderData();
+  const {page} = useLoaderData();
   return (
-    <div className="home">
-      <FeaturedCollection collection={data.featuredCollection} />
-      <RecommendedProducts products={data.recommendedProducts} />
-    </div>
+      <div className="index-wrapper" dangerouslySetInnerHTML={{__html: page.body}} />
   );
 }
 
-/**
- * @param {{
- *   collection: FeaturedCollectionFragment;
- * }}
- */
-function FeaturedCollection({collection}) {
-  if (!collection) return null;
-  const image = collection?.image;
-  return (
-    <Link
-      className="featured-collection"
-      to={`/collections/${collection.handle}`}
-    >
-      {image && (
-        <div className="featured-collection-image">
-          <Image data={image} sizes="100vw" />
-        </div>
-      )}
-      <h1>{collection.title}</h1>
-    </Link>
-  );
-}
-
-/**
- * @param {{
- *   products: Promise<RecommendedProductsQuery>;
- * }}
- */
-function RecommendedProducts({products}) {
-  return (
-    <div className="recommended-products">
-      <h2>Recommended Products</h2>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Await resolve={products}>
-          {({products}) => (
-            <div className="recommended-products-grid">
-              {products.nodes.map((product) => (
-                <Link
-                  key={product.id}
-                  className="recommended-product"
-                  to={`/products/${product.handle}`}
-                >
-                  <Image
-                    data={product.images.nodes[0]}
-                    aspectRatio="1/1"
-                    sizes="(min-width: 45em) 20vw, 50vw"
-                  />
-                  <h4>{product.title}</h4>
-                  <small>
-                    <Money data={product.priceRange.minVariantPrice} />
-                  </small>
-                </Link>
-              ))}
-            </div>
-          )}
-        </Await>
-      </Suspense>
-      <br />
-    </div>
-  );
-}
-
-const FEATURED_COLLECTION_QUERY = `#graphql
-  fragment FeaturedCollection on Collection {
-    id
-    title
-    image {
-      id
-      url
-      altText
-      width
-      height
-    }
-    handle
-  }
-  query FeaturedCollection($country: CountryCode, $language: LanguageCode)
-    @inContext(country: $country, language: $language) {
-    collections(first: 1, sortKey: UPDATED_AT, reverse: true) {
-      nodes {
-        ...FeaturedCollection
-      }
-    }
-  }
-`;
-
-const RECOMMENDED_PRODUCTS_QUERY = `#graphql
-  fragment RecommendedProduct on Product {
-    id
-    title
-    handle
-    priceRange {
-      minVariantPrice {
-        amount
-        currencyCode
-      }
-    }
-    images(first: 1) {
-      nodes {
+const PAGE_QUERY = `#graphql
+    query Page(
+      $language: LanguageCode,
+      $country: CountryCode,
+      $handle: String!
+    )
+    @inContext(language: $language, country: $country) {
+      page(handle: $handle) {
         id
-        url
-        altText
-        width
-        height
+        title
+        body
+        seo {
+          description
+          title
+        }
       }
     }
-  }
-  query RecommendedProducts ($country: CountryCode, $language: LanguageCode)
-    @inContext(country: $country, language: $language) {
-    products(first: 4, sortKey: UPDATED_AT, reverse: true) {
-      nodes {
-        ...RecommendedProduct
-      }
-    }
-  }
-`;
+  `;
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
-/** @typedef {import('storefrontapi.generated').FeaturedCollectionFragment} FeaturedCollectionFragment */
-/** @typedef {import('storefrontapi.generated').RecommendedProductsQuery} RecommendedProductsQuery */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
