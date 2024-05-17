@@ -17,8 +17,9 @@ import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
-import {heroAnimation} from '../app/assets/js/hero-animation';
-// import "../app/assets/js/homepage.js";
+import { heroAnimation } from './assets/js/hero-animation';
+
+
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
