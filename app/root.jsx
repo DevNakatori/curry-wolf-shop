@@ -17,9 +17,6 @@ import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
-import { heroAnimation } from './assets/js/hero-animation';
-
-
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -107,7 +104,7 @@ export default function App() {
     useEffect(() => {
         const script = document.createElement('script');
 
-        script.src = heroAnimation;
+        script.src = "../app/assets/js/hero-animation.js";
         script.async = true;
 
         document.body.appendChild(script);

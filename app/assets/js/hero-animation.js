@@ -1,5 +1,4 @@
-const heroAnimation = () => {
-    window.addEventListener('scroll', function() {
+  window.addEventListener('scroll', function() {
         const videoOverlay = document.getElementById('videoOverlay');
         const text1 = document.getElementById('text1');
         const text2 = document.getElementById('text2');
@@ -35,6 +34,3 @@ const heroAnimation = () => {
             text2.classList.remove('visible');
         }
     });
-};
-
-export { heroAnimation };

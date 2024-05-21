@@ -1,6 +1,6 @@
-import {Suspense} from 'react';
-import {defer, redirect} from '@shopify/remix-oxygen';
-import {Await, Link, useLoaderData} from '@remix-run/react';
+import { Suspense, useState, useRef, useEffect } from 'react';
+import { defer, redirect } from '@shopify/remix-oxygen';
+import { Await, Link, useLoaderData } from '@remix-run/react';
 import {
   Image,
   Money,
@@ -8,189 +8,181 @@ import {
   getSelectedProductOptions,
   CartForm,
 } from '@shopify/hydrogen';
-import {getVariantUrl} from '~/lib/variants';
+import { getVariantUrl } from '~/lib/variants';
+import '../styles/product.css'; // Ensure your CSS file is correctly linked
 
-/**
- * @type {MetaFunction<typeof loader>}
- */
-export const meta = ({data, location}) => {
-  return [{title: `Hydrogen | ${data?.product.title ?? ''}`}];
+export const meta = ({ data, location }) => {
+  return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
 };
 
-/**
- * @param {LoaderFunctionArgs}
- */
-export async function loader({params, request, context}) {
-  const {handle} = params;
-  const {storefront} = context;
+export async function loader({ params, request, context }) {
+  const { handle } = params;
+  const { storefront } = context;
 
   const selectedOptions = getSelectedProductOptions(request).filter(
     (option) =>
-      // Filter out Shopify predictive search query params
       !option.name.startsWith('_sid') &&
       !option.name.startsWith('_pos') &&
       !option.name.startsWith('_psq') &&
       !option.name.startsWith('_ss') &&
       !option.name.startsWith('_v') &&
-      // Filter out third party tracking params
-      !option.name.startsWith('fbclid'),
+      !option.name.startsWith('fbclid')
   );
 
   if (!handle) {
     throw new Error('Expected product handle to be defined');
   }
 
-  // await the query for the critical product data
-  const {product} = await storefront.query(PRODUCT_QUERY, {
-    variables: {handle, selectedOptions},
+  const { product } = await storefront.query(PRODUCT_QUERY, {
+    variables: { handle, selectedOptions },
   });
 
   if (!product?.id) {
-    throw new Response(null, {status: 404});
+    throw new Response(null, { status: 404 });
   }
 
   const firstVariant = product.variants.nodes[0];
   const firstVariantIsDefault = Boolean(
     firstVariant.selectedOptions.find(
-      (option) => option.name === 'Title' && option.value === 'Default Title',
-    ),
+      (option) => option.name === 'Title' && option.value === 'Default Title'
+    )
   );
 
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
-    // if no selected variant was returned from the selected options,
-    // we redirect to the first variant's url with it's selected options applied
     if (!product.selectedVariant) {
-      throw redirectToFirstVariant({product, request});
+      throw redirectToFirstVariant({ product, request });
     }
   }
 
-  // In order to show which variants are available in the UI, we need to query
-  // all of them. But there might be a *lot*, so instead separate the variants
-  // into it's own separate query that is deferred. So there's a brief moment
-  // where variant options might show as available when they're not, but after
-  // this deffered query resolves, the UI will update.
   const variants = storefront.query(VARIANTS_QUERY, {
-    variables: {handle},
+    variables: { handle },
   });
 
-  return defer({product, variants});
+  return defer({
+    product,
+    variants,
+  });
 }
 
-/**
- * @param {{
- *   product: ProductFragment;
- *   request: Request;
- * }}
- */
-function redirectToFirstVariant({product, request}) {
-  const url = new URL(request.url);
-  const firstVariant = product.variants.nodes[0];
+function ProductMedia({ media }) {
+  const videoRef = useRef(null);
+  const observerRef = useRef(null);
 
-  return redirect(
-    getVariantUrl({
-      pathname: url.pathname,
-      handle: product.handle,
-      selectedOptions: firstVariant.selectedOptions,
-      searchParams: new URLSearchParams(url.search),
-    }),
-    {
-      status: 302,
-    },
+  useEffect(() => {
+    if (typeof window === 'undefined' || !videoRef.current) return;
+
+    const video = videoRef.current;
+
+    const handleScroll = () => {
+      const bounding = video.getBoundingClientRect();
+
+      if (bounding.top >= 0 && bounding.bottom <= window.innerHeight) {
+        const playbackRate = window.scrollY > videoRef.current.lastScrollTop ? 1 : -1;
+        video.playbackRate = playbackRate;
+        if (video.paused) video.play();
+      } else {
+        video.pause();
+      }
+      videoRef.current.lastScrollTop = window.scrollY;
+    };
+
+    observerRef.current = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          window.addEventListener('scroll', handleScroll);
+        } else {
+          window.removeEventListener('scroll', handleScroll);
+        }
+      });
+    });
+
+    observerRef.current.observe(video);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (observerRef.current) {
+        observerRef.current.disconnect();
+      }
+    };
+  }, []);
+
+  return (
+    <div className="product-media">
+      {media.map((item) => {
+        if (item.__typename === 'MediaImage') {
+          return (
+            <div className="product-image" key={item.id}>
+              <Image
+                alt={item.image.altText || 'Product Image'}
+                aspectRatio="1/1"
+                data={item.image}
+                key={item.image.id}
+                sizes="(min-width: 45em) 50vw, 100vw"
+              />
+            </div>
+          );
+        } else if (item.__typename === 'Video') {
+          const videoSource = item.sources.find(
+            (source) => source.mimeType === 'video/mp4'
+          );
+          return (
+            <div className="product-video" key={item.id}>
+              <video ref={videoRef} muted loop>
+                <source src={videoSource.url} type={videoSource.mimeType} />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
   );
 }
 
 export default function Product() {
-  /** @type {LoaderReturnData} */
-  const {product, variants} = useLoaderData();
-  const {selectedVariant} = product;
-  return (
-    <div className="product">
-      <ProductImage image={selectedVariant?.image} />
-      <ProductMain
-        selectedVariant={selectedVariant}
-        product={product}
-        variants={variants}
-      />
-    </div>
-  );
-}
+  const { product, variants } = useLoaderData();
+  const { selectedVariant } = product;
 
-/**
- * @param {{image: ProductVariantFragment['image']}}
- */
-function ProductImage({image}) {
-  if (!image) {
-    return <div className="product-image" />;
-  }
   return (
-    <div className="product-image">
-      <Image
-        alt={image.altText || 'Product Image'}
-        aspectRatio="1/1"
-        data={image}
-        key={image.id}
-        sizes="(min-width: 45em) 50vw, 100vw"
-      />
-    </div>
-  );
-}
-
-/**
- * @param {{
- *   product: ProductFragment;
- *   selectedVariant: ProductFragment['selectedVariant'];
- *   variants: Promise<ProductVariantsQuery>;
- * }}
- */
-function ProductMain({selectedVariant, product, variants}) {
-  const {title, descriptionHtml} = product;
-  return (
-    <div className="product-main">
-      <h1>{title}</h1>
-      <ProductPrice selectedVariant={selectedVariant} />
-      <br />
-      <Suspense
-        fallback={
-          <ProductForm
-            product={product}
-            selectedVariant={selectedVariant}
-            variants={[]}
-          />
-        }
-      >
-        <Await
-          errorElement="There was a problem loading product variants"
-          resolve={variants}
-        >
-          {(data) => (
+    <div className="product-container">
+      <div className="product-title">
+        <h1>{product.title}</h1>
+      </div>
+      <ProductMedia media={product.media.nodes} />
+      <div className="product-content">
+        <ProductPrice selectedVariant={selectedVariant} />
+        <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+        <Suspense
+          fallback={
             <ProductForm
               product={product}
               selectedVariant={selectedVariant}
-              variants={data.product?.variants.nodes || []}
+              variants={[]}
             />
-          )}
-        </Await>
-      </Suspense>
-      <br />
-      <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-      <br />
+          }
+        >
+          <Await
+            errorElement="There was a problem loading product variants"
+            resolve={variants}
+          >
+            {(data) => (
+              <ProductForm
+                product={product}
+                selectedVariant={selectedVariant}
+                variants={data.product?.variants.nodes || []}
+              />
+            )}
+          </Await>
+        </Suspense>
+      </div>
     </div>
   );
 }
 
-/**
- * @param {{
- *   selectedVariant: ProductFragment['selectedVariant'];
- * }}
- */
-function ProductPrice({selectedVariant}) {
+function ProductPrice({ selectedVariant }) {
   return (
     <div className="product-price">
       {selectedVariant?.compareAtPrice ? (
@@ -211,14 +203,13 @@ function ProductPrice({selectedVariant}) {
   );
 }
 
-/**
- * @param {{
- *   product: ProductFragment;
- *   selectedVariant: ProductFragment['selectedVariant'];
- *   variants: Array<ProductVariantFragment>;
- * }}
- */
-function ProductForm({product, selectedVariant, variants}) {
+function ProductForm({ product, selectedVariant, variants }) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+  };
+
   return (
     <div className="product-form">
       <VariantSelector
@@ -226,8 +217,10 @@ function ProductForm({product, selectedVariant, variants}) {
         options={product.options}
         variants={variants}
       >
-        {({option}) => <ProductOptions key={option.name} option={option} />}
+        {({ option }) => <ProductOptions key={option.name} option={option} />}
       </VariantSelector>
+      <br />
+      <ProductQuantity onQuantityChange={handleQuantityChange} />
       <br />
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
@@ -239,7 +232,7 @@ function ProductForm({product, selectedVariant, variants}) {
             ? [
                 {
                   merchandiseId: selectedVariant.id,
-                  quantity: 1,
+                  quantity,
                 },
               ]
             : []
@@ -251,15 +244,12 @@ function ProductForm({product, selectedVariant, variants}) {
   );
 }
 
-/**
- * @param {{option: VariantOption}}
- */
-function ProductOptions({option}) {
+function ProductOptions({ option }) {
   return (
     <div className="product-options" key={option.name}>
       <h5>{option.name}</h5>
       <div className="product-options-grid">
-        {option.values.map(({value, isAvailable, isActive, to}) => {
+        {option.values.map(({ value, isAvailable, isActive, to }) => {
           return (
             <Link
               className="product-options-item"
@@ -283,18 +273,9 @@ function ProductOptions({option}) {
   );
 }
 
-/**
- * @param {{
- *   analytics?: unknown;
- *   children: React.ReactNode;
- *   disabled?: boolean;
- *   lines: CartLineInput[];
- *   onClick?: () => void;
- * }}
- */
-function AddToCartButton({analytics, children, disabled, lines, onClick}) {
+function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
   return (
-    <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
+    <CartForm route="/cart" inputs={{ lines }} action={CartForm.ACTIONS.LinesAdd}>
       {(fetcher) => (
         <>
           <input
@@ -314,6 +295,32 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
     </CartForm>
   );
 }
+
+function ProductQuantity({ onQuantityChange }) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (event) => {
+    const value = Math.max(1, parseInt(event.target.value, 10) || 1);
+    setQuantity(value);
+    onQuantityChange(value);
+  };
+
+  return (
+    <div className="product-quantity">
+      <label htmlFor="quantity">Quantity:</label>
+      <input
+        type="number"
+        id="quantity"
+        name="quantity"
+        value={quantity}
+        onChange={handleQuantityChange}
+        min="1"
+        step="1"
+      />
+    </div>
+  );
+}
+
 
 const PRODUCT_VARIANT_FRAGMENT = `#graphql
   fragment ProductVariant on ProductVariant {
@@ -376,6 +383,28 @@ const PRODUCT_FRAGMENT = `#graphql
       description
       title
     }
+    media(first: 10) {
+      nodes {
+        __typename
+        ... on MediaImage {
+          id
+          image {
+            id
+            url
+            altText
+            width
+            height
+          }
+        }
+        ... on Video {
+          id
+          sources {
+            url
+            mimeType
+          }
+        }
+      }
+    }
   }
   ${PRODUCT_VARIANT_FRAGMENT}
 `;
@@ -417,6 +446,7 @@ const VARIANTS_QUERY = `#graphql
     }
   }
 `;
+
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
