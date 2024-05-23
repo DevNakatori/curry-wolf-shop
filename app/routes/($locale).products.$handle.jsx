@@ -1,4 +1,4 @@
-import { Suspense, useState, useRef, useEffect } from 'react';
+import { Suspense, useState, useRef } from 'react';
 import { defer, redirect } from '@shopify/remix-oxygen';
 import { Await, Link, useLoaderData } from '@remix-run/react';
 import {
@@ -10,8 +10,15 @@ import {
 } from '@shopify/hydrogen';
 import { getVariantUrl } from '~/lib/variants';
 import '../styles/product.css'; // Ensure your CSS file is correctly linked
+import dhlLogo from '../assets/dhl.png';
+import certifiedBadge from '../assets/trustedlogo.png';
+import earthLogo from '../assets/earth.png'
+import securePay from '../assets/secure-pay.png'
+import quickDelivery from '../assets/quick-delivery.png'
+import faceSmile from '../assets/face-smile.png'
 
-export const meta = ({ data, location }) => {
+
+export const meta = ({ data }) => {
   return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
 };
 
@@ -68,49 +75,9 @@ export async function loader({ params, request, context }) {
 
 function ProductMedia({ media }) {
   const videoRef = useRef(null);
-  const observerRef = useRef(null);
-
-  useEffect(() => {
-    if (typeof window === 'undefined' || !videoRef.current) return;
-
-    const video = videoRef.current;
-
-    const handleScroll = () => {
-      const bounding = video.getBoundingClientRect();
-
-      if (bounding.top >= 0 && bounding.bottom <= window.innerHeight) {
-        const playbackRate = window.scrollY > videoRef.current.lastScrollTop ? 1 : -1;
-        video.playbackRate = playbackRate;
-        if (video.paused) video.play();
-      } else {
-        video.pause();
-      }
-      videoRef.current.lastScrollTop = window.scrollY;
-    };
-
-    observerRef.current = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          window.addEventListener('scroll', handleScroll);
-        } else {
-          window.removeEventListener('scroll', handleScroll);
-        }
-      });
-    });
-
-    observerRef.current.observe(video);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
-    };
-  }, []);
-
   return (
     <div className="product-media">
-      {media.map((item) => {
+      {media?.map((item) => {
         if (item.__typename === 'MediaImage') {
           return (
             <div className="product-image" key={item.id}>
@@ -146,37 +113,139 @@ export default function Product() {
   const { product, variants } = useLoaderData();
   const { selectedVariant } = product;
 
+  const preparationMetafield = product.metafields.find(
+    (metafield) => metafield.namespace === 'custom' && metafield.key === 'preparation'
+  )?.value;
+
+  const additionalInformationMetafield = product.metafields.find(
+    (metafield) =>
+      metafield.namespace === 'custom' &&
+      metafield.key === 'additional_information'
+  )?.value;
+
+  const ingredientsMetafield = product.metafields.find(
+    (metafield) =>
+      metafield.namespace === 'custom' &&
+      metafield.key === 'ingredients'
+  )?.value;
+
+  const nutritionalValuesMetafield = product.metafields.find(
+    (metafield) =>
+      metafield.namespace === 'custom' &&
+      metafield.key === 'nutritional_values'
+  )?.value;
+
+  const preparationText = preparationMetafield ? JSON.parse(preparationMetafield)?.children?.map(child => {
+    return child.children?.map(grandChild => grandChild.value).join(' ');
+  }).join(' ') : '';
+
+  const additionalInformationText = additionalInformationMetafield ? JSON.parse(additionalInformationMetafield)?.children?.map(child => {
+    return child.children?.map(grandChild => grandChild.value).join(' ');
+  }).join(' ') : '';
+
+  const nutritionalValuesText = nutritionalValuesMetafield ? JSON.parse(nutritionalValuesMetafield)?.children?.map(child => {
+    return child.children?.map(grandChild => grandChild.value).join(' ');
+  }).join(' ') : '';
+
+  const ingredientsText = ingredientsMetafield ? JSON.parse(ingredientsMetafield)?.children?.map(child => {
+    return child.children?.map(grandChild => grandChild.value).join(' ');
+  }).join(' ') : '';
+
   return (
     <div className="product-container">
-      <div className="product-title">
-        <h1>{product.title}</h1>
+      <div className="left-content">
+        <div className="product-title">
+          <h1>{product.title}</h1>
+        </div>
+        <div className="left-bottom-content">
+        {additionalInformationText && (
+              <div>
+                <h2>Additional Information</h2>
+                <div>{additionalInformationText}</div>
+              </div>
+            )}
+          <h2>Preparation</h2>
+            {preparationText && <div>{preparationText}</div>}
+            <div >
+            <img src={faceSmile} alt='face smile icon' />
+              <h4>Special Selection</h4>
+              <p>Family manufacturer with its own recipe</p>
+            </div>
+            <div >
+            <img src={quickDelivery} alt='quick delivery icon' />
+              <h4>Quick Delivery</h4>
+              <p>We deliver within 2-4 days*</p>
+            </div>
+            <div >
+            <img src={securePay} alt='secure pay icon' />
+              <h4>Secure pay</h4>
+              <p>Pay securely via Paypal and Sofort.com</p>
+            </div>
+            <div >
+            <img src={earthLogo} alt='earth icon' />
+              <h4>CO₂ more neutral Shipment</h4>
+              <p>Shipping takes place with DHL GoGreen</p>
+            </div>
+            
+
+        </div>
       </div>
-      <ProductMedia media={product.media.nodes} />
-      <div className="product-content">
-        <ProductPrice selectedVariant={selectedVariant} />
-        <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
-        <Suspense
-          fallback={
-            <ProductForm
-              product={product}
-              selectedVariant={selectedVariant}
-              variants={[]}
-            />
-          }
-        >
-          <Await
-            errorElement="There was a problem loading product variants"
-            resolve={variants}
-          >
-            {(data) => (
+      <div className="center-content">
+        {product.media && <ProductMedia media={product.media.nodes} />}
+      </div>
+      <div className="right-content">
+        <div className="product-content">
+          <ProductPrice selectedVariant={selectedVariant} />
+          <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+          <Suspense
+            fallback={
               <ProductForm
                 product={product}
                 selectedVariant={selectedVariant}
-                variants={data.product?.variants.nodes || []}
+                variants={[]}
               />
+            }
+          >
+            <Await
+              errorElement="There was a problem loading product variants"
+              resolve={variants}
+            >
+              {(data) => (
+                <ProductForm
+                  product={product}
+                  selectedVariant={selectedVariant}
+                  variants={data.product?.variants.nodes || []}
+                />
+              )}
+            </Await>
+          </Suspense>
+
+          {/* Display Metafield */}
+          <div className="metafield">
+
+          {nutritionalValuesText && (
+              <div> 
+                <h2>Nutritional Values</h2>
+                <div>{nutritionalValuesText}</div>
+              </div>
             )}
-          </Await>
-        </Suspense>
+
+            {ingredientsText && (
+              <div>
+                <h2>Ingredients</h2>
+                <div>{ingredientsText}</div>
+              </div>
+            )}
+         
+          </div>
+        </div>
+        <div className="right-bottom-content">
+          <h4>Certified 
+              online shop</h4>
+              <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+           <h4>More quickly shipment</h4>   
+           <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+        </div>
       </div>
     </div>
   );
@@ -220,7 +289,7 @@ function ProductForm({ product, selectedVariant, variants }) {
         {({ option }) => <ProductOptions key={option.name} option={option} />}
       </VariantSelector>
       <br />
-      <ProductQuantity onQuantityChange={handleQuantityChange} />
+      <ProductQuantity quantity={quantity} onQuantityChange={handleQuantityChange} />
       <br />
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
@@ -296,31 +365,39 @@ function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
   );
 }
 
-function ProductQuantity({ onQuantityChange }) {
-  const [quantity, setQuantity] = useState(1);
-
+function ProductQuantity({ quantity, onQuantityChange }) {
   const handleQuantityChange = (event) => {
     const value = Math.max(1, parseInt(event.target.value, 10) || 1);
-    setQuantity(value);
     onQuantityChange(value);
+  };
+
+  const incrementQuantity = () => {
+    onQuantityChange(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    onQuantityChange(Math.max(1, quantity - 1));
   };
 
   return (
     <div className="product-quantity">
       <label htmlFor="quantity">Quantity:</label>
-      <input
-        type="number"
-        id="quantity"
-        name="quantity"
-        value={quantity}
-        onChange={handleQuantityChange}
-        min="1"
-        step="1"
-      />
+      <div className="quantity-controls">
+        <button type="button" onClick={decrementQuantity}>-</button>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          value={quantity}
+          onChange={handleQuantityChange}
+          min="1"
+          step="1"
+        />
+        <button type="button" onClick={incrementQuantity}>+</button>
+      </div>
     </div>
   );
 }
-
 
 const PRODUCT_VARIANT_FRAGMENT = `#graphql
   fragment ProductVariant on ProductVariant {
@@ -351,7 +428,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
       value
     }
     sku
-    title
+      title
     unitPrice {
       amount
       currencyCode
@@ -367,6 +444,11 @@ const PRODUCT_FRAGMENT = `#graphql
     handle
     descriptionHtml
     description
+    metafields(identifiers: [{namespace: "custom", key: "nutritional_values"}, {namespace: "custom", key: "additional_information"}, {namespace: "custom", key: "ingredients"}, {namespace: "custom", key: "preparation"}]) {
+      namespace
+      key
+      value
+    }
     options {
       name
       values
