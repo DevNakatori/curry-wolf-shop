@@ -5,14 +5,20 @@ import {
   getPaginationVariables,
   Image,
   Money,
+  CartForm,
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
+import earthLogo from '../assets/earth.png';
+import securePay from '../assets/secure-pay.png';
+import quickDelivery from '../assets/quick-delivery.png';
+import faceSmile from '../assets/face-smile.png';
+import '../styles/collection.css';
 
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data?.collection.title ?? ''} Collection`}];
+  return [{title: `Curry Wolf | ${data?.collection.title ?? ''} Collection`}];
 };
 
 /**
@@ -38,17 +44,55 @@ export async function loader({request, params, context}) {
       status: 404,
     });
   }
-  return json({collection});
+
+  const customMenuPromise = storefront.query(CUSTOM_MENU_QUERY, {
+    cache: storefront.CacheLong(),
+    variables: {
+      customMenuHandle: 'collection-menu', // Adjust to your custom menu handle
+    },
+  });
+
+  return json({
+    collection,
+    customMenu: await customMenuPromise,
+  });
 }
 
 export default function Collection() {
   /** @type {LoaderReturnData} */
-  const {collection} = useLoaderData();
+  const {collection, customMenu} = useLoaderData();
 
   return (
     <div className="collection">
+      <CustomMenu data={customMenu} />
+      <div className='benifits'>
+        <h4>Benefits of Curry Wolf</h4>
+        <div>
+          <img src={faceSmile} alt='face smile icon' />
+          <h4>Special Selection</h4>
+          <p>Family manufacturer with its own recipe</p>
+        </div>
+        <div>
+          <img src={quickDelivery} alt='quick delivery icon' />
+          <h4>Quick Delivery</h4>
+          <p>We deliver within 2-4 days*</p>
+        </div>
+        <div>
+          <img src={securePay} alt='secure pay icon' />
+          <h4>Secure pay</h4>
+          <p>Pay securely via Paypal and Sofort.com</p>
+        </div>
+        <div>
+          <img src={earthLogo} alt='earth icon' />
+          <h4>CO₂ more neutral Shipment</h4>
+          <p>Shipping takes place with DHL GoGreen</p>
+        </div>
+      </div>
       <h1>{collection.title}</h1>
-      <p className="collection-description">{collection.description}</p>
+      {/* <p className="collection-description">{collection.description}</p> */}
+      {collection.image && (
+        <img src={collection.image.url}  className="collection image" alt={collection.image.altText || collection.title} />
+      )}
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
@@ -64,6 +108,20 @@ export default function Collection() {
         )}
       </Pagination>
     </div>
+  );
+}
+
+function CustomMenu({ data }) {
+  return (
+    <nav>
+      <ul>
+        {data.menu.items.map(item => (
+          <li key={item.id}>
+            <Link to={item.url}>{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }
 
@@ -139,7 +197,7 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
       minVariantPrice {
         ...MoneyProductItem
       }
-      maxVariantPrice {
+        maxVariantPrice {
         ...MoneyProductItem
       }
     }
@@ -165,12 +223,18 @@ const COLLECTION_QUERY = `#graphql
     $last: Int
     $startCursor: String
     $endCursor: String
-  ) @inContext(country: $country, language: $language) {
+  ) @inContext(language: $language, country: $country) {
     collection(handle: $handle) {
       id
       handle
       title
       description
+      image {
+        altText
+        url
+        width
+        height
+      }
       products(
         first: $first,
         last: $last,
@@ -191,7 +255,45 @@ const COLLECTION_QUERY = `#graphql
   }
 `;
 
+const MENU_FRAGMENT = `#graphql
+  fragment MenuItem on MenuItem {
+    id
+    resourceId
+    tags
+    title
+    type
+    url
+  }
+  fragment ChildMenuItem on MenuItem {
+    ...MenuItem
+  }
+  fragment ParentMenuItem on MenuItem {
+    ...MenuItem
+    items {
+      ...ChildMenuItem
+    }
+  }
+  fragment Menu on Menu {
+    id
+    items {
+      ...ParentMenuItem
+    }
+  }
+`;
+
+const CUSTOM_MENU_QUERY = `#graphql
+  query CustomMenu(
+    $country: CountryCode
+    $customMenuHandle: String!
+    $language: LanguageCode
+  ) @inContext(language: $language, country: $country) {
+    menu(handle: $customMenuHandle) {
+      ...Menu
+    }
+  }
+  ${MENU_FRAGMENT}
+`;
+
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
-/** @typedef {import('storefrontapi.generated').ProductItemFragment} ProductItemFragment */
+/** @typedef {import('@remix-run/react').ShouldRevalidateFunction} ShouldRevalidateFunction */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */

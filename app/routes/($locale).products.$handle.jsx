@@ -9,7 +9,7 @@ import {
   CartForm,
 } from '@shopify/hydrogen';
 import { getVariantUrl } from '~/lib/variants';
-import '../styles/product.css'; // Ensure your CSS file is correctly linked
+import '../styles/product.css';
 import dhlLogo from '../assets/dhl.png';
 import certifiedBadge from '../assets/trustedlogo.png';
 import earthLogo from '../assets/earth.png'

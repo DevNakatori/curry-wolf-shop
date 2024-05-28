@@ -15,7 +15,7 @@ import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
 import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
-import homePageStyles from './styles/home-video.css?url';
+// import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
 
 /**
@@ -41,7 +41,7 @@ export function links() {
         { rel: 'stylesheet', href: resetStyles },
         { rel: 'stylesheet', href: appStyles },
         { rel: 'stylesheet', href: fontStyles },
-        { rel: 'stylesheet', href: homePageStyles },
+       // { rel: 'stylesheet', href: homePageStyles },
         {
             rel: 'preconnect',
             href: 'https://cdn.shopify.com',

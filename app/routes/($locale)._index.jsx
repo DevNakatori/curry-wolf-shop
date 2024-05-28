@@ -1,6 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
-
+import '../styles/home-video.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
