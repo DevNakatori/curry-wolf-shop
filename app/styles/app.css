@@ -526,10 +526,14 @@ nav.header-ctas a span {
 .footer {
   padding: 73px 0 50px;
   position: relative;
+  background-image: url(/app/assets/cross.png);
+  background-repeat: no-repeat;
+  background-color: rgba(168, 10, 21);
+  background-size: cover;
 }
+.footer .container{max-width: initial;}
 .footer-menu {
   display: initial;
-  width: 23%;
   border-right: 1px solid #fff;
 }
 .footer-contact .keep-wrap a {
@@ -548,44 +552,56 @@ nav.header-ctas a span {
   display: flex;
 }
 span.yellow-head {
-  font-size: 30px;
+  font-size: 20px;
   line-height: 25px;
   font-weight: 400 !important;
   color: #fede03;
-  font-family: Days One, sans-serif;
+  font-family: 'Block Berthold';
   margin-bottom: 32px;
   display: block;
 }
 .footer-inner ul li {
   display: block;
   float: left;
-  width: 50%;
+  width: 42%;
   margin-bottom: 25px;
+}
+.social-footer {
+  width: 23%;
+  padding-left: 50px;
+}
+.footer-inner ul li:last-child{
+  width: 50%;
 }
 .footer-inner ul li a {
   width: auto;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 25px;
   font-weight: 400 !important;
   color: #fede03;
-  font-family: Days One, sans-serif;
+  font-family: 'Gotham';
 }
 .footer-contact span, .footer-contact a {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 25px;
   font-weight: 400 !important;
   color: #fff;
-  font-family: Days One, sans-serif;
+  font-family: 'Gotham';
 }
 .footer-contact > div {
   margin-bottom: 25px;
 }
 .footer-contact-info {
   display: flex;
-  width: calc(100% - 35%);
-  padding-left: 121px;
+  width:27%;
+  padding-left: 50px;
   justify-content: space-between;
-  padding-top: 6px;
+}
+.footer-sub-block{
+  padding-top: 25px;
+}
+.footer-sub-block:nth-child(2){
+  border-right: 1px solid #fff;
 }
 .footer-icon a {
   margin: 0 14px;
@@ -593,24 +609,37 @@ span.yellow-head {
 .footer-contact span {
   width: 100%;
   display: block;
-  font-family: Days One, sans-serif;
+  font-family: 'Gotham';
 }
 .footer-location span {
   width: 100%;
   display: block;
   padding-bottom: 25px;
-  font-size: 25px;
+  font-size: 20px;
   color: #fff;
   line-height: 25px;
-  font-family: Days One, sans-serif;
+  font-family: 'Gotham';
+  max-width: 210px;
 }
-img.footer-bg-img {
+img.footer-berline-logo {
   position: absolute;
+  right: 0;
   bottom: 0;
-  right: 275px;
+}
+footer img.footer-bg-img {
+
+}
+.left-block-wrap{
+  display: flex;
+width: 45%;
+align-items: center;
 }
 .header-menu-mobile {
   grid-gap: 1rem;
+}
+.footer-social{
+  width: 23%;
+  padding-left: 50px;
 }
 img.mobile-logo,img.footer-mobile-img{display: none;}
 
@@ -674,16 +703,16 @@ select#custom-dropdown option {
 }
 
 .footer-menu {
-	padding: 6px 30px 0 30px;
+	padding: 6px 0px 0 30px;
 }
 
 
-.footer {
+/* .footer {
 	background: #A80A15;
-}
+} */
 
 .footer-menu {
-	width: 24%
+	
 }
 
 img.footer-bg-img {

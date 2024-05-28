@@ -1,5 +1,6 @@
 export function KeepInTouch() {
     return (
+      <>
         <div className='footer-contact-info'>
         <div className="footer-sub-block">
             <span className='yellow-head'>Keep in touch</span>
@@ -23,7 +24,8 @@ export function KeepInTouch() {
               <span>Germany</span>
             </p>
         </div>  
-        <div className="footer-sub-block">
+      </div>
+      <div className="footer-sub-block footer-social">
             <span className='yellow-head'>Follow us</span>
             <div className="footer-flex footer-icon">
               <a className="social-insta" href="https://www.instagram.com/curry_wolf/" target="_blank">
@@ -47,7 +49,7 @@ export function KeepInTouch() {
                 </svg>
               </a>
             </div>
-        </div>   
-      </div>
+        </div>  
+      </>
     );
   }
