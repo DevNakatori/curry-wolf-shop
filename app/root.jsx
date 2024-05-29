@@ -13,6 +13,7 @@ import {
 import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
+import animateStyles from './styles/animate.css?url';
 import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 // import homePageStyles from './styles/home-video.css?url';
@@ -41,6 +42,7 @@ export function links() {
         { rel: 'stylesheet', href: resetStyles },
         { rel: 'stylesheet', href: appStyles },
         { rel: 'stylesheet', href: fontStyles },
+        { rel: 'stylesheet', href: animateStyles },
        // { rel: 'stylesheet', href: homePageStyles },
         {
             rel: 'preconnect',

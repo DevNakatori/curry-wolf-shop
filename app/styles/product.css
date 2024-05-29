@@ -4,22 +4,34 @@ main {
     margin-top: 0;
     overflow: hidden;
 }
+.main-product-sec .product-title h1{
+  font-size: 120px;
+  line-height: 100px;
+  font-weight: 400;
+  font-family: 'Block Berthold';color: #fff;
+}
 .product-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
     padding: 20px;
   }
-  
+  .info-wrap {
+    display: flex;
+}
+.info-box{
+  width: 50%;
+}
+.info-box h2{color: #fff;}
+.info-box p{color: #fff;}
   .product-title {
     flex: 1;
     text-align: left;
-    font-size: 2rem;
-    font-weight: bold;
-    color: white;
   }
-  
+  .main-product-sec .product-container .left-content{width: 30%;}
+  .main-product-sec .product-container .center-content{width: 40%;}
+  .main-product-sec .product-container .right-content{width: 30%;}
+  .main-product-sec .product-container .center-content .product-video video{width: 100%;}
   .product-media {
     flex: 1;
     display: flex;

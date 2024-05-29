@@ -12,11 +12,11 @@ import { getVariantUrl } from '~/lib/variants';
 import '../styles/product.css';
 import dhlLogo from '../assets/dhl.png';
 import certifiedBadge from '../assets/trustedlogo.png';
-import earthLogo from '../assets/earth.png'
-import securePay from '../assets/secure-pay.png'
-import quickDelivery from '../assets/quick-delivery.png'
-import faceSmile from '../assets/face-smile.png'
-
+import earthLogo from '../assets/earth.png';
+import securePay from '../assets/secure-pay.png';
+import quickDelivery from '../assets/quick-delivery.png';
+import faceSmile from '../assets/face-smile.png';
+import decorativegarland from '../assets/decorativegarland.png';
 
 export const meta = ({ data }) => {
   return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
@@ -152,99 +152,111 @@ export default function Product() {
   }).join(' ') : '';
 
   return (
-    <div className="product-container">
-      <div className="left-content">
-        <div className="product-title">
-          <h1>{product.title}</h1>
-        </div>
-        <div className="left-bottom-content">
-        {additionalInformationText && (
-              <div>
-                <h2>Additional Information</h2>
-                <div>{additionalInformationText}</div>
-              </div>
-            )}
-          <h2>Preparation</h2>
-            {preparationText && <div>{preparationText}</div>}
-            <div >
-            <img src={faceSmile} alt='face smile icon' />
-              <h4>Special Selection</h4>
-              <p>Family manufacturer with its own recipe</p>
-            </div>
-            <div >
-            <img src={quickDelivery} alt='quick delivery icon' />
-              <h4>Quick Delivery</h4>
-              <p>We deliver within 2-4 days*</p>
-            </div>
-            <div >
-            <img src={securePay} alt='secure pay icon' />
-              <h4>Secure pay</h4>
-              <p>Pay securely via Paypal and Sofort.com</p>
-            </div>
-            <div >
-            <img src={earthLogo} alt='earth icon' />
-              <h4>CO₂ more neutral Shipment</h4>
-              <p>Shipping takes place with DHL GoGreen</p>
-            </div>
-            
-
-        </div>
+    <div className='main-product-sec'>
+      <div className="food-decorative-garland">
+        <img src={decorativegarland} alt="food-decorative-garland" />
       </div>
-      <div className="center-content">
-        {product.media && <ProductMedia media={product.media.nodes} />}
-      </div>
-      <div className="right-content">
-        <div className="product-content">
-          <ProductPrice selectedVariant={selectedVariant} />
-          <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
-          <Suspense
-            fallback={
-              <ProductForm
-                product={product}
-                selectedVariant={selectedVariant}
-                variants={[]}
-              />
-            }
-          >
-            <Await
-              errorElement="There was a problem loading product variants"
-              resolve={variants}
-            >
-              {(data) => (
-                <ProductForm
-                  product={product}
-                  selectedVariant={selectedVariant}
-                  variants={data.product?.variants.nodes || []}
-                />
-              )}
-            </Await>
-          </Suspense>
-
-          {/* Display Metafield */}
-          <div className="metafield">
-
-          {nutritionalValuesText && (
-              <div> 
-                <h2>Nutritional Values</h2>
-                <div>{nutritionalValuesText}</div>
-              </div>
-            )}
-
-            {ingredientsText && (
-              <div>
-                <h2>Ingredients</h2>
-                <div>{ingredientsText}</div>
-              </div>
-            )}
-         
+      <div className='container'>
+        <div className="product-container">
+          <div className="left-content">
+            <div className="product-title">
+              <h1>{product.title}</h1>
+            </div>
+            <div className="left-bottom-content">
+              <div className='info-wrap'>
+            {additionalInformationText && (
+                  <div className='info-box'>
+                    <h2>Additional Information</h2>
+                    <p>{additionalInformationText}</p>
+                  </div>
+                )}
+                <div className="info-box">
+              <h2>Preparation</h2>
+                {preparationText && <p>{preparationText}</p>}
+                </div>
+                </div>
+                <div className='smile-block'>
+                <div >
+                <img src={faceSmile} alt='face smile icon' />
+                  <h4>Special Selection</h4>
+                  <p>Family manufacturer with its own recipe</p>
+                </div>
+                <div >
+                <img src={quickDelivery} alt='quick delivery icon' />
+                  <h4>Quick Delivery</h4>
+                  <p>We deliver within 2-4 days*</p>
+                </div>
+                <div >
+                <img src={securePay} alt='secure pay icon' />
+                  <h4>Secure pay</h4>
+                  <p>Pay securely via Paypal and Sofort.com</p>
+                </div>
+                <div >
+                <img src={earthLogo} alt='earth icon' />
+                  <h4>CO₂ more neutral Shipment</h4>
+                  <p>Shipping takes place with DHL GoGreen</p>
+                </div>
+                
+                </div>
+            </div>
           </div>
-        </div>
-        <div className="right-bottom-content">
-          <h4>Certified 
-              online shop</h4>
-              <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
-           <h4>More quickly shipment</h4>   
-           <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+          <div className="center-content">
+            {product.media && <ProductMedia media={product.media.nodes} />}
+          </div>
+          <div className="right-content">
+            <div className="product-content">
+              <ProductPrice selectedVariant={selectedVariant} />
+              <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+              <Suspense
+                fallback={
+                  <ProductForm
+                    product={product}
+                    selectedVariant={selectedVariant}
+                    variants={[]}
+                  />
+                }
+              >
+                <Await
+                  errorElement="There was a problem loading product variants"
+                  resolve={variants}
+                >
+                  {(data) => (
+                    <ProductForm
+                      product={product}
+                      selectedVariant={selectedVariant}
+                      variants={data.product?.variants.nodes || []}
+                    />
+                  )}
+                </Await>
+              </Suspense>
+
+              {/* Display Metafield */}
+              <div className="metafield">
+
+              {nutritionalValuesText && (
+                  <div> 
+                    <h2>Nutritional Values</h2>
+                    <div>{nutritionalValuesText}</div>
+                  </div>
+                )}
+
+                {ingredientsText && (
+                  <div>
+                    <h2>Ingredients</h2>
+                    <div>{ingredientsText}</div>
+                  </div>
+                )}
+            
+              </div>
+            </div>
+            <div className="right-bottom-content">
+              <h4>Certified 
+                  online shop</h4>
+                  <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+              <h4>More quickly shipment</h4>   
+              <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+            </div>
+          </div>
         </div>
       </div>
     </div>
