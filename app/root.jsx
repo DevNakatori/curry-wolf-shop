@@ -102,19 +102,18 @@ export default function App() {
     /** @type {LoaderReturnData} */
     const data = useLoaderData();
 
-    useEffect(() => {
-      const script = document.createElement('script');
-  
-      script.src = "/assets/js/hero-animation.js";
-      script.async = true;
-  
-      document.body.appendChild(script);
-  
-      return () => {
-          document.body.removeChild(script);
-      }
-  }, []);
-  
+    // useEffect(() => {
+    //     const script = document.createElement('script');
+
+    //     script.src = "../app/assets/js/hero-animation.js";
+    //     // script.async = true;
+
+    //     document.body.appendChild(script);
+
+    //     // return () => {
+    //       //  document.body.removeChild(script);
+    //    // }
+    // }, []);
 
     return (
 
@@ -131,6 +130,7 @@ export default function App() {
                 </Layout>
                 <ScrollRestoration nonce={nonce} />
                 <Scripts nonce={nonce} />
+                <script src="/custom.js" defer></script>
             </body>
         </html>
     );
