@@ -5,7 +5,6 @@ import {
   getPaginationVariables,
   Image,
   Money,
-  CartForm,
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
 import earthLogo from '../assets/earth.png';
@@ -153,6 +152,13 @@ function ProductsGrid({products}) {
 function ProductItem({product, loading}) {
   const variant = product.variants.nodes[0];
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
+  const collectionBadge = product.metafield?.value;
+  const titleParts = product.title.split('(');
+  const titleMain = titleParts[0];
+  const titleSub = titleParts[1] ? `(${titleParts[1]}` : '';
+  const variantNumber = product.variants.nodes[0].id.match(/\d+/);
+  const variantId = variantNumber ? variantNumber[0] : null;
+
   return (
     <Link
       className="product-item"
@@ -160,6 +166,11 @@ function ProductItem({product, loading}) {
       prefetch="intent"
       to={variantUrl}
     >
+      {collectionBadge && (
+        <div className="collection-badge">
+          <p>{collectionBadge}</p>
+        </div>
+      )}
       {product.featuredImage && (
         <Image
           alt={product.featuredImage.altText || product.title}
@@ -169,11 +180,13 @@ function ProductItem({product, loading}) {
           sizes="(min-width: 45em) 400px, 100vw"
         />
       )}
-      <h4>{product.title}</h4>
+      <h4>{titleMain}<br/>{titleSub}</h4>
       <small>
         <Money data={product.priceRange.minVariantPrice} />
       </small>
     </Link>
+
+    
   );
 }
 
@@ -197,22 +210,28 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
       minVariantPrice {
         ...MoneyProductItem
       }
-        maxVariantPrice {
+      maxVariantPrice {
         ...MoneyProductItem
       }
     }
     variants(first: 1) {
       nodes {
+        id
+        title
+        sku
+        availableForSale
         selectedOptions {
           name
           value
         }
       }
     }
+    metafield(namespace: "custom", key: "collection_badge") {
+      value
+    }
   }
 `;
 
-// NOTE: https://shopify.dev/docs/api/storefront/2022-04/objects/collection
 const COLLECTION_QUERY = `#graphql
   ${PRODUCT_ITEM_FRAGMENT}
   query Collection(
