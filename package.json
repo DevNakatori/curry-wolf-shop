@@ -20,6 +20,7 @@
     "@shopify/hydrogen": "2024.4.1",
     "@shopify/hydrogen-react": "^2024.4.2",
     "@shopify/remix-oxygen": "^2.0.4",
+    "animate.css": "^4.1.1",
     "graphql": "^16.6.0",
     "graphql-tag": "^2.12.6",
     "isbot": "^3.8.0",

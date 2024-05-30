@@ -1,8 +1,8 @@
 import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/lib/root-data';
 import {KeepInTouch} from '~/routes/footerData';
-import footerLogo from '../assets/footer-bg-logo.png';
-import footerLogoMob from '../assets/footer-mobile-logo.png';
+import footerLogo from '../assets/CurryWolf_Logo_white-red-800.png';
+import footerLogoBerline from '../assets/f-logo-berline.png';
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}
  */
@@ -17,13 +17,12 @@ export function Footer({menu, shop}) {
          <div className='footer-child'>
             <FooterMenu menu={menu} primaryDomainUrl={shop.primaryDomain.url} />
             <KeepInTouch />
-            <img className="footer-bg-img" src={footerLogo} alt='footer-logo' />
-            <img className="footer-mobile-img" src={footerLogoMob} alt='footer-logo' />
          </div>
         </>
       )}
     </div>
       </div>
+      <img className='footer-berline-logo' src={footerLogoBerline} alt='footer-logo' />
     </footer>
   
   );
@@ -44,6 +43,12 @@ function FooterMenu({menu, primaryDomainUrl}) {
   const {publicStoreDomain} = useRootLoaderData();
 
   return (
+    <div className='left-block-wrap'>
+      <div className='logo'>
+        <a href='/'>
+      <img className="footer-bg-img" src={footerLogo} alt='footer-logo' />
+        </a>
+      </div>
     <nav className="footer-menu" role="navigation">
       <span className='yellow-head'>Menu</span>
         <ul>
@@ -77,6 +82,7 @@ function FooterMenu({menu, primaryDomainUrl}) {
       })}
        </ul>
     </nav>
+    </div>
   );
 }
 

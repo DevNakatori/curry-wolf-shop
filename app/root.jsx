@@ -10,6 +10,7 @@ import {
     ScrollRestoration,
     isRouteErrorResponse,
 } from '@remix-run/react';
+import 'animate.css';
 import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
