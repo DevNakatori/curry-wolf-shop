@@ -1,48 +1,52 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const imgOnes = document.querySelectorAll('.img-one');
-    let scrollTimeout;
+const imgOneElements = document.querySelectorAll('.img-one');
 
-    const observerOptions = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.3 // Adjust this value as needed
-    };
+let scrollTimeout;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            const animationClass = entry.target.getAttribute('data-animation');
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate__animated', animationClass);
-                entry.target.style.opacity = 1;
-            } else {
-                entry.target.classList.remove('animate__animated', animationClass);
-                entry.target.style.opacity = 0;
-            }
-        });
-    }, observerOptions);
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.3 
+};
 
-    imgOnes.forEach(item => observer.observe(item));
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        const animationClass = entry.target.getAttribute('data-animation');
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate__animated', animationClass);
+            entry.target.style.opacity = 1;
+        } else {
+            entry.target.classList.remove('animate__animated', animationClass);
+            entry.target.style.opacity = 0;
+        }
+    });
+}, observerOptions);
 
-    const handleScroll = () => {
-        imgOnes.forEach(item => {
+imgOneElements.forEach(item => observer.observe(item));
+
+const handleScroll = () => {
+    imgOneElements.forEach(item => {
+        const animationClass = item.getAttribute('data-animation');
+        item.classList.add('animate__animated', animationClass);
+        item.style.opacity = 1;
+    });
+
+    clearTimeout(scrollTimeout);
+
+    scrollTimeout = setTimeout(() => {
+        imgOneElements.forEach(item => {
             const animationClass = item.getAttribute('data-animation');
-            item.classList.add('animate__animated', animationClass);
-            item.style.opacity = 1;
+            item.classList.remove('animate__animated', animationClass);
+            item.style.opacity = 1; 
         });
+    }, 400); 
+};
 
-        clearTimeout(scrollTimeout);
+window.addEventListener('scroll', handleScroll);
 
-        scrollTimeout = setTimeout(() => {
-            imgOnes.forEach(item => {
-                const animationClass = item.getAttribute('data-animation');
-                item.classList.remove('animate__animated', animationClass);
-                item.style.opacity = 1; // Maintain visibility
-            });
-        }, 400); // Adjust delay as needed
-    };
 
-    window.addEventListener('scroll', handleScroll);
-});
+
+
+
 
 window.addEventListener('scroll', function() {
     const videoOverlay = document.getElementById('videoOverlay');
