@@ -103,17 +103,18 @@ export default function App() {
     const data = useLoaderData();
 
     useEffect(() => {
-        const script = document.createElement('script');
-
-        script.src = "../app/assets/js/hero-animation.js";
-        script.async = true;
-
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        }
-    }, []);
+      const script = document.createElement('script');
+  
+      script.src = "/assets/js/hero-animation.js";
+      script.async = true;
+  
+      document.body.appendChild(script);
+  
+      return () => {
+          document.body.removeChild(script);
+      }
+  }, []);
+  
 
     return (
 

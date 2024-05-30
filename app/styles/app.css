@@ -170,7 +170,7 @@ header.header.header-scrolled {
 }
 
 .header-menu-desktop a {
-  font-family: "Days One", sans-serif;
+  font-family: 'Gotham';
 }
 
 .header-menu-item {
@@ -757,6 +757,7 @@ select#custom-dropdown {
   color: #fff;
   padding: 7px 20px;
   display: flex;
+  font-family: 'Gotham';
   align-items: center;
   appearance: none;
   background: url('/app/assets/Vector.svg') no-repeat center /contain;
