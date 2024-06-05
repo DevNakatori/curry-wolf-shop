@@ -485,6 +485,30 @@ header.header.transparent {
 * routes/account
 * --------------------------------------------------
 */
+.yellow-btn {
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: transform;
+  transition-property: transform;
+  text-transform: capitalize;
+  font-size: 20px;
+  line-height: 19px;
+  font-weight: 500;
+  color: #000000;
+  background-color: #FEDE03;
+  padding: 14px 0px 14px;
+  width: 151px;
+  border-radius: 25px;
+  text-decoration: none;
+  display: inline-block;
+  box-shadow: 4px 38px 62px 0px #00000080;
+  box-shadow: -3px -4px 7px 0px #FFFFFF26 inset;
+  background: radial-gradient(circle at 37% 15%, rgba(255, 255, 255, 1) 0%, rgba(254, 222, 3, 1) 38%);
+  font-family: 'Gotham-Medium';
+  font-weight: 500;
+}
 
 .account-logout {
   display: inline-block;
@@ -517,6 +541,8 @@ header.header.transparent {
   font-weight: 400 !important;
   font-size: 20px;
   line-height: 25px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .header {
@@ -613,7 +639,8 @@ span.yellow-head {
   line-height: 25px;
   font-weight: 400 !important;
   color: #fede03;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .footer-contact span,
@@ -622,7 +649,8 @@ span.yellow-head {
   line-height: 25px;
   font-weight: 400 !important;
   color: #fff;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .footer-contact>div {
@@ -651,7 +679,8 @@ span.yellow-head {
 .footer-contact span {
   width: 100%;
   display: block;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .footer-location span {
@@ -661,7 +690,8 @@ span.yellow-head {
   font-size: 20px;
   color: #fff;
   line-height: 25px;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
   max-width: 210px;
 }
 
@@ -762,6 +792,8 @@ select#custom-dropdown {
   background: url('/app/assets/Vector.svg') no-repeat center /contain;
   background-position: 72% 50%;
   background-size: 17px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .language-switcher {

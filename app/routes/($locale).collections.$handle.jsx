@@ -184,6 +184,7 @@ function ProductItem({product, loading}) {
       <small>
         <Money data={product.priceRange.minVariantPrice} />
       </small>
+      <span>Add to cart</span>
     </Link>
 
     

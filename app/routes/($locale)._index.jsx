@@ -1,12 +1,25 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
+import React, { useEffect } from 'react';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import '../styles/home-video.css';
+
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
   return [{title: `Curry Wolf | Home`}];
 };
+
+// useEffect(() => {
+//   AOS.init({
+//     disable: "phone",
+//     duration: 700,
+//     easing: "ease-out-cubic",
+//   });
+// }, []);
+
 
 /**
  * @param {LoaderFunctionArgs}
@@ -34,6 +47,7 @@ export default function Page() {
       <div className="index-wrapper" dangerouslySetInnerHTML={{__html: page.body}} />
   );
 }
+
 
 const PAGE_QUERY = `#graphql
     query Page(

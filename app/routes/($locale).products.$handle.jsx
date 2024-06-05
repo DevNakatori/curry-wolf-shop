@@ -156,16 +156,16 @@ export default function Product() {
       <div className="food-decorative-garland">
         <img src={decorativegarland} alt="food-decorative-garland" />
       </div>
-      <div className='container'>
+      <div className="container">
         <div className="product-container">
           <div className="left-content">
             <div className="product-title">
               <h1>{product.title}</h1>
             </div>
             <div className="left-bottom-content">
-              <div className='info-wrap'>
+              <div className="info-wrap">
             {additionalInformationText && (
-                  <div className='info-box'>
+                  <div className="info-box">
                     <h2>Additional Information</h2>
                     <p>{additionalInformationText}</p>
                   </div>
@@ -175,23 +175,23 @@ export default function Product() {
                 {preparationText && <p>{preparationText}</p>}
                 </div>
                 </div>
-                <div className='smile-block'>
-                <div >
+                <div className="smile-block">
+                <div className="special-block" >
                 <img src={faceSmile} alt='face smile icon' />
                   <h4>Special Selection</h4>
                   <p>Family manufacturer with its own recipe</p>
                 </div>
-                <div >
+                <div className="special-block">
                 <img src={quickDelivery} alt='quick delivery icon' />
                   <h4>Quick Delivery</h4>
                   <p>We deliver within 2-4 days*</p>
                 </div>
-                <div >
+                <div className="special-block">
                 <img src={securePay} alt='secure pay icon' />
                   <h4>Secure pay</h4>
                   <p>Pay securely via Paypal and Sofort.com</p>
                 </div>
-                <div >
+                <div className="special-block">
                 <img src={earthLogo} alt='earth icon' />
                   <h4>CO₂ more neutral Shipment</h4>
                   <p>Shipping takes place with DHL GoGreen</p>
@@ -234,27 +234,30 @@ export default function Product() {
               <div className="metafield">
 
               {nutritionalValuesText && (
-                  <div> 
+                  <div className="ingridiant-box"> 
                     <h2>Nutritional Values</h2>
-                    <div>{nutritionalValuesText}</div>
+                    <p>{nutritionalValuesText}</p>
                   </div>
                 )}
 
                 {ingredientsText && (
-                  <div>
+                  <div className="ingridiant-box">
                     <h2>Ingredients</h2>
-                    <div>{ingredientsText}</div>
+                    <p>{ingredientsText}</p>
                   </div>
                 )}
             
               </div>
             </div>
             <div className="right-bottom-content">
+              <div className="cerified-box">
               <h4>Certified 
                   online shop</h4>
                   <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                  </div><div className="certified-logo">
               <h4>More quickly shipment</h4>   
               <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+              </div>
             </div>
           </div>
         </div>
@@ -275,10 +278,11 @@ function ProductPrice({ selectedVariant }) {
             <s>
               <Money data={selectedVariant.compareAtPrice} />
             </s>
+
           </div>
         </>
       ) : (
-        selectedVariant?.price && <Money data={selectedVariant?.price} />
+        selectedVariant?.price && <Money className='p-price' data={selectedVariant?.price} />
       )}
     </div>
   );
@@ -364,7 +368,7 @@ function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
             type="hidden"
             value={JSON.stringify(analytics)}
           />
-          <button
+          <button className="yellow-btn"
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
@@ -405,7 +409,7 @@ function ProductQuantity({ quantity, onQuantityChange }) {
           min="1"
           step="1"
         />
-        <button type="button" onClick={incrementQuantity}>+</button>
+        <button  type="button" onClick={incrementQuantity}>+</button>
       </div>
     </div>
   );

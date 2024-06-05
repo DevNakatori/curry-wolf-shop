@@ -1,64 +1,377 @@
 /* Product.css */
 main {
-    background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
-    margin-top: 0;
-    overflow: hidden;
+  background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
+  margin-top: 0;
+  /* overflow: hidden; */
 }
-.main-product-sec .product-title h1{
+.main-product-sec .product-container{    padding: 20px 20px 10px 20px;}
+.main-product-sec .product-title h1 {
   font-size: 120px;
   line-height: 100px;
   font-weight: 400;
-  font-family: 'Block Berthold';color: #fff;
+  font-family: 'Block Berthold';
+  color: #fff;
+  margin: 140px 0 226px;
 }
+
 .product-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 20px;
-  }
-  .info-wrap {
-    display: flex;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
 }
-.info-box{
+
+.info-wrap {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 1);
+  padding-bottom: 79px;
+  margin-bottom: 57px;
+}
+
+.info-box {
   width: 50%;
 }
-.info-box h2{color: #fff;}
-.info-box p{color: #fff;}
-  .product-title {
-    flex: 1;
-    text-align: left;
+
+.smile-block {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.smile-block h4 {
+  font-size: 30px;
+  line-height: 35px;
+  font-weight: 400;
+  font-family: 'Block Berthold';
+  color: #fff;
+}
+
+.smile-block p {
+  font-size: 18px;
+  line-height: 21px;
+  color: #fff;
+  max-width: 207px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
+}
+
+.smile-block .special-block {
+  width: 50%;
+  padding-bottom: 71px;
+}
+
+.main-product-sec .info-box h2 {
+  color: #fff;
+  font-size: 25px;
+  line-height: 29px;
+  font-weight: 400;
+  font-family: 'Block Berthold';
+}
+
+.main-product-sec .info-box p {
+  color: #fff;
+  max-width: 206px;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
+}
+
+.product-title {
+  flex: 1;
+  text-align: left;
+}
+
+.main-product-sec .product-container .left-content {
+  width: 30%;
+}
+
+.main-product-sec .product-container .center-content {
+  width: 40%;
+}
+
+.main-product-sec .product-container .right-content {
+  width: 30%;
+}
+
+.main-product-sec .product-container .center-content .product-video video {
+  width: 100%;
+}
+
+.product-media {
+  flex: 1;
+  display: initial;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  right: 0;width: 37%;
+  margin: 0 auto;
+  /* animation: sticky-parallax-header-move-and-size linear forwards;
+  animation-timeline: scroll();
+  animation-range: 0vh 30vh; */
+  position: sticky;
+    position: -webkit-sticky;
+    top: 120px;
+
+}
+
+.product-content {
+  flex: 1;
+  text-align: right;
+  color: white;
+}
+
+.product-price,
+.product-form {
+  margin-bottom: 20px;
+}
+
+.add-to-cart-button {
+  background-color: #ffd700;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.add-to-cart-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.main-product-sec .food-decorative-garland {
+  margin-top: 4px;
+}
+.main-product-sec .food-decorative-garland img{width: 100%;}
+.right-content .product-content .product-price .p-price {
+  font-size: 90px;
+  line-height: 108px;
+  font-weight: 400;
+  font-family: 'Block Berthold';
+}
+.quantity-controls input::-webkit-outer-spin-button,
+.quantity-controls input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+.main-product-sec .product-container .right-content .product-content {
+  text-align: left;
+}
+
+.right-product-content p {
+  font-size: 20px;
+  line-height: 24px;
+  color: #fff;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
+  margin-bottom: 24px;
+}
+
+.right-product-content span {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(254, 222, 3, 1);
+}
+
+.right-product-content p:nth-child(4) {
+  margin-bottom: 0;
+}
+
+.product-quantity label {
+  display: none;
+}
+
+.main-product-sec .product-form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 143px;margin-top: 35px;
+}
+
+.main-product-sec .product-form button.yellow-btn {
+  border: 0;
+  width: 190px;
+}
+
+.right-content .product-content .metafield h2 {
+  font-size: 25px;
+  line-height: 29px;
+  font-family: 'Block Berthold';
+  color: #fff;
+  font-weight: 400;
+}
+
+.right-bottom-content h4 {
+  color: #fff;
+  font-size: 20px;
+  line-height: 23px;
+  font-weight: 400;
+  font-family: 'Block Berthold';
+  margin-bottom: 28px;
+}
+
+.quantity-controls input {
+  font-size: 50px;
+  line-height: 50px;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-family: 'Block Berthold';
+  width: 65px;
+  margin: 0;
+  padding: 0;
+  text-align: center;height: 42px;
+}
+.quantity-controls input::focus-visible{
+  outline: 0 !important;
+}
+.quantity-controls input::focus{
+  appearance: none !important;
+}
+.quantity-controls button {
+  border: 2px solid #fff;
+  border-radius: 15px;
+  background-color: transparent;
+  color: #fff;
+  padding: 0px 13px;
+  font-size: 29px;
+  line-height: 36px;
+  width: 40px;
+  display: inline-flex;
+  justify-content: center;
+  height: 40px;
+}
+
+.product-quantity {
+  margin-right: 40px;
+}
+
+#cart-aside main {
+  margin-top: 60px;
+}
+
+#cart-aside main p {
+  font-size: 20px;
+  color: #fff;
+  font-family: 'Block Berthold';
+}
+
+#cart-aside main div>span {
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Gotham';
+}
+
+#cart-aside main ul li {
+  color: #fff;
+  font-size: 16px;
+  font-family: 'Gotham';
+}
+
+.right-content .metafield .ingridiant-box {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+}
+
+.right-content .metafield .ingridiant-box:nth-child(1) {
+  padding-bottom: 26px;
+}
+
+.right-bottom-content {
+  display: flex;
+}
+
+.right-bottom-content .cerified-box:nth-child(1) {
+  width: 100%;
+}
+
+.right-bottom-content .cerified-box:nth-child(1) h4 {
+  max-width: 134px;
+}
+.right-content .metafield .ingridiant-box p{font-size: 18px;line-height: 21px;font-family: 'Gotham-Book';
+  font-weight: 400;}
+
+
+/* @supports(animation-range: 0vh 100vh) {
+  @keyframes sticky-parallax-header-move-and-size {
+    from {
+     top: 400px;
+    }
+    to {
+     top: 110px;
+
+    }
   }
-  .main-product-sec .product-container .left-content{width: 30%;}
-  .main-product-sec .product-container .center-content{width: 40%;}
-  .main-product-sec .product-container .right-content{width: 30%;}
-  .main-product-sec .product-container .center-content .product-video video{width: 100%;}
-  .product-media {
-    flex: 1;
-    display: flex;
-    justify-content: center;
+} */
+
+@media (max-width:1440px) {
+  .product-media{
+    bottom: -140px;
   }
-  
-  .product-content {
-    flex: 1;
-    text-align: right;
-    color: white;
+  .smile-block h4{
+    max-width: 160px;
   }
-  
-  .product-price, .product-form {
-    margin-bottom: 20px;
+}
+@media (max-width:1380px) {
+  .smile-block .special-block{    width: 46%;padding-left: 10px;}
+  .smile-block h4{font-size: 26px;line-height: 32px;}
+  .info-box {width: 46%;padding-right: 10px;}
+  .main-product-sec .info-box h2{    font-size: 20px;
+    line-height: 24px;}
+    .product-quantity {
+      margin-right: 10px;
   }
-  
-  .add-to-cart-button {
-    background-color: #ffd700;
-    color: black;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-  }
-  
-  .add-to-cart-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-  }
-  
+  .main-product-sec .food-decorative-garland img{width: 100%;}
+  .main-product-sec .product-form button.yellow-btn{width: 151px;}
+}
+
+@media (max-width:1024px) {
+  .info-wrap{flex-wrap: wrap;}
+  .info-box{width: 100%;padding-right: 0;}
+  .info-box:nth-child(1){margin-bottom: 20px;}
+  .smile-block .special-block{width: 100%;padding-left: 0;padding-bottom: 50px;}
+  .info-wrap{padding-bottom: 49px;margin-bottom: 37px;}
+  .right-content .product-content .product-price .p-price{    font-size: 70px;
+    line-height: 98px;}
+    .main-product-sec .product-title h1{    font-size: 90px;
+      line-height: 90px;}
+      .right-product-content p{word-break: break-all;}
+      .main-product-sec .product-form{flex-wrap: wrap;}
+      .main-product-sec .product-form button.yellow-btn{margin-top: 20px;}
+}
+@media (max-width:767px) {
+  .main-product-sec .product-container{flex-wrap: wrap;}
+  .main-product-sec .product-container .left-content,.main-product-sec .product-container .center-content,.main-product-sec .product-container .right-content{width: 100%;}
+  .product-media{position: initial;}
+  .main-product-sec .product-title h1{margin: 0 0 35px;}
+  .main-product-sec .info-box p{max-width: initial;}
+  .smile-block p,.smile-block h4{max-width: initial;}
+  .main-product-sec .product-form{margin-bottom:53px;}
+  .main-product-sec .product-form button.yellow-btn{margin-top: 0;}
+  .product-quantity{margin-right: 30px;}
+  .main-product-sec .product-container .right-content{    order: 3;}
+  .main-product-sec .product-container .center-content{order: 1;}
+  .main-product-sec .product-container .left-content{order: 2;margin-top: -40px;}
+  .main-product-sec .product-container{padding: 20px 20px 50px 20px;}
+  .main-product-sec .product-title h1{        font-size: 70px;
+    line-height: 70px;}
+    .right-content .product-content .product-price .p-price{font-size: 60px;line-height: 85px;}
+    .right-content .product-content .metafield h2{    font-size: 20px;
+      line-height: 24px;}
+      .smile-block h4{        font-size: 24px;
+        line-height: 30px;}
+        .right-product-content p{font-size: 18px;line-height: 22px;}
+        .quantity-controls button{width: 35px;height: 35px;    font-size: 24px; line-height: 31px;}
+}
+
+@media (max-width:480px) {
+  .main-product-sec .product-container .left-content{margin-top: -10px;}
+  .smile-block .special-block{padding-bottom: 30px;}
+  .product-quantity{margin-right: 0;margin-bottom: 20px;}
+  .product-quantity{width: 100%;}
+  .right-content .product-content .product-price .p-price{font-size: 50px;line-height: 70px;}
+}
