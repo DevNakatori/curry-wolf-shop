@@ -113,43 +113,47 @@ export default function Product() {
   const { product, variants } = useLoaderData();
   const { selectedVariant } = product;
 
-  const preparationMetafield = product.metafields.find(
-    (metafield) => metafield.namespace === 'custom' && metafield.key === 'preparation'
-  )?.value;
+  const getMetafieldText = (metafield) => {
+    if (!metafield) return '';
 
-  const additionalInformationMetafield = product.metafields.find(
-    (metafield) =>
-      metafield.namespace === 'custom' &&
-      metafield.key === 'additional_information'
-  )?.value;
+    try {
+      const parsedValue = JSON.parse(metafield);
+      return parsedValue.children
+        ?.map((child) =>
+          child.children?.map((grandChild) => grandChild.value).join(' ')
+        )
+        .join(' ');
+    } catch (error) {
+      return '';
+    }
+  };
 
-  const ingredientsMetafield = product.metafields.find(
-    (metafield) =>
-      metafield.namespace === 'custom' &&
-      metafield.key === 'ingredients'
-  )?.value;
+  const preparationText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) => metafield?.namespace === 'custom' && metafield?.key === 'preparation'
+    )?.value
+  );
 
-  const nutritionalValuesMetafield = product.metafields.find(
-    (metafield) =>
-      metafield.namespace === 'custom' &&
-      metafield.key === 'nutritional_values'
-  )?.value;
+  const additionalInformationText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'additional_information'
+    )?.value
+  );
 
-  const preparationText = preparationMetafield ? JSON.parse(preparationMetafield)?.children?.map(child => {
-    return child.children?.map(grandChild => grandChild.value).join(' ');
-  }).join(' ') : '';
+  const ingredientsText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'ingredients'
+    )?.value
+  );
 
-  const additionalInformationText = additionalInformationMetafield ? JSON.parse(additionalInformationMetafield)?.children?.map(child => {
-    return child.children?.map(grandChild => grandChild.value).join(' ');
-  }).join(' ') : '';
-
-  const nutritionalValuesText = nutritionalValuesMetafield ? JSON.parse(nutritionalValuesMetafield)?.children?.map(child => {
-    return child.children?.map(grandChild => grandChild.value).join(' ');
-  }).join(' ') : '';
-
-  const ingredientsText = ingredientsMetafield ? JSON.parse(ingredientsMetafield)?.children?.map(child => {
-    return child.children?.map(grandChild => grandChild.value).join(' ');
-  }).join(' ') : '';
+  const nutritionalValuesText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'nutritional_values'
+    )?.value
+  );
 
   return (
     <div className='main-product-sec'>
@@ -164,40 +168,41 @@ export default function Product() {
             </div>
             <div className="left-bottom-content">
               <div className="info-wrap">
-            {additionalInformationText && (
+                {additionalInformationText && (
                   <div className="info-box">
                     <h2>Additional Information</h2>
                     <p>{additionalInformationText}</p>
                   </div>
                 )}
-                <div className="info-box">
-              <h2>Preparation</h2>
-                {preparationText && <p>{preparationText}</p>}
-                </div>
-                </div>
-                <div className="smile-block">
-                <div className="special-block" >
-                <img src={faceSmile} alt='face smile icon' />
+                {preparationText && (
+                  <div className="info-box">
+                    <h2>Preparation</h2>
+                    <p>{preparationText}</p>
+                  </div>
+                )}
+              </div>
+              <div className="smile-block">
+                <div className="special-block">
+                  <img src={faceSmile} alt='face smile icon' />
                   <h4>Special Selection</h4>
                   <p>Family manufacturer with its own recipe</p>
                 </div>
                 <div className="special-block">
-                <img src={quickDelivery} alt='quick delivery icon' />
+                  <img src={quickDelivery} alt='quick delivery icon' />
                   <h4>Quick Delivery</h4>
                   <p>We deliver within 2-4 days*</p>
                 </div>
                 <div className="special-block">
-                <img src={securePay} alt='secure pay icon' />
+                  <img src={securePay} alt='secure pay icon' />
                   <h4>Secure pay</h4>
                   <p>Pay securely via Paypal and Sofort.com</p>
                 </div>
                 <div className="special-block">
-                <img src={earthLogo} alt='earth icon' />
+                  <img src={earthLogo} alt='earth icon' />
                   <h4>CO₂ more neutral Shipment</h4>
                   <p>Shipping takes place with DHL GoGreen</p>
                 </div>
-                
-                </div>
+              </div>
             </div>
           </div>
           <div className="center-content">
@@ -232,31 +237,28 @@ export default function Product() {
 
               {/* Display Metafield */}
               <div className="metafield">
-
-              {nutritionalValuesText && (
-                  <div className="ingridiant-box"> 
+                {nutritionalValuesText && (
+                  <div className="ingridiant-box">
                     <h2>Nutritional Values</h2>
                     <p>{nutritionalValuesText}</p>
                   </div>
                 )}
-
                 {ingredientsText && (
                   <div className="ingridiant-box">
                     <h2>Ingredients</h2>
                     <p>{ingredientsText}</p>
                   </div>
                 )}
-            
               </div>
             </div>
             <div className="right-bottom-content">
               <div className="cerified-box">
-              <h4>Certified 
-                  online shop</h4>
-                  <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
-                  </div><div className="certified-logo">
-              <h4>More quickly shipment</h4>   
-              <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+                <h4>Certified online shop</h4>
+                <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+              </div>
+              <div className="certified-logo">
+                <h4>More quickly shipment</h4>
+                <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
               </div>
             </div>
           </div>
@@ -278,7 +280,6 @@ function ProductPrice({ selectedVariant }) {
             <s>
               <Money data={selectedVariant.compareAtPrice} />
             </s>
-
           </div>
         </>
       ) : (
@@ -481,7 +482,7 @@ const PRODUCT_FRAGMENT = `#graphql
       description
       title
     }
-    media(first: 10) {
+    media(first: 1) {
       nodes {
         __typename
         ... on MediaImage {
