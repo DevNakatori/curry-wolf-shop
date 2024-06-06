@@ -1,0 +1,29 @@
+.page.our-story {
+    background: #D02523;
+}
+.container {
+    padding: 20px;
+}
+.subheader {
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+.story-section {
+    margin: 40px 0;
+}
+.story-section img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border: 10px solid white;
+}
+.story-section p {
+    font-size: 16px;
+    margin: 10px 0;
+    padding: 0 20px;
+}
+.story-section h2 {
+    font-size: 24px;
+    font-weight: bold;
+}

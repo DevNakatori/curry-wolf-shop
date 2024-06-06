@@ -1,31 +1,21 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
-import React, { useEffect } from 'react';
-import AOS from "aos";
-import "aos/dist/aos.css";
-import '../styles/home-video.css';
+import '../styles/our-story.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
-  return [{title: `Curry Wolf | Home`}];
+  return [{title: `Curry Wolf | ${data?.page.title ?? ''}`}];
 };
-
-// useEffect(() => {
-//   AOS.init({
-//     disable: "phone",
-//     duration: 700,
-//     easing: "ease-out-cubic",
-//   });
-// }, []);
-
 
 /**
  * @param {LoaderFunctionArgs}
  */
 export async function loader({params, context}) {
-  const handle = params.handle || 'index';
-
+//   if (!params.handle) {
+//     throw new Error('Missing page handle');
+//   }
+  const handle = params.handle || 'our-story';
   const {page} = await context.storefront.query(PAGE_QUERY, {
     variables: {
       handle: handle,
@@ -42,30 +32,32 @@ export async function loader({params, context}) {
 export default function Page() {
   /** @type {LoaderReturnData} */
   const {page} = useLoaderData();
+
   return (
-      <div className="index-wrapper" dangerouslySetInnerHTML={{__html: page.body}} />
+    <div className="page our-story">
+      <main dangerouslySetInnerHTML={{__html: page.body}} />
+    </div>
   );
 }
 
-
 const PAGE_QUERY = `#graphql
-    query Page(
-      $language: LanguageCode,
-      $country: CountryCode,
-      $handle: String!
-    )
-    @inContext(language: $language, country: $country) {
-      page(handle: $handle) {
-        id
+  query Page(
+    $language: LanguageCode,
+    $country: CountryCode,
+    $handle: String!
+  )
+  @inContext(language: $language, country: $country) {
+    page(handle: $handle) {
+      id
+      title
+      body
+      seo {
+        description
         title
-        body
-        seo {
-          description
-          title
-        }
       }
     }
-  `;
+  }
+`;
 
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */

@@ -116,6 +116,8 @@ export default function App() {
                 </Layout>
                 <ScrollRestoration nonce={nonce} />
                 <Scripts nonce={nonce} />
+                <script src="/jquery.min.js" defer></script>
+                <script src="/slick.min.js" defer></script>
                 <script src="/custom.js" defer></script>
             </body>
         </html>
