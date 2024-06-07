@@ -1,8 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import React, { useEffect } from 'react';
-import AOS from "aos";
-import "aos/dist/aos.css";
 import '../styles/home-video.css';
 /**
  * @type {MetaFunction<typeof loader>}

@@ -12,8 +12,15 @@ main {
   font-family: 'Block Berthold';
   color: #fff;
   margin: 140px 0 226px;
+  word-break: break-all;
 }
-
+.product-image img{
+  width: 60% !important;
+  margin: 0 auto;
+}
+.product-image {
+  text-align: center;
+}
 .product-container {
   display: flex;
   flex-direction: row;
@@ -194,6 +201,10 @@ main {
 .main-product-sec .product-form button.yellow-btn {
   border: 0;
   width: 190px;
+  cursor: pointer;
+}
+.main-product-sec .product-form button.yellow-btn:hover{
+  transform: scale(1.2);
 }
 
 .right-content .product-content .metafield h2 {
@@ -337,8 +348,8 @@ main {
   .info-wrap{padding-bottom: 49px;margin-bottom: 37px;}
   .right-content .product-content .product-price .p-price{    font-size: 70px;
     line-height: 98px;}
-    .main-product-sec .product-title h1{    font-size: 90px;
-      line-height: 90px;}
+    .main-product-sec .product-title h1{    font-size: 70px;
+      line-height: 70px;margin: 30px 0 100px;}
       .right-product-content p{word-break: break-all;}
       .main-product-sec .product-form{flex-wrap: wrap;}
       .main-product-sec .product-form button.yellow-btn{margin-top: 20px;}
@@ -347,7 +358,7 @@ main {
   .main-product-sec .product-container{flex-wrap: wrap;}
   .main-product-sec .product-container .left-content,.main-product-sec .product-container .center-content,.main-product-sec .product-container .right-content{width: 100%;}
   .product-media{position: initial;}
-  .main-product-sec .product-title h1{margin: 0 0 35px;}
+  .main-product-sec .product-title h1{margin: 70px 0 35px;}
   .main-product-sec .info-box p{max-width: initial;}
   .smile-block p,.smile-block h4{max-width: initial;}
   .main-product-sec .product-form{margin-bottom:53px;}

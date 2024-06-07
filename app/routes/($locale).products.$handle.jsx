@@ -80,7 +80,7 @@ function ProductMedia({ media }) {
       {media?.map((item) => {
         if (item.__typename === 'MediaImage') {
           return (
-            <div className="product-image" key={item.id}>
+            <div className="product-image" data-aos="fade-up" data-aos-duration="2000" key={item.id}>
               <Image
                 alt={item.image.altText || 'Product Image'}
                 aspectRatio="1/1"
@@ -164,43 +164,43 @@ export default function Product() {
         <div className="product-container">
           <div className="left-content">
             <div className="product-title">
-              <h1>{product.title}</h1>
+              <h1 data-aos="fade-up" data-aos-duration="1500">{product.title}</h1>
             </div>
             <div className="left-bottom-content">
               <div className="info-wrap">
                 {additionalInformationText && (
                   <div className="info-box">
-                    <h2>Additional Information</h2>
-                    <p>{additionalInformationText}</p>
+                    <h2 data-aos="fade-up" data-aos-duration="1500">Additional Information</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">{additionalInformationText}</p>
                   </div>
                 )}
                 {preparationText && (
                   <div className="info-box">
-                    <h2>Preparation</h2>
-                    <p>{preparationText}</p>
+                    <h2 data-aos="fade-up" data-aos-duration="1500">Preparation</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">{preparationText}</p>
                   </div>
                 )}
               </div>
               <div className="smile-block">
                 <div className="special-block">
-                  <img src={faceSmile} alt='face smile icon' />
-                  <h4>Special Selection</h4>
-                  <p>Family manufacturer with its own recipe</p>
+                  <img src={faceSmile} alt='face smile icon' data-aos="fade-up" data-aos-duration="1500" />
+                  <h4 data-aos="fade-up" data-aos-duration="2000">Special Selection</h4>
+                  <p data-aos="fade-up" data-aos-duration="2500">Family manufacturer with its own recipe</p>
                 </div>
                 <div className="special-block">
-                  <img src={quickDelivery} alt='quick delivery icon' />
-                  <h4>Quick Delivery</h4>
-                  <p>We deliver within 2-4 days*</p>
+                  <img src={quickDelivery} alt='quick delivery icon' data-aos="fade-up" data-aos-duration="1500" />
+                  <h4 data-aos="fade-up" data-aos-duration="2000">Quick Delivery</h4>
+                  <p data-aos="fade-up" data-aos-duration="2500">We deliver within 2-4 days*</p>
                 </div>
                 <div className="special-block">
-                  <img src={securePay} alt='secure pay icon' />
-                  <h4>Secure pay</h4>
-                  <p>Pay securely via Paypal and Sofort.com</p>
+                  <img src={securePay} alt='secure pay icon' data-aos="fade-up" data-aos-duration="1500" />
+                  <h4 data-aos="fade-up" data-aos-duration="2000">Secure pay</h4>
+                  <p data-aos="fade-up" data-aos-duration="2500">Pay securely via Paypal and Sofort.com</p>
                 </div>
                 <div className="special-block">
-                  <img src={earthLogo} alt='earth icon' />
-                  <h4>CO₂ more neutral Shipment</h4>
-                  <p>Shipping takes place with DHL GoGreen</p>
+                  <img src={earthLogo} alt='earth icon' data-aos="fade-up" data-aos-duration="1500" />
+                  <h4 data-aos="fade-up" data-aos-duration="2000">CO₂ more neutral Shipment</h4>
+                  <p data-aos="fade-up" data-aos-duration="2500">Shipping takes place with DHL GoGreen</p>
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@ export default function Product() {
           <div className="right-content">
             <div className="product-content">
               <ProductPrice selectedVariant={selectedVariant} />
-              <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+              <div data-aos="fade-up" data-aos-duration="2000" dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
               <Suspense
                 fallback={
                   <ProductForm
@@ -239,26 +239,26 @@ export default function Product() {
               <div className="metafield">
                 {nutritionalValuesText && (
                   <div className="ingridiant-box">
-                    <h2>Nutritional Values</h2>
-                    <p>{nutritionalValuesText}</p>
+                    <h2 data-aos="fade-up" data-aos-duration="1500">Nutritional Values</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">{nutritionalValuesText}</p>
                   </div>
                 )}
                 {ingredientsText && (
                   <div className="ingridiant-box">
-                    <h2>Ingredients</h2>
-                    <p>{ingredientsText}</p>
+                    <h2 data-aos="fade-up" data-aos-duration="1500">Ingredients</h2>
+                    <p data-aos="fade-up" data-aos-duration="2000">{ingredientsText}</p>
                   </div>
                 )}
               </div>
             </div>
             <div className="right-bottom-content">
               <div className="cerified-box">
-                <h4>Certified online shop</h4>
-                <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                <h4 data-aos="fade-up" data-aos-duration="1500">Certified online shop</h4>
+                <img className="certified-logo" src={certifiedBadge} alt='certified logo' data-aos="fade-up" data-aos-duration="2000" />
               </div>
               <div className="certified-logo">
-                <h4>More quickly shipment</h4>
-                <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+                <h4 data-aos="fade-up" data-aos-duration="1500">More quickly shipment</h4>
+                <img className="dhl-logo" src={dhlLogo} alt='dhl logo' data-aos="fade-up" data-aos-duration="2000" />
               </div>
             </div>
           </div>
@@ -270,7 +270,7 @@ export default function Product() {
 
 function ProductPrice({ selectedVariant }) {
   return (
-    <div className="product-price">
+    <div className="product-price" data-aos="fade-up" data-aos-duration="2500">
       {selectedVariant?.compareAtPrice ? (
         <>
           <p>Sale</p>
@@ -297,7 +297,7 @@ function ProductForm({ product, selectedVariant, variants }) {
   };
 
   return (
-    <div className="product-form">
+    <div className="product-form" data-aos="fade-up" data-aos-duration="2000">
       <VariantSelector
         handle={product.handle}
         options={product.options}

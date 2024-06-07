@@ -11,6 +11,8 @@ import {
     isRouteErrorResponse,
 } from '@remix-run/react';
 import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
@@ -116,8 +118,6 @@ export default function App() {
                 </Layout>
                 <ScrollRestoration nonce={nonce} />
                 <Scripts nonce={nonce} />
-                <script src="/jquery.min.js" defer></script>
-                <script src="/slick.min.js" defer></script>
                 <script src="/custom.js" defer></script>
             </body>
         </html>
