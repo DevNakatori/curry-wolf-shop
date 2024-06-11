@@ -118,6 +118,7 @@ export default function App() {
                 </Layout>
                 <ScrollRestoration nonce={nonce} />
                 <Scripts nonce={nonce} />
+                <script src="/aos.js"></script>
                 <script src="/custom.js" defer></script>
             </body>
         </html>

@@ -108,21 +108,57 @@ export default function Collection() {
         </div>
         </div>
       </div>
-
+      <div className='container'>
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
+          <div className='previous-button'>
             <PreviousLink>
-              {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
+              {isLoading ? 'Loading...' : <span className='yellow-btn'>↑ Load previous</span>}
             </PreviousLink>
+          </div>
             <ProductsGrid products={nodes} />
             <br />
+            <div className='loadmore-button'>
             <NextLink>
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+              {isLoading ? 'Loading...' : <span className='yellow-btn'>Load more ↓</span>}
             </NextLink>
+            </div>
           </>
         )}
       </Pagination>
+      </div>
+      <div className='collection-logo-sec'>
+      <div className='container'>
+        <div className='c-logo-wrap'>
+          <div className='left-l'>
+            <h4>Worauf legen wir Wert?</h4>
+            <p>Jeder Schritt bei der Herstellung unserer Currywurst im Glas ist Handarbeit. Vom Braten, Schneiden, Abfüllen bis zum Verschießen und Einwecken des Glases führen wir alle Arbeitsschritte sorgfältig durch. Und wir legen Wert auf die Herkunft unserer Zutaten. Das Produkt Original Berliner Currywurst ist vom Markenpatentamt geschützt. Wir sind selbst ein Berliner Familienunternehmen. Mit Leib und Seele unterstützen wir andere Berliner Familienbetriebe.</p>
+          </div>
+          <div className='right-l'>
+            <div className='c-right-wrap'>
+                <div className='right-inner'>
+                    <div className='l-logo'>
+                        <img src="../app/assets/trusted_shop_seal.png" />
+                    </div>
+                    <div className='r-content'>
+                      <p>Zertifizierter online-shop</p>
+                    </div>
+                </div>
+                <div className='right-inner'>
+                    <div className='l-logo'>
+                    <img src="../app/assets/DHL-GoGreen-Logo.png" />
+                    </div>
+                    <div className='r-content'>
+                      <p>Zertifizierter online-shop</p>
+                    </div>
+                </div>
+              </div>
+              <p>* Lieferzeitangaben gelten für Lieferungen innerhalb Deutschlands, Lieferzeiten für andere Länder entnehmen Sie bitte den Zahlungs- und Versandinformationen</p>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }
@@ -163,37 +199,7 @@ function ProductsGrid({products}) {
       </div>
       </div>
     </div>
-    <div className='collection-logo-sec'>
-      <div className='container'>
-        <div className='c-logo-wrap'>
-          <div className='left-l'>
-            <h4>Worauf legen wir Wert?</h4>
-            <p>Jeder Schritt bei der Herstellung unserer Currywurst im Glas ist Handarbeit. Vom Braten, Schneiden, Abfüllen bis zum Verschießen und Einwecken des Glases führen wir alle Arbeitsschritte sorgfältig durch. Und wir legen Wert auf die Herkunft unserer Zutaten.  Das Produkt Original Berliner Currywurst ist vom Markenpatentamt geschützt. Wir sind selbst ein Berliner Familienunternehmen. Mit Leib und Seele unterstützen wir andere Berliner Familienbetriebe.</p>
-          </div>
-          <div className='right-l'>
-            <div className='c-right-wrap'>
-                <div className='right-inner'>
-                    <div className='l-logo'>
-                        <img src="../app/assets/trusted_shop_seal.png" />
-                    </div>
-                    <div className='r-content'>
-                      <p>Zertifizierter online-shop</p>
-                    </div>
-                </div>
-                <div className='right-inner'>
-                    <div className='l-logo'>
-                    <img src="../app/assets/DHL-GoGreen-Logo.png" />
-                    </div>
-                    <div className='r-content'>
-                      <p>Zertifizierter online-shop</p>
-                    </div>
-                </div>
-              </div>
-              <p>* Lieferzeitangaben gelten für Lieferungen innerhalb Deutschlands, Lieferzeiten für andere Länder entnehmen Sie bitte den Zahlungs- und Versandinformationen</p>
-          </div>
-        </div>
-      </div>
-    </div>
+  
     </>
  
   );

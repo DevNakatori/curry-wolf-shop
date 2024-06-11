@@ -1,6 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
-import '../styles/catering-page.css';
+import '../styles/catering-inner.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -15,7 +15,7 @@ export async function loader({params, context}) {
 //   if (!params.handle) {
 //     throw new Error('Missing page handle');
 //   }
-  const handle = params.handle || 'catering';
+  const handle = params.handle || 'catering-rooftop-parties';
   const {page} = await context.storefront.query(PAGE_QUERY, {
     variables: {
       handle: handle,
@@ -35,7 +35,7 @@ export default function Page() {
   const {page} = useLoaderData();
 
   return (
-    <div className="page catering-main">
+    <div className="page catering-inner">
       <main dangerouslySetInnerHTML={{__html: page.body}} />
     </div>
   );

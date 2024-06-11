@@ -222,7 +222,22 @@ top:-31px;
 .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner:last-child {
         justify-content: end;
     }
-
+    .previous-button {
+        text-align: center;
+        margin-top: 25px;  
+    }
+    .loadmore-button {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .previous-button .yellow-btn,
+    .loadmore-button .yellow-btn {
+        width:max-content;
+        padding: 14px 28px 14px;
+    }
+    .loadmore-button a span:hover {
+        transform: scale(1.2);  
+    }
 
     @media (max-width:1540px) {
         .benifits .container{padding: 73px 0px;padding: 0 20px;}
