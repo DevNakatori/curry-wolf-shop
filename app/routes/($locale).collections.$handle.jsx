@@ -11,6 +11,7 @@ import earthLogo from '../assets/earth.png';
 import securePay from '../assets/secure-pay.png';
 import quickDelivery from '../assets/quick-delivery.png';
 import faceSmile from '../assets/face-smile.png';
+import decorativegarland from '../assets/decorativegarland.png';
 import '../styles/collection.css';
 
 /**
@@ -63,35 +64,51 @@ export default function Collection() {
 
   return (
     <div className="collection">
-      <CustomMenu data={customMenu} />
-      <div className='benifits'>
-        <h4>Benefits of Curry Wolf</h4>
-        <div>
-          <img src={faceSmile} alt='face smile icon' />
-          <h4>Special Selection</h4>
-          <p>Family manufacturer with its own recipe</p>
-        </div>
-        <div>
-          <img src={quickDelivery} alt='quick delivery icon' />
-          <h4>Quick Delivery</h4>
-          <p>We deliver within 2-4 days*</p>
-        </div>
-        <div>
-          <img src={securePay} alt='secure pay icon' />
-          <h4>Secure pay</h4>
-          <p>Pay securely via Paypal and Sofort.com</p>
-        </div>
-        <div>
-          <img src={earthLogo} alt='earth icon' />
-          <h4>CO₂ more neutral Shipment</h4>
-          <p>Shipping takes place with DHL GoGreen</p>
-        </div>
+      <div className="food-decorative-garland">
+        <img
+          src={decorativegarland}
+          className="decorative-image"
+          alt={decorativegarland}
+        />
       </div>
+      <CustomMenu data={customMenu} />
+      <div className='collection-banner'>
       <h1>{collection.title}</h1>
       {/* <p className="collection-description">{collection.description}</p> */}
       {collection.image && (
         <img src={collection.image.url}  className="collection image" alt={collection.image.altText || collection.title} />
       )}
+      </div>
+      <div className='benifits'>
+        <div className='container'>
+          <div className='benifits-inner-wrap'>
+            <h4>Vorteile von Curry Wolf</h4>
+        <div className='banifits-wrap'>
+        <div className='benifits-content'>
+          <img src={faceSmile} alt='face smile icon' />
+          <h4>Special Selection</h4>
+          <p>Family manufacturer with its own recipe</p>
+        </div>
+        <div className='benifits-content'>
+          <img src={quickDelivery} alt='quick delivery icon' />
+          <h4>Quick Delivery</h4>
+          <p>We deliver within 2-4 days*</p>
+        </div>
+        <div className='benifits-content'>
+          <img src={securePay} alt='secure pay icon' />
+          <h4>Secure pay</h4>
+          <p>Pay securely via Paypal and Sofort.com</p>
+        </div>
+        <div className='benifits-content'>
+          <img src={earthLogo} alt='earth icon' />
+          <h4>CO₂ more neutral Shipment</h4>
+          <p>Shipping takes place with DHL GoGreen</p>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
+
       <Pagination connection={collection.products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
@@ -129,7 +146,10 @@ function CustomMenu({ data }) {
  */
 function ProductsGrid({products}) {
   return (
-    <div className="products-grid">
+    <>
+       <div className="products-grid">
+      <div className='container'>
+        <div className='product-g-wrap'>
       {products.map((product, index) => {
         return (
           <ProductItem
@@ -138,8 +158,44 @@ function ProductsGrid({products}) {
             loading={index < 8 ? 'eager' : undefined}
           />
         );
+
       })}
+      </div>
+      </div>
     </div>
+    <div className='collection-logo-sec'>
+      <div className='container'>
+        <div className='c-logo-wrap'>
+          <div className='left-l'>
+            <h4>Worauf legen wir Wert?</h4>
+            <p>Jeder Schritt bei der Herstellung unserer Currywurst im Glas ist Handarbeit. Vom Braten, Schneiden, Abfüllen bis zum Verschießen und Einwecken des Glases führen wir alle Arbeitsschritte sorgfältig durch. Und wir legen Wert auf die Herkunft unserer Zutaten.  Das Produkt Original Berliner Currywurst ist vom Markenpatentamt geschützt. Wir sind selbst ein Berliner Familienunternehmen. Mit Leib und Seele unterstützen wir andere Berliner Familienbetriebe.</p>
+          </div>
+          <div className='right-l'>
+            <div className='c-right-wrap'>
+                <div className='right-inner'>
+                    <div className='l-logo'>
+                        <img src="../app/assets/trusted_shop_seal.png" />
+                    </div>
+                    <div className='r-content'>
+                      <p>Zertifizierter online-shop</p>
+                    </div>
+                </div>
+                <div className='right-inner'>
+                    <div className='l-logo'>
+                    <img src="../app/assets/DHL-GoGreen-Logo.png" />
+                    </div>
+                    <div className='r-content'>
+                      <p>Zertifizierter online-shop</p>
+                    </div>
+                </div>
+              </div>
+              <p>* Lieferzeitangaben gelten für Lieferungen innerhalb Deutschlands, Lieferzeiten für andere Länder entnehmen Sie bitte den Zahlungs- und Versandinformationen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    </>
+ 
   );
 }
 
@@ -180,11 +236,14 @@ function ProductItem({product, loading}) {
           sizes="(min-width: 45em) 400px, 100vw"
         />
       )}
-      <h4>{titleMain}<br/>{titleSub}</h4>
-      <small>
+      <h4>{titleMain}<br/></h4>
+      <span>{titleSub}</span>
+      <div className='c-price-range'>
         <Money data={product.priceRange.minVariantPrice} />
-      </small>
-      <span>Add to cart</span>
+        </div>
+        <div className='cart-btn'>
+          <span className='yellow-btn'>Add to cart</span>
+        </div>
     </Link>
 
     

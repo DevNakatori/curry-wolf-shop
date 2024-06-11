@@ -273,13 +273,15 @@ main {
 #cart-aside main div>span {
   color: #fff;
   font-size: 16px;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 #cart-aside main ul li {
   color: #fff;
   font-size: 16px;
-  font-family: 'Gotham';
+  font-family: 'Gotham-Book';
+  font-weight: 400;
 }
 
 .right-content .metafield .ingridiant-box {
