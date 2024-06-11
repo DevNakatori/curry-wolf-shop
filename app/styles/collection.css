@@ -14,7 +14,7 @@ main {
 radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 max-width: 783px;margin: 0 auto;border-radius: 25px;    padding: 11px 0px;
 position: absolute;
-top: 70px;
+top: 100px;
 left: 0;
 right: 0;
 
@@ -47,6 +47,7 @@ right: 0;
 .collection nav ul li a:hover{
     text-decoration: none;
 }
+.collection-banner img{width: auto;}
 .collection-banner h1{
     color: #fff;
     font-size: 120px;
@@ -174,6 +175,7 @@ top:-31px;
 .collection-badge p{
     font-size: 35px;
     font-family: 'Block Berthold';
+    color: #000;
 
 }
 .products-grid .product-g-wrap .cart-btn span{
@@ -256,7 +258,7 @@ top:-31px;
         .collection-logo-sec .c-logo-wrap .left-l,.collection-logo-sec .c-logo-wrap .right-l{width: 100%;}
         .collection-logo-sec .c-logo-wrap .right-l{margin-top: 30px;}
         .collection nav ul li a{font-size: 16px;}
-        .collection nav{padding: 6px 0px;max-width: 600px;top: 100px;position: initial;}
+        .collection nav{padding: 6px 0px;max-width: 600px;top: 100px;position: initial ;}
         .benifits h4{font-size: 20px;}
         .banifits-wrap{flex-wrap: wrap;gap: 10px;}
         .banifits-wrap .benifits-content p{font-size: 16px;max-width: initial;}
@@ -278,7 +280,7 @@ top:-31px;
         .collection-banner img{width: 70%;}
         .collection-banner{margin-top: 20px;padding-bottom: 30px;}
        
-        .collection nav{max-width: initial;margin: 0 20px;position: initial;}
+        .collection nav{max-width: initial;margin: 0 20px;position: initial;border-radius: 10px;}
         .products-grid .product-g-wrap {margin: 0;}
         .products-grid .product-g-wrap a{width: 96%;margin: 0;}
         .collection-badge p{font-size: 22px;}

@@ -515,7 +515,7 @@ header.header.transparent {
 }
 
 /* custom css start  */
-
+.food-decorative-garland img{width: 100%;}
 .container {
   max-width: 1710px;
   margin: 0 auto;
