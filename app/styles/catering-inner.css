@@ -73,11 +73,236 @@
     padding: 1rem;
     color:black;
   }
+
+
+.catering-inner{
+  background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
+}
+.inner-wolf-bestell {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 133px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 121px;
+}
+.inner-wolf-bestell h3{
+  font-size: 43px;
+  line-height: 54px;
+  color: #fff;
+  font-family: 'Block Berthold';
+  margin: 0 0 40px 0;
+}
+.inner-wolf-bestell a.yellow-btn {
+  min-width: 379px;
+  text-align: center;
+}
+.inner-wolf-bestell a.yellow-btn:hover{
+  text-decoration: none;
+  transform: scale(1.2);
+}
+.inner-wolf-bestell .left-content h1{margin-bottom: 10px;}
+.brandenburg{
+  display: flex;
+  padding-bottom: 150px;
+}
+.brandenburg .brand-left{
+  width: 65%;
+}
+.brandenburg .brand-right{
+  width: 35%;
+}
+.brandenburg .brand-right .b-btn-wrap{
+  padding-bottom: 80px;
+}
+.brand-left h2{
+  font-size: 60px;
+  line-height: 50px;
+  color: #fff;
+  font-family: 'Block Berthold';
+  font-weight: 400;
+  margin-bottom: 57px;
+}
+.brand-left p{
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
+  max-width: 910px;
+}
+.c-brand-content p span,.brandenburg .brand-right p{
+font-size: 20px;
+line-height: 24px;
+margin-bottom: 25px;
+display: block;
+}
+.c-brand-content p:nth-child(even){
+  padding-bottom: 50px;
+}
+.c-brand-content p{
+  font-size: 18px;
+  line-height: 21px;
+  font-family: 'Gotham-Book';
+  font-weight: 400;
+  
+}
+.c-brand-content{
+  padding: 88px 0;
+  max-width: 910px;
+}
+.b-btn-wrap a{min-width: 276px;text-align: center;}
+.b-btn-wrap a:hover{
+  text-decoration: none;
+  transform: scale(1.2);
+}
+.c-brand-content p:last-child{
+  padding-bottom: 0;
+}
+.img-big-wrap {
+  position: relative;
+  height: auto;
+  width: 64%;
+  margin-left: 40px;
+}
+.img-one {
+  width: 100%;
+  background: #fff;
+  position: relative;
+  height: 100%;
+  box-shadow: 0px 4px 20px 0px #00000040;
+  padding-bottom: 30px;
+  transform: rotate(7deg);
+}
+.img-one:before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  background: url(/app/assets/pushpin.png) no-repeat center / contain;
+  left: 0px;
+  right: 0;
+  width: 103px;
+  height: 104px;
+  margin: 0 auto;
+  background-size: 100%;
+  transform: rotate(8deg);
+}
+.inner-white-box {
+  padding: 20px;
+  margin-top: 0px;
+}
+.img-one img {
+  width: 100%;
+}
+.white-box-content {
+  font-size: 30px;
+  line-height: 70px;
+  font-family: 'Block Berthold';
+  text-align: center;
+}
+.reference{
+  padding: 91px 0 105px;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+}
+.reference h3{
+  font-size: 25px;
+  line-height: 29px;
+  color: #fff;
+  font-family: 'Block Berthold';
+  margin: 0 0 40px 0;
+}
+.ref-wrap{
+  display: flex;
+  justify-content: space-between;
+}
+.ref-box {
+  max-width: 321px;
+}
+.ref-box p{font-size: 18px;line-height: 21px; font-family: 'Gotham-Book';
+  font-weight: 400;}
+.ref-title h4{
+  font-size: 20px;
+  line-height: 24px;
+  font-family: 'Chivo-Regular';
+  color: #fff;
+  margin-bottom: 0;
+}
+.ref-title {
+  margin-top: 35px;
+}
+.wolf-logo {
+  display: flex;
+  padding: 95px 0;
+  border-bottom: 1px solid #fff;
+}
+.wolf-logo .w-left-content{
+  width: 45%;
+}
+.wolf-logo  .w-right-logo{
+  width: 55%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.logo-box {
+  width: calc(100% / 5);
+  margin-bottom: 50px;
+}
+.wolf-logo .w-left-content h3{
+  font-size: 90px;
+  line-height: 66px;
+  color: #fff;
+  font-family: 'Block Berthold';
+  margin: 0 0 15px 0;
+}
+.wolf-logo .w-left-content p{
+  font-size: 30px;
+  line-height: 35px;
+  font-family: 'Block Berthold';
+  color: #fff;
+  margin-bottom: 10px;
+}
+.faq-sec{
+display: flex;
+padding: 103px 0;
+}
+.faq-sec .faq-left{
+  width: 45%;
+}
+.faq-sec .faq-left h3{
+  margin: 0;
+  color: #fff;
+  font-size: 25px;
+  line-height: 29px;
+  font-family: 'Block Berthold';
+  margin-bottom: 46px;
+}
+.faq-sec .faq-right{
+  width: 55%;
+}
+.faq-sec .faq-left a{
+  min-width: 379px;
+  text-align: center;
+}
+.faq-sec .faq-left a:hover{
+  text-decoration: none;
+  transform: scale(1.2);
+}
+
+
+
+
+
+
+
+
+
+
+
   /* Arrow animation */
   .tab input:not(:checked) + .tab__label:hover::after {
     animation: bounce .5s infinite;
   }
-  @keyframes bounce {
+@keyframes bounce {
     25% {
       transform: rotate(90deg) translate(.25rem);
     }
