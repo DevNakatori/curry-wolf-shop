@@ -7,6 +7,20 @@
   }
 
 /* Core styles/functionality */
+.faq-sec .faq-left a:hover{
+  text-decoration: none;
+  transform: scale(1.2);
+}
+.faq-sec .faq-right .accordion,.tab__label{
+  border: 0;
+  background-color: transparent;
+}
+.tab input:checked ~ .tab__content p{
+  font-weight:bold;
+}
+.tab input:checked ~ label{
+  font-weight:bold;
+}
 .tab input {
     position: absolute;
     opacity: 0;
@@ -23,44 +37,53 @@
   
   /* Visual styles */
   .accordion {
-    color: var(--theme);
-    border: 2px solid;
-    border-radius: 0.5rem;
     overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
   }
+  .accordion .tab:first-child .tab__label{
+    padding-top: 0;
+  }
+  .tab {
+    border-bottom: 1px solid #FFFFFF;
+}
+.tab:last-child{
+  border-bottom: 0;
+}
   .tab__label,
   .tab__close {
     display: flex;
     color: white;
-    background: var(--theme);
     cursor: pointer;
   }
   .tab__label {
     justify-content: space-between;
-    padding: 1rem;
+    padding: 30px 0;
+    font-size: 18px;
+    line-height: 22px;
+    font-family: 'Gotham-Book';
+    font-weight: 400;
+    align-items: center;
   }
   .tab__label::after {
-    content: "\276F";
-    width: 1em;
-    height: 1em;
+    content: "";
+    width: 27px;
+    height:14px;
     text-align: center;
-    transform: rotate(90deg);
     transition: all 0.35s;
+    background: url(../app/assets/down-arrow.svg) no-repeat center / contain;
   }
   .tab input:checked + .tab__label::after {
-    transform: rotate(270deg);
+    transform: rotate(180deg);
   }
   .tab__content p {
     margin: 0;
-    padding: 1rem;
+padding: 0px 0 25px;
   }
   .tab__close {
     justify-content: flex-end;
     padding: 0.5rem 1rem;
     font-size: 0.75rem;
-  }
-  .accordion--radio {
-    --theme: var(--secondary);
   }
   div#faq {
     display: grid;
@@ -73,8 +96,6 @@
     padding: 1rem;
     color:black;
   }
-
-
 .catering-inner{
   background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
 }
@@ -149,7 +170,7 @@ display: block;
   padding: 88px 0;
   max-width: 910px;
 }
-.b-btn-wrap a{min-width: 276px;text-align: center;}
+.b-btn-wrap a{min-width: 276px;text-align: center;font-size: 18px;line-height: 21px;}
 .b-btn-wrap a:hover{
   text-decoration: none;
   transform: scale(1.2);
@@ -213,6 +234,7 @@ display: block;
 .ref-wrap{
   display: flex;
   justify-content: space-between;
+  gap: 15px;
 }
 .ref-box {
   max-width: 321px;
@@ -247,6 +269,7 @@ display: block;
   width: calc(100% / 5);
   margin-bottom: 50px;
 }
+
 .wolf-logo .w-left-content h3{
   font-size: 90px;
   line-height: 66px;
@@ -283,9 +306,94 @@ padding: 103px 0;
   min-width: 379px;
   text-align: center;
 }
-.faq-sec .faq-left a:hover{
-  text-decoration: none;
-  transform: scale(1.2);
+@media (max-width:1440px) {
+  .logo-box img{
+    width: 70%;
+  }
+  .logo-box:nth-child(1) img{
+    width: auto;
+  } 
+}
+@media (max-width:1200px) {
+  .inner-wolf-bestell .left-content h1{
+    font-size: 100px;
+    line-height: 90px;
+  }
+  .wolf-logo .w-left-content p{
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .wolf-logo .w-left-content h3{font-size: 80px;}
+  .brandenburg .brand-left{padding-right: 40px;}
+  .white-box-content{font-size: 26px;line-height: 30px;}
+  .inner-white-box{padding: 15px;}
+  .img-big-wrap{width: 80%;}
+  .ref-title h4{font-size: 14px;}
+  .ref-box p{font-size: 16px;}
+}
+@media (max-width:1024px) {
+  .inner-wolf-bestell{padding-bottom: 70px;margin-bottom: 70px;}
+  .inner-wolf-bestell .left-content h1{font-size: 80px;line-height: 80px;}
+  .inner-wolf-bestell h3{font-size: 34px;line-height: 44px;}
+  .brand-left h2{font-size: 42px;line-height: 50px;margin-bottom: 30px;}
+  .brand-left p{font-size: 18px;line-height: 22px;}
+  .white-box-content{font-size: 22px;line-height: 25px;}
+  .c-brand-content{    padding: 88px 0 50px;}
+  .brandenburg{padding-bottom: 70px;}
+  .reference{padding: 70px 0;}
+  .wolf-logo .w-left-content h3{font-size: 60px;}
+  .logo-box{width: calc(100% / 2);}
+  .wolf-logo .w-left-content p{font-size: 18px;line-height: 22px;}
+  .faq-sec .faq-left a{min-width: 279px;font-size: 16px;}
+  .tab__label{font-size: 16px;}
+  .logo-box img{width: auto;}
+  .b-btn-wrap a{font-size: 16px;min-width: 236px;}
+  .c-brand-content p span, .brandenburg .brand-right p{font-size:16px;line-height: 22px;}
+  .c-brand-content{padding: 50px 0 50px;}
+  .brand-left p{font-size: 16px;}
+  .wolf-logo{padding: 70px 0;}
+  .inner-wolf-bestell a.yellow-btn{min-width: 300px;font-size: 16px;}
+}
+
+@media (max-width:767px) {
+  .inner-wolf-bestell .left-content h1{font-size: 60px;line-height: 60px;}
+  .brandenburg{flex-wrap: wrap;}
+  .brandenburg .brand-left{width: 100%;padding-right: 0;}
+  .c-brand-content p:nth-child(even){padding-bottom: 30px;}
+  .c-brand-content{padding: 30px 0 0;}
+  .brandenburg .brand-right{width: 100%;}
+  .c-brand-content .b-btn-wrap {
+    margin-bottom: 30px;
+}
+.ref-wrap{flex-wrap: wrap;gap: 25px;}
+.ref-title {
+  margin-top: 15px;
+}
+.wolf-logo{padding: 50px 0 0;}
+.faq-sec {padding: 50px 0;}
+.ref-box{max-width: initial;}
+.reference{padding: 50px 0;}
+.wolf-logo{flex-wrap: wrap;}
+.wolf-logo .w-left-content,.wolf-logo .w-right-logo{width: 100%;}
+.wolf-logo .w-left-content{margin-bottom: 25px;text-align: center;}
+.brandenburg .brand-left .b-btn-wrap{margin-bottom: 30px;}
+.logo-box {
+  width: calc(100% / 3);
+  text-align: center;
+}
+.logo-box img{width: 60%;}
+.left-content {
+  text-align: center;
+}
+.inner-wolf-bestell{
+  justify-content: center;
+}
+}
+@media (max-width:575px) {
+  .inner-wolf-bestell{flex-wrap: wrap;}
+  .inner-wolf-bestell{padding-bottom: 50px;margin-bottom: 50px;}
+  .inner-wolf-bestell h3{margin: 0 0 30px 0;}
+  .inner-wolf-bestell h3{font-size: 30px;line-height: 40px;}
 }
 
 
@@ -293,20 +401,3 @@ padding: 103px 0;
 
 
 
-
-
-
-
-
-  /* Arrow animation */
-  .tab input:not(:checked) + .tab__label:hover::after {
-    animation: bounce .5s infinite;
-  }
-@keyframes bounce {
-    25% {
-      transform: rotate(90deg) translate(.25rem);
-    }
-    75% {
-      transform: rotate(90deg) translate(-.25rem);
-    }
-  }

@@ -489,7 +489,7 @@ header.header.transparent {
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   -webkit-transition-duration: 0.3s;
-  transition-duration: 0.3s;
+  transition-duration: 0.5s;
   -webkit-transition-property: transform;
   transition-property: transform;
   text-transform: capitalize;
