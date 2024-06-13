@@ -1,3 +1,88 @@
+
+// location page animation 
+
+    document.addEventListener('DOMContentLoaded', (event) => {
+      setTimeout(function() {   
+      const video1 = document.getElementById('video1');
+      const video2 = document.getElementById('video2');
+      const videocontainer = document.getElementById('video-container');
+
+      const overlayImages = document.querySelectorAll('.overlayImage');
+      const positions = [{
+              x: 11,
+              y: 41
+          },
+          {
+              x: 23,
+              y: 34
+          },
+          {
+              x: 19,
+              y: 26
+          },
+          {
+              x: 25.5,
+              y: 22.5
+          },
+          {
+              x: 30.5,
+              y: 24
+          }
+      ];
+
+      function positionOverlayImages() {   
+          const rect = videocontainer.getBoundingClientRect();
+          overlayImages.forEach((image, index) => {
+              const xPercentage = positions[index].x;
+              const yPercentage = positions[index].y;
+              const xPos = rect.left + (rect.width * xPercentage / 100) - (image.width / 2);
+              const yPos = rect.top + (rect.height * yPercentage / 100) - (image.height / 2);
+              /*image.style.left = `${xPos}px`;
+              image.style.top = `${yPos}px`;*/
+
+              image.style.left = `${xPercentage}%`;
+              image.style.top = `${yPercentage}%`;
+              image.style.transform = `translate(${xPos}px, ${yPos}px)`;
+
+            
+              image.addEventListener('mouseenter', () => {
+                  image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(-10px)`;
+              });
+              
+              image.addEventListener('mouseleave', () => {
+                  image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(0px)`;
+              });
+          });
+      }
+
+      function showImagesSequentially() {
+          overlayImages.forEach((image, index) => {
+              setTimeout(() => {
+                  image.style.opacity = 1;
+              }, index * 500);
+          });
+      }
+
+      positionOverlayImages();
+      setTimeout(function() {
+          showImagesSequentially();
+      }, 2000);
+
+      video1.addEventListener('ended', () => {
+          video1.style.display = 'none';
+          video2.style.display = 'block';
+          video2.play();
+      });
+
+      window.addEventListener('resize', () => {
+          positionOverlayImages();
+          showImagesSequentially();
+      });
+    }, 2000);
+    });
+
+// location page end 
+
 AOS.init({
   duration: 1000,
 })
@@ -16,9 +101,9 @@ window.addEventListener('scroll', function() {
 
     // Handle overlay opacity
     if (scrollPosition > 100) {
-        videoOverlay.style.opacity = 1;
+    //    videoOverlay.style.opacity = 1;
     } else {
-        videoOverlay.style.opacity = 0;
+     //   videoOverlay.style.opacity = 0;
     }   
 });
 
@@ -120,3 +205,5 @@ if (window.innerWidth < 768) {
 
 //   equalHeight(equalHeightElements);
 // });
+
+
