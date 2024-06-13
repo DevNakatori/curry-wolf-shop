@@ -98,5 +98,16 @@
     font-style: normal;
     font-display: swap;
 }
-
+@font-face {
+    font-family: 'Neue-Haas-Grotesk-Display-Pro';
+    src: url('./fonts/NeueHaasDisplay-Bold.eot');
+    src: url('./fonts/NeueHaasDisplay-Bold.eot?#iefix') format('embedded-opentype'),
+        url('./fonts/NeueHaasDisplay-Bold.woff2') format('woff2'),
+        url('./fonts/NeueHaasDisplay-Bold.woff') format('woff'),
+        url('./fonts/NeueHaasDisplay-Bold.ttf') format('truetype'),
+        url('./fonts/NeueHaasDisplay-Bold.svg#NeueHaasDisplay-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
 

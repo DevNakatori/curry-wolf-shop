@@ -97,3 +97,26 @@ if (window.innerWidth < 768) {
     updateSlider();
 }, 2000);
 }
+// document.addEventListener("DOMContentLoaded", function() {
+//   function equalHeight(group) {
+//       var tallest = 0;
+      
+//       // Calculate the tallest height
+//       group.forEach(function(element) {
+//           var thisHeight = element.offsetHeight;
+//           if (thisHeight > tallest) {
+//               tallest = thisHeight;
+//           }
+//       });
+      
+//       // Set all elements to the tallest height
+//       group.forEach(function(element) {
+//           element.style.height = tallest + 'px';
+//       });
+//   }
+
+//   // Select elements and convert NodeList to an array
+//   var equalHeightElements = Array.prototype.slice.call(document.querySelectorAll(".products-grid .product-g-wrap h4"));
+
+//   equalHeight(equalHeightElements);
+// });

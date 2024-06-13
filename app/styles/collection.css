@@ -47,7 +47,7 @@ right: 0;
 .collection nav ul li a:hover{
     text-decoration: none;
 }
-.collection-banner img{width: auto;}
+.collection-banner img{width: 704px;}
 .collection-banner h1{
     color: #fff;
     font-size: 120px;
@@ -78,7 +78,7 @@ right: 0;
 .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: -40px;
+    margin-top: 0px;
     padding-bottom: 50px;
 }
 .benifits h4{
@@ -222,7 +222,22 @@ top:-31px;
 .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner:last-child {
         justify-content: end;
     }
-
+    .previous-button {
+        text-align: center;
+        margin-top: 25px;  
+    }
+    .loadmore-button {
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    .previous-button .yellow-btn,
+    .loadmore-button .yellow-btn {
+        width:max-content;
+        padding: 14px 28px 14px;
+    }
+    .loadmore-button a span:hover {
+        transform: scale(1.2);  
+    }
 
     @media (max-width:1540px) {
         .benifits .container{padding: 73px 0px;padding: 0 20px;}
@@ -240,7 +255,6 @@ top:-31px;
         .collection-badge{    width: 90px;
             height: 88px;}
             .collection-badge p{font-size: 32px;}
-            .collection-banner{margin-top: -20px;}
     }
     @media (max-width:1199px) {
         .products-grid .product-g-wrap a{margin: 0 77px;width: calc(100% / 3 - 165px);}
@@ -274,21 +288,35 @@ top:-31px;
         .collection-banner img{width: 70%;}
         .collection-banner{margin-top: 50px;}
         .collection nav ul li{padding: 0 18px;}
+        .products-grid .product-g-wrap a img{border-radius: 10px;}
     }
     @media (max-width:767px) {
-        .collection-banner h1{font-size: 60px;line-height: 60px;}
-        .collection-banner img{width: 70%;}
+        .collection-banner h1{font-size: 32px;line-height: 50px;position: absolute;font-family: 'RubikOne-Regular';}
+        .collection-banner img{width: 292px;}
         .collection-banner{margin-top: 20px;padding-bottom: 30px;}
-       
-        .collection nav{max-width: initial;margin: 0 20px;position: initial;border-radius: 10px;}
-        .products-grid .product-g-wrap {margin: 0;}
-        .products-grid .product-g-wrap a{width: 96%;margin: 0;}
-        .collection-badge p{font-size: 22px;}
-        .collection-badge{width: 70px;height: 70px;right: -28px;}
+        .collection nav ul li a{font-size: 14px;}
+        .collection nav{max-width: initial;margin: 0 20px 45px;position: initial;border-radius: 10px;}
+        .products-grid .product-g-wrap {margin: 0;column-gap: 60px;}
+        .products-grid .product-g-wrap a{width: 42%;margin: 0;        padding-bottom: 35px;}
+        .collection-badge p{font-size: 16px;}
+        .collection-badge{width: 45px;
+            height: 45px;
+            right: -12px;
+            top: -23px;}
         .products-grid .product-g-wrap h4, .products-grid .product-g-wrap .c-price-range{margin-top: 20px;}
-        .collection-banner h1{position: initial;}
-        .collection nav ul li{padding: 0 15px;}
-
+        .collection nav ul li{padding: 0 6px;}
+        .products-grid .product-g-wrap h4, .products-grid .product-g-wrap .c-price-range{font-family: 'Neue-Haas-Grotesk-Display-Pro';}
+        .c-price-range > div{font-size: 14px;margin-top: 10px;}
+        .products-grid .product-g-wrap .cart-btn span{border-radius: 5px;font-size: 14px;}
+        .products-grid .product-g-wrap .cart-btn span{width: 96px;padding: 2px 0; font-family: 'Chivo-Regular';}
+        .products-grid .product-g-wrap a img {
+            border-radius: 10px;
+        }
+        .products-grid .container{padding:0;}
+        .c-price-range{    margin: 0 auto 10px;margin-top: 15px !important;}
+        .products-grid {
+            padding: 50px 0 0;
+        }
     }
     @media (max-width:575px) {
         .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap{width: 100%;flex-direction: column;}
@@ -297,20 +325,21 @@ top:-31px;
             text-align: center;
     }
     .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner .r-content p{max-width: initial;}
-    .collection nav ul li{padding: 0 10px;}
     .collection nav ul{gap: 0;flex-wrap: wrap;}
     .benifits h4{text-align: center;    margin-bottom: 40px;}
     .banifits-wrap .benifits-content{width: 100%;text-align: center;}
-    .collection-banner h1 {
-        font-size: 52px;
-        line-height: 52px;
-    }
     .collection-banner{margin-top: 10px;}
 }
 @media (max-width:480px) {
     .collection nav{top: 90px;}
 }
+@media (max-width:414px) {
+    .products-grid .product-g-wrap a{width: 100%;}
+    .products-grid .product-g-wrap{column-gap: 0;}
+    .products-grid .container{padding: 0 20px;}
+}
+
 @media (max-width:350px) {
-    .products-grid .product-g-wrap a{width: 85%;}
+    .products-grid .product-g-wrap a{width: 89%;}
     .collection-badge{right: -18px;}
 }
