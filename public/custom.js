@@ -79,6 +79,52 @@
           showImagesSequentially();
       });
     }, 2000);
+
+    // for mobile and tablet /
+function detectMobile() 
+{
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+        return true;
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return true;
+    }
+    return false;
+}
+
+if (detectMobile()) 
+{
+    document.addEventListener('DOMContentLoaded', () => {
+        const parent = document.querySelector('.thereedmainsection');
+        const child = document.querySelector('.video-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        parent.addEventListener('touchstart', (e) => {
+            isDown = true;
+            child.style.cursor = 'grabbing';
+            startX = e.touches[0].pageX - child.offsetLeft;
+            scrollLeft = parent.scrollLeft;
+        });
+        parent.addEventListener('touchend', () => {
+            isDown = false;
+            child.style.cursor = 'grab';
+        });
+        parent.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - child.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scrolling speed
+            parent.scrollLeft = scrollLeft - walk;
+        });
+    });
+    console.log("This is a mobile device.");
+} else {
+    console.log("This is not a mobile device.");
+}
+// for mobile and tablet /
+
     });
 
 // location page end 
