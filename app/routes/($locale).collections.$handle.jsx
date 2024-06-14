@@ -139,7 +139,7 @@ export default function Collection() {
             <div className='c-right-wrap'>
                 <div className='right-inner'>
                     <div className='l-logo'>
-                        <img src="../app/assets/trusted_shop_seal.png" />
+                        <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/trusted_shop_seal_2_1.png?v=1718372000" />
                     </div>
                     <div className='r-content'>
                       <p>Zertifizierter online-shop</p>
@@ -147,7 +147,7 @@ export default function Collection() {
                 </div>
                 <div className='right-inner'>
                     <div className='l-logo'>
-                    <img src="../app/assets/DHL-GoGreen-Logo.png" />
+                    <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/DHL-GoGreen-Logo_2_1.png?v=1718372000" />
                     </div>
                     <div className='r-content'>
                       <p>Zertifizierter online-shop</p>
