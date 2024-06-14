@@ -308,7 +308,9 @@ main {
 .right-content .metafield .ingridiant-box p{font-size: 18px;line-height: 21px;font-family: 'Gotham-Book';
   font-weight: 400;}
 
-
+  .right-bottom-content .cerified-box:nth-child(1) img{
+    width: 67px;
+  }
 /* @supports(animation-range: 0vh 100vh) {
   @keyframes sticky-parallax-header-move-and-size {
     from {

@@ -47,7 +47,7 @@ right: 0;
 .collection nav ul li a:hover{
     text-decoration: none;
 }
-.collection-banner img{width: 704px;}
+.collection-banner img{width: 760px;}
 .collection-banner h1{
     color: #fff;
     font-size: 120px;
@@ -279,7 +279,9 @@ top:-31px;
         .benifits .benifits-content h4{max-width:initial;}
         .banifits-wrap .benifits-content{width: 49%;margin-bottom: 30px;}
         .benifits .container .benifits-inner-wrap,.collection-logo-sec .c-logo-wrap{padding: 33px 0;}
-        .products-grid .product-g-wrap a{width: calc(100% / 2 - 197px);margin: 0 91px;padding-bottom: 60px;}
+        .products-grid .product-g-wrap a{        width: calc(100% / 2 - 60px);
+            margin: 0 30px;padding-bottom: 60px;}
+            .products-grid .product-g-wrap{margin: 0;}
         .collection-logo-sec .c-logo-wrap .left-l p,.collection-logo-sec .c-logo-wrap .right-l p{max-width: initial;}
         .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap{width: 60%;flex-direction: initial;}
         .collection-logo-sec .c-logo-wrap .left-l h4{margin-bottom: 35px;}
@@ -291,12 +293,13 @@ top:-31px;
         .products-grid .product-g-wrap a img{border-radius: 10px;}
     }
     @media (max-width:767px) {
-        .collection-banner h1{font-size: 32px;line-height: 50px;position: absolute;font-family: 'RubikOne-Regular';}
+        
+        .collection-banner h1{font-size: 32px;line-height:28px;position: absolute;font-family: 'RubikOne-Regular';}
         .collection-banner img{width: 292px;}
         .collection-banner{margin-top: 20px;padding-bottom: 30px;}
         .collection nav ul li a{font-size: 14px;}
         .collection nav{max-width: initial;margin: 0 20px 45px;position: initial;border-radius: 10px;}
-        .products-grid .product-g-wrap {margin: 0;column-gap: 60px;}
+        .products-grid .product-g-wrap {margin: 0;column-gap: 60px;justify-content: center;}
         .products-grid .product-g-wrap a{width: 42%;margin: 0;        padding-bottom: 35px;}
         .collection-badge p{font-size: 16px;}
         .collection-badge{width: 45px;
@@ -337,6 +340,11 @@ top:-31px;
     .products-grid .product-g-wrap a{width: 100%;}
     .products-grid .product-g-wrap{column-gap: 0;}
     .products-grid .container{padding: 0 20px;}
+    .products-grid .product-g-wrap {margin: 0;column-gap: 60px;justify-content: left;}
+    .collection .container{padding: 0;}
+    .benifits .container,.collection-logo-sec .container,.products-grid .container{padding: 0 20px;}
+    .products-grid .product-g-wrap a img{width: 80% !important;}
+    
 }
 
 @media (max-width:350px) {
