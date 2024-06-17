@@ -147,9 +147,9 @@ window.addEventListener('scroll', function() {
 
     // Handle overlay opacity
     if (scrollPosition > 100) {
-    //    videoOverlay.style.opacity = 1;
+       videoOverlay.style.opacity = 1;
     } else {
-     //   videoOverlay.style.opacity = 0;
+      videoOverlay.style.opacity = 0;
     }   
 });
 
