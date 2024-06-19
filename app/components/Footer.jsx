@@ -22,7 +22,7 @@ export function Footer({menu, shop}) {
       )}
     </div>
       </div>
-      <img className='footer-berline-logo' src={footerLogoBerline} alt='footer-logo' />
+      <img className='footer-berline-logo' data-aos="zoom-in" data-aos-duration="1500" src={footerLogoBerline} alt='footer-logo' />
     </footer>
   
   );
@@ -46,12 +46,12 @@ function FooterMenu({menu, primaryDomainUrl}) {
     <div className='left-block-wrap'>
       <div className='logo'>
         <a href='/'>
-      <img className="footer-bg-img" src={footerLogo} alt='footer-logo' />
+      <img className="footer-bg-img" data-aos="zoom-in" data-aos-duration="1500" src={footerLogo} alt='footer-logo' />
         </a>
       </div>
     <nav className="footer-menu" role="navigation">
-      <span className='yellow-head'>Menu</span>
-        <ul>
+      <span className='yellow-head' data-aos="zoom-in" data-aos-duration="1500">Menu</span>
+        <ul data-aos="zoom-in" data-aos-duration="1500">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;
         // if the url is internal, we strip the domain

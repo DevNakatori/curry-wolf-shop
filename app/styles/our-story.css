@@ -47,9 +47,10 @@
     justify-content: center;
     align-items: center;
     padding-bottom: 215px;
+    position: relative;
    
 }
-.our-story-sec::before {
+/* .our-story-sec::before {
     position: absolute;
     content: "";
     left: -3px;
@@ -59,6 +60,21 @@
     height: 100%;
     text-align: center;
     margin: 0 auto;
+} */
+.our-story-box:nth-child(1)::before,.our-story-box:nth-child(2)::before {
+    position: absolute;
+    content: "";
+    left: -3px;
+    right: 0;
+   /* background-image: url('data:image/svg+xml,%3Csvg%20id%3D%22line-svg%22%20version%3D%221.1%22%20id%3D%22Layer_1%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20xmlns%3Axlink%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxlink%22%20x%3D%220px%22%20y%3D%220px%22%20width%3D%22173px%22%20height%3D%22167.5px%22%20viewBox%3D%220%200%20173%20167.5%22%20enable-background%3D%22new%200%200%20173%20167.5%22%20xml%3Aspace%3D%22preserve%22%3E%3Cline%20id%3D%22line-path%22%20fill%3D%22none%22%20stroke%3D%22%232BAAE2%22%20stroke-width%3D%224.8484%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22round%22%20stroke-miterlimit%3D%2210%22%20x1%3D%2286.5%22%20y1%3D%225%22%20x2%3D%2286.5%22%20y2%3D%22162.5%22%2F%3E%3C%2Fsvg%3E
+'); */
+    width: 1px;
+    height: 34%;
+    text-align: center;
+    margin: 0 auto;
+    top: auto;
+    bottom: 0;
+    animation:lineup 3s forwards;
 }
 .our-story-box h2{
     font-size: 100px;
@@ -143,7 +159,14 @@
 .our-story-box:last-child {
     padding-bottom: 0;
 }
-
+@keyframes lineup {
+    0% {
+      height: 0px;
+    }
+    100% {
+      height: 220px;
+    }
+  }
 @media (max-width: 1540px) {
     .img-one{padding-bottom: 57px;}
 }

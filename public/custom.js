@@ -1,4 +1,3 @@
-
 // location page animation 
 
     document.addEventListener('DOMContentLoaded', (event) => {
@@ -129,10 +128,67 @@ if (detectMobile())
 
 // location page end 
 
+if (window.innerWidth < 768) {
+  setTimeout(function() {
+  const sliderContainer = document.querySelector('.ref-wrap');
+  const slides = document.querySelectorAll('.ref-box');
+  let currentIndex = 0;
+  let slidesToShow = 1; // Default to 1 slide shown
+
+  function updateSlider() {
+    if (window.innerWidth < 768) {
+      slidesToShow = 2; // Show 2 slides in mobile view
+    } else {
+      slidesToShow = 1; // Show 1 slide in desktop view
+    }
+
+    const width = sliderContainer.clientWidth / slidesToShow;
+    slides.forEach(slide => {
+      slide.style.minWidth = `${width}px`;
+    });
+    sliderContainer.style.transform = `translateX(${-width * currentIndex}px)`;
+  }
+
+  function nextSlide() {
+    if (currentIndex < slides.length - slidesToShow) {
+      currentIndex += 1;
+    } else {
+      currentIndex = 0;
+    }
+    updateSlider();
+  }
+
+  function startAutoplay() {
+    setInterval(nextSlide, 3000); // Autoplay interval
+  }
+
+  function resetAutoplay() {
+    clearInterval(autoplayInterval);
+    startAutoplay();
+  }
+
+  window.addEventListener('resize', function() {
+    updateSlider();
+    currentIndex = 0; // Reset currentIndex on resize
+  });
+
+  updateSlider(); // Initial setup
+
+  startAutoplay(); // Start autoplay
+}, 2000);
+}
+
+
+// catering Mobile Slider END
+
+// Animations start
 AOS.init({
   duration: 1000,
 })
 
+// Animations end
+
+//  Home page Animation Start
 const handleScroll = () => {
 };
 
@@ -147,12 +203,15 @@ window.addEventListener('scroll', function() {
 
     // Handle overlay opacity
     if (scrollPosition > 100) {
-    //    videoOverlay.style.opacity = 1;
+       videoOverlay.style.opacity = 1;
     } else {
      //   videoOverlay.style.opacity = 0;
     }   
 });
 
+// Home Page animation END
+
+// Home pahe slider start
 if (window.innerWidth < 768) {
   setTimeout(function() {   
     const sliderWrapper = document.getElementById('slider-wrapper');
@@ -228,6 +287,54 @@ if (window.innerWidth < 768) {
     updateSlider();
 }, 2000);
 }
+
+// Home page slider END
+
+// Get a reference to the <path>
+var path = document.querySelector('#line-path');
+
+// Get length of path... ~577px in this case
+var pathLength = path.getTotalLength();
+
+// Make very long dashes (the length of the path itself)
+path.style.strokeDasharray = pathLength + ' ' + pathLength;
+
+// Offset the dashes so the it appears hidden entirely
+path.style.strokeDashoffset = pathLength;
+
+// Jake Archibald says so
+// https://jakearchibald.com/2013/animated-line-drawing-svg/
+path.getBoundingClientRect();
+
+// When the page scrolls...
+window.addEventListener("scroll", function(e) {
+ 
+  // What % down is it? 
+  // https://stackoverflow.com/questions/2387136/cross-browser-method-to-determine-vertical-scroll-percentage-in-javascript/2387222#2387222
+  // Had to try three or four differnet methods here. Kind of a cross-browser nightmare.
+  var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
+    
+  // Length to offset the dashes
+  var drawLength = pathLength * scrollPercentage;
+  
+  // Draw in reverse
+  path.style.strokeDashoffset = pathLength - drawLength;
+    
+  // When complete, remove the dash array, otherwise shape isn't quite sharp
+ // Accounts for fuzzy math
+  if (scrollPercentage >= 0.99) {
+    path.style.strokeDasharray = "none";
+    
+  } else {
+    path.style.strokeDasharray = pathLength + ' ' + pathLength;
+  }
+  
+});
+
+
+
+
+
 // document.addEventListener("DOMContentLoaded", function() {
 //   function equalHeight(group) {
 //       var tallest = 0;

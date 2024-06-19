@@ -47,15 +47,15 @@ video#bgVideo {
   width: 100%;
 }
 
-.second-time-video-text .slide img {
+/* .second-time-video-text .slide img {
   view-timeline-name: --revealing-image;
   view-timeline-axis: block;
 
   animation: linear reveal both;
   animation-timeline: --revealing-image;
   animation-range: entry 25% cover 50%;
-}
-
+} */
+.video-overlay.visible{opacity: 1;}
 .inner-white-box {
   padding: 20px;
   margin-top: 0px;
@@ -105,15 +105,15 @@ section {
 }
 .first-time-video-text h1 {
   /* position: relative; */
-  animation: grow both ease-in, fade-away both linear;
+  /* animation: grow both ease-in, fade-away both linear;
   animation-timeline: --section;
-  animation-range: exit-crossing -60% exit-crossing 20%, exit 0% exit 80%;
-  position: fixed;
+  animation-range: exit-crossing -60% exit-crossing 20%, exit 0% exit 80%; */
+  /* position: fixed;
   top: 50%;
   left: 50%;
   margin: 0;
   translate: -40% -50%;
-  width: 100%;
+  width: 100%; */
 }
 
 .second-time-video-text h2 {
@@ -220,9 +220,9 @@ a.yellow-btn:hover {
 
 .food-decorative-garland img {
   width: 100%;
-  animation: grow both ease-in, fade-away both linear;
+  /* animation: grow both ease-in, fade-away both linear;
   animation-timeline: --section;
-  animation-range: exit-crossing -60% exit-crossing 10%, exit 0% exit 80%;
+  animation-range: exit-crossing -60% exit-crossing 10%, exit 0% exit 80%; */
 }
 
 .hungry-wolf-sec .h-w-box {

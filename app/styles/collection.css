@@ -36,6 +36,9 @@ right: 0;
   color: rgba(0, 0, 0, 1);
   position: relative;
 }
+.collection nav ul li a.active {
+    border-bottom: 1px solid #000;
+}
 .collection nav ul li a:hover:before{
     content: "";
     position: absolute;

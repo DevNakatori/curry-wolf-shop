@@ -13,7 +13,7 @@ export function Header({header, isLoggedIn, cart}) {
       <div className='container'>
       <div className='inner-header'>
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <img className="desktop-logo" src={shopLogo} alt='logo' />
+        <img className="desktop-logo" src={shopLogo} alt='logo' data-aos="zoom-in" data-aos-duration="1500" />
         {/* <strong>{shop.name} </strong> */}
       </NavLink>
       <HeaderMenu
@@ -79,7 +79,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             onClick={closeAside}
             prefetch="intent"
             style={activeLinkStyle}
-            to={url}
+            to={url} data-aos="zoom-in" data-aos-duration="1500"
           >
             {item.title}
         
@@ -95,7 +95,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
  */
 function HeaderCtas({isLoggedIn, cart}) {
   return (
-    <nav className="header-ctas" role="navigation">
+    <nav className="header-ctas" role="navigation" data-aos="zoom-in" data-aos-duration="1500">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" className='mobile-hide' to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">

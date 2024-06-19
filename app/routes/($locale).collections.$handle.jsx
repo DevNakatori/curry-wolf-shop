@@ -1,5 +1,5 @@
 import {json, redirect} from '@shopify/remix-oxygen';
-import {useLoaderData, Link} from '@remix-run/react';
+import {useLoaderData, Link, useLocation} from '@remix-run/react';
 import {
   Pagination,
   getPaginationVariables,
@@ -164,12 +164,15 @@ export default function Collection() {
 }
 
 function CustomMenu({ data }) {
+  const location = useLocation();
   return (
     <nav>
       <ul>
         {data.menu.items.map(item => (
           <li key={item.id}>
-            <Link to={item.url}>{item.title}</Link>
+            <Link to={item.url} 
+            className={item.url.includes(location.pathname) ? 'active' : ''}
+            >{item.title}</Link>
           </li>
         ))}
       </ul>
