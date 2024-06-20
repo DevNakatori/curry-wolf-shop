@@ -160,13 +160,11 @@ export default function Product() {
     <div className='main-product-sec'>
       <div className="food-decorative-garland">
         <img src={decorativegarland} alt="food-decorative-garland" />
-        <div className="container">
-          <div className="go-back-pro-btn">
-            <a href='javascript:;' className="yellow-btn"  onClick={() => navigate(-1)}>Go back to all products</a>
-            </div>
-        </div>
       </div>
       <div className="container">
+      <div className="go-back-pro-btn">
+            <a href='javascript:;' className="yellow-btn"  onClick={() => navigate(-1)}>Go back to all products</a>
+            </div>
         <div className="product-container">
           <div className="left-content">
             <div className="product-title mobile-hide">

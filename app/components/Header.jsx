@@ -13,7 +13,7 @@ export function Header({header, isLoggedIn, cart}) {
       <div className='container'>
       <div className='inner-header'>
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <img className="desktop-logo" src={shopLogo} alt='logo' data-aos="zoom-in" data-aos-duration="1500" />
+        <img className="desktop-logo" src={shopLogo} alt='logo' data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true"/>
         {/* <strong>{shop.name} </strong> */}
       </NavLink>
       <HeaderMenu
@@ -79,7 +79,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
             onClick={closeAside}
             prefetch="intent"
             style={activeLinkStyle}
-            to={url} data-aos="zoom-in" data-aos-duration="1500"
+            to={url}
           >
             {item.title}
         
@@ -95,7 +95,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
  */
 function HeaderCtas({isLoggedIn, cart}) {
   return (
-    <nav className="header-ctas" role="navigation" data-aos="zoom-in" data-aos-duration="1500">
+    <nav className="header-ctas" role="navigation" data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" className='mobile-hide' to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">
@@ -123,7 +123,7 @@ function HeaderCtas({isLoggedIn, cart}) {
 
 function HeaderMenuMobileToggle() {
   return (
-    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
+    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside" >
       <h3>
       <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M0.0610352 1H23.1196" stroke="white"/>

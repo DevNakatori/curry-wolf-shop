@@ -243,12 +243,6 @@ main {
   text-decoration: none;
   transform: scale(1.2);
 }
-
-.go-back-pro-btn {
-  position: relative;
-  top: -205px;
-  left: 42px;
-}
 .quantity-controls input {
   font-size: 50px;
   line-height: 50px;
@@ -340,19 +334,8 @@ main {
   .desktop-hide{display: none;}
   .mobile-hide{display: block;}
   .right-bottom-content.mobile-hide{display: inline-flex;}
-/* @supports(animation-range: 0vh 100vh) {
-  @keyframes sticky-parallax-header-move-and-size {
-    from {
-     top: 400px;
-    }
-    to {
-     top: 110px;
-
-    }
-  }
-} */
-@media (max-width:1580px) {
-  .go-back-pro-btn{top:-171px;}
+  .go-back-pro-btn {
+    padding-bottom: 50px;
 }
 @media (max-width:1440px) {
   .product-media{
@@ -373,20 +356,17 @@ main {
   }
   .main-product-sec .food-decorative-garland img{width: 100%;}
   .main-product-sec .product-form button.yellow-btn{width: 151px;}
-  .go-back-pro-btn {
-    top: -141px;
-}
 }
 
 @media (max-width:1024px) {
-  .go-back-pro-btn {position: initial;}
+
   .info-wrap{flex-wrap: wrap;}
   .info-box{width: 100%;padding-right: 0;}
   .info-box:nth-child(1){margin-bottom: 20px;}
   .smile-block .special-block{width: 100%;padding-left: 0;padding-bottom: 50px;}
   .info-wrap{padding-bottom: 49px;margin-bottom: 37px;}
-  .right-content .product-content .product-price .p-price{    font-size: 50px;
-    line-height: 60px;}
+  .right-content .product-content .product-price .p-price{    font-size: 40px;
+    line-height: 50px;}
     .main-product-sec .product-title h1{    font-size: 50px;
       line-height: 50px;margin: 30px 0 40px;}
       .right-product-content p{word-break: break-all;}
@@ -405,10 +385,9 @@ main {
   .main-product-sec .product-container{flex-wrap: wrap;}
   .main-product-sec .product-container .left-content,.main-product-sec .product-container .center-content,.main-product-sec .product-container .right-content{width: 100%;}
   .product-media{position: initial;}
-  .main-product-sec .product-title h1{margin: 30px 0;}
   .main-product-sec .info-box p{max-width: initial;}
   .smile-block p,.smile-block h4{max-width: initial;}
-  .main-product-sec .product-form{margin-bottom:35px;}
+  .main-product-sec .product-form{margin-bottom:35px;margin-top: 15px;}
   .right-content .metafield .ingridiant-box{margin-bottom: 35px;}
   .info-wrap{padding-bottom: 35px;}
   .right-bottom-content .cerified-box:nth-child(1){margin-bottom: 25px;}
@@ -419,9 +398,9 @@ main {
   .main-product-sec .product-container .center-content{order: 1;}
   .main-product-sec .product-container .left-content{order: 3;margin-top: -40px;}
   .main-product-sec .product-container{padding: 20px 20px 35px 20px;}
-  .main-product-sec .product-title h1{        font-size: 40px;
+  .main-product-sec .product-title h1{margin: 30px 0 20px;font-size: 40px;
     line-height: 40px;}
-    .right-content .product-content .product-price .p-price{font-size: 60px;line-height: 85px;}
+    .right-content .product-content .product-price .p-price{font-size: 50px;line-height: 60px;}
     .right-content .product-content .metafield h2{    font-size: 20px;
       line-height: 24px;}
       .smile-block h4{        font-size: 20px;
@@ -430,7 +409,6 @@ main {
         .right-product-content p{font-size: 18px;line-height: 22px;}
         .quantity-controls button{width: 35px;height: 35px;    font-size: 24px; line-height: 31px;}
         .quantity-controls{margin-bottom: 40px;}
-        .go-back-pro-btn{position: initial;padding-left: 20px;}
         .smile-block .special-block img {
           width: 50px;
       }
@@ -440,6 +418,8 @@ main {
       .right-bottom-content.mobile-hide{display: none;}
       .quantity-controls input{width: 29%;}
       .smile-block{border-bottom: 1px solid #fff;margin-bottom: 35px;}
+      .go-back-pro-btn a{font-size: 16px;}
+      .go-back-pro-btn{padding-bottom: 10px;}
 }
 @media (max-width:575px) {
   .smile-block .special-block{width: 100%;}
@@ -451,5 +431,4 @@ main {
   .product-quantity{margin-right: 0;margin-bottom: 20px;}
   .product-quantity{width: 100%;}
   .right-content .product-content .product-price .p-price{font-size: 50px;line-height: 70px;}
-  .go-back-pro-btn{padding-left: 0;}
 }

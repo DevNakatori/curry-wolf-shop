@@ -63,6 +63,7 @@
   
   aside main {
 	margin: 1rem;
+	background: transparent;
   }
   
   aside p {
@@ -497,8 +498,11 @@
 	font-size: 20px;
 	line-height: 19px;
 	font-weight: 500;
-	color: #000000;
-	background-color: #FEDE03;
+	background: linear-gradient(0deg, #FEDE03, #FEDE03),
+radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+	background-color: transparent;
 	padding: 14px 0px 14px;
 	width: 151px;
 	border-radius: 25px;
@@ -506,9 +510,10 @@
 	display: inline-block;
 	box-shadow: 4px 38px 62px 0px #00000080;
 	box-shadow: -3px -4px 7px 0px #FFFFFF26 inset;
-	background: radial-gradient(circle at 37% 15%, rgba(255, 255, 255, 1) 0%, rgba(254, 222, 3, 1) 38%);
+	box-shadow: 0px 4px 4px 0px #00000040;
 	font-family: 'Gotham-Medium';
 	font-weight: 500;
+	border: 2px solid #FEDE03 !important;
   }
   
   .account-logout {

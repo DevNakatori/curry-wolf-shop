@@ -286,7 +286,7 @@ top:-31px;
             margin: 0 30px;padding-bottom: 60px;}
             .products-grid .product-g-wrap{margin: 0;}
         .collection-logo-sec .c-logo-wrap .left-l p,.collection-logo-sec .c-logo-wrap .right-l p{max-width: initial;}
-        .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap{width: 60%;flex-direction: initial;}
+        .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap{width: 80%;flex-direction: initial;}
         .collection-logo-sec .c-logo-wrap .left-l h4{margin-bottom: 35px;}
         .products-grid{padding: 73px 0 0 ;}
         .collection-banner h1{font-size: 80px;line-height: 80px;}
@@ -294,6 +294,7 @@ top:-31px;
         .collection-banner{margin-top: 50px;}
         .collection nav ul li{padding: 0 18px;}
         .products-grid .product-g-wrap a img{border-radius: 10px;}
+        .collection-logo-sec .c-logo-wrap .left-l p{font-size: 16px;line-height: 20px;}
     }
     @media (max-width:767px) {
         
@@ -322,6 +323,9 @@ top:-31px;
         .c-price-range{    margin: 0 auto 10px;margin-top: 15px !important;}
         .products-grid {
             padding: 50px 0 0;
+        }
+        .banifits-wrap .benifits-content img {
+            width: 50px;
         }
     }
     @media (max-width:575px) {
