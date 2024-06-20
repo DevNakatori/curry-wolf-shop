@@ -205,7 +205,7 @@ window.addEventListener('scroll', function() {
     if (scrollPosition > 100) {
        videoOverlay.style.opacity = 1;
     } else {
-     //   videoOverlay.style.opacity = 0;
+      videoOverlay.style.opacity = 0;
     }   
 });
 
