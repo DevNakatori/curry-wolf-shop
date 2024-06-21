@@ -18,8 +18,10 @@ import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
 import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
-// import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
+import { useLocation } from "react-router-dom";
+
+
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -38,6 +40,25 @@ export const shouldRevalidate = ({ formMethod, currentUrl, nextUrl }) => {
 
     return false;
 };
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+
+export function AosInit() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+    AOS.refresh();
+  }, []);
+}
 
 export function links() {
     return [
@@ -113,10 +134,12 @@ export default function App() {
                 <Links />
             </head>
             <body>
+            <ScrollToTop />
+            <AosInit />
                 <Layout {...data}>
                     <Outlet />
                 </Layout>
-                <ScrollRestoration nonce={nonce} />
+              
                 <Scripts nonce={nonce} />
                 <script src="/aos.js"></script>
                 <script src="/custom.js" defer></script>
