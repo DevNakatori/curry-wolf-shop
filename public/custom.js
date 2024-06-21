@@ -38,23 +38,23 @@ const videocontainer = document.getElementById('video-container');
 const overlayImages = document.querySelectorAll('.overlayImage');
 const positions = [{
     x: 11,
-    y: 41
+    y: 35
 },
 {
     x: 23,
-    y: 34
+    y: 29
 },
 {
     x: 19,
-    y: 26
+    y: 20
 },
 {
     x: 25.5,
-    y: 22.5
+    y: 17.5
 },
 {
     x: 30.5,
-    y: 24
+    y: 19
 }
 ];
 
