@@ -380,293 +380,294 @@ div#faq {
 
 @media (max-width:1440px) {
   .logo-box img {
-    width: 70%;
+     width: 70%;
   }
 
   .logo-box:nth-child(1) img {
-    width: auto;
+     width: auto;
   }
 }
 
 @media (max-width:1200px) {
   .inner-wolf-bestell .left-content h1 {
-    font-size: 100px;
-    line-height: 90px;
+     font-size: 100px;
+     line-height: 90px;
   }
 
   .wolf-logo .w-left-content p {
-    font-size: 22px;
-    line-height: 30px;
+     font-size: 22px;
+     line-height: 30px;
   }
 
   .wolf-logo .w-left-content h3 {
-    font-size: 80px;
+     font-size: 80px;
   }
 
   .brandenburg .brand-left {
-    padding-right: 40px;
+     padding-right: 40px;
   }
 
   .white-box-content {
-    font-size: 26px;
-    line-height: 30px;
+     font-size: 26px;
+     line-height: 30px;
   }
 
   .inner-white-box {
-    padding: 15px;
+     padding: 15px;
   }
 
   .img-big-wrap {
-    width: 80%;
+     width: 80%;
   }
 
   .ref-title h4 {
-    font-size: 14px;
+     font-size: 14px;
   }
 
   .ref-box p {
-    font-size: 16px;
+     font-size: 16px;
   }
 }
 
 @media (max-width:1024px) {
   .inner-wolf-bestell {
-    padding-bottom: 70px;
-    margin-bottom: 70px;
+     padding-bottom: 70px;
+     margin-bottom: 70px;
   }
 
   .inner-wolf-bestell .left-content h1 {
-    font-size: 80px;
-    line-height: 80px;
+     font-size: 80px;
+     line-height: 80px;
   }
 
   .inner-wolf-bestell h3 {
-    font-size: 34px;
-    line-height: 44px;
+     font-size: 34px;
+     line-height: 44px;
   }
 
   .brand-left h2 {
-    font-size: 42px;
-    line-height: 50px;
-    margin-bottom: 30px;
+     font-size: 42px;
+     line-height: 50px;
+     margin-bottom: 30px;
   }
 
   .brand-left p {
-    font-size: 18px;
-    line-height: 22px;
+     font-size: 18px;
+     line-height: 22px;
   }
 
   .white-box-content {
-    font-size: 22px;
-    line-height: 25px;
+     font-size: 22px;
+     line-height: 25px;
   }
 
   .c-brand-content {
-    padding: 88px 0 50px;
+     padding: 88px 0 50px;
   }
 
   .brandenburg {
-    padding-bottom: 70px;
+     padding-bottom: 70px;
   }
 
   .reference {
-    padding: 70px 0;
+     padding: 70px 0;
   }
 
   .wolf-logo .w-left-content h3 {
-    font-size: 60px;
+     font-size: 60px;
   }
 
   .logo-box {
-    width: calc(100% / 2);
+     width: calc(100% / 2);
   }
 
   .wolf-logo .w-left-content p {
-    font-size: 18px;
-    line-height: 22px;
+     font-size: 18px;
+     line-height: 22px;
   }
 
   .faq-sec .faq-left a {
-    min-width: 279px;
-    font-size: 16px;
+     min-width: 279px;
+     font-size: 16px;
   }
 
   .tab__label {
-    font-size: 16px;
+     font-size: 16px;
   }
 
   .logo-box img {
-    width: auto;
+     width: auto;
   }
 
   .b-btn-wrap a {
-    font-size: 16px;
-    min-width: 236px;
+     font-size: 16px;
+     min-width: 236px;
   }
 
   .c-brand-content p span,
   .brandenburg .brand-right p {
-    font-size: 16px;
-    line-height: 22px;
+     font-size: 16px;
+     line-height: 22px;
   }
 
   .c-brand-content {
-    padding: 50px 0 50px;
+     padding: 50px 0 50px;
   }
 
   .brand-left p {
-    font-size: 16px;
+     font-size: 16px;
   }
 
   .wolf-logo {
-    padding: 70px 0;
+     padding: 70px 0;
   }
 
   .inner-wolf-bestell a.yellow-btn {
-    min-width: 300px;
-    font-size: 16px;
+     min-width: 300px;
+     font-size: 16px;
   }
 }
 
 @media (max-width:767px) {
   .inner-wolf-bestell .left-content h1 {
-    font-size: 32px;
-    line-height: 30px;
-    font-family: 'RubikOne-Regular';
+     font-size: 32px;
+     line-height: 30px;
+     font-family: 'RubikOne-Regular';
   }
-  .inner-wolf-bestell h3{
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'Neue-Haas-Grotesk-Display-Pro';
+
+  .inner-wolf-bestell h3 {
+     font-size: 20px;
+     line-height: 24px;
+     font-family: 'Neue-Haas-Grotesk-Display-Pro';
   }
 
   .brandenburg {
-    flex-wrap: wrap;
+     flex-wrap: wrap;
   }
 
   .brandenburg .brand-left {
-    width: 100%;
-    padding-right: 0;
+     width: 100%;
+     padding-right: 0;
   }
 
   .c-brand-content p:nth-child(even) {
-    padding-bottom: 30px;
+     padding-bottom: 30px;
   }
 
   .c-brand-content {
-    padding: 30px 0 0;
+     padding: 30px 0 0;
   }
 
   .brandenburg .brand-right {
-    width: 100%;
+     width: 100%;
   }
 
   .c-brand-content .b-btn-wrap {
-    margin-bottom: 30px;
+     margin-bottom: 30px;
   }
 
   .ref-wrap {
-    flex-wrap: wrap;
-    gap: 25px;
+     flex-wrap: wrap;
+     gap: 25px;
   }
 
   .ref-title {
-    margin-top: 15px;
+     margin-top: 15px;
   }
 
   .wolf-logo {
-    padding: 40px 0 0;
+     padding: 40px 0 0;
   }
 
   .faq-sec {
-    padding: 50px 0;
+     padding: 50px 0;
   }
 
   .ref-box {
-    max-width: initial;
+     max-width: initial;
   }
 
   .reference {
-    padding: 50px 0;
+     padding: 50px 0;
   }
 
   .wolf-logo {
-    flex-wrap: wrap;
+     flex-wrap: wrap;
   }
 
   .wolf-logo .w-left-content,
   .wolf-logo .w-right-logo {
-    width: 100%;
+     width: 100%;
   }
 
   .wolf-logo .w-left-content {
-    margin-bottom: 25px;
-    text-align: center;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 25px;
+     margin-bottom: 25px;
+     text-align: center;
+     border-bottom: 1px solid #fff;
+     padding-bottom: 25px;
   }
 
   .brandenburg .brand-left .b-btn-wrap {
-    margin-bottom: 30px;
+     margin-bottom: 30px;
   }
 
   .logo-box {
-    width: calc(100% / 5);
-    text-align: center;
-    margin-bottom: 20px;
+     width: calc(100% / 5);
+     text-align: center;
+     margin-bottom: 20px;
   }
 
   .logo-box img {
-    width: 80%;
+     width: 80%;
   }
 
   .left-content {
-    text-align: center;
+     text-align: center;
   }
 
   .inner-wolf-bestell {
-    justify-content: center;
+     justify-content: center;
   }
 
   .logo-box:nth-child(1) img {
-    width: 50%;
+     width: 50%;
   }
 
   .wolf-logo .w-left-content h3 {
-    font-size: 32px;
-    line-height: 32px;
-    font-family: 'RubikOne-Regular';
-    margin: 0 0 10px 0;
+     font-size: 32px;
+     line-height: 32px;
+     font-family: 'RubikOne-Regular';
+     margin: 0 0 10px 0;
   }
 
   .wolf-logo .w-left-content p {
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'Neue-Haas-Grotesk-Display-Pro';
+     font-size: 20px;
+     line-height: 24px;
+     font-family: 'Neue-Haas-Grotesk-Display-Pro';
   }
 
   .yellow-btn {
-    font-size: 14px;
-    border-radius: 5px;
+     font-size: 14px;
+     border-radius: 5px;
   }
 }
 
 @media (max-width:575px) {
   .inner-wolf-bestell {
-    flex-wrap: wrap;
+     flex-wrap: wrap;
   }
 
   .inner-wolf-bestell {
-    padding-bottom: 50px;
-    margin-bottom: 50px;
+     padding-bottom: 50px;
+     margin-bottom: 50px;
   }
 
   .inner-wolf-bestell h3 {
-    margin: 0 0 30px 0;
+     margin: 0 0 30px 0;
   }
 
   .inner-wolf-bestell h3 {
-    font-size: 30px;
-    line-height: 40px;
+     font-size: 30px;
+     line-height: 40px;
   }
 }
