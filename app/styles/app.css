@@ -521,6 +521,7 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgb
   }
   
   /* custom css start  */
+  a.header-menu-item.active{text-decoration: underline;}
   .food-decorative-garland img{width: 100%;}
   .container {
 	max-width: 1710px;
