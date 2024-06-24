@@ -1,0 +1,193 @@
+.page.job-main{
+	background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+
+}
+.inner-job-sec p{
+	font-size: 45px;
+	line-height: 50px;
+	font-family: 'Block Berthold';
+	max-width: 1069px;
+}
+.gute-job{display: flex;}
+.gute-job .gute-left h3{
+	font-size: 25px;
+	line-height: 30px;
+	font-family: 'Block Berthold';
+	color: #fff;
+	margin-bottom: 60px;
+}
+.gute-job .gute-left p{
+	font-size: 18px;
+	line-height: 30px;
+	font-family: 'Gotham-Book';
+}
+.gute-job .gute-right h3{
+	font-size: 25px;
+	line-height: 30px;
+	font-family: 'Block Berthold';
+	color: #fff;
+	margin-bottom: 35px;
+}
+.gute-left {
+    max-width: 571px;
+}
+.gute-right {
+    padding-left: 183px;
+}
+/* Visual styles */
+.accordion {
+	overflow: hidden;
+	padding-top: 0;
+	padding-bottom: 0;
+ }
+ 
+ .accordion .tab:first-child .tab__label {
+	padding-top: 0;
+ }
+ 
+ .tab {
+	border-bottom: 1px solid #FFFFFF;
+ }
+ 
+ .tab:last-child {
+	border-bottom: 0;
+ }
+ 
+ .tab__label,
+ .tab__close {
+	display: flex;
+	color: white;
+	cursor: pointer;
+ }
+ 
+ .tab__label {
+	justify-content: space-between;
+	padding: 30px 0;
+	font-size: 18px;
+	line-height: 22px;
+	font-family: 'Gotham-Book';
+	font-weight: 400;
+	align-items: center;
+ }
+ 
+ .tab__label::after {
+	content: "";
+	width: 27px;
+	height: 14px;
+	text-align: center;
+	transition: all 0.35s;
+	background: url(../app/assets/down-arrow.svg) no-repeat center / contain;
+ }
+ 
+ .tab input:checked+.tab__label::after {
+	transform: rotate(180deg);
+ }
+ 
+ .tab__content p {
+	margin: 0;
+	padding: 0px 0 25px;
+ }
+ 
+ .tab__close {
+	justify-content: flex-end;
+	padding: 0.5rem 1rem;
+	font-size: 0.75rem;
+ }
+ 
+ div#faq {
+	display: grid;
+	place-content: center;
+	grid-template-columns: repeat(auto-fit, min(100%, 30rem));
+	min-height: 100vh;
+	place-items: start;
+	gap: 1rem;
+	margin: 0;
+	padding: 1rem;
+	color: black;
+ }
+ .tab input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+}
+.tab__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.35s;
+}
+/* Core styles/functionality */
+.faq-sec .faq-left a:hover {
+	text-decoration: none;
+	transform: scale(1.2);
+ }
+ 
+ .faq-sec .faq-right .accordion,
+ .tab__label {
+	border: 0;
+	background-color: transparent;
+ }
+ 
+ .tab input:checked~.tab__content p {
+	font-weight: bold;
+ }
+ 
+ .tab input:checked~label {
+	font-weight: bold;
+ }
+ 
+ .tab input {
+	position: absolute;
+	opacity: 0;
+	z-index: -1;
+ }
+ 
+ .tab__content {
+	max-height: 0;
+	overflow: hidden;
+	transition: all 0.35s;
+ }
+ 
+ .tab input:checked~.tab__content {
+	max-height: 10rem;
+ }
+ .curywolf-catering-box {
+    display: flex;
+}
+.img-big-wrap {
+	position: relative;
+	height: auto;
+	width: calc(100%/4);
+ }
+ 
+ .img-one {
+	width: 100%;
+	background: #fff;
+	position: relative;
+	height: 100%;
+	box-shadow: 0px 4px 20px 0px #00000040;
+	padding-bottom: 20px;
+	transform: rotate(7deg);
+ }
+ 
+ .img-one:before {
+	content: "";
+	position: absolute;
+	top: -50px;
+	background: url(/app/assets/pushpin.png) no-repeat center / contain;
+	left: 0px;
+	right: 0;
+	width: 103px;
+	height: 104px;
+	margin: 0 auto;
+	background-size: 100%;
+	transform: rotate(8deg);
+ }
+ 
+ .inner-white-box {
+	padding: 20px 20px 30px 20px;
+	margin-top: 0px;
+ }
+ 
+ .img-one img {
+	width: 100%;
+ }
