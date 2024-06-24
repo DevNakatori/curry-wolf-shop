@@ -1,8 +1,12 @@
+html{
+  scrollbar-width: none;
+}
 body {
   font-family: 'Gotham-Book';
   font-weight: 400;
   margin: 0;
   padding: 0;
+  
 }
 
 h1,
