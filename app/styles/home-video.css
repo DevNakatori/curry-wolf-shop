@@ -392,7 +392,7 @@ video#bgVideo {
    text-decoration: none;
    border-radius: 25px;
    margin-top: 10px;
-   width: 106px;
+   max-width: 106px;
  }
  
  .dots-container {
