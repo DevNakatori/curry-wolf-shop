@@ -76,30 +76,30 @@ export default function Collection() {
       <h1>{collection.title}</h1>
       {/* <p className="collection-description">{collection.description}</p> */}
       {collection.image && (
-        <img src={collection.image.url}  className="collection image" alt={collection.image.altText || collection.title} />
+        <img src={collection.image.url}  className="collection image" alt={collection.image.altText || collection.title} data-aos="zoom-in" data-aos-duration="1500"/>
       )}
       </div>
       <div className='benifits'>
         <div className='container'>
           <div className='benifits-inner-wrap'>
-            <h4>Vorteile von Curry Wolf</h4>
+            <h4 data-aos="fade-up" data-aos-duration="1500">Vorteile von Curry Wolf</h4>
         <div className='banifits-wrap'>
-        <div className='benifits-content'>
+        <div className='benifits-content' data-aos="fade-up" data-aos-duration="1500">
           <img src={faceSmile} alt='face smile icon' />
           <h4>Special Selection</h4>
           <p>Family manufacturer with its own recipe</p>
         </div>
-        <div className='benifits-content'>
+        <div className='benifits-content' data-aos="fade-up" data-aos-duration="1500">
           <img src={quickDelivery} alt='quick delivery icon' />
           <h4>Quick Delivery</h4>
           <p>We deliver within 2-4 days*</p>
         </div>
-        <div className='benifits-content'>
+        <div className='benifits-content' data-aos="fade-up" data-aos-duration="1500">
           <img src={securePay} alt='secure pay icon' />
           <h4>Secure pay</h4>
           <p>Pay securely via Paypal and Sofort.com</p>
         </div>
-        <div className='benifits-content'>
+        <div className='benifits-content' data-aos="fade-up" data-aos-duration="1500">
           <img src={earthLogo} alt='earth icon' />
           <h4>CO₂ more neutral Shipment</h4>
           <p>Shipping takes place with DHL GoGreen</p>
@@ -131,11 +131,11 @@ export default function Collection() {
       <div className='collection-logo-sec'>
       <div className='container'>
         <div className='c-logo-wrap'>
-          <div className='left-l'>
+          <div className='left-l' data-aos="fade-right" data-aos-duration="1500">
             <h4>Worauf legen wir Wert?</h4>
             <p>Jeder Schritt bei der Herstellung unserer Currywurst im Glas ist Handarbeit. Vom Braten, Schneiden, Abfüllen bis zum Verschießen und Einwecken des Glases führen wir alle Arbeitsschritte sorgfältig durch. Und wir legen Wert auf die Herkunft unserer Zutaten. Das Produkt Original Berliner Currywurst ist vom Markenpatentamt geschützt. Wir sind selbst ein Berliner Familienunternehmen. Mit Leib und Seele unterstützen wir andere Berliner Familienbetriebe.</p>
           </div>
-          <div className='right-l'>
+          <div className='right-l' data-aos="fade-left" data-aos-duration="1500">
             <div className='c-right-wrap'>
                 <div className='right-inner'>
                     <div className='l-logo'>
@@ -166,12 +166,12 @@ export default function Collection() {
 function CustomMenu({ data }) {
   const location = useLocation();
   return (
-    <nav>
+    <nav data-aos="zoom-in" data-aos-duration="1500"> 
       <ul>
         {data.menu.items.map(item => (
           <li key={item.id}>
             <Link to={item.url} 
-            className={item.url.includes(location.pathname) ? 'active' : ''}
+            className={item.url.includes(location.pathname) ? 'active' : ''} 
             >{item.title}</Link>
           </li>
         ))}
@@ -229,7 +229,7 @@ function ProductItem({product, loading}) {
       className="product-item"
       key={product.id}
       prefetch="intent"
-      to={variantUrl}
+      to={variantUrl} data-aos="flip-left" data-aos-duration="1500"
     >
       {collectionBadge && (
         <div className="collection-badge">
