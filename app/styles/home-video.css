@@ -192,13 +192,6 @@ video#bgVideo {
    z-index: -1;
  }
  
- 
- a.yellow-btn:hover {
-   color: #000;
-   -webkit-transform: scale(1.2);
-   transform: scale(1.2);
- }
- 
  .c-s-btn {
    text-align: center;
    margin-bottom: 50px;

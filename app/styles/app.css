@@ -433,11 +433,11 @@
 	font-size: 20px;
 	line-height: 19px;
 	font-weight: 500;
-	background: linear-gradient(0deg, #FEDE03, #FEDE03),
+	/* background: linear-gradient(0deg, #FEDE03, #FEDE03),
 	   radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
-	background-color: transparent;
+	background-color: transparent; */
 	padding: 14px 0px 14px;
 	width: 151px;
 	border-radius: 25px;
@@ -448,8 +448,37 @@
 	font-weight: 500;
 	border: 2px solid #FEDE03 !important;
 	text-align: center;
+	position: relative;
+	transition: 0.2s transform ease-in-out;
+    will-change: transform;
+    z-index: 0;
+	overflow: hidden;
+	color: #FEDE03;
  }
- 
+ .yellow-btn:after{
+	background-color:#FEDE03;
+    border-radius: 3rem;
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-100%, 0) rotate(10deg);
+    transform-origin: top left;
+    transition: 0.2s transform ease-out;
+    will-change: transform;
+    z-index: -1;
+ }
+ .yellow-btn:hover::after {
+    transform: translate(0, 0);
+}
+ .yellow-btn:hover {
+    border: 2px solid transparent;
+	color: #9B2220;
+    will-change: transform;
+}
  .account-logout {
 	display: inline-block;
  }
