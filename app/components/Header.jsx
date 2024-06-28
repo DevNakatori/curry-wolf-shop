@@ -12,7 +12,7 @@ export function Header({header, isLoggedIn, cart}) {
     <header className="header">
       <div className='container'>
       <div className='inner-header'>
-      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
+      <NavLink prefetch="intent" to="/en-de/" style={activeLinkStyle} end>
         <img className="desktop-logo" src={shopLogo} alt='logo' data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true"/>
         {/* <strong>{shop.name} </strong> */}
       </NavLink>
@@ -109,15 +109,17 @@ function HeaderCtas({isLoggedIn, cart}) {
       <img className='mobile-logo' src={shopLogo} alt='logo' />
       {/* <SearchToggle /> */}
       <CartToggle cart={cart} />
-      <div className='language-switcher'>
-      <select id="custom-dropdown">
-        <option value="/de-de/">DE</option>
-        <option value="/en-en/">EN</option>
-      </select>
-
-
-      </div>
+    
+      <div class="dropdown">
+        <button class="dropdown-toggle" id="dropdownToggle">DE</button>
+        <ul class="dropdown-menu" id="dropdownMenu">
+            <li class="dropdown-item" data-value="de-de">DE</li>
+            <li class="dropdown-item" data-value="en-de">EN</li>
+        </ul>
+    </div>
     </nav>
+
+    
   );
 }
 
