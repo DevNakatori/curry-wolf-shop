@@ -1,7 +1,7 @@
 export function KeepInTouch() {
     return (
       <>
-        <div className='footer-contact-info' data-aos="zoom-in" data-aos-duration="1500">
+        <div className='footer-contact-info' data-aos="fade-up" data-aos-duration="1500">
         <div className="footer-sub-block">
             <span className='yellow-head'>Keep in touch</span>
             <div className="footer-flex footer-contact">
@@ -25,7 +25,7 @@ export function KeepInTouch() {
             </p>
         </div>  
       </div>
-      <div className="footer-sub-block footer-social" data-aos="zoom-in" data-aos-duration="1500">
+      <div className="footer-sub-block footer-social" data-aos="fade-up" data-aos-duration="1500">
             <span className='yellow-head'>Follow us</span>
             <div className="footer-flex footer-icon">
               <a className="social-insta" href="https://www.instagram.com/curry_wolf/" target="_blank">

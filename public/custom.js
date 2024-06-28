@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
   dropdownToggle.addEventListener("click", function(event) {
       console.log("Dropdown toggle clicked");
       dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block";
+      dropdownToggle.classList.toggle("active");
   });
 
   dropdownItems.forEach(item => {

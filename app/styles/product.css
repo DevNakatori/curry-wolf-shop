@@ -6,7 +6,7 @@ main {
   }
   
   .main-product-sec .product-container {
-    padding: 0px 20px 10px 20px;
+    padding: 0px 20px 20px 20px;
   }
   
   .main-product-sec .product-title h1 {
@@ -207,7 +207,7 @@ main {
   }
   
   .right-product-content span {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     color: rgba(254, 222, 3, 1);
   }
@@ -231,11 +231,9 @@ main {
     border: 0;
     width: 190px;
     cursor: pointer;
+    background-color: transparent;
   }
   
-  .main-product-sec .product-form button.yellow-btn:hover {
-    transform: scale(1.2);
-  }
   
   .right-content .product-content .metafield h2 {
     font-size: 25px;
@@ -265,7 +263,7 @@ main {
   
   .go-back-pro-btn a:hover {
     text-decoration: none;
-    transform: scale(1.2);
+    /* transform: scale(1.2); */
   }
   
   .quantity-controls input {
@@ -509,6 +507,9 @@ main {
     .right-bottom-content .cerified-box:nth-child(1) {
        margin-bottom: 15px;
     }
+    .main-product-sec .product-form{
+      margin-bottom: 100px;
+    }
   }
   
   @media (max-width:767px) {
@@ -558,12 +559,15 @@ main {
   
     .main-product-sec .product-form button.yellow-btn {
        margin-top: 0;
+       font-size: 16px;
+       border-radius: 5px;
     }
-  
+   
     .product-quantity {
        margin-right: 30px;
+       margin-bottom: 20px;
     }
-  
+    .main-product-sec .info-box p{font-size: 16px;}
     .main-product-sec .product-container .right-content {
        order: 2;
     }
@@ -619,7 +623,7 @@ main {
     }
   
     .quantity-controls {
-       margin-bottom: 40px;
+       margin-bottom: 10px;
     }
   
     .smile-block .special-block img {
@@ -655,10 +659,16 @@ main {
   
     .go-back-pro-btn a {
        font-size: 16px;
+       border-radius: 5px;
     }
   
     .go-back-pro-btn {
        padding-bottom: 10px;
+       padding-top: 20px;
+       text-align: center;
+    }
+    .main-product-sec .product-container .right-content .product-content p{
+      font-size: 16px;
     }
   }
   
@@ -694,4 +704,5 @@ main {
        font-size: 50px;
        line-height: 70px;
     }
+    .right-content .product-content .product-price .p-price{font-size: 40px;line-height: 50px;}
   }

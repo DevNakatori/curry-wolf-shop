@@ -141,7 +141,6 @@ div#faq {
 
 .inner-wolf-bestell a.yellow-btn:hover {
   text-decoration: none;
-  transform: scale(1.2);
 }
 
 .inner-wolf-bestell .left-content h1 {
@@ -212,11 +211,12 @@ div#faq {
   text-align: center;
   font-size: 18px;
   line-height: 21px;
+  padding: 7px 10px;
 }
 
 .b-btn-wrap a:hover {
   text-decoration: none;
-  transform: scale(1.2);
+  /* transform: scale(1.2); */
 }
 
 .c-brand-content p:last-child {
@@ -621,6 +621,7 @@ div#faq {
   .b-btn-wrap a {
      font-size: 16px;
      min-width: 236px;
+    
   }
 
   .c-brand-content p span,
@@ -840,6 +841,115 @@ div#faq {
    .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
       width: 45px;
    }
+   .img-big-wrap {
+    width: calc(100% / 2);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(1) {
+    transform: translate(73%, 102%);
+    z-index: 99;
+ }
+
+ .img-big-wrap:nth-child(1) .img-one {
+    transform: rotate(6deg);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one {
+    transform: rotate(6deg);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(2) {
+    transform: translate(-94%, -31%);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(3) {
+    transform: translate(112%, -108%);
+    z-index: 0;
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one {
+    transform: rotate(-10deg);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(4) {
+    display: none;
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
+    transform: rotate(9deg);
+
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(5) {
+    transform: translate(28%, 76%);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(6) {
+    transform: translate(-29%, -137%);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(6) .img-one {
+    transform: rotate(-13deg);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(7) {
+    transform: translate(-102%, -18%);
+ }
+
+ .curywolf-catering-box .img-big-wrap:nth-child(7) .img-one {
+    transform: rotate(-10deg);
+ }
+ .img-one {
+  padding-bottom: 9px;
+}
+
+.img-one .inner-content p {
+  font-family: "Sedgwick Ave", cursive;
+  font-weight: 400;
+}
+
+.curywolf-catering-box {
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+.curywolf-catering-box {
+  padding-bottom: 0px;
+}
+
+.curywolf-catering-box {
+  border-bottom: 0;
+}
+.catering-inner .curywolf-catering-box .img-big-wrap {
+  width: calc(100% / 2);
+}
+.curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before, .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before, .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
+  width: 45px;
+}
+.img-one:before {
+  width: 65px;
+}
+.img-one .inner-content p {
+  font-size: 16px;
+  line-height: 16px;
+}
+.catering-inner .curywolf-catering-box .img-one{padding-bottom: 10px;}
+.catering-inner{overflow: hidden;}
+.brand-left h2{font-size: 34px;line-height: 40px;}
+.ref-wrap {
+  display: flex;
+  transition: transform 0.3s ease;
+  flex-wrap: nowrap;
+}
+.ref-box {
+  min-width: 50%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 10px;
+  background-color: #FF3E34;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 }
 
 @media (max-width:575px) {

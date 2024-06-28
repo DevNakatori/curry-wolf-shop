@@ -231,13 +231,13 @@ main {
  }
  
  .products-grid .product-g-wrap .cart-btn span {
-    color: #000;
+    color:#FEDE03;
     font-family: 'Gotham-Medium';
-    width: 191px;
+    min-width: 191px;
+    padding: 9px 0;
  }
- 
- .products-grid .product-g-wrap .cart-btn span:hover {
-    transform: scale(1.2);
+ .products-grid .product-g-wrap .cart-btn span:hover{
+   color: #9B2220;
  }
  
  .collection-logo-sec .container .c-logo-wrap {
@@ -572,7 +572,7 @@ main {
     .collection-badge {
        width: 45px;
        height: 45px;
-       right: -12px;
+       right: 8px;
        top: -23px;
     }
  
@@ -599,9 +599,13 @@ main {
        border-radius: 5px;
        font-size: 14px;
     }
- 
+    .loadmore-button .yellow-btn{
+      padding: 6px 10px;
+      font-size: 16px;
+      border-radius: 5px;
+    }
     .products-grid .product-g-wrap .cart-btn span {
-       width: 96px;
+       min-width: 96px;
        padding: 2px 0;
        font-family: 'Chivo-Regular';
     }
@@ -710,6 +714,6 @@ main {
     }
  
     .collection-badge {
-       right: -18px;
+       right: 2px;
     }
  }

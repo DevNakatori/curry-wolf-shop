@@ -50,8 +50,8 @@ function FooterMenu({menu, primaryDomainUrl}) {
         </a>
       </div>
     <nav className="footer-menu" role="navigation">
-      <span className='yellow-head' data-aos="zoom-in" data-aos-duration="1500">Menu</span>
-        <ul data-aos="zoom-in" data-aos-duration="1500">
+      <span className='yellow-head' data-aos="fade-up" data-aos-duration="1500">Menu</span>
+        <ul data-aos="fade-up" data-aos-duration="1500">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;
         // if the url is internal, we strip the domain

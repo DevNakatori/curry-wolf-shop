@@ -202,9 +202,11 @@
     }
     .our-story .subheader p{font-size: 30px;line-height: 40px;}
     .our-story .subheader{margin-bottom: 55px;}
-    .our-story-box h2{font-size: 50px;line-height: 50px;}
+    .our-story-box h2{font-size:45px;line-height: 45px;}
     .our-story-box p{font-size: 14px;line-height: 20px;}
-    .our-story-box:nth-child(1)::before, .our-story-box:nth-child(2)::before{top: 261px;height: 50%;}
+    .our-story-box:nth-child(1)::before, .our-story-box:nth-child(2)::before{top: 238px;height: 40%;}
+    .img-one{padding-bottom: 27px;}
+    .our-story-box .story-wrap{padding: 0 10px;}
 }
 @media (max-width: 767px) {
     .our-story-box:nth-child(1) .story-left {
