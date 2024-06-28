@@ -12,7 +12,7 @@ export function Header({header, isLoggedIn, cart}) {
     <header className="header">
       <div className='container'>
       <div className='inner-header'>
-      <NavLink prefetch="intent" to="/en-de/" style={activeLinkStyle} end>
+      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
         <img className="desktop-logo" src={shopLogo} alt='logo' data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true"/>
         {/* <strong>{shop.name} </strong> */}
       </NavLink>

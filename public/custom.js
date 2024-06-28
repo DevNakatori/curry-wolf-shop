@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
           const languageCodes = ["de-de", "en-de"];
           let containsLanguageCode = false;
 
-          // Check if the URL already contains a language code
           for (let i = 0; i < pathSegments.length; i++) {
               if (languageCodes.includes(pathSegments[i])) {
                   pathSegments[i] = selectedLanguage;
@@ -39,8 +38,6 @@ document.addEventListener("DOMContentLoaded", function() {
                   break;
               }
           }
-
-          // If the URL does not contain a language code, insert it at the beginning
           if (!containsLanguageCode) {
               pathSegments.unshift(selectedLanguage);
           }
@@ -61,20 +58,73 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // language switcher end 
 
-// Function to show the popup
+document.addEventListener("DOMContentLoaded", function() {
+
+    if (window.location.href.indexOf('en-de') !== -1) {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'EN';
+        }, 200);
+        const links = document.querySelectorAll('a[href*="/en"]');
+        links.forEach(link => {
+            const newHref = link.href.replace('/en', '/en-de');
+            link.setAttribute('data-new-href', newHref);
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                window.location.href = newHref; 
+            });
+        });
+    }
+  
+    else if (window.location.href.indexOf('de-de') !== -1) {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'DE';
+        }, 200);
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            if (link.href.indexOf('/de-de') === -1 && link.href.indexOf('/en') === -1) {
+                const newHref = link.href.replace(window.location.origin, window.location.origin + '/de-de');
+                link.setAttribute('data-new-href', newHref);
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref; 
+                });
+            }
+        });
+    }
+    
+    else {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'DE';
+        }, 200);
+        const newUrl = window.location.href.replace(window.location.origin, window.location.origin + '/de-de');
+        window.history.replaceState(null, '', newUrl);
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            if (link.href.indexOf('/de-de') === -1 && link.href.indexOf('/en') === -1) {
+                const newHref = link.href.replace(window.location.origin, window.location.origin + '/de-de');
+                link.setAttribute('data-new-href', newHref);
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref;
+                });
+            }
+        });
+    }
+});
+
+// url replace
+
 if(document.querySelectorAll('#popup').length) {
 var showPopup = function() {
   document.getElementById('popup').style.display = 'block';
   document.getElementById('overlay').style.display = 'block';
 };
 
-// Function to hide the popup
 var hidePopup = function() {
   document.getElementById('popup').style.display = 'none';
   document.getElementById('overlay').style.display = 'none';
 };
 
-// Attach event listeners
 document.getElementById('clickBtn').addEventListener('click', function(event) {
   event.preventDefault();
   showPopup();
@@ -84,7 +134,6 @@ document.getElementById('closeBtn').addEventListener('click', function() {
   hidePopup();
 });
 
-// Optional: Close popup when clicking outside of it
 document.getElementById('overlay').addEventListener('click', function() {
   hidePopup();
 });
@@ -225,13 +274,13 @@ setTimeout(function() {
 const sliderContainer = document.querySelector('.ref-wrap');
 const slides = document.querySelectorAll('.ref-box');
 let currentIndex = 0;
-let slidesToShow = 1; // Default to 1 slide shown
+let slidesToShow = 1; 
 
 function updateSlider() {
 if (window.innerWidth < 768) {
-slidesToShow = 2; // Show 2 slides in mobile view
+slidesToShow = 2;
 } else {
-slidesToShow = 1; // Show 1 slide in desktop view
+slidesToShow = 1; 
 }
 
 const width = sliderContainer.clientWidth / slidesToShow;
@@ -251,8 +300,8 @@ updateSlider();
 }
 
 function startAutoplay() {
-setInterval(nextSlide, 3000); // Autoplay interval
-}
+setInterval(nextSlide, 3000);
+} 
 
 function resetAutoplay() {
 clearInterval(autoplayInterval);
@@ -261,24 +310,21 @@ startAutoplay();
 
 window.addEventListener('resize', function() {
 updateSlider();
-currentIndex = 0; // Reset currentIndex on resize
+currentIndex = 0; 
 });
 
-updateSlider(); // Initial setup
+updateSlider(); 
 
-startAutoplay(); // Start autoplay
-}, 2000);
+startAutoplay(); 
+    }, 2000);
 }
 
 
 // catering Mobile Slider END
 
-// Animations start
 AOS.init({
 duration: 1000,
 })
-
-// Animations end
 
 //  Home page Animation Start
 const handleScroll = () => {
@@ -383,38 +429,15 @@ updateSlider();
 
 // Home page slider END
 if(document.querySelectorAll('#line-path').length) {
-// Get a reference to the <path>
 var path = document.querySelector('#line-path');
-
-// Get length of path... ~577px in this case
 var pathLength = path.getTotalLength();
-
-// Make very long dashes (the length of the path itself)
 path.style.strokeDasharray = pathLength + ' ' + pathLength;
-
-// Offset the dashes so the it appears hidden entirely
 path.style.strokeDashoffset = pathLength;
-
-// Jake Archibald says so
-// https://jakearchibald.com/2013/animated-line-drawing-svg/
 path.getBoundingClientRect();
-
-// When the page scrolls...
 window.addEventListener("scroll", function(e) {
-
-// What % down is it? 
-// https://stackoverflow.com/questions/2387136/cross-browser-method-to-determine-vertical-scroll-percentage-in-javascript/2387222#2387222
-// Had to try three or four differnet methods here. Kind of a cross-browser nightmare.
 var scrollPercentage = (document.documentElement.scrollTop + document.body.scrollTop) / (document.documentElement.scrollHeight - document.documentElement.clientHeight);
-
-// Length to offset the dashes
 var drawLength = pathLength * scrollPercentage;
-
-// Draw in reverse
 path.style.strokeDashoffset = pathLength - drawLength;
-
-// When complete, remove the dash array, otherwise shape isn't quite sharp
-// Accounts for fuzzy math
 if (scrollPercentage >= 0.99) {
 path.style.strokeDasharray = "none";
 
@@ -424,32 +447,4 @@ path.style.strokeDasharray = pathLength + ' ' + pathLength;
 
 });
 }
-
-
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   function equalHeight(group) {
-//       var tallest = 0;
-
-//       // Calculate the tallest height
-//       group.forEach(function(element) {
-//           var thisHeight = element.offsetHeight;
-//           if (thisHeight > tallest) {
-//               tallest = thisHeight;
-//           }
-//       });
-
-//       // Set all elements to the tallest height
-//       group.forEach(function(element) {
-//           element.style.height = tallest + 'px';
-//       });
-//   }
-
-//   // Select elements and convert NodeList to an array
-//   var equalHeightElements = Array.prototype.slice.call(document.querySelectorAll(".products-grid .product-g-wrap h4"));
-
-//   equalHeight(equalHeightElements);
-// });
-
 
