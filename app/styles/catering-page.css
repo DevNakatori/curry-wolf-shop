@@ -7,7 +7,7 @@
 /* Core styles/functionality */
 .faq-sec .faq-left a:hover {
    text-decoration: none;
-   transform: scale(1.2);
+   /* transform: scale(1.2); */
 }
 
 .faq-sec .faq-right .accordion,
@@ -82,7 +82,7 @@
    height: 14px;
    text-align: center;
    transition: all 0.35s;
-   background: url(../app/assets/down-arrow.svg) no-repeat center / contain;
+   background: url(/app/assets/down-arrow.svg) no-repeat center / contain;
 }
 
 .tab input:checked+.tab__label::after {
@@ -302,7 +302,7 @@ div#faq {
 .ref-title h4 {
    font-size: 20px;
    line-height: 24px;
-   font-family: 'Chivo-Regular';
+   font-family: 'Block Berthold';
    color: #fff;
    margin-bottom: 0;
 }

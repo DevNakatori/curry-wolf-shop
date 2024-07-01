@@ -199,6 +199,7 @@
  
  .detail-mail-right p:nth-child(2) {
 	margin-bottom: 20px;
+	font-weight: 600;
  }
  
  @media (max-width:1700px) {
@@ -338,7 +339,9 @@
 	.job-detail-send-mail {
 	   flex-direction: column;
 	}
- 
+	.job-detail .img-one{
+		width: 100%;
+	}
 	.detail-mail-right {
 	   max-width: initial;
 	   padding-left: 0;
@@ -373,9 +376,11 @@
 	}
  
 	.job-detail .curywolf-catering-box .inner-content p {
-	   font-size: 20px;
-	   line-height: 20px;
+	   font-size: 18px;
+	   line-height: 18px;
 	}
+	.job-detail .img-big-wrap:nth-child(2) .img-one:before{width: 80px;}
+	.job-detail .img-big-wrap .img-one:before{width: 60px;}
  
 	.inner-white-box {
 	   padding: 10px;

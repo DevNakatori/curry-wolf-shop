@@ -408,13 +408,10 @@ section.thereedmainsection {
 	width: 100%;
  }
  
- .c-two-box:nth-child(2) .c-left img {
+ /* .c-two-box:nth-child(2) .c-left img {
 	width: 301px;
- }
+ } */
  
- .curry-new-btn .yellow-btn:hover {
-	transform: scale(1.2);
- }
  
  .c-left {
 	width: calc(100%/2);
@@ -449,9 +446,6 @@ section.thereedmainsection {
 	text-decoration: none;
  }
  
- .c-right a.yellow-btn:hover {
-	transform: scale(1.2);
- }
  
  .follow-currywolf h2 {
 	font-size: 45px;
@@ -508,7 +502,7 @@ section.thereedmainsection {
 	background: url(/app/assets/pushpin.png) no-repeat center / contain;
 	left: 0px;
 	right: 0;
-	width: 103px;
+	width: 90px;
 	height: 104px;
 	margin: 0 auto;
 	background-size: 100%;
@@ -536,7 +530,10 @@ section.thereedmainsection {
 	z-index: 9;
 	left: -33px;
  }
- 
+ .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before {
+    background: url(https://cdn.shopify.com/s/files/1/0661/7595/9260/files/pushpin-147918_12801_1.png?v=1716895195) no-repeat center / contain;
+    width: 110px;
+}
  .curry-new-btn {
 	text-align: center;
 	margin-top: 27px;

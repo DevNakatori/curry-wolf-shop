@@ -102,7 +102,7 @@
  }
  
  .go-back-pro-btn .yellow-btn {
-	width: 377px;
+	width: 407px;
 	padding: 6px 0px;
  }
  
@@ -235,5 +235,10 @@
 	.contact-top-block .left-title h1 {
 	   word-break: break-all;
 	}
- 
+	.go-back-pro-btn .yellow-btn {
+		width: 317px;
+		padding: 6px 0px;
+		font-size: 16px;
+		border-radius: 5px;
+	}
  }

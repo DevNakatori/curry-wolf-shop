@@ -13,10 +13,7 @@ main {
  }
  
  .collection nav {
-    background: linear-gradient(0deg, #FEDE03, #FEDE03),
-       radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%)
-       /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-    ;
+    background: radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) rgba(254, 222, 3, 1);
     max-width: 783px;
     margin: 0 auto;
     border-radius: 25px;
@@ -109,8 +106,8 @@ main {
  }
  
  .benifits h4 {
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 30px;
+    line-height: 35px;
     font-family: 'Block Berthold';
     color: #fff;
     margin-bottom: 60px;
@@ -206,9 +203,7 @@ main {
  }
  
  .collection-badge {
-    background: linear-gradient(0deg, #FEDE03, #FEDE03),
-       radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%)
-       /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+    background: radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) rgba(254, 222, 3, 1);
     ;
     width: 90px;
     height: 88px;

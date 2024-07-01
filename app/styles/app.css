@@ -457,7 +457,7 @@
  }
  .yellow-btn:after{
 	background-color:#FEDE03;
-    border-radius: 3rem;
+    border-radius: 0rem;
     content: '';
     display: block;
     height: 100%;
@@ -470,6 +470,7 @@
     transition: 0.2s transform ease-out;
     will-change: transform;
     z-index: -1;
+	border-radius: 15px;
 	
  }
  .yellow-btn:hover::after {
@@ -479,6 +480,7 @@
     border: 2px solid transparent;
 	color: #9B2220;
     will-change: transform;
+	text-decoration: none;
 }
  .account-logout {
 	display: inline-block;
@@ -715,6 +717,7 @@
  
  @media (max-width: 767px) {
 	.yellow-btn{min-width: 80px;padding:4px  0;}
+	.yellow-btn:after{border-radius: 1px;}
 	#mobile-menu-aside {
 	   z-index: 999999999;
 	}
@@ -891,6 +894,9 @@
 .dropdown-item:hover {
     background-color: #fff;
 	color: #9B2220;
+}
+.food-decorative-garland {
+    margin-top: -10px !important;
 }
  @media (max-width: 1500px) {
 	.container {

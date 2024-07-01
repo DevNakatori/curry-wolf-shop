@@ -188,7 +188,9 @@ div#faq {
   margin-bottom: 25px;
   display: block;
 }
-
+.c-brand-content p span {
+  font-weight: 600;
+}
 .c-brand-content p:nth-child(even) {
   padding-bottom: 50px;
 }
