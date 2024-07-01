@@ -84,7 +84,7 @@
   height: 14px;
   text-align: center;
   transition: all 0.35s;
-  background: url(../app/assets/down-arrow.svg) no-repeat center / contain;
+  background: url('https://cdn.shopify.com/s/files/1/0661/7595/9260/files/down-arrow.svg?v=1719579104') no-repeat center / contain;
 }
 
 .tab input:checked+.tab__label::after {

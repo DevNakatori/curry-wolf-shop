@@ -28,7 +28,7 @@ export async function loader({request, params, context}) {
   const {handle} = params;
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
+    pageBy: 12,
   });
 
   if (!handle) {
@@ -194,7 +194,7 @@ function ProductsGrid({products}) {
           <ProductItem
             key={product.id}
             product={product}
-            loading={index < 8 ? 'eager' : undefined}
+            loading={index < 12 ? 'eager' : undefined}
           />
         );
 
