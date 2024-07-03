@@ -143,7 +143,7 @@
  
  .c-two-box {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     column-gap: 28px;
     width: 50%;
  
@@ -151,6 +151,8 @@
  
  .c-two-box .c-left img {
     width: 100%;
+    height: 210px;
+    object-fit: contain;
  }
  
  /* .c-two-box:nth-child(2) .c-left img {
@@ -165,6 +167,7 @@
  .c-right {
     width: calc(100%/2);
     padding-left: 15px;
+    padding-top: 2px;
  }
  
  .c-right h2 {
@@ -332,16 +335,13 @@
  
     .c-two-box {
        column-gap: 10px;
+       margin-bottom: 20px;
+       width: 100%;
     }
  
     .curry-image-content {
        flex-direction: column;
        margin-bottom: 40px;
-    }
- 
-    .c-two-box {
-       width: 100%;
-       margin-bottom: 0;
     }
  
     .c-right a.yellow-btn {

@@ -1,0 +1,5 @@
+.collection-list-page h1{text-align: center;}
+.collection-list-page h5{font-size: 1.302vw;line-height: 1.563vw;color: #fff;font-family: 'Block Berthold';text-align: center;}
+.collection-list-page .collection-item:hover{text-decoration: none;}
+.collections-grid .collection-item img{border-radius: 50px;}
+.collections-grid{grid-template-columns: repeat(3, minmax(var(--grid-item-width), 1fr));grid-gap: 210px;}
