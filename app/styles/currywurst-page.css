@@ -1,17 +1,18 @@
 .main-currywurast-page h1 {
     text-align: center;
-    margin-bottom: 106px;
+    margin-bottom: 50px;
+    margin-top: 0rem;
  }
  
  .our-currywurst-sec {
     display: flex;
     border-bottom: 1px solid #fff;
-    margin-bottom: 50px;
-    padding-bottom: 96px;
+    margin-bottom: 45px;
+    padding-bottom: 45px;
  }
  
  .our-currywurst-sec .right-content .yellow-btn {
-    margin-top: 45px;
+    margin-top: 15px;
  }
  
  .prepare-food-sec {
@@ -26,8 +27,8 @@
  }
  
  .prepare-food-sec .p-left p {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 1.302vw;
+    line-height: 1.563vw;
     font-family: 'Block Berthold';
  }
  
@@ -39,8 +40,8 @@
  .prepare-food-sec .p-left ul li {
     list-style-type: disc;
     color: #fff;
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 0.938vw;
+    line-height: 1.094vw;
     font-family: 'Gotham-Book';
     padding-bottom: 20px;
  }
@@ -83,7 +84,8 @@
  }
  
  .our-currywurst-sec .left-sec img {
-    width: 100%;
+    width: 36.719vw;
+   height: 36.719vw;
  }
  
  .our-currywurst-sec .right-content {
@@ -93,17 +95,18 @@
  
  .bottom-c-logo {
     margin-top: -166px;
-    margin-left: 20px;
+    margin-left: -10px;
     transform: rotate(-5deg);
  }
  
  .our-currywurst-sec .left-sec .bottom-c-logo img {
-    width: auto;
+    width: 14.58vw;
+    height: 13.54vw;
  }
  
  .our-currywurst-sec .right-content p,.our-currywurst-sec .right-content h5 {
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 0.938vw;
+    line-height: 1.094vw;
     font-family: 'Gotham-Book';
     margin-bottom: 20px;
     max-width: 796px;
@@ -117,9 +120,9 @@
  .our-currywurst-sec .right-content p.text-bold {
     font-weight: 400;
     font-family: 'Block Berthold';
-    font-size: 25px;
-    line-height: 29px;
-    padding-bottom: 45px;
+    font-size: 1.302vw;
+    line-height: 1.51vw;
+    padding-bottom: 15px;
  }
  .our-currywurst-sec .right-content p a{
    color: #fff;
@@ -135,7 +138,7 @@
     border-bottom: 1px solid #fff;
     border-top: 1px solid #fff;
     padding: 50px 0;
-    margin-bottom: 112px;
+    margin-bottom: 50px;
  }
  
  .c-two-box {
@@ -150,9 +153,9 @@
     width: 100%;
  }
  
- .c-two-box:nth-child(2) .c-left img {
+ /* .c-two-box:nth-child(2) .c-left img {
     width: 301px;
- }
+ } */
  
  .c-left {
     width: calc(100%/2);
@@ -165,15 +168,15 @@
  }
  
  .c-right h2 {
-    font-size: 25px;
-    line-height: 29px;
+    font-size: 1.302vw;
+    line-height:1.51vw;
     color: #fff;
     font-family: 'Block Berthold';
  }
  
  .c-right p {
-    font-size: 18px;
-    line-height: 21px;
+    font-size: 0.938vw;
+    line-height: 1.094vw;
     font-family: 'Gotham-Book';
     margin-bottom: 36px;
     max-width: 380px;
@@ -194,8 +197,8 @@
  }
  
  .follow-currywolf h2 {
-    font-size: 45px;
-    line-height: 50px;
+    font-size: 2.344vw;
+    line-height: 2.604vw;
     color: #fff;
     font-family: 'Block Berthold';
     max-width: 916px;
@@ -325,9 +328,7 @@
        width: 100%;
     }
  
-    .c-right p {
-       font-size: 16px;
-    }
+   
  
     .c-two-box {
        column-gap: 10px;
@@ -335,7 +336,7 @@
  
     .curry-image-content {
        flex-direction: column;
-       margin-bottom: 60px;
+       margin-bottom: 40px;
     }
  
     .c-two-box {
@@ -346,7 +347,7 @@
     .c-right a.yellow-btn {
        padding: 10px 10px 10px;
        width: 100px;
-       font-size: 16px;
+       /* font-size: 16px; */
     }
  
     .c-right h2 {
@@ -375,15 +376,16 @@
     .our-currywurst-sec .left-sec {
        text-align: center;
     }
- 
-    .our-currywurst-sec .left-sec img {
-       width: 100%;
-    }
- 
+    .c-two-box{margin-bottom: 20px;}
+    .c-right p {
+      font-size: 3.59vw;
+      line-height:5.12vw;
+   }
     .our-currywurst-sec {
        flex-direction: column;
-       padding-bottom: 60px;
+       padding-bottom: 40px;
     }
+    .curry-image-content{    padding: 40px 0;}
  
     .our-currywurst-sec .left-sec {
        width: 100%;
@@ -404,13 +406,14 @@
     }
  
     .our-currywurst-sec .right-content p {
-       font-size: 16px;
-       line-height: 20px;
+      font-size: 3.59vw;
+      line-height:5.12vw;
     }
  
     .our-currywurst-sec .right-content .yellow-btn {
        margin-top: 20px;
-       font-size: 16px;
+       font-size: 3.59vw;
+      line-height:5.12vw;
     }
  
     .prepare-food-sec .p-left,
@@ -446,13 +449,13 @@
  
     .prepare-food-sec .p-left p,
     .our-currywurst-sec .right-content p.text-bold {
-       font-size: 20px;
-       line-height: 24px;
+      font-size: 3.59vw;
+      line-height:5.12vw;
     }
  
     .prepare-food-sec .p-left ul li {
-       font-size: 16px;
-       line-height: 20px;
+      font-size: 3.59vw;
+      line-height:5.12vw;
     }
  
     .our-currywurst-sec .left-sec .bottom-c-logo img {
@@ -480,7 +483,7 @@
        flex-wrap: wrap;
        gap: 0;
     }
- .curry-new-btn .yellow-btn{font-size: 16px;min-width: 100px;}
+ .curry-new-btn .yellow-btn{min-width: 100px;}
  .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before {
    width: 85px;
  }
@@ -489,11 +492,17 @@
 }
 .follow-currywolf h2{font-size: 32px;line-height: 40px;}
 .c-right a.yellow-btn{padding: 4px 4px;}
+.our-currywurst-sec .right-content p,.our-currywurst-sec .right-content h5 { font-size: 3.59vw;
+   line-height:5.12vw;}
+.c-two-box:nth-child(2) .c-left img {
+   width: 100%;
+}
  }
  
  @media (max-width:575px) {
     .c-two-box {
        flex-direction: column;
+      
     }
  
     .c-two-box:first-child {
@@ -514,4 +523,5 @@
     .c-right h2 {
        margin-top: 15px;
     }
+    .c-right p{margin: 0 auto;margin-bottom: 36px;}
  }

@@ -430,15 +430,15 @@
 	-webkit-transition-property: transform;
 	transition-property: transform;
 	text-transform: capitalize;
-	font-size: 20px;
-	line-height: 19px;
+	font-size: 1.042vw;
+	line-height: 0.99vw;
 	font-weight: 500;
 	/* background: linear-gradient(0deg, #FEDE03, #FEDE03),
 	   radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-color: transparent; */
-	padding: 14px 14px 14px;
+	padding: 0.729vw;
 	border-radius: 25px;
 	text-decoration: none;
 	display: inline-block;
@@ -453,7 +453,7 @@
     z-index: 0;
 	overflow: hidden;
 	color: #FEDE03;
-	min-width: 150px;
+	min-width: 7.813vw;
  }
  .yellow-btn:after{
 	background-color:#FEDE03;
@@ -716,7 +716,7 @@
  }
  
  @media (max-width: 767px) {
-	.yellow-btn{min-width: 80px;padding:4px  0;}
+	.yellow-btn{min-width: 80px;padding:4px  4px;border-radius: 5px;font-size: 3.59vw;line-height: 4.359vw;}
 	.yellow-btn:after{border-radius: 1px;}
 	#mobile-menu-aside {
 	   z-index: 999999999;
@@ -861,7 +861,7 @@
 .dropdown-menu {
     display: none;
     position: absolute;
-    background-color: #D02523;
+    background-color: #9B2220;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     list-style-type: none;
@@ -896,7 +896,7 @@
 	color: #9B2220;
 }
 .food-decorative-garland {
-    margin-top: -30px !important;
+    margin-top: -90px !important;
 }
  @media (max-width: 1500px) {
 	.container {
@@ -983,6 +983,7 @@
 	img.footer-berline-logo {
 	   width: 180px;
 	}
+	.food-decorative-garland{margin-top: -70px !important;}
  }
  
  @media (max-width: 1200px) {
@@ -1044,6 +1045,9 @@
 	.footer-social {
 	   padding-left: 30px;
 	}
+	.food-decorative-garland {
+        margin-top: -60px !important;
+    }
  
  }
  
@@ -1137,6 +1141,9 @@
 	   padding: 40px 0;
 	   box-shadow: 0px -4px 20px 0px #00000040;
 	}
+	.food-decorative-garland {
+        margin-top: -40px !important;
+    }
  }
  
  @media (max-width: 767px) {
@@ -1274,6 +1281,9 @@
 	   top: 4px;
 	}
 	.dropdown{display: none;}
+	.food-decorative-garland {
+        margin-top: -25px !important;
+    }
  }
  
  @media (max-width: 480px) {
@@ -1281,4 +1291,7 @@
 	   min-width: 300px;
 	   max-width: 300px;
 	}
+	.food-decorative-garland {
+        margin-top: -15px !important;
+    }
  }

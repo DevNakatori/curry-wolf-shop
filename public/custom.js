@@ -58,6 +58,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // language switcher end 
 
+// Animation STARt
+AOS.init({
+    duration: 1000,
+    once: true,
+    mirror: false,
+    })
+
+// Animation STARt
+
+
 document.addEventListener("DOMContentLoaded", function() {
 
     if (window.location.href.indexOf('en-de') !== -1) {
@@ -322,10 +332,7 @@ startAutoplay();
 
 // catering Mobile Slider END
 
-AOS.init({
-duration: 1000,
-once: true,
-})
+
 
 //  Home page Animation Start
 const handleScroll = () => {
