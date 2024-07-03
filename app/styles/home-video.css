@@ -381,7 +381,7 @@ video#bgVideo {
  
  .yellow-btn {
    display: inline-block;
-   padding: 12px 0px;
+   padding: 12px 12px;
    text-decoration: none;
    border-radius: 25px;
    margin-top: 10px;
@@ -691,7 +691,7 @@ video#bgVideo {
    .c-s-btn a.yellow-btn {
       border-radius: 5px;
       min-width: 81px;
-      padding: 4px 0;
+      padding: 4px 4px;
       /* width: 81px; */
    }
  
@@ -727,7 +727,7 @@ video#bgVideo {
    .yellow-btn {
       font-size: 14px;
       line-height: 16px;
-      padding: 4px 0px 4px;
+      padding: 4px 4px 4px;
       /* width: 98px; */
    }
  
@@ -836,7 +836,7 @@ video#bgVideo {
  
    .yellow-btn {
       display: inline-block;
-      padding: 10px 0px;
+      padding: 10px 10px;
       background-color: yellow;
       color: black;
       text-decoration: none;

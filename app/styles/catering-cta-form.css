@@ -103,7 +103,7 @@
  
  .go-back-pro-btn .yellow-btn {
 	width: 407px;
-	padding: 6px 0px;
+	padding: 6px 6px;
  }
  
  @media (max-width:1920px) {
@@ -237,7 +237,7 @@
 	}
 	.go-back-pro-btn .yellow-btn {
 		width: 317px;
-		padding: 6px 0px;
+		padding: 6px 6px;
 		font-size: 16px;
 		border-radius: 5px;
 	}

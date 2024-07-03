@@ -707,7 +707,7 @@ section.thereedmainsection {
 	}
  
 	.c-right a.yellow-btn {
-	   padding: 10px 0px 10px;
+	   padding: 10px 10px 10px;
 	   width: 100px;
 	   font-size: 16px;
 	}
@@ -958,7 +958,7 @@ section.thereedmainsection {
  }
  
  @media (max-width:575px) {
-	.c-right a.yellow-btn{padding: 5px 0;}
+	.c-right a.yellow-btn{padding: 5px 5px;}
 	.c-two-box {
 	   flex-direction: column;
 	}
