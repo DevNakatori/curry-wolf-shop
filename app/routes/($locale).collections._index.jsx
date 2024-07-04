@@ -5,6 +5,7 @@ import '../styles/collection-list.css';
 /**
  * @param {LoaderFunctionArgs}
  */
+
 export async function loader({context, request}) {
   const paginationVariables = getPaginationVariables(request, {
     pageBy: 4,
@@ -32,9 +33,11 @@ export default function Collections() {
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
             </PreviousLink>
             <CollectionsGrid collections={nodes} />
-            <NextLink>
+            <div className="load-more">
+            <NextLink className="yellow-btn">
               {isLoading ? 'Loading...' : <span>Load more ↓</span>}
             </NextLink>
+            </div>
           </div>
         )}
       </Pagination>

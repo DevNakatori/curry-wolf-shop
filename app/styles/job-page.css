@@ -9,7 +9,7 @@
  .inner-job-sec p {
 	font-size: 45px;
 	line-height: 50px;
-	font-family: 'Block Berthold';
+	font-family: 'BertholdBlock';
 	max-width: 1069px;
  }
  
@@ -21,7 +21,7 @@
  .gute-job .gute-left h3 {
 	font-size: 25px;
 	line-height: 30px;
-	font-family: 'Block Berthold';
+	font-family: 'BertholdBlock';
 	color: #fff;
 	margin-bottom: 60px;
  }
@@ -35,7 +35,7 @@
  .gute-job .gute-right h3 {
 	font-size: 25px;
 	line-height: 30px;
-	font-family: 'Block Berthold';
+	font-family: 'BertholdBlock';
 	color: #fff;
 	margin-bottom: 35px;
  }
@@ -221,7 +221,7 @@
 	font-size: 30px;
 	line-height: 40px;
 	color: #1D1D1D;
-	font-family: 'Block Berthold';
+	font-family: 'BertholdBlock';
 	text-align: center;
  }
  

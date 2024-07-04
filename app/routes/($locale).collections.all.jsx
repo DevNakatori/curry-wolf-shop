@@ -7,7 +7,7 @@ import {
   Money,
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
-
+import '../styles/collection-all.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -21,7 +21,7 @@ export const meta = () => {
 export async function loader({request, context}) {
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 8,
+    pageBy: 12,
   });
 
   const {products} = await storefront.query(CATALOG_QUERY, {
@@ -36,22 +36,28 @@ export default function Collection() {
   const {products} = useLoaderData();
 
   return (
-    <div className="collection">
+    <div className="collection collection-all-page">
+      <div class="container">
       <h1>Products</h1>
       <Pagination connection={products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
+          <div className="load-pre">
             <PreviousLink>
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
             </PreviousLink>
+            </div>
             <ProductsGrid products={nodes} />
             <br />
-            <NextLink>
+            <div className="load-more">
+            <NextLink className="yellow-btn">
               {isLoading ? 'Loading...' : <span>Load more ↓</span>}
             </NextLink>
+            </div>
           </>
         )}
       </Pagination>
+    </div>
     </div>
   );
 }
@@ -84,6 +90,9 @@ function ProductsGrid({products}) {
 function ProductItem({product, loading}) {
   const variant = product.variants.nodes[0];
   const variantUrl = useVariantUrl(product.handle, variant.selectedOptions);
+  const titleParts = product.title.split('(');
+  const titleMain = titleParts[0];
+  const titleSub = titleParts[1] ? `(${titleParts[1]}` : '';
   return (
     <Link
       className="product-item"
@@ -100,14 +109,32 @@ function ProductItem({product, loading}) {
           sizes="(min-width: 45em) 400px, 100vw"
         />
       )}
-      <h4>{product.title}</h4>
+      <div className="collection-title">
+      <h4>{titleMain}<br/></h4>
+      <span>{titleSub}</span>
+      </div>
       <small>
-        <Money data={product.priceRange.minVariantPrice} />
+      <FormattedMoney money={product.priceRange.minVariantPrice} />
       </small>
     </Link>
   );
 }
-
+/**
+ * @param {{money: {amount: string, currencyCode: string}}}
+ */
+function FormattedMoney({money}) {
+  const currencySymbols = {
+    EUR: '€',
+    USD: '$',
+  };
+  const symbol = currencySymbols[money.currencyCode] || money.currencyCode;
+  const formattedAmount = parseFloat(money.amount).toFixed(2);
+  return (
+    <span>
+       {symbol} {formattedAmount}
+    </span>
+  );
+}
 const PRODUCT_ITEM_FRAGMENT = `#graphql
   fragment MoneyProductItem on MoneyV2 {
     amount

@@ -29,7 +29,7 @@
  .prepare-food-sec .p-left p {
     font-size: 1.302vw;
     line-height: 1.563vw;
-    font-family: 'Block Berthold';
+    font-family: 'BertholdBlock';
  }
  
  .prepare-food-sec .p-left ul {
@@ -119,7 +119,7 @@
  
  .our-currywurst-sec .right-content p.text-bold {
     font-weight: 400;
-    font-family: 'Block Berthold';
+    font-family: 'BertholdBlock';
     font-size: 1.302vw;
     line-height: 1.51vw;
     padding-bottom: 15px;
@@ -174,7 +174,7 @@
     font-size: 1.302vw;
     line-height:1.51vw;
     color: #fff;
-    font-family: 'Block Berthold';
+    font-family: 'BertholdBlock';
  }
  
  .c-right p {
@@ -203,7 +203,7 @@
     font-size: 2.344vw;
     line-height: 2.604vw;
     color: #fff;
-    font-family: 'Block Berthold';
+    font-family: 'BertholdBlock';
     max-width: 916px;
     margin: 0 auto;
     text-align: center;

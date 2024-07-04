@@ -1,5 +1,20 @@
 .collection-list-page h1{text-align: center;}
-.collection-list-page h5{font-size: 1.302vw;line-height: 1.563vw;color: #fff;font-family: 'Block Berthold';text-align: center;}
+.collection-list-page h5{font-size: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;line-height: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;color: #fff;font-family: 'BertholdBlock';text-align: center;margin-top: 30px;}
 .collection-list-page .collection-item:hover{text-decoration: none;}
-.collections-grid .collection-item img{border-radius: 50px;}
-.collections-grid{grid-template-columns: repeat(3, minmax(var(--grid-item-width), 1fr));grid-gap: 210px;}
+.collections-grid .collection-item img{border-radius: 50px;object-fit: cover;}
+/* .collections-grid{grid-template-columns: repeat(3, minmax(var(--grid-item-width), 1fr));column-gap: 210px;} */
+.load-more {
+	text-align: center;
+	margin-bottom: 50px;
+ }
+ .collections-grid{
+	grid-gap: 4.5rem;
+ }
+ @media (max-width:767px) {
+	.collections-grid{
+		grid-gap: 2.5rem;
+	 }
+ }
+ @media (max-width:480px) {
+	.collections-grid{width: 100%;}
+ }

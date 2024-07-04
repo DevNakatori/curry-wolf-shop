@@ -34,7 +34,7 @@
     text-align: center;
 }
 .our-story .subheader{text-align: center;margin-bottom: 118px;}
-.our-story .subheader p{font-size: 45px;line-height: 54px; font-family: 'Block Berthold';}
+.our-story .subheader p{font-size: 45px;line-height: 54px; font-family: 'BertholdBlock';}
 .our-story-sec {
     display: flex;
     flex-wrap: wrap;
@@ -77,7 +77,7 @@
 .our-story-box h2{
     font-size: 100px;
     line-height: 100px;
-    font-family: 'Block Berthold';
+    font-family: 'BertholdBlock';
     color: #fff;
     text-align: right;
 }
