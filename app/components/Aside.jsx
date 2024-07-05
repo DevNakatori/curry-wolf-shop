@@ -37,9 +37,9 @@ export function Aside({children, heading, id = 'aside'}) {
 function CloseAside() {
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-    <div class="close-popup" id="closeBtn">
-    <div class="outer">
-      <div class="inner">
+    <div className="close-popup" id="closeBtn">
+    <div className="outer">
+      <div className="inner">
         <a className="close" href="#" onChange={() => history.go(-1)}>Back</a>
         </div>
       </div>

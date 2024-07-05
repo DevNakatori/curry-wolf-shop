@@ -508,10 +508,12 @@
 	background-color: rgba(168, 10, 21);
 	background-size: cover;
  }
- 
- .footer .container {
+ .footer-icon a svg {
+    width: 30px;
+}
+ /* .footer .container {
 	max-width: initial;
- }
+ } */
  
 
  
@@ -545,7 +547,7 @@
 	display: block;
 	float: left;
 	width: 42%;
-	margin-bottom: 25px;
+	margin-bottom: 0px;
  }
  
  .social-footer {
@@ -559,8 +561,8 @@
  
  .footer-inner ul li a {
 	width: auto;
-	font-size: 20px;
-	line-height: 25px;
+	font-size: 16px;
+	line-height: 22px;
 	font-weight: 400 !important;
 	color: #fede03;
 	font-family: 'Gotham-Book';
@@ -569,8 +571,8 @@
  
  .footer-contact span,
  .footer-contact a {
-	font-size: 20px;
-	line-height: 25px;
+	font-size:16px;
+	line-height: 22px;
 	font-weight: 400 !important;
 	color: #fff;
 	font-family: 'Gotham-Book';
@@ -578,7 +580,7 @@
  }
  .footer-contact a:hover{text-decoration: none;}
  .footer-contact>div {
-	margin-bottom: 25px;
+	margin-bottom: 5px;
  }
  .footer-contact a{
 	position: relative;
@@ -624,19 +626,22 @@
  .footer-location span {
 	width: 100%;
 	display: block;
-	padding-bottom: 25px;
-	font-size: 20px;
+	padding-bottom: 5px;
+	font-size: 16px;
 	color: #fff;
-	line-height: 25px;
+	line-height: 22px;
 	font-family: 'Gotham-Book';
 	font-weight: 400;
 	max-width: 210px;
  }
- 
+ footer img.footer-bg-img {
+    width: 200px;
+}
  img.footer-berline-logo {
 	position: absolute;
 	right: 0;
 	bottom: 0;
+	width: 160px;
  }
  
  footer img.footer-bg-img {}
@@ -772,6 +777,7 @@
 
  .footer-menu span.yellow-head{
 	margin-bottom: 0;
+	width: 100%;
  }
  img.footer-bg-img {
 	right: 255px;
@@ -865,7 +871,7 @@
 	.footer-contact a,
 	.footer-location span,
 	.footer-inner ul li a {
-	   font-size: 20px;
+	   font-size: 16px;
 	}
  
 	.left-block-wrap {
@@ -917,7 +923,7 @@
 	}
  
 	img.footer-bg-img {
-	   width: 180px;
+	   width: 180px !important;
 	}
  
 	.footer-contact span,
@@ -934,7 +940,7 @@
 	}
  
 	img.footer-berline-logo {
-	   width: 180px;
+	   width: 140px;
 	}
 	.food-decorative-garland{margin-top: -70px !important;}
  }
@@ -963,6 +969,10 @@
 	   padding: 0;
 	}
 	.footer-sub-block:nth-child(2){padding-right: 0;}
+	footer img.footer-bg-img{width: 150px !important; }
+	img.footer-berline-logo {
+        width: 110px !important;
+    }
  }
  
  @media (max-width: 1100px) {
@@ -1001,14 +1011,13 @@
 	.food-decorative-garland {
         margin-top: -60px !important;
     }
- 
  }
  
  @media (max-width: 1024px) {
 	.footer-child {
 	   flex-wrap: wrap;
 	}
- 
+	
 	.left-block-wrap {
 	   width: 47%;
 	   display: flex;

@@ -106,7 +106,7 @@ video#bgVideo {
  
  .first-time-video-text h1,
  .second-time-video-text h2 {
-   font-family: 'Block Berthold';
+   /* font-family: 'BlockBerthold'; */
    font-size: 120px;
    line-height: 105px;
    color: #fff;
@@ -281,7 +281,7 @@ video#bgVideo {
    font-size: 25px;
    line-height: 30px;
    font-weight: 400;
-   font-family: 'Block Berthold';
+   font-family:BertholdBlock;
    color: #fff;
    margin-bottom: 0;
    width: 100%;
@@ -381,7 +381,7 @@ video#bgVideo {
  
  .yellow-btn {
    display: inline-block;
-   padding: 12px 12px;
+   /* padding: 12px 12px; */
    text-decoration: none;
    border-radius: 25px;
    margin-top: 10px;
@@ -658,6 +658,8 @@ video#bgVideo {
       order: 4;
       margin: 0 auto;
       width: 100%;
+      text-align: center;
+      margin-bottom: 20px;
    }
  
    .second-time-video-text .slide:before {

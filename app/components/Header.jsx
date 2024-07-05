@@ -95,7 +95,7 @@ export function HeaderMenu({menu, primaryDomainUrl, viewport}) {
  */
 function HeaderCtas({isLoggedIn, cart}) {
   return (
-    <nav className="header-ctas" role="navigation" data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true">
+    <nav className="header-ctas" role="navigation">
       <HeaderMenuMobileToggle />
       <NavLink prefetch="intent" className='mobile-hide' to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">
