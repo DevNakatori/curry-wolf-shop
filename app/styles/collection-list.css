@@ -1,3 +1,6 @@
+main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
+
+.collections.collection-list-page{text-align: center;}
 .collection-list-page h1{text-align: center;}
 .collection-list-page h5{font-size: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;line-height: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;color: #fff;font-family: 'BertholdBlock';text-align: center;margin-top: 30px;}
 .collection-list-page .collection-item:hover{text-decoration: none;}
@@ -10,6 +13,7 @@
  .collections-grid{
 	grid-gap: 4.5rem;
  }
+ .bottom-spacing{margin-bottom: 20px;}
  @media (max-width:767px) {
 	.collections-grid{
 		grid-gap: 2.5rem;

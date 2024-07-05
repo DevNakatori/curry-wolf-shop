@@ -43,7 +43,7 @@ export default function Collection() {
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
           <div className="load-pre">
-            <PreviousLink>
+            <PreviousLink className="yellow-btn bottom-spacing">
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
             </PreviousLink>
             </div>

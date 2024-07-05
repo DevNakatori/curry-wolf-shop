@@ -29,9 +29,9 @@ export default function Collections() {
       <Pagination connection={collections}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <div>
-            <PreviousLink>
+            <PreviousLink className="yellow-btn bottom-spacing">
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-            </PreviousLink>
+            </PreviousLink >
             <CollectionsGrid collections={nodes} />
             <div className="load-more">
             <NextLink className="yellow-btn">

@@ -3,7 +3,11 @@
 	font-family: 'BertholdBlock';
 	margin: 40px 0 5px;
 	text-align: center;
+	
 }
+.collection-all-page{text-align: center;}
+main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
+.bottom-spacing{margin-bottom: 20px;}
 .collection-all-page  .products-grid{    grid-gap: 4.5rem;}
 .collection-all-page .product-item:hover{text-decoration: none;}
 .collection-all-page .product-item img{border-radius: 50px;}

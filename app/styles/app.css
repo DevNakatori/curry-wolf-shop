@@ -390,7 +390,7 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	background-color: transparent; */
-	padding: 0.729vw;
+	padding: 0.650vw 2vw;
 	border-radius: 25px;
 	text-decoration: none;
 	display: inline-block;
@@ -405,7 +405,7 @@
     z-index: 0;
 	overflow: hidden;
 	color: #FEDE03;
-	min-width: 7.813vw;
+	/* min-width: 7.813vw; */
  }
  .yellow-btn:after{
 	background-color:#FEDE03;
@@ -501,7 +501,7 @@
  }
  
  .footer {
-	padding: 65px 0;
+	padding: 35px 0;
 	position: relative;
 	background-image: url(/app/assets/cross.png);
 	background-repeat: no-repeat;
@@ -668,7 +668,7 @@
  }
  
  @media (max-width: 767px) {
-	.yellow-btn{min-width: 80px;padding:4px  4px;border-radius: 5px;font-size: 3.59vw;line-height: 4.359vw;}
+	.yellow-btn{min-width: 80px;padding:4px  4px;border-radius: 5px;}
 	.yellow-btn:after{border-radius: 1px;}
 	#mobile-menu-aside {
 	   z-index: 999999999;
@@ -855,10 +855,11 @@
 	   max-width: 1500px;
 	   width: auto;
 	}
- 
+	.footer-sub-block:nth-child(2){padding-right: 0;}
 	img.footer-bg-img {
 	   width: 230px;
 	}
+	.left-block-wrap{width: 40%;}
  
 	.footer-contact span,
 	.footer-contact a,
@@ -872,7 +873,7 @@
 	}
  
 	.footer-contact-info {
-	   width: 30%;
+	   width: 33%;
 	   padding-left: 30px;
 	}
  

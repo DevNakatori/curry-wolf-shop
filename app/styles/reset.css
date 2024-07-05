@@ -17,9 +17,9 @@ p {
 }
  
 h1 {
-  font-size: calc(32px + (120 - 32) * ((100vw - 320px) / (1920 - 320)));
+  font-size: calc(32px + (95 - 30) * ((100vw - 320px) / (1920 - 320)));
   font-weight:400;
-  line-height: calc(40px + (100 - 40) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(40px + (95 - 40) * ((100vw - 320px) / (1920 - 320)));
   margin-bottom: 2rem;
   margin-top: 2rem;
   font-family: 'BertholdBlock';
@@ -29,8 +29,9 @@ h1 {
 h2 {
   font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 700;
-  line-height: calc(300px + (36 - 30) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
   margin-bottom: 1rem;
+  letter-spacing: 1px;
 }
 
 h4 {

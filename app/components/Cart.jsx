@@ -49,7 +49,7 @@ function CartLines({lines, layout}) {
   if (!lines) return null;
 
   return (
-    <div aria-labelledby="cart-lines">
+    <div className="cart-lines" aria-labelledby="cart-lines">
       <ul>
         {lines.nodes.map((line) => (
           <CartLineItem key={line.id} line={line} layout={layout} />
@@ -256,7 +256,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
         started!
       </p>
       <br />
-      <Link
+      <Link className="yellow-btn"
         to="/collections"
         onClick={() => {
           if (layout === 'aside') {
