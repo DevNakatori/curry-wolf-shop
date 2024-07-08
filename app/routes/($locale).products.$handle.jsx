@@ -1,4 +1,4 @@
-import { Suspense, useState, useRef } from 'react';
+import { Suspense, useState, useRef, useEffect } from 'react';
 import { defer, redirect } from '@shopify/remix-oxygen';
 import { Await, Link, useLoaderData } from '@remix-run/react';
 import { useNavigate } from 'react-router-dom';
@@ -18,6 +18,8 @@ import securePay from '../assets/secure-pay.png';
 import quickDelivery from '../assets/quick-delivery.png';
 import faceSmile from '../assets/face-smile.png';
 import decorativegarland from '../assets/decorativegarland.png';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export const meta = ({ data }) => {
   return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
@@ -76,24 +78,75 @@ export async function loader({ params, request, context }) {
 
 function ProductMedia({ media }) {
   const videoRef = useRef(null);
+
+  useEffect(() => {
+    Fancybox.bind('[data-fancybox="gallery"]', {
+      // FancyBox options
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, []);
+
+  const handleImageClick = (event) => {
+    event.preventDefault();
+  };
+
+  if (!media || media.length === 0) {
+    return null; // Return early if media array is empty or undefined
+  }
+
+  // Splitting media into first image and rest of the images
+  const firstImage = media.find(item => item.__typename === 'MediaImage');
+  const restImages = media.filter(item => item.__typename === 'MediaImage' && item !== firstImage);
+
   return (
     <div className="product-media">
-      {media?.map((item) => {
-        if (item.__typename === 'MediaImage') {
-          return (
+      {firstImage && (
+        <div className="product-image" data-aos="fade-up" data-aos-duration="1500" key={firstImage.id}>
+          <a
+            data-fancybox="gallery"
+            href={firstImage.image.url}
+            onClick={handleImageClick}
+          >
+            <Image
+              alt={firstImage.image.altText || 'Product Image'}
+              aspectRatio="1/1"
+              data={firstImage.image}
+              key={firstImage.image.id}
+              sizes="(min-width: 45em) 50vw, 100vw"
+            />
+          </a>
+        </div>
+      )}
+
+      {restImages.length > 0 && (
+        <div className="product-images-wrap">
+          {restImages.map(item => (
             <div className="product-image" data-aos="fade-up" data-aos-duration="1500" key={item.id}>
-              <Image
-                alt={item.image.altText || 'Product Image'}
-                aspectRatio="1/1"
-                data={item.image}
-                key={item.image.id}
-                sizes="(min-width: 45em) 50vw, 100vw"
-              />
+              <a
+                data-fancybox="gallery"
+                href={item.image.url}
+                onClick={handleImageClick}
+              >
+                <Image
+                  alt={item.image.altText || 'Product Image'}
+                  aspectRatio="1/1"
+                  data={item.image}
+                  key={item.image.id}
+                  sizes="(min-width: 45em) 50vw, 100vw"
+                />
+              </a>
             </div>
-          );
-        } else if (item.__typename === 'Video') {
+          ))}
+        </div>
+      )}
+
+      {media.map(item => {
+        if (item.__typename === 'Video') {
           const videoSource = item.sources.find(
-            (source) => source.mimeType === 'video/mp4'
+            source => source.mimeType === 'video/mp4'
           );
           return (
             <div className="product-video" key={item.id}>
@@ -109,6 +162,7 @@ function ProductMedia({ media }) {
     </div>
   );
 }
+
 
 export default function Product() {
   const { product, variants } = useLoaderData();
@@ -498,7 +552,7 @@ const PRODUCT_FRAGMENT = `#graphql
       description
       title
     }
-    media(first: 1) {
+    media(first: 10) {
       nodes {
         __typename
         ... on MediaImage {
