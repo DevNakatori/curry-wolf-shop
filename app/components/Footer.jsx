@@ -1,7 +1,7 @@
 import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/lib/root-data';
 import {KeepInTouch} from '~/routes/footerData';
-import footerLogo from '../assets/CurryWolf_Logo_white-red-800.png';
+import footerLogo from '../assets/CurryWolf_Logo_footer.png';
 import footerLogoBerline from '../assets/f-logo-berline.png';
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}

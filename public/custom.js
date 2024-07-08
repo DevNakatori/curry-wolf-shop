@@ -64,11 +64,11 @@ if(document.querySelectorAll('.path-vert').length) {
 
     var path = document.querySelector('.path-vert');
     var pathLength = path.getTotalLength();
-    
+
     // Set up the dash array and offset
     path.style.strokeDasharray = pathLength;
     path.style.strokeDashoffset = pathLength;
-    
+
     // Function to update the stroke dash offset based on scroll
     function updateDashOffset() {
       var scrollPosition = window.scrollY; // Current scroll position
@@ -76,14 +76,32 @@ if(document.querySelectorAll('.path-vert').length) {
       var dashOffset = Math.max(0, pathLength - (scrollPosition / maxScroll * pathLength));
       path.style.strokeDashoffset = dashOffset;
     }
-    
+
     // Add event listener for scroll to update the dash offset
     window.addEventListener('scroll', updateDashOffset);
-    
+
     // Initial update on page load
     updateDashOffset();
+
+    // Show the line after the animation setup
+    path.style.display = 'block';
     
 
+    }
+    // Hide line during zoom-in effect
+    if(document.querySelectorAll('.our-story-box').length) {
+    document.querySelectorAll('.our-story-box').forEach((box, index) => {
+        const img = box.querySelector('.img-one');
+        const line = box.querySelector('.line');
+  
+        img.addEventListener('mouseenter', () => {
+          line.style.opacity = '0'; // Hide the line
+        });
+  
+        img.addEventListener('mouseleave', () => {
+          line.style.opacity = '1'; // Show the line
+        });
+      });
     }
 // Animation STARt
 AOS.init({
