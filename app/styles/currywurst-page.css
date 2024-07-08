@@ -28,7 +28,7 @@
  }
  
  .prepare-food-sec .p-left p {
-   font-size:calc(16px + (16 - 16) * ((100vw - 320px) / (1920 - 320)));
+   font-size:calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
    line-height: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     letter-spacing: 1px;

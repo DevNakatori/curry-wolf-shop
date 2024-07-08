@@ -1,8 +1,7 @@
 import {Await, NavLink} from '@remix-run/react';
 import {Suspense} from 'react';
 import {useRootLoaderData} from '~/lib/root-data';
-import shopLogo from '../assets/shop-logo.png';
-
+import shopLogo from '../assets/CurryWolf_Logo_white-logo.png';
 /**
  * @param {HeaderProps}
  */
@@ -110,11 +109,11 @@ function HeaderCtas({isLoggedIn, cart}) {
       {/* <SearchToggle /> */}
       <CartToggle cart={cart} />
     
-      <div class="dropdown">
-        <button class="dropdown-toggle" id="dropdownToggle">DE</button>
-        <ul class="dropdown-menu" id="dropdownMenu">
-            <li class="dropdown-item" data-value="de-de">DE</li>
-            <li class="dropdown-item" data-value="en-de">EN</li>
+      <div className="dropdown">
+        <button className="dropdown-toggle" id="dropdownToggle">DE</button>
+        <ul className="dropdown-menu" id="dropdownMenu">
+            <li className="dropdown-item" data-value="de-de">DE</li>
+            <li className="dropdown-item" data-value="en-de">EN</li>
         </ul>
     </div>
     </nav>
