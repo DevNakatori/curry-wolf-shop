@@ -33,6 +33,7 @@ main {
   .product-image img {
     width: 70% !important;
     margin: 0 auto;
+    cursor: zoom-in;
   }
   
   .product-image {

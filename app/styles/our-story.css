@@ -41,6 +41,7 @@
     justify-content: center;
     text-align: center;
     position: relative;
+    z-index: 1;
 }
 .our-story-box {
     display: flex;
@@ -75,21 +76,24 @@
     background-color: #fff;
 } */
 .our-story-box h2{
-    font-size: 100px;
-    line-height: 100px;
+    font-size: calc(32px + (95 - 30) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(40px + (95 - 40) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     color: #fff;
     text-align: right;
     word-break: break-all;
 }
 .our-story-box p{
-    font-size: 18px;
-    line-height: 21px;
+    font-size: calc(14px + (16- 14) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (22 - 20) * ((100vw - 320px) / (1920 - 320)));
     color: #fff;
     font-family: 'Gotham-Book';
   font-weight: 400;
   text-align: left;
   
+}
+.our-story-box:nth-child(3) ul li{
+    text-align: left;
 }
 .story-right ul li{
     color: #fff;
@@ -113,7 +117,7 @@
     position: absolute;
     top: -50px;
     background: url(/app/assets/pushpin.png) no-repeat center / contain;
-    left: -50px;
+    left: -60px;
     right: 0;
     width: 103px;
     height: 104px;
@@ -144,17 +148,20 @@
     text-align: left;
 }
 .our-story-box:nth-child(2) .story-wrap{
-    transform: rotate(352deg);
+    transform: rotate(8deg);
 }
 .our-story-box:nth-child(3) .story-wrap{
-    transform: rotate(6deg);
+    transform: rotate(-8deg);
 }
-.our-story-box:nth-child(2) .img-one:before{
+.our-story-box:nth-child(4) .story-wrap{
+    transform: rotate(8deg);
+}
+.our-story-box:nth-child(3) .img-one:before{
     background: url(/app/assets/pushpin-2.png) no-repeat center / contain;
     width: 140px;
     height: 130px;
     top: -62px;
-    left: 24px;
+    left: 60px;
 }
 .our-story-box .story-wrap{
     padding: 0 50px;
@@ -164,13 +171,33 @@
 }
 .line {
     position: absolute;
-    left: 0;
+    left: -72px;
     right: 0;
     text-align: center;
     bottom: 0;
-    top: auto;
-    height: 100%;
+    top: 90px;
+    height: 90%;
+    width: 1px;
+    margin: 0 auto;
+    z-index: -1;
 }
+.path-vert {
+    stroke: #fff;
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 0 0; /* Initial values */
+    stroke-dashoffset: 0; /* Initial value */
+    transition: stroke-dashoffset 0.3s; /* Smooth animation */
+  }
+  .line svg {
+    position: fixed;
+    top: 0;
+  }
+  @keyframes draw {
+    to {
+      stroke-dashoffset: 0; /* End with the path fully visible */
+    }
+  }
 @keyframes lineup {
     0% {
       height: 0px;
@@ -181,11 +208,12 @@
   }
 @media (max-width: 1540px) {
     .img-one{padding-bottom: 57px;}
+    .our-story-box:nth-child(3) .img-one:before{left: 30px;}
 }
 @media (max-width: 1200px) {
-    .our-story-box h2{
+    /* .our-story-box h2{
         font-size: 80px;line-height: 80px;
-    }
+    } */
     .img-one{
         padding-bottom: 57px;
     }
@@ -196,7 +224,7 @@
         width: 73px;height: 74px;
         top: -40px;
     }
-    .our-story-box:nth-child(2) .img-one:before{
+    .our-story-box:nth-child(3) .img-one:before{
         width: 100px;
         height: 100px;
         top: -54px;
@@ -215,7 +243,7 @@
     }
     .our-story .subheader p{font-size: 30px;line-height: 40px;}
     .our-story .subheader{margin-bottom: 55px;}
-    .our-story-box h2{font-size:45px;line-height: 45px;}
+    /* .our-story-box h2{font-size:45px;line-height: 45px;} */
     .our-story-box p{font-size: 14px;line-height: 20px;}
     .our-story-box:nth-child(1)::before, .our-story-box:nth-child(2)::before{top: 238px;height: 40%;}
     .img-one{padding-bottom: 27px;}
@@ -239,8 +267,8 @@
         line-height: 30px;
     }
     .our-story-box h2 {
-        font-size: 40px;
-        line-height: 40px;
+        /* font-size: 40px;
+        line-height: 40px; */
         text-align: center;
     }
     .our-story-box:nth-child(2) h2{text-align: center;}
@@ -256,8 +284,8 @@
         padding-bottom: 37px;
     }
     .our-story-box h2 {
-        font-size: 34px;
-        line-height: 34px;
+        /* font-size: 34px;
+        line-height: 34px; */
         text-align: center;
     }
 }

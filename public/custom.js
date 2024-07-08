@@ -58,6 +58,33 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // language switcher end 
 
+// var path = document.querySelector('.path-vert');
+// var length = path.getTotalLength();
+if(document.querySelectorAll('.path-vert').length) {
+
+    var path = document.querySelector('.path-vert');
+    var pathLength = path.getTotalLength();
+    
+    // Set up the dash array and offset
+    path.style.strokeDasharray = pathLength;
+    path.style.strokeDashoffset = pathLength;
+    
+    // Function to update the stroke dash offset based on scroll
+    function updateDashOffset() {
+      var scrollPosition = window.scrollY; // Current scroll position
+      var maxScroll = document.body.scrollHeight - window.innerHeight; // Maximum scrollable area
+      var dashOffset = Math.max(0, pathLength - (scrollPosition / maxScroll * pathLength));
+      path.style.strokeDashoffset = dashOffset;
+    }
+    
+    // Add event listener for scroll to update the dash offset
+    window.addEventListener('scroll', updateDashOffset);
+    
+    // Initial update on page load
+    updateDashOffset();
+    
+
+    }
 // Animation STARt
 AOS.init({
     duration: 1000,
