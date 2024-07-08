@@ -77,6 +77,7 @@ function CollectionItem({collection, index}) {
       to={`/collections/${collection.handle}`}
       prefetch="intent"
     >
+      <div className="col-block">
       {collection?.image && (
         <Image
           alt={collection.image.altText || collection.title}
@@ -85,6 +86,7 @@ function CollectionItem({collection, index}) {
           loading={index < 3 ? 'eager' : undefined}
         />
       )}
+      </div>
       <h5>{collection.title}</h5>
     </Link>
   );

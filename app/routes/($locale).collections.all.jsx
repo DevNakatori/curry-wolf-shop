@@ -100,6 +100,7 @@ function ProductItem({product, loading}) {
       prefetch="intent"
       to={variantUrl}
     >
+      <div className="pro-block">
       {product.featuredImage && (
         <Image
           alt={product.featuredImage.altText || product.title}
@@ -109,6 +110,7 @@ function ProductItem({product, loading}) {
           sizes="(min-width: 45em) 400px, 100vw"
         />
       )}
+      </div>
       <div className="collection-title">
       <h4>{titleMain}<br/></h4>
       <span>{titleSub}</span>

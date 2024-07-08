@@ -80,6 +80,7 @@
     font-family: 'BertholdBlock';
     color: #fff;
     text-align: right;
+    word-break: break-all;
 }
 .our-story-box p{
     font-size: 18px;
@@ -89,6 +90,10 @@
   font-weight: 400;
   text-align: left;
   
+}
+.story-right ul li{
+    color: #fff;
+    text-align: right;
 }
 .img-big-wrap {
     position: relative;
@@ -163,6 +168,8 @@
     right: 0;
     text-align: center;
     bottom: 0;
+    top: auto;
+    height: 100%;
 }
 @keyframes lineup {
     0% {

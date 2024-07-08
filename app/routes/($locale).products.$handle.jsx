@@ -102,9 +102,9 @@ function ProductMedia({ media }) {
   const restImages = media.filter(item => item.__typename === 'MediaImage' && item !== firstImage);
 
   return (
-    <div className="product-media">
+    <div className="product-media" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
       {firstImage && (
-        <div className="product-image" data-aos="fade-up" data-aos-duration="1500" key={firstImage.id}>
+        <div className="product-image"  key={firstImage.id}>
           <a
             data-fancybox="gallery"
             href={firstImage.image.url}
@@ -124,7 +124,7 @@ function ProductMedia({ media }) {
       {restImages.length > 0 && (
         <div className="product-images-wrap">
           {restImages.map(item => (
-            <div className="product-image" data-aos="fade-up" data-aos-duration="1500" key={item.id}>
+            <div className="product-image"  key={item.id}>
               <a
                 data-fancybox="gallery"
                 href={item.image.url}
@@ -222,24 +222,24 @@ export default function Product() {
         <div className="product-container">
           <div className="left-content">
             <div className="product-title mobile-hide">
-              <h1 data-aos="fade-up" data-aos-duration="1500">{product.title}</h1>
+              <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{product.title}</h1>
             </div>
             <div className="left-bottom-content">
               <div className="info-wrap">
                 {additionalInformationText && (
-                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500">
+                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2 >Additional Information</h2>
                     <p>{additionalInformationText}</p>
                   </div>
                 )}
                 {preparationText && (
-                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500">
+                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2 >Preparation</h2>
                     <p>{preparationText}</p>
                   </div>
                 )}
               </div>
-              <div className="smile-block" data-aos="fade-up" data-aos-duration="1500">
+              <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="special-block">
                   <img src={faceSmile} alt='face smile icon' />
                   <h4>Special Selection</h4>
@@ -261,7 +261,7 @@ export default function Product() {
                   <p>Shipping takes place with DHL GoGreen</p>
                 </div>
               </div>
-              <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500">
+              <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <div className="cerified-box" >
                 <h4 >Certified online shop</h4>
                 <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
@@ -277,9 +277,9 @@ export default function Product() {
             {product.media && <ProductMedia media={product.media.nodes} />}
           </div>
           <div className="right-content">
-          <div class="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" class="aos-init aos-animate">„OPIUM“ Tomaten-Chilisoße (4 x 215g)</h1></div>
+          <div class="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" class="aos-init aos-animate" data-aos-once="true">„OPIUM“ Tomaten-Chilisoße (4 x 215g)</h1></div>
             <div className="product-content">
-              <div data-aos="fade-up" data-aos-duration="1500">
+              <div data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <ProductPrice selectedVariant={selectedVariant} />
               <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
               <Suspense
@@ -308,20 +308,20 @@ export default function Product() {
               {/* Display Metafield */}
               <div className="metafield">
                 {nutritionalValuesText && (
-                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500">
+                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2 >Nutritional Values</h2>
                     <p>{nutritionalValuesText}</p>
                   </div>
                 )}
                 {ingredientsText && (
-                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500">
+                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2 >Ingredients</h2>
                     <p>{ingredientsText}</p>
                   </div>
                 )}
               </div>
             </div>
-            <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500">
+            <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <div className="cerified-box" >
                 <h4 >Certified online shop</h4>
                 <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
