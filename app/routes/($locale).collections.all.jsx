@@ -12,7 +12,7 @@ import '../styles/collection-all.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = () => {
-  return [{title: `Hydrogen | Products`}];
+  return [{title: `Curry Wolf | All Products`}];
 };
 
 /**

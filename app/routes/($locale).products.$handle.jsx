@@ -1,4 +1,4 @@
-import { Suspense, useState, useRef, useEffect } from 'react';
+import { Suspense, useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { defer, redirect } from '@shopify/remix-oxygen';
 import { Await, Link, useLoaderData } from '@remix-run/react';
 import { useNavigate } from 'react-router-dom';
@@ -79,7 +79,7 @@ export async function loader({ params, request, context }) {
 function ProductMedia({ media }) {
   const videoRef = useRef(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     Fancybox.bind('[data-fancybox="gallery"]', {
       // FancyBox options
     });
@@ -87,7 +87,7 @@ function ProductMedia({ media }) {
     return () => {
       Fancybox.destroy();
     };
-  }, []);
+  }, [media]);
 
   const handleImageClick = (event) => {
     event.preventDefault();
@@ -104,7 +104,7 @@ function ProductMedia({ media }) {
   return (
     <div className="product-media" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
       {firstImage && (
-        <div className="product-image"  key={firstImage.id}>
+        <div className="product-image" key={firstImage.id}>
           <a
             data-fancybox="gallery"
             href={firstImage.image.url}
@@ -124,7 +124,7 @@ function ProductMedia({ media }) {
       {restImages.length > 0 && (
         <div className="product-images-wrap">
           {restImages.map(item => (
-            <div className="product-image"  key={item.id}>
+            <div className="product-image" key={item.id}>
               <a
                 data-fancybox="gallery"
                 href={item.image.url}
