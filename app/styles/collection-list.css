@@ -23,7 +23,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 	margin-bottom: 50px;
  }
  .collections-grid{
-	grid-gap: 4.5rem;
+	grid-gap: 3.5rem;
  }
  .bottom-spacing{margin-bottom: 20px;}
  @media (max-width:992px) {

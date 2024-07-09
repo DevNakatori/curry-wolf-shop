@@ -81,6 +81,7 @@
  
  .prepare-food-sec .c-s-image-section {
     margin-top: 0;
+    min-height: 410px;
  }
  
  .our-currywurst-sec .left-sec {
@@ -325,6 +326,10 @@
          width: 22.719vw;
          height: 22.719vw;
      }
+     .prepare-food-sec .c-s-image-section {
+      margin-top: 0;
+      min-height: 396px;
+  }
  }
  @media (max-width:1440px) {
    .container{max-width: 1170px;}
@@ -336,17 +341,18 @@
     /* .our-currywurst-sec .left-sec .bottom-c-logo img {
        width: 33%;
     } */
-    .prepare-food-sec .c-s-image-section{margin-top: -40px;}
+    .prepare-food-sec .c-s-image-section{        margin-top: 0;
+      min-height: 300px;}
     .bottom-c-logo {
-      margin-top: -84px;
-      margin-left: 135px;
+      margin-top: -89px;
+      margin-left: 90px;
     }
     .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before{width: 100px;}
     .curry-image-content{column-gap: 50px;}
 
     .our-currywurst-sec .left-sec img{
-      width: 26.719vw;
-      height: 26.719vw;
+      width: 28.719vw;
+      height: 28.719vw;
     }
  }
  
@@ -408,6 +414,26 @@
     .prepare-food-sec {
        column-gap: 50px;
     }
+    .our-currywurst-sec .left-sec {
+      width: 100%;
+   }
+
+   .main-currywurast-page h1 {
+      margin-bottom: 40px;
+   }
+
+   .our-currywurst-sec .right-content {
+      width: 100%;
+      padding-left: 0;
+      padding-top: 30px;
+   }
+   .our-currywurst-sec {
+      flex-direction: column;
+      padding-bottom: 40px;
+  }
+  .bottom-c-logo{display: none;}
+  .our-currywurst-sec .right-content p, .our-currywurst-sec .right-content h5{max-width: initial;text-align: center;}
+  .y-btn-wrap{text-align: center;} 
  }
  @media (max-width:768px) {
    .bottom-c-logo {
@@ -452,12 +478,14 @@
  
     .prepare-food-sec .p-left,
     .prepare-food-sec .p-right {
-       padding-top: 0;
+      padding: 0px 0 20px;
        width: 100%;
     }
+    .prepare-food-sec .img-big-wrap:nth-child(1) .img-one:before{width: 90px;}
  
     .prepare-food-sec {
        flex-direction: column;
+       padding-bottom: 90px;
     }
  
     .main-currywurast-page {
@@ -465,9 +493,11 @@
     }
  
     .prepare-food-sec .img-one {
-       padding-bottom: 47px;
+       padding-bottom: 25px;
     }
- 
+    .prepare-food-sec .c-s-image-section{
+      min-height: initial;
+    }
     .prepare-food-sec .img-big-wrap:nth-child(2) .img-one {
        margin-left: 0;
        margin-top: 40px;
@@ -476,10 +506,7 @@
     .img-big-wrap:nth-child(1) .img-one {
        margin-top: 40px;
     }
- 
-    .prepare-food-sec {
-       padding-bottom: 90px;
-    }
+
     .our-currywurst-sec .left-sec .bottom-c-logo img {
        width: 15%;
     }
@@ -517,6 +544,9 @@
 .c-two-box:nth-child(2) .c-left img {
    width: 100%;
 }
+/* .prepare-food-sec .p-right {
+   padding: 40px 0;
+} */
  }
  
  @media (max-width:575px) {
@@ -547,3 +577,6 @@
     .c-right p{margin: 0 auto;height: auto !important;}
     .c-two-box:nth-child(2){margin-bottom: 0;}
  }
+
+
+ 

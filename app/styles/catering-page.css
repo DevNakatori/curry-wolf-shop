@@ -69,8 +69,8 @@
 .tab__label {
    justify-content: space-between;
    padding: 30px 0;
-   font-size: 18px;
-   line-height: 22px;
+   font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'Gotham-Book';
    font-weight: 400;
    align-items: center;
@@ -78,7 +78,7 @@
 
 .tab__label::after {
    content: "";
-   width: 27px;
+   width: 20px;
    height: 14px;
    text-align: center;
    transition: all 0.35s;
@@ -119,19 +119,19 @@ div#faq {
 .inner-wolf-bestell {
    display: flex;
    justify-content: space-between;
-   margin-bottom: 160px;
+   margin-bottom: 100px;
 }
 
 .inner-wolf-bestell h3 {
-   font-size: 43px;
-   line-height: 54px;
+   /* font-size: 43px;
+   line-height: 54px; */
    color: #fff;
    font-family: 'BertholdBlock';
    margin: 0 0 40px 0;
 }
 
 .inner-wolf-bestell a.yellow-btn {
-   min-width: 379px;
+   /* min-width: 318px; */
    text-align: center;
 }
 
@@ -270,16 +270,16 @@ div#faq {
 }
 
 .reference {
-   padding: 91px 0 105px;
+   padding: 40px 0 40px;
    border-bottom: 1px solid #fff;
 }
 
 .reference h3 {
-   font-size: 25px;
-   line-height: 29px;
+   font-size: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(25px + (29 - 25) * ((100vw - 320px) / (1920 - 320)));
    color: #fff;
    font-family: 'BertholdBlock';
-   margin: 0 0 40px 0;
+   margin: 0 0 30px 0;
 }
 
 .ref-wrap {
@@ -293,27 +293,25 @@ div#faq {
 }
 
 .ref-box p {
-   font-size: 18px;
-   line-height: 21px;
    font-family: 'Gotham-Book';
    font-weight: 400;
 }
 
 .ref-title h4 {
-   font-size: 20px;
-   line-height: 24px;
+   font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(22px + (24 - 22) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'BertholdBlock';
    color: #fff;
    margin-bottom: 0;
 }
 
 .ref-title {
-   margin-top: 35px;
+   margin-top: 30px;
 }
 
 .wolf-logo {
    display: flex;
-   padding: 95px 0;
+   padding: 50px 0;
    border-bottom: 1px solid #fff;
 }
 
@@ -326,32 +324,37 @@ div#faq {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
+   row-gap: 50px;
 }
 
 .logo-box {
    width: calc(100% / 5);
-   margin-bottom: 50px;
+   /* margin-bottom: 50px; */
 }
 
 .wolf-logo .w-left-content h3 {
-   font-size: 90px;
-   line-height: 66px;
+   font-size: calc(25px + (70 - 25) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(25px + (70 - 25) * ((100vw - 320px) / (1920 - 320)));
    color: #fff;
    font-family: 'BertholdBlock';
    margin: 0 0 15px 0;
 }
 
 .wolf-logo .w-left-content p {
-   font-size: 30px;
-   line-height: 35px;
+
+   font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'BertholdBlock';
    color: #fff;
    margin-bottom: 10px;
 }
-
+.wolf-logo .w-left-content svg {
+   width: 35px;
+   height: 35px;
+}
 .faq-sec {
    display: flex;
-   padding: 103px 0;
+   padding: 50px 0;
 }
 
 .faq-sec .faq-left {
@@ -364,7 +367,7 @@ div#faq {
    font-size: 25px;
    line-height: 29px;
    font-family: 'BertholdBlock';
-   margin-bottom: 46px;
+   margin-bottom: 25px;
 }
 
 .faq-sec .faq-right {
@@ -372,14 +375,14 @@ div#faq {
 }
 
 .faq-sec .faq-left a {
-   min-width: 379px;
+   /* min-width: 379px; */
    text-align: center;
 }
 
 .curywolf-catering-box {
    display: flex;
    flex-wrap: wrap;
-   padding-bottom: 480px;
+   padding-bottom:390px;
    border-bottom: 1px solid #fff;
    justify-self: center;
 }
@@ -387,8 +390,8 @@ div#faq {
 .img-one .inner-content p {
    color: #000;
    text-align: center;
-   font-size: 30px;
-   line-height: 40px;
+   font-size: calc(18px + (26 - 18) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(18px + (30 - 18) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'BertholdBlock';
 }
 
@@ -465,7 +468,9 @@ div#faq {
    background: url(/app/assets/pushpin-c.png) no-repeat center / contain;
    width: 75px;
 }
-
+.inner-wolf-bestell .right-logo img{
+   width: 220px;
+}
 @media (max-width:1440px) {
    .logo-box img {
       width: 70%;
@@ -489,7 +494,7 @@ div#faq {
    }
 
    .curywolf-catering-box {
-      padding-bottom: 350px;
+      padding-bottom: 310px;
    }
 
    .inner-wolf-bestell {
@@ -650,7 +655,7 @@ div#faq {
    }
 
    .inner-wolf-bestell a.yellow-btn {
-      min-width: 300px;
+      /* min-width: 300px; */
       font-size: 16px;
    }
 }

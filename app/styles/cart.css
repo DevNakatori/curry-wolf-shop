@@ -1,5 +1,5 @@
 .cart-main .cart-lines{
-	height:64vh;
+	height: calc(100vh - 285px);
 	/* max-height: calc(100vh - var(--cart-aside-summary-height)); */
 	overflow-y: auto;
 	width: auto;
@@ -23,13 +23,15 @@
  .cart-summary-page {
 	position: relative;
  }
- 
+ #cart-aside main ul li:last-child {
+    margin-bottom: 0;
+}
  .cart-summary-aside {
 	background: transparent;
 	border-top: 1px solid #fff;
-	bottom: 0;
+	bottom: 15px;
 	padding-top: 10px;
-	position: initial;
+	position: absolute;
 	width: calc(var(--aside-width) - 40px);
 	color: #fff;
  }
@@ -57,6 +59,7 @@
 		margin-bottom: 20px;
 		border-bottom: 1px solid #fff;
 		padding-bottom:30px;
+        color: #fff;
 	}
 	.cart-main ul li:last-child{border-bottom: 0 !important;}
 	.cart-main ul li ul li{margin-bottom: 0;margin-top: 5px;border-bottom: 0 !important;padding-bottom:0px !important;}

@@ -85,8 +85,8 @@
     word-break: break-all;
 }
 .our-story-box p{
-    font-size: calc(14px + (16- 14) * ((100vw - 320px) / (1920 - 320)));
-    line-height: calc(20px + (22 - 20) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(14px + (14- 14) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
     color: #fff;
     font-family: 'Gotham-Book';
   font-weight: 400;

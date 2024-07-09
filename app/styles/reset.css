@@ -14,12 +14,16 @@ h2,
 p {
   margin: 0;
   padding: 0;
+  font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
+  font-family: 'Gotham-Book';
+   font-weight: 400;
 }
  
 h1 {
   font-size: calc(32px + (95 - 30) * ((100vw - 320px) / (1920 - 320)));
-  font-weight:400;
   line-height: calc(40px + (95 - 40) * ((100vw - 320px) / (1920 - 320)));
+  font-weight:400;
   margin-bottom: 2rem;
   margin-top: 2rem;
   font-family: 'BertholdBlock';
@@ -27,6 +31,13 @@ h1 {
 }
 
 h2 {
+  font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+}
+h3 {
   font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
   font-weight: 700;
   line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
@@ -48,8 +59,6 @@ h5 {
 }
 
 p {
-  font-size: 1rem;
-  line-height: 1.4;
   color: #fff;
 }
 
@@ -140,14 +149,14 @@ code {
   padding: 0.25rem;
 }
 @media (max-width:992px) {
-  h1{
+  /* h1{
     font-size: 76px;
     line-height: 70px;
-  }
+  } */
 }
 @media (max-width:767px) {
-  h1{
+  /* h1{
     font-size: 32px;
   line-height: 28px;
-}
+} */
 }

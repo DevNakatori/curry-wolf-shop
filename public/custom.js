@@ -504,31 +504,33 @@ path.style.strokeDasharray = pathLength + ' ' + pathLength;
 
 
 function setEqualHeight() {
-    const boxes = document.querySelectorAll('.same-height');
-    let maxHeight = 0;
-  
-    // Reset the height
-    boxes.forEach(box => {
-      box.style.height = 'auto';
-    });
-  
-    // Find the tallest box
-    boxes.forEach(box => {
-      const boxHeight = box.clientHeight;
-      if (boxHeight > maxHeight) {
-        maxHeight = boxHeight;
-      }
-    });
-  
-    // Set all boxes to the height of the tallest box
-    boxes.forEach(box => {
-      box.style.height = `${maxHeight}px`;
-    });
-  }
-  
-  // Call the function initially
-  setEqualHeight();
-  
-  // Call the function on window resize
-  window.addEventListener('resize', setEqualHeight);
+  const boxes = document.querySelectorAll('.same-height');
+  let maxHeight = 0;
+
+  // Reset the height
+  boxes.forEach(box => {
+    box.style.height = 'auto';
+  });
+
+  // Find the tallest box
+  boxes.forEach(box => {
+    const boxHeight = box.clientHeight;
+    if (boxHeight > maxHeight) {
+      maxHeight = boxHeight;
+    }
+  });
+
+  // Set all boxes to the height of the tallest box
+  boxes.forEach(box => {
+    box.style.height = `${maxHeight}px`;
+  });
+}
+
+// Call the function initially with setTimeout
+window.addEventListener('load', () => {
+  setTimeout(setEqualHeight, 100);
+});
+
+// Call the function on window resize
+window.addEventListener('resize', setEqualHeight);
   
