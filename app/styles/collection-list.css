@@ -5,7 +5,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 .collection-list-page h5{font-size: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;line-height: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;color: #fff;font-family: 'BertholdBlock';text-align: center;margin-top: 30px;}
 .collection-list-page .collection-item:hover{text-decoration: none;}
 .collections-grid .collection-item img{border-radius: 50px;object-fit: cover;transform: scale(1);-webkit-transition:.3s ease-in-out;
-	transition: .3s ease-in-out;}
+	transition: .3s ease-in-out;height: 100%;object-fit: cover;}
 	.collections-grid .collection-item .col-block:hover img{
 		-webkit-transform: scale(1.1);
 		transform: scale(1.1);
@@ -16,7 +16,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 .col-block{
 	overflow: hidden;
     border-radius: 50px;
-	height: 472px;
+	height:382px;
 }
 .load-more {
 	text-align: center;
@@ -26,6 +26,17 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 	grid-gap: 3.5rem;
  }
  .bottom-spacing{margin-bottom: 20px;}
+ @media (max-width:1440px) {
+	.col-block{
+		height:400px;
+	}
+ }
+
+ @media (max-width:1199px) {
+	.col-block{
+		height:auto;
+	}
+ }
  @media (max-width:992px) {
 	.col-block{height: 376px;}
 }

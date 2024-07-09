@@ -74,6 +74,7 @@
    font-family: 'Gotham-Book';
    font-weight: 400;
    align-items: center;
+   column-gap: 30px;
 }
 
 .tab__label::after {
@@ -91,7 +92,7 @@
 
 .tab__content p {
    margin: 0;
-   padding: 0px 0 25px;
+   padding: 0px 30px 25px 0px;
 }
 
 .tab__close {
@@ -120,6 +121,7 @@ div#faq {
    display: flex;
    justify-content: space-between;
    margin-bottom: 100px;
+   align-items: center;
 }
 
 .inner-wolf-bestell h3 {
@@ -235,10 +237,12 @@ div#faq {
    position: relative;
    height: 100%;
    box-shadow: 0px 4px 20px 0px #00000040;
-   padding-bottom: 20px;
+   padding: 20px 20px 5px 20px;
    transform: rotate(7deg);
 }
-
+.inner-content {
+   padding-top: 30px;
+}
 .img-one:before {
    content: "";
    position: absolute;
@@ -251,15 +255,28 @@ div#faq {
    margin: 0 auto;
    background-size: 100%;
    transform: rotate(8deg);
+   z-index: 9;
 }
 
 .inner-white-box {
-   padding: 20px 20px 30px 20px;
+   padding:0;
    margin-top: 0px;
+   overflow: hidden;
 }
 
 .img-one img {
    width: 100%;
+   height: 310px;
+   transition: 0.3s ease;
+   width: 100%;
+   height: 100%;
+   display: block;
+   object-fit: cover;
+   object-position: center;
+   -webkit-transition-duration: 500ms;
+   -moz-transition-duration: 500ms;
+   -o-transition-duration: 500ms;
+   transition-duration: 500ms;
 }
 
 .white-box-content {
@@ -285,7 +302,7 @@ div#faq {
 .ref-wrap {
    display: flex;
    justify-content: space-between;
-   gap: 15px;
+   gap: 85px;
 }
 
 .ref-box {
@@ -331,7 +348,9 @@ div#faq {
    width: calc(100% / 5);
    /* margin-bottom: 50px; */
 }
-
+.logo-box img {
+   max-height: 50px;
+}
 .wolf-logo .w-left-content h3 {
    font-size: calc(25px + (70 - 25) * ((100vw - 320px) / (1920 - 320)));
    line-height: calc(25px + (70 - 25) * ((100vw - 320px) / (1920 - 320)));
@@ -375,7 +394,6 @@ div#faq {
 }
 
 .faq-sec .faq-left a {
-   /* min-width: 379px; */
    text-align: center;
 }
 
@@ -471,6 +489,11 @@ div#faq {
 .inner-wolf-bestell .right-logo img{
    width: 220px;
 }
+.curywolf-catering-box .img-big-wrap .img-one img:hover{-webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);}
+
+
 @media (max-width:1440px) {
    .logo-box img {
       width: 70%;
@@ -484,15 +507,6 @@ div#faq {
       font-size: 20px;
       line-height: 22px;
    }
-
-   .img-one {
-      padding-bottom: 15px;
-   }
-
-   .inner-white-box {
-      padding: 20px 20px 20px 20px;
-   }
-
    .curywolf-catering-box {
       padding-bottom: 310px;
    }
@@ -526,10 +540,6 @@ div#faq {
       line-height: 30px;
    }
 
-   .inner-white-box {
-      padding: 15px;
-   }
-
    /* .img-big-wrap {
     width: 80%;
   } */
@@ -559,6 +569,7 @@ div#faq {
    .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
       width: 45px;
    }
+   .ref-wrap{gap: 55px;}
 }
 
 @media (max-width:1024px) {
@@ -601,10 +612,10 @@ div#faq {
       padding-bottom: 70px;
    }
 
-   .reference {
+   /* .reference {
       padding: 70px 0;
-   }
-
+   } */
+   .ref-wrap{gap: 30px;}
    .wolf-logo .w-left-content h3 {
       font-size: 60px;
    }
@@ -619,14 +630,8 @@ div#faq {
    }
 
    .faq-sec .faq-left a {
-      min-width: 279px;
       font-size: 16px;
    }
-
-   .tab__label {
-      font-size: 16px;
-   }
-
    .logo-box img {
       width: auto;
    }
@@ -658,6 +663,12 @@ div#faq {
       /* min-width: 300px; */
       font-size: 16px;
    }
+   .img-one{
+      padding: 10px 10px 5px 10px;
+   }
+   .inner-content {
+      padding-top: 20px;
+  }
 }
 
 @media (max-width:767px) {
@@ -705,7 +716,9 @@ div#faq {
    .c-brand-content p:nth-child(even) {
       padding-bottom: 30px;
    }
-
+   .wolf-logo .w-right-logo{
+      row-gap: 10px;
+   }
    .c-brand-content {
       padding: 30px 0 0;
    }
@@ -750,7 +763,6 @@ div#faq {
       font-size: 14px;
       line-height: 16px;
       border-radius: 5px;
-      min-width: 250px;
       font-family: 'Chivo-Regular';
    }
 
@@ -768,7 +780,7 @@ div#faq {
    }
 
    .reference {
-      padding: 50px 0;
+      padding: 40px 0;
    }
 
    .wolf-logo {
@@ -904,12 +916,8 @@ div#faq {
       padding-bottom: 150px;
    }
 
-   .inner-white-box {
-      padding: 10px;
-   }
-
    .img-one {
-      padding-bottom: 9px;
+      padding: 10px 10px 7px 10px;
    }
 
    .img-one .inner-content p {

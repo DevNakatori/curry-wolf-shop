@@ -8,7 +8,7 @@ import '../styles/collection-list.css';
 
 export async function loader({context, request}) {
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 4,
+    pageBy: 9,
   });
 
   const {collections} = await context.storefront.query(COLLECTIONS_QUERY, {

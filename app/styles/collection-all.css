@@ -8,7 +8,7 @@
 .pro-block {
     overflow: hidden;
     border-radius: 50px;
-	height: 472px;
+	height: 382px;
 
 }
 .load-pre {
@@ -20,7 +20,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 .collection-all-page  .products-grid{    grid-gap: 3rem;}
 .collection-all-page .product-item:hover{text-decoration: none;}
 .collection-all-page .product-item img{border-radius: 50px;transform: scale(1);-webkit-transition:.3s ease-in-out;
-	transition: .3s ease-in-out;}
+	transition: .3s ease-in-out;height: 100%;object-fit: cover;}
 .collection-all-page small span{font-size: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;line-height: calc(22px + (25 - 22) * ((100vw - 320px) / (1920 - 320))) !important;
 	font-family: 'BertholdBlock';color: #fff;text-align: center
 	;}
@@ -63,6 +63,13 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 		text-align: center;
 		margin-bottom: 70px;
 	}
+	@media (max-width:1440px) {
+		.pro-block{height: 400px;}
+	}
+	@media (max-width:1199px) {
+		.pro-block{height: auto;}
+	}
+
 	@media (max-width:992px) {
 		.pro-block{height: 376px;}
 	}
