@@ -65,6 +65,7 @@ p {
 a {
   color: #000;
   text-decoration: none;
+  transition:all 400ms ease;
 }
 
 a:hover {
