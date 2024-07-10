@@ -90,6 +90,15 @@ aside header .inner a {
     opacity: 0 !important;
     cursor: pointer;
 }
+aside header .outer:hover .inner:before, aside header .outer:hover .inner:after {
+    transform: rotate(0);
+}
+aside header .outer:hover .inner:before {
+    top: 0;
+}
+aside header .outer:hover .inner:after {
+    bottom: 0;
+}
 aside header .outer:hover a {
     opacity: 1 !important;
     text-decoration: none;
