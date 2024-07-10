@@ -53,30 +53,6 @@
     z-index: 9999;
    
 }
-/* .our-story-sec::before {
-    position: absolute;
-    content: "";
-    left: -3px;
-    right: 0;
-    border-right: 1px solid #fff;
-    width: 1px;
-    height: 100%;
-    text-align: center;
-    margin: 0 auto;
-} */
-/* .our-story-box:nth-child(1)::before,.our-story-box:nth-child(2)::before {
-    position: absolute;
-    content: "";
-    left: -3px;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    text-align: center;
-    margin: 0 auto;
-    top: 0;
-    bottom: 0;
-    background-color: #fff;
-} */
 .our-story-box h2{
     font-size: calc(32px + (60 - 20) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(30px + (60 - 30) * ((100vw - 320px) / (1920 - 320)));
@@ -188,9 +164,9 @@
     stroke: #fff;
     stroke-width: 3;
     fill: none;
-    stroke-dasharray: 0 0; /* Initial values */
-    stroke-dashoffset: 0; /* Initial value */
-    transition: stroke-dashoffset 0.5s; /* Smooth animation */
+    stroke-dasharray: 0 0;
+    stroke-dashoffset: 0; 
+    transition: stroke-dashoffset 0.5s; 
   }
   .line svg {
     position: fixed;
@@ -199,7 +175,7 @@
   }
   @keyframes draw {
     to {
-      stroke-dashoffset: 0; /* End with the path fully visible */
+      stroke-dashoffset: 0;
     }
   }
 @keyframes lineup {
@@ -215,9 +191,6 @@
     .our-story-box:nth-child(3) .img-one:before{left: 30px;}
 }
 @media (max-width: 1200px) {
-    /* .our-story-box h2{
-        font-size: 80px;line-height: 80px;
-    } */
     .line{
         top: 300px;
     }
@@ -250,7 +223,6 @@
     }
     .our-story .subheader p{font-size: 30px;line-height: 40px;}
     .our-story .subheader{margin-bottom: 55px;}
-    /* .our-story-box h2{font-size:45px;line-height: 45px;} */
     .our-story-box p{font-size: 14px;line-height: 20px;}
     .our-story-box:nth-child(1)::before, .our-story-box:nth-child(2)::before{top: 238px;height: 40%;}
     .img-one{padding-bottom: 27px;}
@@ -275,8 +247,6 @@
         line-height: 30px;
     }
     .our-story-box h2 {
-        /* font-size: 40px;
-        line-height: 40px; */
         text-align: center;
     }
     .our-story-box:nth-child(2) h2{text-align: center;}
@@ -292,8 +262,6 @@
         padding-bottom: 37px;
     }
     .our-story-box h2 {
-        /* font-size: 34px;
-        line-height: 34px; */
         text-align: center;
     }
 }
