@@ -431,8 +431,6 @@ section.thereedmainsection {
  }
  
  .c-right p {
-	font-size: 18px;
-	line-height: 21px;
 	font-family: 'Gotham-Book';
 	margin-bottom: 36px;
 	max-width: 380px;
@@ -448,8 +446,6 @@ section.thereedmainsection {
  
  
  .follow-currywolf h2 {
-	font-size: 45px;
-	line-height: 50px;
 	color: #fff;
 	font-family: 'BertholdBlock';
 	max-width: 916px;

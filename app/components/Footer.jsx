@@ -1,8 +1,7 @@
 import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/lib/root-data';
 import {KeepInTouch} from '~/routes/footerData';
-import footerLogo from '../assets/CurryWolf_Logo_footer.png';
-import footerLogoBerline from '../assets/f-logo-berline.png';
+import footerLogo from '../assets/CurryWolf_Logo_footer.svg';
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}
  */
@@ -22,7 +21,7 @@ export function Footer({menu, shop}) {
       )}
     </div>
       </div>
-      <img className='footer-berline-logo' data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true" src={footerLogoBerline} alt='footer-logo' />
+     
     </footer>
   
   );

@@ -509,7 +509,7 @@ aside header .outer:hover a {
  .header-menu-desktop {
 	display: flex;
 	grid-gap: 2.1875em;
-	margin-left: 2rem;
+	margin-left: 2.5rem;
  }
  
  .header-menu-desktop a {
@@ -532,8 +532,7 @@ aside header .outer:hover a {
  }
  
  .header-ctas {
-	grid-gap: 2rem;
-	grid-gap: 1rem;
+	grid-gap: 1.9rem;
  }
  
  nav.header-ctas a {
@@ -647,7 +646,7 @@ aside header .outer:hover a {
 }
  .footer-contact-info {
 	display: flex;
-	width: 30%;
+	width: 35%;
 	padding-left: 50px;
 	justify-content: space-between;
  }
@@ -689,8 +688,8 @@ aside header .outer:hover a {
 }
  img.footer-berline-logo {
 	position: absolute;
-	right: 0;
-	bottom: 0;
+	right: 0px;
+	bottom: -30px;
 	width: 155px;
  }
  
@@ -707,7 +706,7 @@ aside header .outer:hover a {
  }
  
  .footer-social {
-	width: 23%;
+	width: 25%;
 	padding-left: 30px;
  }
  
@@ -746,10 +745,6 @@ aside header .outer:hover a {
  
  select#custom-dropdown option {
 	color: #000;
- }
- 
- .header-ctas {
-	grid-gap: 1.5rem;
  }
  
  .footer-menu {
@@ -801,7 +796,7 @@ aside header .outer:hover a {
 	background: url(/app/assets/Vector.svg) no-repeat center / contain;
 	width: 14px;
 	height: 7px;
-	top: 13px;
+	top: 11px;
 }
 .dropdown-toggle:focus {
     outline: none;
@@ -899,7 +894,7 @@ aside header .outer:hover a {
 	   max-width: 1340px;
 	}
  
- 
+	img.footer-berline-logo{bottom: -30px;width: 145px;}
  }
  
  @media (max-width: 1380px) {
@@ -965,9 +960,9 @@ aside header .outer:hover a {
 	}
 	.footer-sub-block:nth-child(2){padding-right: 0;}
 	footer img.footer-bg-img{width: 150px !important; }
-	img.footer-berline-logo {
+	/* img.footer-berline-logo {
         width: 110px !important;
-    }
+    } */
  }
  
  @media (max-width: 1100px) {
@@ -1024,7 +1019,7 @@ aside header .outer:hover a {
 	}
  
 	.footer-social {
-	   width: 50%;
+	   width: 100%;
 	}
  
 	.footer-sub-block:nth-child(2) {
@@ -1062,7 +1057,7 @@ aside header .outer:hover a {
 	}
  
 	.header-ctas {
-	   grid-gap: 1rem;
+	   grid-gap: 0.5rem;
 	}
  
 	a.header-cart svg {
@@ -1105,6 +1100,12 @@ aside header .outer:hover a {
 	.food-decorative-garland {
         margin-top: -40px !important;
     }
+	.inner-header a img{
+		width: 85px;
+	}
+	.dropdown-toggle::before{right: 14px;}
+	.dropdown-toggle{padding:2px 30px 2px 15px;font-size: 16px;}
+	
  }
  @media (max-width: 768px) {
 	.header-menu-desktop {
@@ -1241,9 +1242,15 @@ aside header .outer:hover a {
 	   padding-bottom: 10px;
 	}
  
-	.footer-sub-block.footer-social {
+	span.yellow-head,.footer-flex.footer-icon{
 	   display: none;
 	}
+	.footer-sub-block.footer-social {
+		margin: 0;
+		padding: 0;
+		opacity: 1 !important;
+	}
+	img.footer-berline-logo{right: -20px;bottom: -20px;}
  
 	span.yellow-head {
 	   margin-bottom: 15px;

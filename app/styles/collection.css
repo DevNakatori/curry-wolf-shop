@@ -22,6 +22,7 @@ main {
     top: 100px;
     left: 0;
     right: 0;
+    box-shadow: 4px 5px 15px 0px #00000040;
  
  }
  
@@ -37,10 +38,10 @@ main {
  }
  
  .collection nav ul li a {
-    font-size: 20px;
-    line-height: 24px;
+   font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'Gotham-Book';
-    font-weight: 400;
+    font-weight: 600;
     color: rgba(0, 0, 0, 1);
     position: relative;
  }
@@ -68,8 +69,6 @@ main {
  
  .collection-banner h1 {
     color: #fff;
-    font-size: 120px;
-    line-height: 100px;
     font-family: 'BertholdBlock';
     margin: 0;
     position: absolute;
@@ -89,7 +88,7 @@ main {
  .benifits .container .benifits-inner-wrap {
     border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
-    padding: 73px 0;
+    padding: 50px 0;
  }
  
  .products-grid .container,
@@ -101,13 +100,11 @@ main {
  .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: 0px;
+    margin-top: 30px;
     padding-bottom: 50px;
  }
  
  .benifits h4 {
-    font-size: 30px;
-    line-height: 35px;
     font-family: 'BertholdBlock';
     color: #fff;
     margin-bottom: 60px;
@@ -137,8 +134,6 @@ main {
  }
  
  .banifits-wrap .benifits-content p {
-    font-size: 18px;
-    line-height: 21px;
     color: #ffff;
     max-width: 210px;
     font-family: 'Gotham-Book';
@@ -146,7 +141,7 @@ main {
  }
  
  .products-grid {
-    padding: 103px 0 0;
+    padding: 80px 0 40px;
     margin-bottom: 0;
  }
  
@@ -155,6 +150,7 @@ main {
     flex-wrap: wrap;
     text-align: center;
     margin: 0 -107px;
+    row-gap: 100px;
  
  }
  
@@ -163,25 +159,23 @@ main {
     text-decoration: none;
     position: relative;
     margin: 0 107px;
-    padding-bottom: 100px;
  }
  
  .products-grid .product-g-wrap a img {
     border-radius: 50px;
+    box-shadow: 0px 4px 4px 0px #00000040;
  }
  
  .products-grid .product-g-wrap h4,
  .products-grid .product-g-wrap .c-price-range {
-    font-size: 25px;
-    line-height: 29px;
     color: #fff;
-    margin-top: 40px;
+    margin-top: 20px;
     font-family: 'BertholdBlock';
  }
  
  .products-grid .product-g-wrap span {
-    font-size: 20px;
-    line-height: 24px;
+   font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(20px + (18 - 20) * ((100vw - 320px) / (1920 - 320)));
     color: #fff;
     font-family: 'Gotham-Book';
     font-weight: 400;
@@ -193,33 +187,35 @@ main {
  
  .c-price-range {
     max-width: 247px;
-    margin: 0 auto 25px;
+    margin: 0 auto 20px;
     border-top: 1px solid #fff;
-    margin-top: 30px !important;
+    margin-top: 20px !important;
  }
  
  .c-price-range>div {
     margin-top: 15px;
+    font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
  }
  
  .collection-badge {
     background: radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) rgba(254, 222, 3, 1);
     ;
-    width: 90px;
-    height: 88px;
+    width: 70px;
+    height: 70px;
     border-radius: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: -38px;
+    right: -30px;
     box-shadow: 4px 5px 15px 0px #00000040;
-    box-shadow: -3px -4px 7px 0px #FFFFFF26 inset;
     top: -31px;
  }
  
  .collection-badge p {
-    font-size: 35px;
+   font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     color: #000;
  
@@ -230,6 +226,8 @@ main {
     font-family: 'Gotham-Medium';
     min-width: 191px;
     padding: 9px 0;
+   box-shadow: 0px 4px 4px 0px #00000040;
+
  }
  .products-grid .product-g-wrap .cart-btn span:hover{
    color: #9B2220;
@@ -255,16 +253,12 @@ main {
  }
  
  .collection-logo-sec .c-logo-wrap .left-l h4 {
-    font-size: 25px;
-    line-height: 29px;
     color: #fff;
     font-family: 'BertholdBlock';
     margin-bottom: 45px;
  }
  
  .collection-logo-sec .c-logo-wrap .left-l p {
-    font-size: 18px;
-    line-height: 21px;
     color: #fff;
     font-family: 'Gotham-Book';
     font-weight: 400;
@@ -284,7 +278,8 @@ main {
     align-items: center;
     width: 50%;
  }
- 
+ .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner:nth-child(1) .l-logo img{width: 65px;}
+.collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner:nth-child(2) .l-logo img{height:70px;}
  .collection-logo-sec .c-logo-wrap .right-l .c-right-wrap .right-inner .r-content {
     padding-left: 15px;
  }
@@ -299,8 +294,6 @@ main {
  }
  
  .collection-logo-sec .c-logo-wrap .right-l p {
-    font-size: 15px;
-    line-height: 18px;
     color: #fff;
     font-family: 'Gotham-Book';
     font-weight: 400;
@@ -364,22 +357,9 @@ main {
        font-size: 16px;
     }
  
-    .products-grid .product-g-wrap h4,
-    .products-grid .product-g-wrap .c-price-range {
-       font-size: 22px;
-    }
- 
-    .products-grid .product-g-wrap span {
-       font-size: 18px;
-    }
- 
     .collection-badge {
        width: 90px;
        height: 88px;
-    }
- 
-    .collection-badge p {
-       font-size: 32px;
     }
  }
  
@@ -432,12 +412,8 @@ main {
     .collection nav {
        padding: 6px 0px;
        max-width: 600px;
-       top: 100px;
+       top: 110px;
        position: initial;
-    }
- 
-    .benifits h4 {
-       font-size: 20px;
     }
  
     .banifits-wrap {
@@ -446,7 +422,6 @@ main {
     }
  
     .banifits-wrap .benifits-content p {
-       font-size: 16px;
        max-width: initial;
     }
  
@@ -467,7 +442,6 @@ main {
     .products-grid .product-g-wrap a {
        width: calc(100% / 2 - 60px);
        margin: 0 30px;
-       padding-bottom: 60px;
     }
  
     .products-grid .product-g-wrap {
@@ -512,11 +486,8 @@ main {
     .products-grid .product-g-wrap a img {
        border-radius: 10px;
     }
+    .products-grid .product-g-wrap{row-gap: 40px;}
  
-    .collection-logo-sec .c-logo-wrap .left-l p {
-       font-size: 16px;
-       line-height: 20px;
-    }
  }
  
  @media (max-width:767px) {
@@ -557,17 +528,13 @@ main {
     .products-grid .product-g-wrap a {
        width: 42%;
        margin: 0;
-       padding-bottom: 35px;
     }
  
-    .collection-badge p {
-       font-size: 16px;
-    }
  
     .collection-badge {
        width: 45px;
        height: 45px;
-       right: 8px;
+       right: -22px;
        top: -23px;
     }
  
@@ -625,6 +592,7 @@ main {
     .banifits-wrap .benifits-content img {
        width: 50px;
     }
+    .products-grid .product-g-wrap{row-gap: 50px;}
  }
  
  @media (max-width:575px) {
@@ -698,9 +666,13 @@ main {
     }
  
     .products-grid .product-g-wrap a img {
-       width: 80% !important;
+       width: 70% !important;
     }
- 
+    .collection nav ul li{padding: 0 4px;}
+    .collection nav ul li a {
+      font-size: 12px;
+  }
+  .collection-badge{right: 10px;}
  }
  
  @media (max-width:350px) {

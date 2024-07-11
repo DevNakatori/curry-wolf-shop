@@ -30,6 +30,7 @@
     font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
 	font-family: 'Gotham-Book';
+	max-width: 453px;
  }
  
  .gute-job .gute-right h3 {
@@ -41,13 +42,14 @@
  }
  
  .gute-left {
-	max-width: 571px;
+	max-width: 501px;
  }
  
  .gute-right {
 	padding-left: 183px;
+	width: calc(100% - 571px);
  }
- 
+ .gute-right .tab a:hover{text-decoration: none;}
  /* Visual styles */
  .accordion {
 	overflow: hidden;
@@ -76,7 +78,7 @@
  
  .tab__label {
 	justify-content: space-between;
-	padding: 30px 0;
+	padding: 20px 0;
 	font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
 	font-family: 'Gotham-Book';
@@ -92,6 +94,7 @@
 	text-align: center;
 	transition: all 0.35s;
 	background: url('https://cdn.shopify.com/s/files/1/0661/7595/9260/files/down-arrow.svg?v=1719579104') no-repeat center / contain;
+	transform: rotate(-91deg);
  }
  
  .tab input:checked+.tab__label::after {
@@ -280,6 +283,8 @@
 	.img-big-wrap:nth-child(3) {
 	   right: -10px;
 	}
+	.tab__label::after{width: 16px;}
+	.gute-right{padding-left:137px;}
  }
  
  @media (max-width:1240px) {
@@ -288,11 +293,14 @@
  
  @media (max-width:1024px) {
 	.gute-right {
-	   padding-left: 80px;
+	   padding-left: 13px;
+	   width: calc(100% - 400px);
 	}
+	
  
 	.tab__label::after {
 	   padding-left: 20px;
+	   background-size: 60%;
 	}
 	.job-img-box{    padding: 65px 0 170px;}
  }
@@ -301,19 +309,24 @@
 	.gute-job {
 	   flex-direction: column;
 	}
- 
+	.gute-job .gute-left p{
+		max-width: initial;
+	}
 	.gute-left {
 	   max-width: initial;
 	}
  
 	.gute-right {
 	   padding-left: 0;
+	   width: 100%;
 	}
  
 	.gute-job .gute-left h3 {
 	   margin-bottom: 20px;
 	}
- 
+	.tab__label::after{
+		background-size: 50%;
+	}
 	.gute-job .gute-right h3 {
 	   margin-bottom: 20px;
 	   margin-top: 35px;

@@ -49,6 +49,7 @@ export function KeepInTouch() {
                 </svg>
               </a>
             </div>
+            <img className='footer-berline-logo' src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/f-logo-berline.png?v=1717760564" alt='footer-logo' />
         </div>  
       </>
     );
