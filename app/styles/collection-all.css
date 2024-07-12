@@ -5,6 +5,7 @@
 	text-align: center;
 	font-size: calc(16px + (25 - 16) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(23px + (30 - 23) * ((100vw - 320px) / (1920 - 320)));
+	color: #fede03;
 	
 }
 .pro-block {

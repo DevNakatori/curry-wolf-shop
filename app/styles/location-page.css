@@ -172,6 +172,7 @@ section.thereedmainsection {
 	padding: 23px 0;
 	margin-bottom: 4px;
 	align-items: center;
+	justify-content: space-between;
  }
  
  .popup-payment {
@@ -564,8 +565,8 @@ section.thereedmainsection {
  
  @media (max-width:1700px) {
 	.popup-h-title h2 {
-	   font-size: 30px;
-	   line-height: 30px;
+	   font-size: 22px;
+	   line-height: 22px;
 	   padding-right: 20px;
 	}
  
@@ -588,7 +589,7 @@ section.thereedmainsection {
 	}
  
 	.popup-h-title {
-	   width: 182px;
+	   width: 170px;
 	}
  
 	.popup-bottom-menu .foodmenu-one ul li {
@@ -680,9 +681,10 @@ section.thereedmainsection {
 	.popup-r-time {
 		flex-direction: column;
 	 }
+	 .popup-opening-hours{justify-content: initial;}
  }
  @media (max-width:1199px) {
- 
+	
 	/* .popup-right{width: 45%;}
 	 .popup-left{width: 55%;} */
 	.popup-bottom-menu .foodmenu-one ul li span:first-child {

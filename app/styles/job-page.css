@@ -207,7 +207,7 @@
  }
  
  .inner-white-box {
-	padding: 15px;
+	padding: 10px;
 	margin-top: 0px;
  }
  
@@ -241,13 +241,13 @@
  .img-big-wrap:nth-child(2) {
 	position: relative;
 	top: 100px;
-	right: -5px;
+	right: 5px;
  }
  
  .img-big-wrap:nth-child(3) {
 	position: relative;
 	top: 3px;
-	right: -33px;
+	right: -13px;
  }
  
  .img-big-wrap:nth-child(3) .img-one {
@@ -273,7 +273,9 @@
 	width: 104px;
 	background: url(/app/assets/pushpin-2.png) no-repeat center / contain;
  }
- 
+ .img-big-wrap:nth-child(5) .img-one{
+	transform: rotate(-11deg);
+}
  @media (max-width:1440px) {
 
 	.img-big-wrap:nth-child(2) {
@@ -333,9 +335,10 @@
 	}
  
 	.job-img-box {
-	   padding: 75px 0 190px;
+	   padding: 75px 0 140px;
 	   margin-bottom: 25px;
 	}
+	.img-big-wrap:nth-child(5) .img-one{top: 50px;}
  
 	.inner-white-box {
 	   padding: 15px;
@@ -374,7 +377,7 @@
  
  @media (max-width:480px) {
 	.job-img-box {
-	   padding: 50px 0 180px;
+	   padding: 50px 0 110px;
 	}
  
 	.img-one:before {

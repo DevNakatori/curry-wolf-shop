@@ -54,16 +54,16 @@
    
 }
 .our-story-box h2{
-    font-size: calc(32px + (60 - 20) * ((100vw - 320px) / (1920 - 320)));
-    line-height: calc(30px + (60 - 30) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(32px + (44 - 20) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     color: #fff;
     text-align: right;
     word-break: break-all;
 }
 .our-story-box h2 span{
-    font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
-    line-height: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
     display: block;
 }
 .our-story-box p{
