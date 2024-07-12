@@ -204,6 +204,7 @@ section.thereedmainsection {
 	color: #fff;
 	font-family: 'BertholdBlock';
 	margin-bottom: 0;
+	word-break: break-all;
  }
  
  .popup-r-time ul li span {
@@ -565,6 +566,7 @@ section.thereedmainsection {
 	.popup-h-title h2 {
 	   font-size: 30px;
 	   line-height: 30px;
+	   padding-right: 20px;
 	}
  
 	.popup-h-title {
