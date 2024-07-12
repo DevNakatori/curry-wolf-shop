@@ -68,7 +68,7 @@
 
 .tab__label {
    justify-content: space-between;
-   padding: 30px 0;
+   padding: 20px 0;
    font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
    line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'Gotham-Book';
@@ -125,8 +125,6 @@ div#faq {
 }
 
 .inner-wolf-bestell h3 {
-   /* font-size: 43px;
-   line-height: 54px; */
    color: #fff;
    font-family: 'BertholdBlock';
    margin: 0 0 40px 0;
@@ -247,11 +245,11 @@ div#faq {
    content: "";
    position: absolute;
    top: -50px;
-   background: url(/app/assets/pushpin.png) no-repeat center / contain;
+   background: url(/app/assets/pushpin-2.svg) no-repeat center / contain;
    left: 0px;
    right: 0;
-   width: 103px;
-   height: 104px;
+   width: 60px;
+   height: 94px;
    margin: 0 auto;
    background-size: 100%;
    transform: rotate(8deg);
@@ -341,7 +339,6 @@ div#faq {
    display: flex;
    flex-wrap: wrap;
    justify-content: center;
-   row-gap: 50px;
 }
 
 .logo-box {
@@ -349,7 +346,7 @@ div#faq {
    /* margin-bottom: 50px; */
 }
 .logo-box img {
-   max-height: 50px;
+   max-height: 144px;
 }
 .wolf-logo .w-left-content h3 {
    font-size: calc(25px + (70 - 25) * ((100vw - 320px) / (1920 - 320)));
@@ -383,8 +380,6 @@ div#faq {
 .faq-sec .faq-left h3 {
    margin: 0;
    color: #fff;
-   font-size: 25px;
-   line-height: 29px;
    font-family: 'BertholdBlock';
    margin-bottom: 25px;
 }
@@ -485,8 +480,8 @@ div#faq {
 .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before,
 .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before,
 .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
-   background: url(/app/assets/pushpin-c.png) no-repeat center / contain;
-   width: 75px;
+   background: url(/app/assets/pushpin.svg) no-repeat center / contain;
+   width: 60px;
 }
 .inner-wolf-bestell .right-logo img{
    width: 220px;
@@ -510,29 +505,21 @@ div#faq {
       line-height: 22px;
    }
    .curywolf-catering-box {
-      padding-bottom: 310px;
+      padding-bottom: 360px;
    }
 
    .inner-wolf-bestell {
       margin-bottom: 100px;
    }
+   .curywolf-catering-box .img-big-wrap:nth-child(4) {
+      transform: translate(-19%, -12%);
+  }
+  .curywolf-catering-box .img-big-wrap:nth-child(7) {
+   transform: translate(74%, 17%);
+}
 }
 
 @media (max-width:1200px) {
-   .inner-wolf-bestell .left-content h1 {
-      font-size: 100px;
-      line-height: 90px;
-   }
-
-   .wolf-logo .w-left-content p {
-      font-size: 22px;
-      line-height: 30px;
-   }
-
-   .wolf-logo .w-left-content h3 {
-      font-size: 80px;
-   }
-
    .brandenburg .brand-left {
       padding-right: 40px;
    }
@@ -559,13 +546,13 @@ div#faq {
    }
 
    .img-one:before {
-      width: 70px;
+      width: 40px;
    }
 
    .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
-      width: 45px;
+      width: 40px;
    }
    .ref-wrap{gap: 55px;}
 }
@@ -576,30 +563,8 @@ div#faq {
       margin-bottom: 0px;
    }
 
-   .inner-wolf-bestell .left-content h1 {
-      font-size: 80px;
-      line-height: 80px;
-   }
-
-   .inner-wolf-bestell h3 {
-      font-size: 34px;
-      line-height: 44px;
-   }
-
    .brand-left h2 {
-      font-size: 42px;
-      line-height: 50px;
       margin-bottom: 30px;
-   }
-
-   .brand-left p {
-      font-size: 18px;
-      line-height: 22px;
-   }
-
-   .white-box-content {
-      font-size: 22px;
-      line-height: 25px;
    }
 
    .c-brand-content {
@@ -609,22 +574,10 @@ div#faq {
    .brandenburg {
       padding-bottom: 70px;
    }
-
-   /* .reference {
-      padding: 70px 0;
-   } */
    .ref-wrap{gap: 30px;}
-   .wolf-logo .w-left-content h3 {
-      font-size: 60px;
-   }
 
    .logo-box {
       width: calc(100% / 2);
-   }
-
-   .wolf-logo .w-left-content p {
-      font-size: 18px;
-      line-height: 22px;
    }
 
    .faq-sec .faq-left a {
@@ -639,18 +592,8 @@ div#faq {
       min-width: 236px;
    }
 
-   .c-brand-content p span,
-   .brandenburg .brand-right p {
-      font-size: 16px;
-      line-height: 22px;
-   }
-
    .c-brand-content {
       padding: 50px 0 50px;
-   }
-
-   .brand-left p {
-      font-size: 16px;
    }
 
    .wolf-logo {
@@ -691,14 +634,10 @@ div#faq {
    }
 
    .inner-wolf-bestell .left-content h1 {
-      font-size: 32px;
-      line-height: 30px;
       font-family: 'RubikOne-Regular';
    }
 
    .inner-wolf-bestell h3 {
-      font-size: 20px;
-      line-height: 24px;
       font-family: 'Neue-Haas-Grotesk-Display-Pro';
    }
 
@@ -826,15 +765,11 @@ div#faq {
    }
 
    .wolf-logo .w-left-content h3 {
-      font-size: 32px;
-      line-height: 32px;
       font-family: 'RubikOne-Regular';
       margin: 0 0 10px 0;
    }
 
    .wolf-logo .w-left-content p {
-      font-size: 20px;
-      line-height: 24px;
       font-family: 'Neue-Haas-Grotesk-Display-Pro';
    }
 
@@ -960,11 +895,11 @@ div#faq {
    .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
-      width: 45px;
+      width: 40px;
    }
 
    .img-one:before {
-      width: 65px;
+      width: 40px;
    }
 
    .ref-wrap {
@@ -1020,11 +955,6 @@ div#faq {
 
    .inner-wolf-bestell h3 {
       margin: 0 0 25px 0;
-   }
-
-   .inner-wolf-bestell h3 {
-      font-size: 20px;
-      line-height: 24px;
    }
 }
 

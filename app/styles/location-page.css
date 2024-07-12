@@ -4,13 +4,19 @@ section.thereedmainsection {
 	overflow: hidden;
 	padding: 0;
  }
+ .page.location-main {
+    background: linear-gradient(180deg, #D02523 36.82%, #9B2220 100%);
+}
  .video_two,
  .video_one,
  .video-container {
 	overflow: hidden;
 	position: relative;
  }
- 
+ section.thereedmainsection video#video1{
+	width: 90% !important;
+	margin: 0 auto !important;
+ }
  .overlayImage {
 	position: absolute;
 	width: 200px;
@@ -32,12 +38,15 @@ section.thereedmainsection {
  }
  
  section.thereedmainsection video {
-	width: 100%;
+	width: 90%;
 	height: 100%;
-	object-fit: fill;
+	/* object-fit: fill; */
 	position: relative;
+	margin: 0 auto;
  }
- 
+ .video_one{
+	text-align: center;
+ }
  .onlytouchdevice {
 	display: none;
  }

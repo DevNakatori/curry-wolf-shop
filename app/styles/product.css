@@ -245,10 +245,18 @@ main {
     border: 0;
     width: 200px;
     cursor: pointer;
-    background-color: transparent;
+    background-color: #FEDE03;
     padding: 0.450vw 1vw;
+    color: #9B2220;
+    border: 2px solid #FEDE03;
   }
-  
+  .main-product-sec .product-form button.yellow-btn:hover{
+    border: 2px solid #FEDE03;
+    color: #FEDE03;
+    will-change: transform;
+    text-decoration: none;
+    background-color: transparent;
+  }
   
   .right-content .product-content .metafield h2 {
     font-size:calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));

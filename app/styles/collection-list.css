@@ -43,8 +43,14 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
  @media (max-width:767px) {
 	.collections-grid{
 		grid-gap: 2.5rem;
+		display: flex;
+		flex-wrap: wrap;
+	 }
+	 .collections-grid a.collection-item{
+		width: calc(100%/2 - 20px);
 	 }
 	 .col-block{height: auto;}
+	 .collections-grid .collection-item img,.col-block{border-radius: 10px;}
  }
  @media (max-width:480px) {
 	.collections-grid{width: 100%;}

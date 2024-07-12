@@ -61,6 +61,11 @@
     text-align: right;
     word-break: break-all;
 }
+.our-story-box h2 span{
+    font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+    display: block;
+}
 .our-story-box p{
     font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
     line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
@@ -71,7 +76,7 @@
   
 }
 .our-story-box:nth-child(3) ul li{
-    text-align: left;
+    text-align: right;
 }
 .story-right ul li{
     color: #fff;
@@ -106,6 +111,7 @@
 .inner-white-box {
     padding: 20px;
     margin-top: 0px;
+    background-color: #fff;
 }
 .img-one img {
     width: 100%;
@@ -116,13 +122,13 @@
 .our-story-box:nth-child(1) .story-wrap{    
     transform: rotate(6deg);
 }
-.our-story-box:nth-child(2) {
+.our-story-box:nth-child(3) {
     flex-direction: row-reverse;
 }
-.our-story-box:nth-child(2) p{
+.our-story-box:nth-child(3) p{
     text-align: right;
 }
-.our-story-box:nth-child(2) h2{
+.our-story-box:nth-child(3) h2{
     text-align: left;
 }
 .our-story-box:nth-child(2) .story-wrap{
@@ -131,6 +137,17 @@
 .our-story-box:nth-child(3) .story-wrap{
     transform: rotate(-8deg);
 }
+.our-story-box:nth-child(3) .story-wrap .stroy-i-back {
+    background-color: #a12220;
+    width: 77%;
+    margin: 0 auto;
+}
+.our-story-box:nth-child(4) .story-wrap .stroy-i-back {
+    background-color: #a12220;
+    width: 77%;
+    margin: 0 auto;
+}
+.our-story-box:nth-child(3) .img-one,.our-story-box:nth-child(4) .img-one{width: 100%;}
 .our-story-box:nth-child(4) .story-wrap{
     transform: rotate(8deg);
 }
@@ -142,7 +159,7 @@
     left: 60px;
 }
 .our-story-box .story-wrap{
-    padding: 0 50px;
+    padding: 0 35px;
 }
 .our-story-box:last-child {
     padding-bottom: 0;
@@ -228,6 +245,7 @@
     .img-one{padding-bottom: 27px;}
     .our-story-box .story-wrap{padding: 0 10px;}
     .line{height: calc(100% - 360px);top: 290px;}
+    .our-story-box:nth-child(3) ul li,.our-story-box:nth-child(3) p{text-align: left;}
 }
 @media (max-width: 767px) {
     .line{display: none;}
@@ -256,6 +274,7 @@
     .our-story-box:nth-child(2) p {
         text-align: left;
     }
+    
 }
 @media (max-width: 400px) {
     .img-one {
