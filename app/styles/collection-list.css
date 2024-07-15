@@ -51,6 +51,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 	 }
 	 .col-block{height: auto;}
 	 .collections-grid .collection-item img,.col-block{border-radius: 10px;}
+	 .collection-list-page h5{margin-top: 15px;}
  }
  @media (max-width:480px) {
 	.collections-grid{width: 100%;}

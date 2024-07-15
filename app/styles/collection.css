@@ -222,7 +222,7 @@ main {
  }
  
  .products-grid .product-g-wrap .cart-btn span {
-    color:#FEDE03;
+    color:#9B2220;
     font-family: 'Gotham-Medium';
     min-width: 191px;
     padding: 9px 0;
@@ -230,7 +230,7 @@ main {
 
  }
  .products-grid .product-g-wrap .cart-btn span:hover{
-   color: #9B2220;
+   color:  #FEDE03;
  }
  
  .collection-logo-sec .container .c-logo-wrap {

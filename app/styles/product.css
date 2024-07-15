@@ -572,7 +572,7 @@ main {
     .main-product-sec .product-form button.yellow-btn {
        margin-top:0px;
        border-radius: 5px;
-       color: #FEDE03;
+       /* color: #FEDE03; */
     }
    
     .product-quantity {

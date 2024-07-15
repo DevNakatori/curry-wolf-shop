@@ -274,7 +274,8 @@
     .our-story-box:nth-child(2) p {
         text-align: left;
     }
-    
+    .our-story-box:nth-child(3) h2,.our-story-box:nth-child(3) p,.our-story-box:nth-child(3) ul li,.our-story-box p,.our-story-box:nth-child(2) p{text-align: center;}
+    .inner-white-box{padding: 10px;}
 }
 @media (max-width: 400px) {
     .img-one {

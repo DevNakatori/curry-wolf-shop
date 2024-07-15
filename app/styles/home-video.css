@@ -14,9 +14,6 @@ video#bgVideo {
    font-family: 'BertholdBlock';
    color: #fff;
  }
-.slide:nth-child(2) .inner-slider img{
-width: 65% !important;
- }
  .c-s-image-section {
    display: flex;
    justify-content: center;

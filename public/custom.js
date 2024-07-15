@@ -251,6 +251,7 @@ const positions = [{
 }
 ];
 
+
 function positionOverlayImages() {   
 const rect = videocontainer.getBoundingClientRect();
 overlayImages.forEach((image, index) => {

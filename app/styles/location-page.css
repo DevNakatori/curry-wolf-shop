@@ -563,6 +563,22 @@ section.thereedmainsection {
 	display: none;
  } */
  
+
+.location-tooltip {
+    background-color: #FEDE03;
+    width: 100px;
+    padding: 10px;
+    border-radius: 9px;
+    border: 5px solid #A80A15;
+    /* margin: 5px; */
+    text-align: center;
+    color: #A80A15;
+    font-family: 'BertholdBlock';
+    box-shadow: 0px -4px 20px 0px #00000040;
+}
+.video-container a:hover{
+	text-decoration: none;
+}
  @media (max-width:1700px) {
 	.popup-h-title h2 {
 	   font-size: 22px;
