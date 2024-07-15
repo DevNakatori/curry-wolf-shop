@@ -443,12 +443,12 @@ section.thereedmainsection {
  
  .c-right p {
 	font-family: 'Gotham-Book';
-	margin-bottom: 36px;
 	max-width: 380px;
  }
  
  .c-right a.yellow-btn {
 	text-align: center;
+	margin-top: 36px;
  }
  
  .c-right a.yellow-btn:hover {
@@ -539,7 +539,7 @@ section.thereedmainsection {
  }
  .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before {
     background: url(https://cdn.shopify.com/s/files/1/0661/7595/9260/files/pushpin-147918_12801_1.png?v=1716895195) no-repeat center / contain;
-    width: 110px;
+    width: 80px;
 }
  .curry-new-btn {
 	text-align: center;
@@ -559,9 +559,9 @@ section.thereedmainsection {
 	width: 100%;
  }
  
- div#popup {
+ /* div#popup {
 	display: none;
- }
+ } */
  
  @media (max-width:1700px) {
 	.popup-h-title h2 {
@@ -607,6 +607,7 @@ section.thereedmainsection {
  
  
  @media (max-width:1440px) {
+	section.thereedmainsection video{width: 80%;}
 	.c-two-box:nth-child(2) .c-left img {
 	   width: 100%;
 	}
@@ -697,9 +698,9 @@ section.thereedmainsection {
 	   width: 100%;
 	}
  
-	.c-right p {
+	/* .c-right p {
 	   font-size: 16px;
-	}
+	} */
  
 	.c-two-box {
 	   column-gap: 10px;
@@ -868,10 +869,11 @@ section.thereedmainsection {
  
  @media (max-width:767px) {
 	.footer-menu span.yellow-head{margin-bottom: 15px;}
+	.c-right p{height: initial !important;}
 	.c-two-box:nth-child(1) {
 	   margin-bottom: 30px;
 	}
- 
+	.c-right a.yellow-btn{margin-top: 25px;}
 	.c-s-image-section {
 	   flex-wrap: wrap;
 	   gap: 0;
@@ -967,7 +969,7 @@ section.thereedmainsection {
  }
  
  @media (max-width:575px) {
-	.c-right a.yellow-btn{padding: 5px 5px;}
+	.c-right a.yellow-btn{padding: 2px;}
 	.c-two-box {
 	   flex-direction: column;
 	}
@@ -985,6 +987,7 @@ section.thereedmainsection {
 	   width: 100%;
 	   padding-left: 0px;
 	   text-align: center;
+	   padding-top: 15px;
 	}
  
 	.c-right h2 {

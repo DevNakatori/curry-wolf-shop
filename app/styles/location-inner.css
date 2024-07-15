@@ -7,6 +7,10 @@ section.thereedmainsection {
  .page.location-inner-main{
 	overflow: hidden;
  }
+ .popup{
+	position: relative;
+	z-index: 1;
+ }
  .popup-left-img video#location-inner{
 	width: 100%;
 	height: 400px;
@@ -178,11 +182,11 @@ section.thereedmainsection {
 	display: flex;
 	margin: 23px 0 45px 0;
  }
- 
- .popup-location-btn a {
-	min-width: 190px;
- }
- 
+ .popup-location-btn a{display: inline-flex;}
+ .popup-location-btn a svg{width: 20px;height: 20px;}
+ .popup-location-btn a svg{transition:all 0.5s ease;}
+ .popup-location-btn a:hover svg path{fill: #FEDE03;}
+ .popup-location-btn a span{display: flex;align-items: center;margin-right: 5px;}
  .popup-payment h3 {
     font-size: calc(20px + (16 - 20) * ((100vw - 320px) / (1920 - 320)));
 	line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
@@ -869,6 +873,11 @@ section.thereedmainsection {
  }
  
  @media (max-width:767px) {
+	.popup-location-btn a{justify-content: center;}
+	.popup-location-btn a svg {
+		width: 15px;
+		height: 15px;
+	}
 	.footer-menu span.yellow-head{margin-bottom: 15px;}
 	.c-two-box:nth-child(1) {
 	   margin-bottom: 30px;
