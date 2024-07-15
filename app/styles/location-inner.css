@@ -4,6 +4,15 @@ section.thereedmainsection {
 	overflow: hidden;
 	padding: 0;
  }
+ .page.location-inner-main{
+	overflow: hidden;
+ }
+ .popup-left-img video#location-inner{
+	width: 100%;
+	height: 400px;
+	object-fit: contain;
+	margin: 50px 0;
+ }
  .page.location-main {
     background: linear-gradient(180deg, #D02523 36.82%, #9B2220 100%);
 }
@@ -70,18 +79,6 @@ section.thereedmainsection {
  
  .popup-container {
 	background: linear-gradient(180deg, #D02523 0%, #9B2220 69.12%);
-	/* max-width: 1920px;
-	margin: 0 auto;
-	padding: 50px 70px;
-	position: fixed;
-	overflow: hidden;
-	top: 100px;
-	left: 0;
-	right: 0;
-	z-index: 999;
-	overflow-y: scroll;
-	height: calc(100vh - 170px);
-	scrollbar-width: none; */
  }
  
  .popup-img-right-two {
@@ -132,14 +129,14 @@ section.thereedmainsection {
  }
  
  .popup-inner-left-box {
-	max-width: 937px;
+	max-width: 947px;
 	margin: 0 auto;
 	text-align: center;
  }
  
  .popup-left h1 {
-	font-size: 100px;
-	line-height: 100px;
+	/* font-size: 100px;
+	line-height: 100px; */
 	margin-bottom: 22px;
 	margin-top: 0;
  }
@@ -187,8 +184,8 @@ section.thereedmainsection {
  }
  
  .popup-payment h3 {
-    font-size: calc(25px + (30 - 25) * ((100vw - 320px) / (1920 - 320)));
-	line-height: calc(30px + (30 - 30) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(20px + (16 - 20) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
 	color: #fff;
 	font-family: 'Gotham-Book';
 	margin: 0;
@@ -202,8 +199,6 @@ section.thereedmainsection {
  }
  
  .popup-h-title h2 {
-	font-size: 45px;
-	line-height: 50px;
 	color: #fff;
 	font-family: 'BertholdBlock';
 	margin-bottom: 0;
@@ -258,8 +253,8 @@ section.thereedmainsection {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 70px;
-	line-height: 50px;
+	/* font-size: 70px;
+	line-height: 50px; */
 	color: #fff;
 	font-family: 'BertholdBlock';
 	margin: 0 auto;
@@ -267,8 +262,8 @@ section.thereedmainsection {
  
  .popup-bottom-menu .foodmenu-one h3 {
 	margin: 26px 0 14px;
-	font-size: 25px;
-	line-height: 29px;
+	font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
 	color: #fff;
 	font-family: 'BertholdBlock';
  }
@@ -281,6 +276,7 @@ section.thereedmainsection {
 	font-weight: 400;
 	display: flex;
 	justify-content: space-between;
+	margin-bottom: 5px;
  }
  
  .popup-bottom-menu .foodmenu-one ul li:nth-child(11) {
@@ -563,15 +559,17 @@ section.thereedmainsection {
  
  @media (min-width:1920px) {
  .p-top-btn {
-	top: -30px;
-	left: -80px;
+	top: -50px;
+	left: -90px;
 
  }
  }
  @media (max-width:1700px) {
+	.p-top-btn {
+		top: -50px;
+		left: 30px;
+	}
 	.popup-h-title h2 {
-	   font-size: 22px;
-	   line-height: 22px;
 	   padding-right: 20px;
 	}
  
@@ -582,10 +580,6 @@ section.thereedmainsection {
 	.popup-r-time ul li {
 	   font-size: 14px;
 	   line-height: 20px;
-	}
- 
-	.popup-payment h3 {
-	   font-size: 20px;
 	}
  
 	.popup-inner-left-box {
@@ -637,27 +631,29 @@ section.thereedmainsection {
 	   text-align: left;
 	}
  
-	.popup-top-title h2 {
-	   font-size: 50px;
-	   line-height: 50px;
-	}
+	/* .popup-top-title h2 {
+	   font-size: 30px;
+	   line-height: 30px;
+	} */
  
 	.p-top-btn img {
-	   width: 50px;
+	   width: 80px;
 	}
- 
+	.p-top-btn {
+        top: -40px;
+	}
 	.popup-l-img {
-	   left: -55px;
+	   left: -45px;
 	}
  
 	.popup-l-img img {
 	   width: 150px;
 	}
  
-	.popup-left h1 {
+	/* .popup-left h1 {
 	   font-size: 80px;
 	   line-height: 80px;
-	}
+	} */
  
 	.popup-left p {
 	   font-size: 20px;
@@ -665,7 +661,7 @@ section.thereedmainsection {
 	}
  
 	.popup-container {
-	   padding: 30px 20px;
+	   padding: 0px 20px;
 	}
  
 	.popup-left {
@@ -758,7 +754,10 @@ section.thereedmainsection {
 	.popup-right-box {
 	   max-width: initial;
 	}
- 
+	.popup-inner-left-box {
+        margin-bottom: 60px;
+    }
+	.popup-left-img video#location-inner{margin: 40px 0 10px;}
 	.popup-r-time {
 	   border-bottom: 1px solid #fff;
 	   border-top: 1px solid #fff;
@@ -768,8 +767,6 @@ section.thereedmainsection {
  
 	.popup-h-title h2 {
 	   margin-bottom: 15px;
-	   font-size: 24px;
-	   line-height: 24px;
 	}
  
 	.popup-r-time ul:first-child {
@@ -786,10 +783,10 @@ section.thereedmainsection {
 	   justify-content: end;
 	}
  
-	.popup-right,
+	/* .popup-right,
 	.popup-img-right-two {
 	   display: none;
-	}
+	} */
  
 	.popup-right-box {
 	   padding: 15px;
@@ -803,10 +800,10 @@ section.thereedmainsection {
 	   display: none;
 	}
  
-	.popup-left h1 {
+	/* .popup-left h1 {
 	   font-size: 50px;
 	   line-height: 50px;
-	}
+	} */
  
 	.popup-r-time {
 	   flex-direction: row-reverse;
@@ -895,8 +892,6 @@ section.thereedmainsection {
 	.popup-h-title h2 {
 	   font-family: 'Neue-Haas-Grotesk-Display-Pro';
 	   margin-bottom: 15px;
-	   font-size: 24px;
-	   line-height: 24px;
 	}
  
 	.popup-location-btn a {
@@ -906,10 +901,10 @@ section.thereedmainsection {
 	   min-width: 124px;
 	   padding: 3px 0px 3px;
 	}
- 
+	.popup-left-img video#location-inner{margin: 10px 0 10px;}
 	.popup-left h1 {
-	   font-size: 32px;
-	   line-height: 28px;
+	   /* font-size: 32px;
+	   line-height: 28px; */
 	   font-family: 'RubikOne-Regular';
 	   margin-bottom: 15px;
 	   text-transform: uppercase;
@@ -941,7 +936,7 @@ section.thereedmainsection {
 	}
  
 	.popup-left-img {
-	   padding-top: 50px;
+	   padding-top: 30px;
 	}
  
 	.popup-r-time ul li span {
@@ -954,9 +949,9 @@ section.thereedmainsection {
 	}
  
 	.popup-container {
-	   padding: 124px 20px;
+	   padding: 0px 20px;
 	}
- 
+	.popup-wrap{padding: 50px 0;}
 	.popup-r-time ul:first-child li {
 	   justify-content: right;
 	}
@@ -969,6 +964,11 @@ section.thereedmainsection {
 	   top: 64px;
 	}
 	.curry-new-btn a{width: 100%;font-size: 16px;}
+	.popup-inner-left-box{margin-bottom: 60px;}
+	.popup-img-right-two{right: 0px;overflow: hidden;}
+	.popup-img-right-two img.img-four{top: -270px;}
+	.popup-right-box{padding: 10px;}
+	.popup-img-right-two{display: none;}
  }
  
  @media (max-width:575px) {

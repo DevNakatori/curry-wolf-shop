@@ -198,7 +198,7 @@ width: 65% !important;
    text-align: center;
    position: relative;
  }
- .second-time-video-text .btn-wrap a{margin-bottom: 30px;}
+ 
  .hungry-wolf-sec .h-w-box:before {
    content: "";
    position: absolute;
@@ -422,7 +422,16 @@ width: 65% !important;
       scale: 1.5;
    }
  }
- 
+ @-webkit-keyframes zoomeffect{
+   0%{
+
+    height: 0;
+   }
+   100%{
+
+     height: 200px;
+   }
+}
  
  @media (min-width: 768px) {
    .slider-container {
@@ -602,7 +611,7 @@ width: 65% !important;
       margin: 0 auto;
       width: 100%;
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 45px;
    }
  
    .second-time-video-text .slide:before {
@@ -613,6 +622,10 @@ width: 65% !important;
       height: 200px;
       width: 1px;
       top: 94px;
+      -webkit-animation: zoomeffect 5s;
+      -moz-animation: zoomeffect 5s;
+      animation: zoomeffect 5s;
+      transition: max-height 0.5s ease-out;
    }
  
    .second-time-video-text .slide:last-child::before {

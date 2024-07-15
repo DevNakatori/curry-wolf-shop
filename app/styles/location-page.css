@@ -674,7 +674,7 @@ section.thereedmainsection {
 	.popup-wrap {
 	   justify-content: center;
 	}
- 
+	.curry-image-content{margin-bottom: 50px;}
  
  }
  @media (max-width:1340px) {
@@ -963,7 +963,7 @@ section.thereedmainsection {
 	.popup-container {
 	   top: 64px;
 	}
-	.curry-new-btn a{width: 100%;font-size: 16px;}
+	.curry-new-btn a{font-size: 16px;}
  }
  
  @media (max-width:575px) {
@@ -990,6 +990,7 @@ section.thereedmainsection {
 	.c-right h2 {
 	   margin-top: 0px;
 	}
+	.c-right p{max-width: initial;}
  }
  
  @media (max-width:400px) {
