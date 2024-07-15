@@ -13,7 +13,6 @@ main {
  }
  
  .collection nav {
-    background: radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) rgba(254, 222, 3, 1);
     max-width: 783px;
     margin: 0 auto;
     border-radius: 25px;
@@ -42,12 +41,12 @@ main {
    line-height: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'Gotham-Book';
     font-weight: 600;
-    color: rgba(0, 0, 0, 1);
+    color: #9B2220;
     position: relative;
  }
  
  .collection nav ul li a.active {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #9B2220;
  }
  
  .collection nav ul li a:hover:before {
@@ -56,7 +55,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #9B2220;
  }
  
  .collection nav ul li a:hover {
@@ -99,10 +98,14 @@ main {
  .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: -30px;
+    margin-top: -50px;
     padding-bottom: 20px;
  }
- 
+ nav.collection-menu.aos-init.aos-animate {
+   margin-top: 50px;
+   background: #FEDE03;
+}
+
  .benifits h4 {
     font-family: 'BertholdBlock';
     color: #fff;
@@ -328,7 +331,9 @@ main {
  .loadmore-button a span:hover {
     transform: scale(1.2);
  }
-
+ .products-grid .product-g-wrap h4 {
+   color: #FEDE03 ;
+ }
  @media (max-width:1540px) {
     .benifits .container {
        padding: 73px 0px;
@@ -343,6 +348,9 @@ main {
     .collection-logo-sec .container {
        max-width: 1340px;
     }
+    .collection-banner {
+      margin-top: 25px;
+  }
  }
  
  @media (max-width:1380px) {

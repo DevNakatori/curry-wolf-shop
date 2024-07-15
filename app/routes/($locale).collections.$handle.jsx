@@ -48,7 +48,7 @@ export async function loader({request, params, context}) {
   const customMenuPromise = storefront.query(CUSTOM_MENU_QUERY, {
     cache: storefront.CacheLong(),
     variables: {
-      customMenuHandle: 'collection-menu', // Adjust to your custom menu handle
+      customMenuHandle: 'collection-menu',
     },
   });
 
@@ -82,7 +82,7 @@ export default function Collection() {
       <div className='benifits' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
         <div className='container'>
           <div className='benifits-inner-wrap'>
-            <h4>Vorteile von Curry Wolf</h4>
+            {/* <h4>Vorteile von Curry Wolf</h4> */}
         <div className='banifits-wrap'>
         <div className='benifits-content'>
           <img src={faceSmile} alt='face smile icon' />
@@ -109,7 +109,7 @@ export default function Collection() {
           <img src={earthLogo} alt='earth icon' />
           <div className="">
           <h4>CO₂ more neutral Shipment</h4>
-          <p>Shipping takes place with DHL GoGreen</p>
+          <p>Shipping takes place with DHL GoGreen</p>  
           </div>
         </div>
         </div>
@@ -174,7 +174,7 @@ export default function Collection() {
 function CustomMenu({ data }) {
   const location = useLocation();
   return (
-    <nav data-aos="fade-up" data-aos-duration="1500" data-aos-once="true"> 
+    <nav className="collection-menu" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true"> 
       <ul>
         {data.menu.items.map(item => (
           <li key={item.id}>

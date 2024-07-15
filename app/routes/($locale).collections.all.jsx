@@ -1,5 +1,5 @@
 import {json} from '@shopify/remix-oxygen';
-import {useLoaderData, Link} from '@remix-run/react';
+import {useLoaderData, Link, useLocation} from '@remix-run/react';
 import {
   Pagination,
   getPaginationVariables,
@@ -8,6 +8,12 @@ import {
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
 import '../styles/collection-all.css';
+import earthLogo from '../assets/earth.png';
+import securePay from '../assets/secure-pay.png';
+import quickDelivery from '../assets/quick-delivery.png';
+import faceSmile from '../assets/face-smile.png';
+import decorativegarland from '../assets/decorativegarland.png';
+import '../styles/collection.css';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -21,24 +27,79 @@ export const meta = () => {
 export async function loader({request, context}) {
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 12,
+    pageBy: 15,
   });
 
   const {products} = await storefront.query(CATALOG_QUERY, {
     variables: {...paginationVariables},
   });
 
-  return json({products});
+  const customMenuPromise = storefront.query(CUSTOM_MENU_QUERY, {
+    cache: storefront.CacheLong(),
+    variables: {
+      customMenuHandle: 'collection-menu', // Adjust to your custom menu handle
+    },
+  });
+
+  return json({
+    products,
+    customMenu: await customMenuPromise,
+  });
 }
 
 export default function Collection() {
   /** @type {LoaderReturnData} */
-  const {products} = useLoaderData();
+  const {products, customMenu} = useLoaderData();
 
   return (
     <div className="collection collection-all-page">
+         <div className="food-decorative-garland">
+        <img
+          src={decorativegarland}
+          className="decorative-image"
+          alt={decorativegarland}
+        />
+      </div>
+      <CustomMenu data={customMenu} />
       <div class="container">
       <h1>Products</h1>
+      <div className='benifits' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+        <div className='container'>
+          <div className='benifits-inner-wrap'>
+            {/* <h4>Vorteile von Curry Wolf</h4> */}
+        <div className='banifits-wrap'>
+        <div className='benifits-content'>
+          <img src={faceSmile} alt='face smile icon' />
+            <div className="">
+              <h4>Special Selection</h4>
+              <p>Family manufacturer with its own recipe</p>
+            </div>
+        </div>
+        <div className='benifits-content'>
+          <img src={quickDelivery} alt='quick delivery icon' />
+        <div className="">
+          <h4>Quick Delivery</h4>
+          <p>We deliver within 2-4 days*</p>
+        </div>
+        </div>
+        <div className='benifits-content'>
+          <img src={securePay} alt='secure pay icon' />
+          <div className="">
+          <h4>Secure pay</h4>
+          <p>Pay securely via Paypal and Sofort.com</p>
+          </div>
+        </div>
+        <div className='benifits-content'>
+          <img src={earthLogo} alt='earth icon' />
+          <div className="">
+          <h4>CO₂ more neutral Shipment</h4>
+          <p>Shipping takes place with DHL GoGreen</p>  
+          </div>
+        </div>
+        </div>
+        </div>
+        </div>
+      </div>
       <Pagination connection={products}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <>
@@ -62,6 +123,22 @@ export default function Collection() {
   );
 }
 
+function CustomMenu({ data }) {
+  const location = useLocation();
+  return (
+    <nav className="collection-menu" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true"> 
+      <ul>
+        {data.menu.items.map(item => (
+          <li key={item.id}>
+            <Link to={item.url} 
+            className={item.url.includes(location.pathname) ? 'active' : ''} 
+            >{item.title}</Link>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  );
+}
 /**
  * @param {{products: ProductItemFragment[]}}
  */
@@ -73,7 +150,7 @@ function ProductsGrid({products}) {
           <ProductItem
             key={product.id}
             product={product}
-            loading={index < 8 ? 'eager' : undefined}
+            loading={index < 15 ? 'eager' : undefined}
           />
         );
       })}
@@ -196,7 +273,43 @@ const CATALOG_QUERY = `#graphql
   }
   ${PRODUCT_ITEM_FRAGMENT}
 `;
-
+const MENU_FRAGMENT = `#graphql
+  fragment MenuItem on MenuItem {
+    id
+    resourceId
+    tags
+    title
+    type
+    url
+  }
+  fragment ChildMenuItem on MenuItem {
+    ...MenuItem
+  }
+  fragment ParentMenuItem on MenuItem {
+    ...MenuItem
+    items {
+      ...ChildMenuItem
+    }
+  }
+  fragment Menu on Menu {
+    id
+    items {
+      ...ParentMenuItem
+    }
+  }
+`;
+const CUSTOM_MENU_QUERY = `#graphql
+  query CustomMenu(
+    $country: CountryCode
+    $customMenuHandle: String!
+    $language: LanguageCode
+  ) @inContext(language: $language, country: $country) {
+    menu(handle: $customMenuHandle) {
+      ...Menu
+    }
+  }
+  ${MENU_FRAGMENT}
+`;
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
 /** @typedef {import('storefrontapi.generated').ProductItemFragment} ProductItemFragment */

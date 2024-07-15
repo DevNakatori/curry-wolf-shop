@@ -19,7 +19,7 @@ export function Header({header, isLoggedIn, cart}) {
         menu={menu}
         viewport="desktop"
         primaryDomainUrl={header.shop.primaryDomain.url}
-      />
+      />  
       <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
       </div>
       </div>
