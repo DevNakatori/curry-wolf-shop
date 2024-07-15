@@ -464,9 +464,7 @@ nav.header-ctas a span {
 	opacity: 1 !important;
   transform: none !important;
   transition: none !important;
-   /* position: fixed;
-	bottom: 0;
-	*/
+overflow: hidden;
 }
 .footer-icon a svg {
 	width: 30px;

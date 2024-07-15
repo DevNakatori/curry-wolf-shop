@@ -35,7 +35,7 @@ export default function Page() {
   const {page} = useLoaderData();
 
   return (
-    <div className="page job-detail-main">
+    <div className="page location-inner-main">
       <main dangerouslySetInnerHTML={{__html: page.body}} />
     </div>
   );

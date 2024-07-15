@@ -198,7 +198,7 @@ width: 65% !important;
    text-align: center;
    position: relative;
  }
- 
+ .second-time-video-text .btn-wrap a{margin-bottom: 30px;}
  .hungry-wolf-sec .h-w-box:before {
    content: "";
    position: absolute;
