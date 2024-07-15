@@ -64,7 +64,7 @@ main {
  }
  
  .collection-banner img {
-    width: 760px;
+    width: 660px;
  }
  
  .collection-banner h1 {
@@ -86,9 +86,8 @@ main {
  }
  
  .benifits .container .benifits-inner-wrap {
-    border-top: 1px solid #fff;
     border-bottom: 1px solid #fff;
-    padding: 50px 0;
+    padding-bottom: 15px;
  }
  
  .products-grid .container,
@@ -100,19 +99,19 @@ main {
  .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: 30px;
-    padding-bottom: 50px;
+    margin-top: -30px;
+    padding-bottom: 20px;
  }
  
  .benifits h4 {
     font-family: 'BertholdBlock';
     color: #fff;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     text-align: left;
  }
  
  .benifits .benifits-content h4 {
-    max-width: 210px;
+    max-width: 100%;
     margin: 12px 0;
  }
  
@@ -122,6 +121,8 @@ main {
     font-family: 'Gotham-Book';
     font-weight: 400;
     color: #fff;
+    display: flex;
+    align-items: start;
  }
  
  .banifits-wrap {
@@ -131,8 +132,11 @@ main {
  .banifits-wrap .benifits-content {
     width: 33.33%;
     text-align: left;
+    min-height: 130px;
  }
- 
+ .benifits-content img {
+   margin-right: 20px;
+ }
  .banifits-wrap .benifits-content p {
     color: #ffff;
     max-width: 210px;
@@ -307,7 +311,7 @@ main {
  
  .previous-button {
     text-align: center;
-    margin-top: 25px;
+    margin-top: 0;
  }
  
  .loadmore-button {
@@ -623,6 +627,9 @@ main {
     .banifits-wrap .benifits-content {
        width: 100%;
        text-align: center;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
     }
  
     .collection-banner {

@@ -86,23 +86,31 @@ export default function Collection() {
         <div className='banifits-wrap'>
         <div className='benifits-content'>
           <img src={faceSmile} alt='face smile icon' />
-          <h4>Special Selection</h4>
-          <p>Family manufacturer with its own recipe</p>
+            <div className="">
+              <h4>Special Selection</h4>
+              <p>Family manufacturer with its own recipe</p>
+            </div>
         </div>
         <div className='benifits-content'>
           <img src={quickDelivery} alt='quick delivery icon' />
+        <div className="">
           <h4>Quick Delivery</h4>
           <p>We deliver within 2-4 days*</p>
         </div>
+        </div>
         <div className='benifits-content'>
           <img src={securePay} alt='secure pay icon' />
+          <div className="">
           <h4>Secure pay</h4>
           <p>Pay securely via Paypal and Sofort.com</p>
+          </div>
         </div>
         <div className='benifits-content'>
           <img src={earthLogo} alt='earth icon' />
+          <div className="">
           <h4>CO₂ more neutral Shipment</h4>
           <p>Shipping takes place with DHL GoGreen</p>
+          </div>
         </div>
         </div>
         </div>
