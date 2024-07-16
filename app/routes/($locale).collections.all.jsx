@@ -53,7 +53,7 @@ export default function Collection() {
 
   return (
     <div className="collection collection-all-page">
-         <div className="food-decorative-garland">
+      <div className="food-decorative-garland">
         <img
           src={decorativegarland}
           className="decorative-image"
@@ -61,64 +61,64 @@ export default function Collection() {
         />
       </div>
       <CustomMenu data={customMenu} />
-      <div class="container">
-      <h1>Products</h1>
-      <div className='benifits' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-        <div className='container'>
-          <div className='benifits-inner-wrap'>
-            {/* <h4>Vorteile von Curry Wolf</h4> */}
-        <div className='banifits-wrap'>
-        <div className='benifits-content'>
-          <img src={faceSmile} alt='face smile icon' />
-            <div className="">
-              <h4>Special Selection</h4>
-              <p>Family manufacturer with its own recipe</p>
+      <div className="container">
+        <h1>Products</h1>
+        <div className='benifits' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+          <div className='container'>
+            <div className='benifits-inner-wrap'>
+              {/* <h4>Vorteile von Curry Wolf</h4> */}
+              <div className='banifits-wrap'>
+                <div className='benifits-content'>
+                  <img src={faceSmile} alt='face smile icon' />
+                  <div className="">
+                    <h4>Special Selection</h4>
+                    <p>Family manufacturer with its own recipe</p>
+                  </div>
+                </div>
+                <div className='benifits-content'>
+                  <img src={quickDelivery} alt='quick delivery icon' />
+                  <div className="">
+                    <h4>Quick Delivery</h4>
+                    <p>We deliver within 2-4 days*</p>
+                  </div>
+                </div>
+                <div className='benifits-content'>
+                  <img src={securePay} alt='secure pay icon' />
+                  <div className="">
+                    <h4>Secure pay</h4>
+                    <p>Pay securely via Paypal and Sofort.com</p>
+                  </div>
+                </div>
+                <div className='benifits-content'>
+                  <img src={earthLogo} alt='earth icon' />
+                  <div className="">
+                    <h4>CO₂ more neutral Shipment</h4>
+                    <p>Shipping takes place with DHL GoGreen</p>  
+                  </div>
+                </div>
+              </div>
             </div>
-        </div>
-        <div className='benifits-content'>
-          <img src={quickDelivery} alt='quick delivery icon' />
-        <div className="">
-          <h4>Quick Delivery</h4>
-          <p>We deliver within 2-4 days*</p>
-        </div>
-        </div>
-        <div className='benifits-content'>
-          <img src={securePay} alt='secure pay icon' />
-          <div className="">
-          <h4>Secure pay</h4>
-          <p>Pay securely via Paypal and Sofort.com</p>
           </div>
         </div>
-        <div className='benifits-content'>
-          <img src={earthLogo} alt='earth icon' />
-          <div className="">
-          <h4>CO₂ more neutral Shipment</h4>
-          <p>Shipping takes place with DHL GoGreen</p>  
-          </div>
-        </div>
-        </div>
-        </div>
-        </div>
+        <Pagination connection={products}>
+          {({nodes, isLoading, PreviousLink, NextLink}) => (
+            <>
+              <div className="load-pre">
+                <PreviousLink className="yellow-btn bottom-spacing">
+                  {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
+                </PreviousLink>
+              </div>
+              <ProductsGrid products={nodes} />
+              <br />
+              <div className="load-more">
+                <NextLink className="yellow-btn">
+                  {isLoading ? 'Loading...' : <span>Load more ↓</span>}
+                </NextLink>
+              </div>
+            </>
+          )}
+        </Pagination>
       </div>
-      <Pagination connection={products}>
-        {({nodes, isLoading, PreviousLink, NextLink}) => (
-          <>
-          <div className="load-pre">
-            <PreviousLink className="yellow-btn bottom-spacing">
-              {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-            </PreviousLink>
-            </div>
-            <ProductsGrid products={nodes} />
-            <br />
-            <div className="load-more">
-            <NextLink className="yellow-btn">
-              {isLoading ? 'Loading...' : <span>Load more ↓</span>}
-            </NextLink>
-            </div>
-          </>
-        )}
-      </Pagination>
-    </div>
     </div>
   );
 }
@@ -131,7 +131,7 @@ function CustomMenu({ data }) {
         {data.menu.items.map(item => (
           <li key={item.id}>
             <Link to={item.url} 
-            className={item.url.includes(location.pathname) ? 'active' : ''} 
+              className={item.url.includes(location.pathname) ? 'active' : ''} 
             >{item.title}</Link>
           </li>
         ))}
@@ -170,6 +170,20 @@ function ProductItem({product, loading}) {
   const titleParts = product.title.split('(');
   const titleMain = titleParts[0];
   const titleSub = titleParts[1] ? `(${titleParts[1]}` : '';
+
+  // Assuming weight is in kilograms
+  const weight = variant.weight ? `Shipping weight: ${variant.weight} kg` : 'Weight not available';
+
+  const unitPrice = variant.unitPrice ? (
+    <div>
+      Unit price: <FormattedMoney money={variant.unitPrice} /> / {variant.unitPriceMeasurement.referenceUnit}
+    </div>
+  ) : null;
+
+  const deliveryTime = product.tags.includes('app:expresshint') 
+    ? 'Lieferzeit: 1 Tag (*)' 
+    : 'Lieferzeit: 2-4 Tage (*)';
+
   return (
     <Link
       className="product-item"
@@ -178,26 +192,53 @@ function ProductItem({product, loading}) {
       to={variantUrl}
     >
       <div className="pro-block">
-      {product.featuredImage && (
-        <Image
-          alt={product.featuredImage.altText || product.title}
-          aspectRatio="1/1"
-          data={product.featuredImage}
-          loading={loading}
-          sizes="(min-width: 45em) 400px, 100vw"
-        />
-      )}
+        {product.featuredImage && (
+          <Image
+            alt={product.featuredImage.altText || product.title}
+            aspectRatio="1/1"
+            data={product.featuredImage}
+            loading={loading}
+            sizes="(min-width: 45em) 400px, 100vw"
+          />
+        )}
       </div>
       <div className="collection-title">
-      <h4>{titleMain}<br/></h4>
-      <span>{titleSub}</span>
+        <h4>{titleMain}<br/></h4>
+        <span>{titleSub}</span>
       </div>
       <small>
-      <FormattedMoney money={product.priceRange.minVariantPrice} />
+        <FormattedMoney money={product.priceRange.minVariantPrice} />
+        <div className="tax-hint">
+          <small>
+            <font style={{verticalAlign: "inherit"}}>
+              <font style={{verticalAlign: "inherit"}}>
+                incl. VAT.,
+              </font>
+            </font>
+            <a className="shipping_policy" href="/policies/shipping-policy">
+              <font style={{verticalAlign: "inherit"}}>
+                <font style={{verticalAlign: "inherit"}}>
+                  excl. Shipping costs
+                </font>
+              </font>
+            </a>
+          </small>
+        </div>
+        <br />
+        {weight}
+        {unitPrice && (
+          <>
+            <br />
+            {unitPrice}
+          </>
+        )}
+        <br />
+        {deliveryTime}
       </small>
     </Link>
   );
 }
+
 /**
  * @param {{money: {amount: string, currencyCode: string}}}
  */
@@ -210,10 +251,11 @@ function FormattedMoney({money}) {
   const formattedAmount = parseFloat(money.amount).toFixed(2);
   return (
     <span>
-       {symbol} {formattedAmount}
+      {symbol} {formattedAmount}
     </span>
   );
 }
+
 const PRODUCT_ITEM_FRAGMENT = `#graphql
   fragment MoneyProductItem on MoneyV2 {
     amount
@@ -238,11 +280,23 @@ const PRODUCT_ITEM_FRAGMENT = `#graphql
         ...MoneyProductItem
       }
     }
+    tags
     variants(first: 1) {
       nodes {
         selectedOptions {
           name
           value
+        }
+        weight
+        unitPrice {
+          ...MoneyProductItem
+        }
+        unitPriceMeasurement {
+          measuredType
+          quantityUnit
+          quantityValue
+          referenceUnit
+          referenceValue
         }
       }
     }
