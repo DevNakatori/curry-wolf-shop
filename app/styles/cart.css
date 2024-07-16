@@ -90,8 +90,8 @@
 #cart-aside main{margin: 20px !important;}
 #cart-aside main ul li ul li small{font-size:16px !important;}
 #cart-aside main a.yellow-btn.checkout p{color: #FEDE03;    font-family: 'Gotham-Medium';
-    font-weight: 500;width: 100%;}
-#cart-aside main a.yellow-btn.checkout:hover p{color: #9B2220;}
+    font-weight: 500;width: 100%;color: #9B2220;}
+#cart-aside main a.yellow-btn.checkout:hover p{color: #FEDE03;}
 #cart-aside .outer {
     position: relative;
     width: 28px;
@@ -156,6 +156,10 @@
     font-size: 14px;
     min-width: initial;
     padding: 2px !important;
+    background-color: #FEDE03;
+}
+#cart-aside button.yellow-btn:hover{
+    color: #9B2220;
 }
 #cart-aside a.yellow-btn.checkout{margin-bottom: 0px;padding: 0.400vw !important;width: 96%;}
 .cart-summary-aside h4{margin-bottom: 5px;font-size: 18px;margin-top: 0;}
