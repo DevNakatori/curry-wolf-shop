@@ -26,31 +26,7 @@ if (document.querySelectorAll('.path-vert').length > 0) {
 }
 
 
-// if(document.querySelectorAll('#popup').length) {
-//   var showPopup = function() {
-//     document.getElementById('popup').style.display = 'block';
-//     document.getElementById('overlay').style.display = 'block';
-//   };
-  
-//   var hidePopup = function() {
-//     document.getElementById('popup').style.display = 'none';
-//     document.getElementById('overlay').style.display = 'none';
-//   };
-  
-//   document.getElementById('clickBtn').addEventListener('click', function(event) {
-//     event.preventDefault();
-//     showPopup();
-//   });
-  
-//   document.getElementById('closeBtn').addEventListener('click', function() {
-//     hidePopup();
-//   });
-  
-//   document.getElementById('overlay').addEventListener('click', function() {
-//     hidePopup();
-//   });
-//   }
-
+// language switcher START
 document.addEventListener("DOMContentLoaded", function() {
   const dropdownToggle = document.getElementById("dropdownToggle");
   const dropdownMenu = document.getElementById("dropdownMenu");
@@ -108,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 
-
+// language switcher END
 
   // Hide line during zoom-in effect
   if(document.querySelectorAll('.our-story-box').length) {
@@ -129,7 +105,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-// Home page slider END
 if(document.querySelectorAll('#line-path').length) {
   var path = document.querySelector('#line-path');
   var pathLength = path.getTotalLength();
@@ -149,7 +124,6 @@ if(document.querySelectorAll('#line-path').length) {
   
   });
   }
-// language switcher end 
 
 
 // Animation STARt
@@ -223,131 +197,131 @@ document.addEventListener("DOMContentLoaded", function() {
 // location page animation 
 
 document.addEventListener('DOMContentLoaded', (event) => {
-setTimeout(function() {   
-const video1 = document.getElementById('video1');
-const video2 = document.getElementById('video2');
-const videocontainer = document.getElementById('video-container');
+    const video1 = document.getElementById('video1');
+    const video2 = document.getElementById('video2');
+    const videocontainer = document.getElementById('video-container');
+    const overlayImages = document.querySelectorAll('.overlayImage');
+    const positions = [
+        { x: 11, y: 41, label: 'Steglitz ' , additionalLabel: 'click for more info' },
+        { x: 23, y: 34, label: 'Potsdam' , additionalLabel: 'click for more info' },
+        { x: 19, y: 26, label: 'Brandenburger Tor' , additionalLabel: 'click for more info'},
+        { x: 25.5, y: 22.5, label: 'Ku`damm' , additionalLabel: 'click for more info' },
+        { x: 30.5, y: 24, label: 'Lichtenrade' , additionalLabel: 'click for more info' }
+    ];
 
-const overlayImages = document.querySelectorAll('.overlayImage');
-const positions = [{
-    x: 11,
-    y: 35
-},
-{
-    x: 23,
-    y: 29
-},
-{
-    x: 19,
-    y: 20
-},
-{
-    x: 25.5,
-    y: 17.5
-},
-{
-    x: 30.5,
-    y: 19
-}
-];
+	const overlayLabels = [];
+	
+    function positionOverlayImages() {
+        const rect = videocontainer.getBoundingClientRect();
+        overlayImages.forEach((image, index) => {
+            const xPercentage = positions[index].x;
+            const yPercentage = positions[index].y;
+            const xPos = rect.left + (rect.width * xPercentage / 100) - (image.width / 2);
+            const yPos = rect.top + (rect.height * yPercentage / 100) - (image.height / 2);
+			
+			const xPoss = rect.left + (rect.width * xPercentage / 100) - 60;
+            const yPoss = rect.top + (rect.height * yPercentage / 100) - 240;
+
+            image.style.left = `${xPercentage}%`;
+            image.style.top = `${yPercentage}%`;
+            image.style.transform = `translate(${xPos}px, ${yPos}px)`;
+
+            const label = document.createElement('div');
+            label.classList.add('overlayLabel');
+            label.innerHTML = `
+            <span class="mainLabel">${positions[index].label}</span>
+            <span class="additionalLabel">${positions[index].additionalLabel}</span>
+        `;
+        label.style.opacity = 0;
+        videocontainer.appendChild(label);
+        overlayLabels.push(label);
 
 
-function positionOverlayImages() {   
-const rect = videocontainer.getBoundingClientRect();
-overlayImages.forEach((image, index) => {
-    const xPercentage = positions[index].x;
-    const yPercentage = positions[index].y;
-    const xPos = rect.left + (rect.width * xPercentage / 100) - (image.width / 2);
-    const yPos = rect.top + (rect.height * yPercentage / 100) - (image.height / 2);
-    /*image.style.left = `${xPos}px`;
-    image.style.top = `${yPos}px`;*/
+            label.style.position = 'absolute';
+            label.style.left = `${xPercentage}%`;
+            label.style.top = `${yPercentage}%`;
+            label.style.transform = `translate(${xPoss}px, ${yPoss}px)`; // Top center of the image
 
-    image.style.left = `${xPercentage}%`;
-    image.style.top = `${yPercentage}%`;
-    image.style.transform = `translate(${xPos}px, ${yPos}px)`;
+            image.addEventListener('mouseenter', () => {
+                image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(-10px)`;
+                // label.style.opacity = 1; // Show label on hover
+            });
 
-  
-    image.addEventListener('mouseenter', () => {
-        image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(-10px)`;
+            image.addEventListener('mouseleave', () => {
+                image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(0px)`;
+                // label.style.opacity = 0; // Show label on hover
+            });
+        });
+    }
+
+    function showImagesSequentially() {
+        overlayImages.forEach((image, index) => {
+            setTimeout(() => {
+                image.style.opacity = 1;
+				overlayLabels[index].style.opacity = 1;
+            }, index * 500);
+        });
+    }
+
+    positionOverlayImages();
+    setTimeout(function() {
+        showImagesSequentially();
+    }, 2000);
+
+    video1.addEventListener('ended', () => {
+        video1.style.display = 'none';
+        video2.style.display = 'block';
+        video2.play();
     });
-    
-    image.addEventListener('mouseleave', () => {
-        image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(0px)`;
+
+    window.addEventListener('resize', () => {
+        positionOverlayImages();
+        showImagesSequentially();
     });
 });
+
+/* for mobile and tablet */
+function detectMobile() {
+    var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    if (/android/i.test(userAgent)) {
+        return true;
+    }
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return true;
+    }
+    return false;
 }
 
-function showImagesSequentially() {
-overlayImages.forEach((image, index) => {
-    setTimeout(() => {
-        image.style.opacity = 1;
-    }, index * 500);
-});
-}
-
-positionOverlayImages();
-setTimeout(function() {
-showImagesSequentially();
-}, 2000);
-
-video1.addEventListener('ended', () => {
-video1.style.display = 'none';
-video2.style.display = 'block';
-video2.play();
-});
-
-window.addEventListener('resize', () => {
-positionOverlayImages();
-showImagesSequentially();
-});
-}, 2000);
-
-// for mobile and tablet /
-function detectMobile() 
-{
-var userAgent = navigator.userAgent || navigator.vendor || window.opera;
-if (/android/i.test(userAgent)) {
-return true;
-}
-if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-return true;
-}
-return false;
-}
-
-if (detectMobile()) 
-{
-document.addEventListener('DOMContentLoaded', () => {
-const parent = document.querySelector('.thereedmainsection');
-const child = document.querySelector('.video-container');
-let isDown = false;
-let startX;
-let scrollLeft;
-parent.addEventListener('touchstart', (e) => {
-  isDown = true;
-  child.style.cursor = 'grabbing';
-  startX = e.touches[0].pageX - child.offsetLeft;
-  scrollLeft = parent.scrollLeft;
-});
-parent.addEventListener('touchend', () => {
-  isDown = false;
-  child.style.cursor = 'grab';
-});
-parent.addEventListener('touchmove', (e) => {
-  if (!isDown) return;
-  e.preventDefault();
-  const x = e.touches[0].pageX - child.offsetLeft;
-  const walk = (x - startX) * 2; // Adjust scrolling speed
-  parent.scrollLeft = scrollLeft - walk;
-});
-});
-console.log("This is a mobile device.");
+if (detectMobile()) {
+    document.addEventListener('DOMContentLoaded', () => {
+        const parent = document.querySelector('.thereedmainsection');
+        const child = document.querySelector('.video-container');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+        parent.addEventListener('touchstart', (e) => {
+            isDown = true;
+            child.style.cursor = 'grabbing';
+            startX = e.touches[0].pageX - child.offsetLeft;
+            scrollLeft = parent.scrollLeft;
+        });
+        parent.addEventListener('touchend', () => {
+            isDown = false;
+            child.style.cursor = 'grab';
+        });
+        parent.addEventListener('touchmove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.touches[0].pageX - child.offsetLeft;
+            const walk = (x - startX) * 2; // Adjust scrolling speed
+            parent.scrollLeft = scrollLeft - walk;
+        });
+    });
+    console.log("This is a mobile device.");
 } else {
-console.log("This is not a mobile device.");
+    console.log("This is not a mobile device.");
 }
-// for mobile and tablet /
-
-});
+/* for mobile and tablet */
 
 // location page end 
 
