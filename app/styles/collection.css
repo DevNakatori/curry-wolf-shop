@@ -13,7 +13,7 @@ main {
  }
  
  .collection nav {
-    max-width: 783px;
+    max-width:max-content;
     margin: 0 auto;
     border-radius: 25px;
     padding: 11px 0px;
@@ -65,7 +65,7 @@ main {
  .collection-banner img {
     width: 660px;
  }
- 
+ .collection-banner{overflow: hidden;white-space: nowrap;}
  .collection-banner h1 {
     color: #fff;
     font-family: 'BertholdBlock';
@@ -75,6 +75,8 @@ main {
     left: 0;
     right: 0;
     text-align: center;
+    animation: scrolling 10s linear infinite;
+    display: inline-block;
  }
  
  .benifits .container {
@@ -98,8 +100,8 @@ main {
  .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: -50px;
-    padding-bottom: 20px;
+    margin-top: -30px;
+    padding-bottom: 30px;
  }
  nav.collection-menu.aos-init.aos-animate {
    margin-top: 50px;
@@ -221,7 +223,7 @@ main {
  }
  
  .collection-badge p {
-   font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+   font-size: calc(14px + (30 - 14) * ((100vw - 320px) / (1920 - 320)));
    line-height: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     color: #000;
@@ -334,6 +336,18 @@ main {
  .products-grid .product-g-wrap h4 {
    color: #FEDE03 ;
  }
+ 
+ @keyframes scrolling {
+   0% {
+     transform: translateX(-70%);
+   }
+   100% {
+     transform: translateX(70%);
+   }
+ }
+ @media (max-width:1700px) {
+   .collection-banner{margin-top: 10px;}
+ }
  @media (max-width:1540px) {
     .benifits .container {
        padding: 73px 0px;
@@ -349,8 +363,8 @@ main {
        max-width: 1340px;
     }
     .collection-banner {
-      margin-top: 25px;
-  }
+      margin-top: 40px;
+    }
  }
  
  @media (max-width:1380px) {
@@ -376,6 +390,9 @@ main {
  }
  
  @media (max-width:1199px) {
+   .collection-banner {
+      margin-top: 70px;
+  }
     .products-grid .product-g-wrap a {
        margin: 0 77px;
        width: calc(100% / 3 - 165px);
@@ -423,7 +440,7 @@ main {
  
     .collection nav {
        padding: 6px 0px;
-       max-width: 600px;
+       /* max-width: 600px; */
        top: 110px;
        position: initial;
     }
@@ -488,9 +505,10 @@ main {
     }
  
     .collection-banner {
-       margin-top: 50px;
+       margin-top: 30px;
+       padding-bottom: 0;
     }
- 
+    nav.collection-menu.aos-init.aos-animate{margin-top: 10px;}
     .collection nav ul li {
        padding: 0 18px;
     }
@@ -509,11 +527,12 @@ main {
        line-height: 28px;
        position: absolute;
        font-family: 'RubikOne-Regular';
+       top: 41%;
     }
  
-    .collection-banner img {
+    /* .collection-banner img {
        width: 292px;
-    }
+    } */
  
     .collection-banner {
        margin-top: 20px;
@@ -526,7 +545,7 @@ main {
  
     .collection nav {
        max-width: initial;
-       margin: 0 20px 45px;
+       margin: 0 20px 25px;
        position: initial;
        border-radius: 10px;
     }
@@ -642,6 +661,10 @@ main {
  
     .collection-banner {
        margin-top: 10px;
+       padding-bottom: 0;
+    }
+    .benifits .container .benifits-inner-wrap{
+      padding: 33px 0 10px;
     }
  }
  
@@ -649,6 +672,7 @@ main {
     .collection nav {
        top: 90px;
     }
+    .collection nav ul li a{font-size: 12px;}
  }
  
  @media (max-width:414px) {

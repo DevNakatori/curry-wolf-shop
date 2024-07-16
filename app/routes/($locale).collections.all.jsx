@@ -185,6 +185,7 @@ function ProductItem({product, loading}) {
     : 'Lieferzeit: 2-4 Tage (*)';
 
   return (
+  
     <Link
       className="product-item"
       key={product.id}
@@ -210,32 +211,32 @@ function ProductItem({product, loading}) {
         <FormattedMoney money={product.priceRange.minVariantPrice} />
         <div className="tax-hint">
           <small>
-            <font style={{verticalAlign: "inherit"}}>
-              <font style={{verticalAlign: "inherit"}}>
                 incl. VAT.,
-              </font>
-            </font>
             <a className="shipping_policy" href="/policies/shipping-policy">
-              <font style={{verticalAlign: "inherit"}}>
-                <font style={{verticalAlign: "inherit"}}>
                   excl. Shipping costs
-                </font>
-              </font>
             </a>
           </small>
-        </div>
-        <br />
+        
+       
         {weight}
         {unitPrice && (
           <>
-            <br />
             {unitPrice}
           </>
         )}
-        <br />
-        {deliveryTime}
-      </small>
+         <>
+         <span>
+         {deliveryTime}
+         </span>
+         </>
+       
+        <div className='cart-btn'>
+          <span className='yellow-btn'>Add to cart</span>
+        </div>
+        </div>
+        </small>
     </Link>
+  
   );
 }
 
