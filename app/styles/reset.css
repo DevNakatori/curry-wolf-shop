@@ -153,6 +153,75 @@ code {
   font-family: monospace;
   padding: 0.25rem;
 }
+.header-menu-desktop .header-menu-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-menu-desktop .submenu-arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+}
+
+.header-menu-desktop .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(168, 10, 21, 1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.header-menu-desktop .submenu li {
+  list-style: none;
+  padding: 8px 16px;
+}
+
+.header-menu-desktop .submenu li a {
+  text-decoration: none;
+  color: black;
+}
+
+.header-menu-desktop .header-menu-item:hover .submenu {
+  display: block;
+}
+
+.header-menu-desktop .header-menu-item:hover .submenu-arrow {
+  transform: rotate(180deg);
+}
+
+.header-menu-mobile .header-menu-item {
+  display: block;
+  position: relative;
+}
+
+.header-menu-mobile .menu-item-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-menu-mobile .submenu-arrow {
+  margin-left: 5px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.header-menu-mobile .submenu-arrow.open {
+  transform: rotate(180deg);
+}
+
+.header-menu-mobile .submenu {
+  display: none;
+  padding-left: 20px;
+}
+
+.header-menu-mobile .submenu.open {
+  display: block;
+}
+
 @media (max-width:992px) {
   /* h1{
     font-size: 76px;
