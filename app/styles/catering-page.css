@@ -434,7 +434,9 @@ div#faq {
 .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one {
    transform: rotate(5deg);
 }
-
+.curywolf-catering-box .img-big-wrap:nth-child(2){
+   z-index: 1;
+}
 .curywolf-catering-box .img-big-wrap:nth-child(2) a{
    transform: translate(2%, 92%);
    z-index: 9;
