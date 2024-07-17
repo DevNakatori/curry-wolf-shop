@@ -207,9 +207,11 @@ function ProductItem({product, loading}) {
         <h4>{titleMain}<br/></h4>
         <span>{titleSub}</span>
       </div>
+      <div className='c-all-wrap'>
       <small>
         <FormattedMoney money={product.priceRange.minVariantPrice} />
         <div className="tax-hint">
+          <div className='same-height'>
           <small>
                 incl. VAT.,
             <a className="shipping_policy" href="/policies/shipping-policy">
@@ -217,24 +219,24 @@ function ProductItem({product, loading}) {
             </a>
           </small>
         
-       
+       <div className='c-weight'>
         {weight}
+        </div>
         {unitPrice && (
-          <>
+          <div className='pro-wrap-c'>
             {unitPrice}
-          </>
+          </div>
         )}
-         <>
          <span>
          {deliveryTime}
          </span>
-         </>
-       
+         </div>
         <div className='cart-btn'>
           <span className='yellow-btn'>Add to cart</span>
         </div>
         </div>
         </small>
+        </div>
     </Link>
   
   );

@@ -217,7 +217,7 @@ export default function Product() {
       </div>
       <div className="container">
       <div className="go-back-pro-btn">
-            <a href='javascript:;' className="yellow-btn"  onClick={() => navigate(-1)}>Go back to all products</a>
+            <a href='javascript:;' className="yellow-border-btn"  onClick={() => navigate(-1)}>Go back to all products</a>
             </div>
         <div className="product-container">
           <div className="left-content">
