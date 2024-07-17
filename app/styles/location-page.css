@@ -97,25 +97,6 @@ span.additionalLabel{
 	left: 20px;
  }
  
- #popup {
-	margin: 0 30px;
- }
- 
- .popup-container {
-	background: linear-gradient(180deg, #D02523 0%, #9B2220 69.12%);
-	max-width: 1920px;
-	margin: 0 auto;
-	padding: 50px 70px;
-	position: fixed;
-	overflow: hidden;
-	top: 100px;
-	left: 0;
-	right: 0;
-	z-index: 999;
-	overflow-y: scroll;
-	height: calc(100vh - 170px);
-	scrollbar-width: none;
- }
  
  .popup-img-right-two {
 	position: absolute;

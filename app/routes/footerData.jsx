@@ -3,7 +3,7 @@ export function KeepInTouch() {
       <>
         <div className='footer-contact-info' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
         <div className="footer-sub-block">
-            <span className='yellow-head'>Keep in touch</span>
+            <span className='yellow-head'>Kontakt</span>
             <div className="footer-flex footer-contact">
               <div className="keep-wrap">
               <span>
@@ -26,7 +26,7 @@ export function KeepInTouch() {
         </div>  
       </div>
       <div className="footer-sub-block footer-social" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-            <span className='yellow-head'>Follow us</span>
+            <span className='yellow-head'>Folgen Sie Uns</span>
             <div className="footer-flex footer-icon">
               <a className="social-insta" href="https://www.instagram.com/curry_wolf/" target="_blank">
                 <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">

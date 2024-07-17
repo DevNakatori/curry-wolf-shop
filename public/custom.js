@@ -202,11 +202,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const videocontainer = document.getElementById('video-container');
     const overlayImages = document.querySelectorAll('.overlayImage');
     const positions = [
-        { x: 11, y: 41, label: 'Steglitz ' , additionalLabel: 'click for more info' },
-        { x: 23, y: 34, label: 'Potsdam' , additionalLabel: 'click for more info' },
-        { x: 19, y: 26, label: 'Brandenburger Tor' , additionalLabel: 'click for more info'},
-        { x: 25.5, y: 22.5, label: 'Ku`damm' , additionalLabel: 'click for more info' },
-        { x: 30.5, y: 24, label: 'Lichtenrade' , additionalLabel: 'click for more info' }
+        { x: 11, y: 41, label: 'Steglitz ' , additionalLabel: 'Mehr Info' },
+        { x: 23, y: 34, label: 'Potsdam' , additionalLabel: 'Mehr Info' },
+        { x: 19, y: 26, label: 'Brandenburger Tor' , additionalLabel: 'Mehr Info'},
+        { x: 25.5, y: 22.5, label: 'Ku`damm' , additionalLabel: 'Mehr Info' },
+        { x: 30.5, y: 24, label: 'Lichtenrade' , additionalLabel: 'Mehr Info' }
     ];
 
 	const overlayLabels = [];
