@@ -6,7 +6,7 @@
    background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
 }
 .left-content {
-   max-width: 47.09vw;
+   max-width: 37.09vw;
 }
 /* Core styles/functionality */
 .faq-sec .faq-left a:hover {
@@ -506,14 +506,11 @@ div#faq {
     transform: scale(1.1);}
 
     @media (max-width:1920px) {
-      .left-content {
-         max-width: 49.09vw;
-     }
     }
 @media (max-width:1440px) {
-   .left-content {
+   /* .left-content {
       max-width: 53.09vw;
-  }
+  } */
    .logo-box img {
       width: 70%;
    }
@@ -544,9 +541,7 @@ div#faq {
 }
 
 @media (max-width:1200px) {
-   .left-content {
-      max-width: 57.09vw;
-  }
+
    .brandenburg .brand-left {
       padding-right: 40px;
    }

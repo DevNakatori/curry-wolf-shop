@@ -116,6 +116,7 @@ div#faq {
 }
 .catering-inner {
   background: linear-gradient(180deg, #D02523 0%, #9B2220 44.72%);
+  overflow: hidden;
 }
 
 .inner-wolf-bestell {
@@ -146,7 +147,9 @@ div#faq {
 .inner-wolf-bestell .left-content h1 {
   margin-bottom: 10px;
 }
-
+.inner-wolf-bestell .left-content {
+  max-width: 37.09vw;
+}
 .brandenburg {
   display: flex;
   padding-bottom: 50px;
@@ -258,7 +261,7 @@ div#faq {
 .catering-inner .curywolf-catering-box .img-big-wrap {
   position: relative;
   height: auto;
-  width: calc(100% / 4);
+  width: calc(100% / 3);
 }
 .inner-white-box {
   padding: 10px;
@@ -307,9 +310,10 @@ div#faq {
 .ref-title h4 {
   font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
   line-height: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
-  font-family: 'Chivo-Regular';
+  font-family: 'BertholdBlock';
   color: #fff;
   margin-bottom: 0;
+  color: #FEDE03;
 }
 
 .ref-title {
@@ -391,10 +395,16 @@ div#faq {
 .curywolf-catering-box {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 270px;
+  padding-bottom: 180px;
   padding-top: 120px;
   /* border-bottom: 1px solid #fff; */
   justify-self: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.faq-btn {
+  padding: 40px 0 0 0;
+  text-align: center;
 }
 .img-one .inner-content p {
   color: #000;
@@ -421,29 +431,29 @@ div#faq {
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(2) a{
-  transform: translate(2%, 84%);
+  transform: translate(12%, 24%);
   z-index: 9;
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(3) a{
-  transform: translate(-9%, 23%);
+  transform: translate(-3%, -16%);
   z-index: 9;
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one {
-  transform: rotate(-13deg);
+  transform: rotate(-9deg);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(4) a{
-  transform: translate(-8%, -12%);
+  transform: translate(12%, 10%);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(4) .img-one {
-  transform: rotate(4deg);
+  transform: rotate(-9deg);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-  transform: translate(23%, 52%);
+  transform: translate(14%, 52%);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
@@ -451,7 +461,7 @@ div#faq {
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(6) a{
-  transform: translate(85%, 62%);
+  transform: translate(0%, -3%);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(6) .img-one {
@@ -511,7 +521,7 @@ div#faq {
   }
 
   .inner-white-box {
-     padding: 15px;
+     padding: 10px;
   }
 
   .brandenburg .img-big-wrap {
@@ -532,7 +542,7 @@ div#faq {
      padding-bottom: 50px;
      margin-bottom: 50px;
   }
-  .inner-wolf-bestell h3{margin-bottom: 0;}
+  .inner-wolf-bestell h3{margin-bottom: 30px;}
   .brand-left h2 {
      margin-bottom: 30px;
   }
@@ -565,12 +575,10 @@ div#faq {
      padding: 70px 0;
   }
 
-  .inner-wolf-bestell a.yellow-btn {
-     min-width: 300px;
-  }
 }
 
 @media (max-width:767px) {
+  .inner-wolf-bestell .left-content{max-width: initial;}
   .inner-wolf-bestell .left-content h1 {
      font-family: 'RubikOne-Regular';
   }
@@ -711,12 +719,12 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
-    transform: rotate(9deg);
+    transform: rotate(-12deg);
 
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-    transform: translate(28%, 76%);
+    transform: translate(-2%, -30%);
  }
 
  .catering-inner .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(6) a{
@@ -788,10 +796,6 @@ div#faq {
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
     transform: rotate(9deg);
 
- }
-
- .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-    transform: translate(118%, 0%);
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(6) a{
@@ -885,8 +889,11 @@ div#faq {
   }
 
   .inner-wolf-bestell h3 {
-     margin: 0 0 30px 0;
+     margin: 0 0 20px 0;
   }
+  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) a {
+    transform: translate(-2%, -20%);
+}
 }
 @media (max-width:400px) {
   .curywolf-catering-box .img-big-wrap:nth-child(2) {

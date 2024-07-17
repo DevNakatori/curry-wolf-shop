@@ -3,7 +3,32 @@ main {
     margin-top: 0;
     overflow: hidden;
  }
- 
+ .collection small, .collection small a, .collection .tax-hint span,.collection .c-weight,.collection .unit-price {
+   color: #fff !important;
+   font-size: 11px !important;
+   font-family: 'Gotham-Book' !important;
+}
+.collection small {
+   display: block;
+   padding-bottom: 7px;
+}
+.collection .c-weight {
+   padding-bottom: 5px;
+}
+.collection  .products-grid .product-g-wrap .tax-hint span{min-height: initial;}
+.collection .products-grid .product-g-wrap small a{margin: auto;}
+.collection .products-grid .product-g-wrap .tax-hint .cart-btn span{    color: #9B2220 !important;
+   font-size: 16px !important;
+   font-family: 'Gotham-Medium' !important;
+   min-height: initial;}
+   .collection .cart-btn {
+      margin-top: 25px;
+  }
+.products-grid .product-g-wrap .tax-hint .cart-btn span:hover{color: #FEDE03 !important;}
+.collection .unit-price{display: flex;justify-content: center;}
+.pro-wrap-c {
+   padding-bottom: 5px;
+}
  .food-decorative-garland img {
     width: 100%;
  }
@@ -354,10 +379,10 @@ main {
  
  @keyframes scrolling {
    0% {
-     transform: translateX(-70%);
+     transform: translateX(-80%);
    }
    100% {
-     transform: translateX(70%);
+     transform: translateX(80%);
    }
  }
  @media (max-width:1700px) {

@@ -104,14 +104,14 @@ export default function Collection() {
           {({nodes, isLoading, PreviousLink, NextLink}) => (
             <>
               <div className="load-pre">
-                <PreviousLink className="yellow-btn bottom-spacing">
+                <PreviousLink className="yellow-border-btn bottom-spacing">
                   {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
                 </PreviousLink>
               </div>
               <ProductsGrid products={nodes} />
               <br />
               <div className="load-more">
-                <NextLink className="yellow-btn">
+                <NextLink className="yellow-border-btn">
                   {isLoading ? 'Loading...' : <span>Load more ↓</span>}
                 </NextLink>
               </div>

@@ -197,7 +197,7 @@
     max-width: 380px;
  }
  
- .c-right a.yellow-btn {
+ .c-right a.yellow-border-btn{
     text-align: center;
     margin-top: 36px;
     
@@ -389,7 +389,7 @@
        margin-bottom: 40px;
     }
  
-    .c-right a.yellow-btn {
+    .c-right a.yellow-border-btn {
        padding: 10px 10px 10px;
        width: 100px;
        /* font-size: 16px; */
@@ -541,7 +541,7 @@
    width: 70px;
 }
 /* .follow-currywolf h2{font-size: 32px;line-height: 40px;} */
-.c-right a.yellow-btn{padding: 4px 4px;}
+.c-right a.yellow-border-btn{padding: 4px 4px;}
 .c-two-box:nth-child(2) .c-left img {
    width: 100%;
 }
@@ -574,7 +574,7 @@
     .c-right h2 {
        margin-top: 15px;
     }
-    .c-right a.yellow-btn{margin-top: 20px;}
+    .c-right a.yellow-border-btn{margin-top: 20px;}
     .c-right p{margin: 0 auto;height: auto !important;}
     .c-two-box:nth-child(2){margin-bottom: 0;}
  }

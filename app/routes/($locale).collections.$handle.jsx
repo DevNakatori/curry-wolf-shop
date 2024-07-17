@@ -268,21 +268,31 @@ function ProductItem({product, loading}) {
       <div className='c-price-range'>
         <Money data={product.priceRange.minVariantPrice} />
         </div>
+        <div className='c-all-wrap'>
+          <div className='tax-hint'>
+            <div className='same-height'>
         <small>
                 incl. VAT.,
             <a className="shipping_policy" href="/policies/shipping-policy">
                   excl. Shipping costs
             </a>
           </small>
+         
           <div className='c-weight'>
         {weight}
+        </div>
          <span>
          {deliveryTime}
          </span>
-        </div>
+       
+        <div className='pro-wrap-c'>
         {unitPrice}
+        </div>
+        </div>
         <div className='cart-btn'>
           <span className='yellow-btn'>Add to cart</span>
+        </div>
+        </div>
         </div>
     </Link>
   );
