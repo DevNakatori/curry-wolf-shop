@@ -77,17 +77,20 @@ export async function loader({ params, request, context }) {
 }
 
 function ProductMedia({ media }) {
+  const [mainImage, setMainImage] = useState(
+    media.find(item => item.__typename === 'MediaImage')
+  );
   const videoRef = useRef(null);
 
   useLayoutEffect(() => {
-    Fancybox.bind('[data-fancybox="gallery"]', {
+    Fancybox.bind('[data-fancybox="main-image"]', {
       // FancyBox options
     });
 
     return () => {
       Fancybox.destroy();
     };
-  }, [media]);
+  }, [mainImage]);
 
   const handleImageClick = (event) => {
     event.preventDefault();
@@ -97,24 +100,22 @@ function ProductMedia({ media }) {
     return null; // Return early if media array is empty or undefined
   }
 
-  // Splitting media into first image and rest of the images
-  const firstImage = media.find(item => item.__typename === 'MediaImage');
-  const restImages = media.filter(item => item.__typename === 'MediaImage' && item !== firstImage);
+  const restImages = media.filter(item => item.__typename === 'MediaImage' && item !== mainImage);
 
   return (
     <div className="product-media" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-      {firstImage && (
-        <div className="product-image" key={firstImage.id}>
+      {mainImage && (
+        <div className="product-image" key={mainImage.id}>
           <a
-            data-fancybox="gallery"
-            href={firstImage.image.url}
+            data-fancybox="main-image"
+            href={mainImage.image.url}
             onClick={handleImageClick}
           >
             <Image
-              alt={firstImage.image.altText || 'Product Image'}
+              alt={mainImage.image.altText || 'Product Image'}
               aspectRatio="1/1"
-              data={firstImage.image}
-              key={firstImage.image.id}
+              data={mainImage.image}
+              key={mainImage.image.id}
               sizes="(min-width: 45em) 50vw, 100vw"
             />
           </a>
@@ -124,20 +125,14 @@ function ProductMedia({ media }) {
       {restImages.length > 0 && (
         <div className="product-images-wrap">
           {restImages.map(item => (
-            <div className="product-image" key={item.id}>
-              <a
-                data-fancybox="gallery"
-                href={item.image.url}
-                onClick={handleImageClick}
-              >
-                <Image
-                  alt={item.image.altText || 'Product Image'}
-                  aspectRatio="1/1"
-                  data={item.image}
-                  key={item.image.id}
-                  sizes="(min-width: 45em) 50vw, 100vw"
-                />
-              </a>
+            <div className="product-image" key={item.id} onClick={() => setMainImage(item)}>
+              <Image
+                alt={item.image.altText || 'Product Image'}
+                aspectRatio="1/1"
+                data={item.image}
+                key={item.image.id}
+                sizes="(min-width: 45em) 50vw, 100vw"
+              />
             </div>
           ))}
         </div>
@@ -162,7 +157,6 @@ function ProductMedia({ media }) {
     </div>
   );
 }
-
 
 export default function Product() {
   const { product, variants } = useLoaderData();
@@ -216,9 +210,9 @@ export default function Product() {
         <img src={decorativegarland} alt="food-decorative-garland" />
       </div>
       <div className="container">
-      <div className="go-back-pro-btn">
-            <a href='javascript:;' className="yellow-border-btn"  onClick={() => navigate(-1)}>Go back to all products</a>
-            </div>
+        <div className="go-back-pro-btn">
+          <a href='javascript:;' className="yellow-border-btn" onClick={() => navigate(-1)}>Go back to all products</a>
+        </div>
         <div className="product-container">
           <div className="left-content">
             <div className="product-title mobile-hide">
@@ -228,13 +222,13 @@ export default function Product() {
               <div className="info-wrap">
                 {additionalInformationText && (
                   <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2 >Additional Information</h2>
+                    <h2>Additional Information</h2>
                     <p>{additionalInformationText}</p>
                   </div>
                 )}
                 {preparationText && (
                   <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2 >Preparation</h2>
+                    <h2>Preparation</h2>
                     <p>{preparationText}</p>
                   </div>
                 )}
@@ -262,72 +256,72 @@ export default function Product() {
                 </div>
               </div>
               <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-              <div className="cerified-box" >
-                <h4 >Certified online shop</h4>
-                <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                <div className="cerified-box">
+                  <h4>Certified online shop</h4>
+                  <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                </div>
+                <div className="certified-logo">
+                  <h4>More quickly shipment</h4>
+                  <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+                </div>
               </div>
-              <div className="certified-logo">
-                <h4 >More quickly shipment</h4>
-                <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
-              </div>
-            </div>
             </div>
           </div>
           <div className="center-content">
             {product.media && <ProductMedia media={product.media.nodes} />}
           </div>
           <div className="right-content">
-          <div class="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" class="aos-init aos-animate" data-aos-once="true">„OPIUM“ Tomaten-Chilisoße (4 x 215g)</h1></div>
+            <div className="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" className="aos-init aos-animate" data-aos-once="true">„OPIUM“ Tomaten-Chilisoße (4 x 215g)</h1></div>
             <div className="product-content">
               <div data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-              <ProductPrice selectedVariant={selectedVariant} />
-              <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
-              <Suspense
-                fallback={
-                  <ProductForm
-                    product={product}
-                    selectedVariant={selectedVariant}
-                    variants={[]}
-                  />
-                }
-              >
-                <Await
-                  errorElement="There was a problem loading product variants"
-                  resolve={variants}
-                >
-                  {(data) => (
+                <ProductPrice selectedVariant={selectedVariant} />
+                <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                <Suspense
+                  fallback={
                     <ProductForm
                       product={product}
                       selectedVariant={selectedVariant}
-                      variants={data.product?.variants.nodes || []}
+                      variants={[]}
                     />
-                  )}
-                </Await>
-              </Suspense>
+                  }
+                >
+                  <Await
+                    errorElement="There was a problem loading product variants"
+                    resolve={variants}
+                  >
+                    {(data) => (
+                      <ProductForm
+                        product={product}
+                        selectedVariant={selectedVariant}
+                        variants={data.product?.variants.nodes || []}
+                      />
+                    )}
+                  </Await>
+                </Suspense>
               </div>
               {/* Display Metafield */}
               <div className="metafield">
                 {nutritionalValuesText && (
                   <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2 >Nutritional Values</h2>
+                    <h2>Nutritional Values</h2>
                     <p>{nutritionalValuesText}</p>
                   </div>
                 )}
                 {ingredientsText && (
                   <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2 >Ingredients</h2>
+                    <h2>Ingredients</h2>
                     <p>{ingredientsText}</p>
                   </div>
                 )}
               </div>
             </div>
             <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-              <div className="cerified-box" >
-                <h4 >Certified online shop</h4>
+              <div className="cerified-box">
+                <h4>Certified online shop</h4>
                 <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
               </div>
               <div className="certified-logo">
-                <h4 >More quickly shipment</h4>
+                <h4>More quickly shipment</h4>
                 <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
               </div>
             </div>
@@ -480,7 +474,7 @@ function ProductQuantity({ quantity, onQuantityChange }) {
           min="1"
           step="1"
         />
-        <button  type="button" onClick={incrementQuantity}>+</button>
+        <button type="button" onClick={incrementQuantity}>+</button>
       </div>
     </div>
   );
