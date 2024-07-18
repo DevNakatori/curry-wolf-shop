@@ -336,7 +336,7 @@ main {
   }
   @supports (font: -apple-system-body) and (-webkit-appearance: none) {
     .quantity-controls button{
-      line-height:28px;
+      line-height:24px;
     }
     }
   .product-quantity {

@@ -1081,6 +1081,7 @@ img.footer-bg-img {
 	   min-width: 80px;
 	   border-radius: 5px;
    }
+   .yellow-border-btn{border-radius: 5px;}
 	.yellow-btn:after{
 	   border-radius: 1px;
    }

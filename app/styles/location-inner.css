@@ -568,6 +568,9 @@ section.thereedmainsection {
  .img-one img {
 	width: 100%;
  }
+ .popup-payment li img {
+    width: 50px;
+}
  
  @media (min-width:1920px) {
  .p-top-btn {
