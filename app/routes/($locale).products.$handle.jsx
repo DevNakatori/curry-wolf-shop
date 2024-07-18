@@ -203,7 +203,24 @@ export default function Product() {
         metafield?.namespace === 'custom' && metafield?.key === 'nutritional_values'
     )?.value
   );
+
   const navigate = useNavigate();
+
+  const renderProductTitle = (title) => {
+    const regex = /(.*?)(\((.*?)\))/;
+    const match = title.match(regex);
+    if (match) {
+      return (
+        <>
+          {match[1]}
+          <br />
+          <span>{match[2]}</span>
+        </>
+      );
+    }
+    return title;
+  };
+
   return (
     <div className='main-product-sec'>
       <div className="food-decorative-garland">
@@ -216,7 +233,7 @@ export default function Product() {
         <div className="product-container">
           <div className="left-content">
             <div className="product-title mobile-hide">
-              <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{product.title}</h1>
+              <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{renderProductTitle(product.title)}</h1>
             </div>
             <div className="left-bottom-content">
               <div className="info-wrap">
@@ -271,7 +288,7 @@ export default function Product() {
             {product.media && <ProductMedia media={product.media.nodes} />}
           </div>
           <div className="right-content">
-            <div className="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" className="aos-init aos-animate" data-aos-once="true">„OPIUM“ Tomaten-Chilisoße (4 x 215g)</h1></div>
+            <div className="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" className="aos-init aos-animate" data-aos-once="true">{renderProductTitle(product.title)}</h1></div>
             <div className="product-content">
               <div data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <ProductPrice selectedVariant={selectedVariant} />
@@ -609,15 +626,3 @@ const VARIANTS_QUERY = `#graphql
     }
   }
 `;
-
-
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
-/** @typedef {import('@remix-run/react').FetcherWithComponents} FetcherWithComponents */
-/** @typedef {import('storefrontapi.generated').ProductFragment} ProductFragment */
-/** @typedef {import('storefrontapi.generated').ProductVariantsQuery} ProductVariantsQuery */
-/** @typedef {import('storefrontapi.generated').ProductVariantFragment} ProductVariantFragment */
-/** @typedef {import('@shopify/hydrogen').VariantOption} VariantOption */
-/** @typedef {import('@shopify/hydrogen/storefront-api-types').CartLineInput} CartLineInput */
-/** @typedef {import('@shopify/hydrogen/storefront-api-types').SelectedOption} SelectedOption */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
