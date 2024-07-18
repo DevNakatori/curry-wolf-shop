@@ -227,7 +227,7 @@ main {
     font-weight: 400;
     margin-bottom: 24px;
   }
-  
+
   .right-product-content span {
     font-size: 18px;
     line-height: 24px;
@@ -304,7 +304,7 @@ main {
     border: 0;
     color: #fff;
     font-family: 'BertholdBlock';
-    width: 44%;
+    width: 25%;
     margin: 0;
     padding: 0;
     text-align: center;
@@ -319,7 +319,7 @@ main {
     appearance: none !important;
   }
   .quantity-controls button:nth-child(1){
-    line-height: 29px;
+    line-height:23px;
   }
   .quantity-controls button {
     border: 2px solid #fff;
@@ -327,14 +327,18 @@ main {
     background-color: transparent;
     color: #fff;
     padding: 0px 13px;
-    font-size: 29px;
-    line-height: 32px;
-    width: 35px;
+    font-size: 24px;
+    line-height:26.9px;
+    width: 30px;
     display: inline-flex;
     justify-content: center;
-    height: 35px;
+    height: 30px;
   }
-  
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    .quantity-controls button{
+      line-height:28px;
+    }
+    }
   .product-quantity {
     margin-right: 10px;
   }

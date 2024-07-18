@@ -126,6 +126,7 @@ div#faq {
    justify-content: space-between;
    margin-bottom: 100px;
    align-items: center;
+   gap: 70px;
 }
 
 .inner-wolf-bestell h3 {
@@ -347,7 +348,9 @@ div#faq {
    flex-wrap: wrap;
    justify-content: center;
 }
-
+.inner-wolf-bestell .right-logo {
+   width: 50%;
+}
 .logo-box {
    width: calc(100% / 5);
    /* margin-bottom: 50px; */
@@ -500,6 +503,7 @@ div#faq {
 }
 .inner-wolf-bestell .right-logo img{
    width: 220px;
+   margin-left: -30px;
 }
 .curywolf-catering-box .img-big-wrap .img-one img:hover{-webkit-transform: scale(1.1);
     -ms-transform: scale(1.1);
@@ -677,9 +681,9 @@ div#faq {
    .c-brand-content p:nth-child(even) {
       padding-bottom: 30px;
    }
-   .wolf-logo .w-right-logo{
+   /* .wolf-logo .w-right-logo{
       row-gap: 10px;
-   }
+   } */
    .c-brand-content {
       padding: 30px 0 0;
    }

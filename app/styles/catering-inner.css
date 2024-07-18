@@ -335,7 +335,7 @@ div#faq {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  row-gap: 50px;
+  /* row-gap: 50px; */
 }
 
 .logo-box {
@@ -363,7 +363,7 @@ div#faq {
   height: 35px;
 }
 .logo-box img {
-  max-height: 50px;
+  max-height: 144px;
 }
 
 .faq-sec {
@@ -403,7 +403,7 @@ div#faq {
   margin: 0 auto;
 }
 .faq-btn {
-  padding: 40px 0 0 0;
+  padding: 70px 0 50px 0;
   text-align: center;
 }
 .img-one .inner-content p {
@@ -645,7 +645,7 @@ div#faq {
   .wolf-logo .w-right-logo {
      width: 100%;
      margin-bottom: 20px;
-     row-gap: 30px;
+     /* row-gap: 30px; */
   }
   .inner-wolf-bestell .right-logo img{width: 150px;}
   .wolf-logo .w-left-content {

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Await, NavLink } from '@remix-run/react';
 import { Suspense } from 'react';
 import { useRootLoaderData } from '~/lib/root-data';
-import shopLogo from '../assets/CurryWolf_Logo_white-logo.svg';
+import shopLogo from '../assets/CurryWolf_Logo_footer.svg';
 /**
  * @param {HeaderProps}
  */
