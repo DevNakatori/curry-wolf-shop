@@ -7,7 +7,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-	min-height: 48px;}
+	height: 48px;}
 .collection-list-page .collection-item:hover{text-decoration: none;}
 .collections-grid .collection-item img{border-radius: 50px;object-fit: cover;transform: scale(1);-webkit-transition:.3s ease-in-out;
 	transition: .3s ease-in-out;height: 100%;object-fit: cover;}
@@ -55,7 +55,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 	 }
 	 .col-block{height: auto;}
 	 .collections-grid .collection-item img,.col-block{border-radius: 10px;}
-	 .collection-list-page h5{margin-top: 15px;min-height: 48px;}
+	 .collection-list-page h5{margin-top: 15px;height: 48px;}
  }
  @media (max-width:480px) {
 	.collections-grid{width: 100%;}

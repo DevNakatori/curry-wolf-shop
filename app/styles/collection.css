@@ -143,6 +143,7 @@ main {
  .benifits .benifits-content h4 {
     max-width: 100%;
     margin: 12px 0;
+    height: initial;
  }
  
  .benifits-content {
@@ -197,7 +198,7 @@ main {
  
  .products-grid .product-g-wrap a img {
     border-radius: 50px;
-    box-shadow: 0px 4px 4px 0px #00000040;
+    /* box-shadow: 0px 4px 4px 0px #00000040; */
  }
  
  .products-grid .product-g-wrap h4,
@@ -218,7 +219,7 @@ main {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-	min-height: 43px;
+	height: 43px;
  }
  
  .products-grid .product-g-wrap small>div {
@@ -374,7 +375,7 @@ main {
    overflow: hidden;
    text-overflow: ellipsis;
    display: -webkit-box;
-  min-height: 53px;
+  height: 63px;
  }
  
  @keyframes scrolling {
@@ -405,6 +406,7 @@ main {
     .collection-banner {
       margin-top: 40px;
     }
+    .products-grid .product-g-wrap h4{height: 55px;}
  }
  
  @media (max-width:1380px) {

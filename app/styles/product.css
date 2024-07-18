@@ -14,7 +14,7 @@ main {
     font-family: 'BertholdBlock';
     color: #fff;
     margin: 80px 0 110px;
-    word-break: break-all;
+    overflow-wrap: break-word;
   }
   .product-images-wrap {
     display: flex;
@@ -27,7 +27,7 @@ main {
     justify-content: center;
 }
 .product-images-wrap .product-image{width: calc(100%/6);}
-.product-images-wrap .product-image  img{border-radius: 10px;width: 90% !important;height: 90%;}
+.product-images-wrap .product-image  img{border-radius: 10px;width: 90% !important;height: 90%;cursor: pointer;}
   .product-image img {
     width: 77% !important;
     margin: 0 auto;
@@ -50,10 +50,15 @@ main {
     border-bottom: 1px solid rgba(255, 255, 255, 1);
     padding-bottom: 79px;
     margin-bottom: 57px;
+    flex-wrap: wrap;
   }
-  
+  .info-box:nth-child(1) {
+    padding-bottom: 26px;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 50px;
+}
   .info-box {
-    width: 50%;
+    width: 100%;
   }
   
   .smile-block {
@@ -111,9 +116,12 @@ main {
     width: 30%;
   }
   .main-product-sec .product-container .left-content h1{
-      font-size: calc(32px + (80 - 30) * ((100vw - 320px) / (1920 - 320)));
-      line-height: calc(40px + (80 - 40) * ((100vw - 320px) / (1920 - 320)));
+      font-size: calc(30px + (70 - 30) * ((100vw - 320px) / (1920 - 320)));
+      line-height: calc(36px + (70 - 36) * ((100vw - 320px) / (1920 - 320)));
+      color: #fede03;
   }
+  .main-product-sec .product-container .left-content h1 span{color: #fff;font-size: calc(26px + (55 - 26) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(30px + (55 - 30) * ((100vw - 320px) / (1920 - 320)));}
   .main-product-sec .product-container .center-content {
     width: 40%;
   }
@@ -436,7 +444,7 @@ main {
     }
   
     .info-box {
-       width: 46%;
+       /* width: 46%; */
        padding-right: 10px;
     }
 
@@ -604,7 +612,11 @@ main {
     .right-bottom-content h4{margin-bottom: 15px;}
     .main-product-sec .product-title h1 {
        margin: 30px 0 20px;
+      color: #fede03;
+      font-size: 30px;
+      line-height: 30px;
     }
+    .main-product-sec .product-title h1 span{color: #fff;font-size: 26px;line-height: 26px;}
     .quantity-controls button {
        width: 25px;
        height: 25px;

@@ -378,6 +378,7 @@ function ProductForm({ product, selectedVariant, variants }) {
   };
 
   return (
+    <div className='product-form-main'>
     <div className="product-form">
       <VariantSelector
         handle={product.handle}
@@ -407,6 +408,7 @@ function ProductForm({ product, selectedVariant, variants }) {
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
+    </div>
     </div>
   );
 }
