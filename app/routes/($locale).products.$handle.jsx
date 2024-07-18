@@ -236,40 +236,34 @@ export default function Product() {
               <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{renderProductTitle(product.title)}</h1>
             </div>
             <div className="left-bottom-content">
-              <div className="info-wrap">
-                {additionalInformationText && (
-                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Additional Information</h2>
-                    <p>{additionalInformationText}</p>
-                  </div>
-                )}
+            
                 {preparationText && (
                   <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Preparation</h2>
+                    <h2>Zubereitung</h2>
                     <p>{preparationText}</p>
                   </div>
                 )}
-              </div>
+             
               <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="special-block">
                   <img src={faceSmile} alt='face smile icon' />
-                  <h4>Special Selection</h4>
-                  <p>Family manufacturer with its own recipe</p>
+                  <h4>Besondere Auswahl</h4>
+                  <p>Familienmanufaktur mit eigener Rezeptur</p>
                 </div>
                 <div className="special-block">
                   <img src={quickDelivery} alt='quick delivery icon' />
-                  <h4>Quick Delivery</h4>
-                  <p>We deliver within 2-4 days*</p>
+                  <h4>Schnelle Lieferung</h4>
+                  <p>Wir liefern innerhalb von 2-4 Tagen*</p>
                 </div>
                 <div className="special-block">
                   <img src={securePay} alt='secure pay icon' />
-                  <h4>Secure pay</h4>
-                  <p>Pay securely via Paypal and Sofort.com</p>
+                  <h4>Sichere Bezahlung</h4>
+                  <p>Sicher bezahlen per Paypal und Sofort.com</p>
                 </div>
                 <div className="special-block">
                   <img src={earthLogo} alt='earth icon' />
-                  <h4>CO₂ more neutral Shipment</h4>
-                  <p>Shipping takes place with DHL GoGreen</p>
+                  <h4>CO₂ neutraler Versand</h4>
+                  <p>Der Versand erfolgt mit DHL GoGreen</p>
                 </div>
               </div>
               <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
@@ -320,13 +314,21 @@ export default function Product() {
               <div className="metafield">
                 {nutritionalValuesText && (
                   <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Nutritional Values</h2>
+                    <h2>Nährwerte</h2>
                     <p>{nutritionalValuesText}</p>
                   </div>
                 )}
+              
+                  {additionalInformationText && (
+                    <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                      <h2>Weitere Informationen</h2>
+                      <p>{additionalInformationText}</p>
+                    </div>
+                  )}
+                
                 {ingredientsText && (
                   <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Ingredients</h2>
+                    <h2>Zutaten</h2>
                     <p>{ingredientsText}</p>
                   </div>
                 )}

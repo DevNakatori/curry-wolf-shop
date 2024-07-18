@@ -27,7 +27,7 @@ export const meta = () => {
 export async function loader({request, context}) {
   const {storefront} = context;
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 15,
+    pageBy: 55,
   });
 
   const {products} = await storefront.query(CATALOG_QUERY, {
@@ -71,29 +71,29 @@ export default function Collection() {
                 <div className='benifits-content'>
                   <img src={faceSmile} alt='face smile icon' />
                   <div className="">
-                    <h4>Special Selection</h4>
-                    <p>Family manufacturer with its own recipe</p>
+                    <h4>Besondere Auswahl</h4>
+                    <p>Familienmanufaktur mit eigener Rezeptur</p>
                   </div>
                 </div>
                 <div className='benifits-content'>
                   <img src={quickDelivery} alt='quick delivery icon' />
                   <div className="">
-                    <h4>Quick Delivery</h4>
-                    <p>We deliver within 2-4 days*</p>
+                    <h4>Schnelle Lieferung</h4>
+                    <p>Wir liefern innerhalb von 2-4 Tagen*</p>
                   </div>
                 </div>
                 <div className='benifits-content'>
                   <img src={securePay} alt='secure pay icon' />
                   <div className="">
-                    <h4>Secure pay</h4>
-                    <p>Pay securely via Paypal and Sofort.com</p>
+                    <h4>Sichere Bezahlung</h4>
+                    <p>Sicher bezahlen per Paypal und Sofort.com</p>
                   </div>
                 </div>
                 <div className='benifits-content'>
                   <img src={earthLogo} alt='earth icon' />
                   <div className="">
-                    <h4>CO₂ more neutral Shipment</h4>
-                    <p>Shipping takes place with DHL GoGreen</p>  
+                    <h4>CO₂ neutraler Versand</h4>
+                    <p>Der Versand erfolgt mit DHL GoGreen</p>  
                   </div>
                 </div>
               </div>
