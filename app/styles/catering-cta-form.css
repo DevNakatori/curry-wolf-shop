@@ -77,8 +77,8 @@
  }
  
  .right-box .c-right h3 {
-	font-size: 25px;
-	line-height: 30px;
+	font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
 	color: #fff;
 	margin-bottom: 16px;
 	font-family: 'BertholdBlock';
@@ -88,8 +88,6 @@
  
  .right-box .c-right p,
  .right-box .c-right p a {
-	font-size: 18px;
-	line-height: 21px;
 	font-family: 'Gotham-Book';
 	max-width: 230px;
 	color: #fff;
@@ -339,7 +337,6 @@
 	}
  
 	.right-box .c-right h3 {
-	   font-size: 20px;
 	   margin-bottom: 10px;
 	   margin-top: 0;
 	}
@@ -348,13 +345,6 @@
 	   width: 58px;
 	   height: 53px;
 	}
- 
-	.right-box .c-right p,
-	.right-box .c-right p a {
-	   font-size: 16px;
-	   line-height: 20px;
-	}
- 
 	.contact-top-block .left-title h1 {
 	   word-break: break-all;
 	}
