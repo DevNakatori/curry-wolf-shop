@@ -213,10 +213,7 @@ div#faq {
 }
 
 .b-btn-wrap a {
-   min-width: 276px;
    text-align: center;
-   font-size: 18px;
-   line-height: 21px;
 }
 
 .b-btn-wrap a:hover {
@@ -920,6 +917,7 @@ div#faq {
 
    .reference h3 {
       margin: 0 0 20px 0;
+      text-align: center;
    }
 
    .wolf-logo .w-left-content svg {

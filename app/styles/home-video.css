@@ -186,7 +186,7 @@ video#bgVideo {
  
  .c-s-btn {
    text-align: center;
-   margin-bottom: 50px;
+   margin-bottom: 80px;
  }
  
  .hungry-wolf-sec {
@@ -618,7 +618,7 @@ video#bgVideo {
  
    .second-time-video-text .btn-wrap {
       order: 4;
-      margin: 0 auto;
+      margin: 20px auto;
       width: 100%;
       text-align: center;
       margin-bottom: 90px;
@@ -859,11 +859,10 @@ video#bgVideo {
       order: 4;
       font-family: 'Chivo-Regular';
       padding: 0px 3px;
-      max-width: 40px;
+      min-width: 40px;
       border: 1px solid yellow !important;
       border-radius: 3px;
       font-size: 8px;
-      min-width: 40px;
       margin: 0 auto;
    }
  

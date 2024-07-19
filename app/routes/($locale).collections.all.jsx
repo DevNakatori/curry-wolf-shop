@@ -71,28 +71,28 @@
                   <div className='benifits-content'>
                     <img src={faceSmile} alt='face smile icon' />
                     <div className="">
-                      <h4 className='same-height'>Besondere Auswahl</h4>
+                      <h4>Besondere Auswahl</h4>
                       <p>Familienmanufaktur mit eigener Rezeptur</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
                     <img src={quickDelivery} alt='quick delivery icon' />
                     <div className="">
-                      <h4 className='same-height'>Schnelle Lieferung</h4>
+                      <h4>Schnelle Lieferung</h4>
                       <p>Wir liefern innerhalb von 2-4 Tagen*</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
                     <img src={securePay} alt='secure pay icon' />
                     <div className="">
-                      <h4 className='same-height'>Sichere Bezahlung</h4>
+                      <h4>Sichere Bezahlung</h4>
                       <p>Sicher bezahlen per Paypal und Sofort.com</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
                     <img src={earthLogo} alt='earth icon' />
                     <div className="">
-                      <h4 className='same-height'>CO₂ neutraler Versand</h4>
+                      <h4>CO₂ neutraler Versand</h4>
                       <p>Der Versand erfolgt mit DHL GoGreen</p>  
                     </div>
                   </div>

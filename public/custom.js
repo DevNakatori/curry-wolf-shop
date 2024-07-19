@@ -26,6 +26,61 @@ if (document.querySelectorAll('.path-vert').length > 0) {
 }
 
 
+// Catering-Step-Form-code START
+let currentStep = 0;
+const totalSteps = document.querySelectorAll('.step').length;
+
+document.getElementById('total-steps').textContent = totalSteps;
+
+function showStep(step) {
+    const steps = document.querySelectorAll('.step');
+    steps.forEach((element, index) => {
+        element.classList.toggle('active', index === step);
+    });
+
+    document.getElementById('current-step').textContent = step + 1;
+
+    const circles = document.querySelectorAll('.step-indicator-circle');
+    circles.forEach((element, index) => {
+        element.classList.toggle('active', index < step + 1);
+    });
+
+    document.getElementById("prevBtn").style.display = step === 0 ? "none" : "inline";
+    document.getElementById("nextBtn").textContent = step === (steps.length - 1) ? "Submit" : "Next";
+}
+
+function nextPrev(n) {
+    const steps = document.querySelectorAll('.step');
+    if (n === 1 && !validateForm()) return false;
+    steps[currentStep].style.display = "none";
+    currentStep += n;
+    if (currentStep >= steps.length) {
+        document.getElementById("multiStepForm").submit();
+        return false;
+    }
+    showStep(currentStep);
+}
+
+function validateForm() {
+    const step = document.querySelectorAll('.step')[currentStep];
+    const inputs = step.querySelectorAll('input');
+    let valid = true;
+    inputs.forEach(input => {
+        if (input.value === "" && input.hasAttribute('required')) {
+            input.style.borderColor = "red";
+            valid = false;
+        } else {
+            input.style.borderColor = "";
+        }
+    });
+    return valid;
+}
+
+showStep(currentStep);
+// Catering-Step-Form-code END
+
+
+
 // language switcher START
 document.addEventListener("DOMContentLoaded", function() {
   const dropdownToggle = document.getElementById("dropdownToggle");
@@ -202,11 +257,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
     const videocontainer = document.getElementById('video-container');
     const overlayImages = document.querySelectorAll('.overlayImage');
     const positions = [
-        { x: 11, y: 41, label: 'Steglitz ' , additionalLabel: 'Mehr Info' },
-        { x: 23, y: 34, label: 'Potsdam' , additionalLabel: 'Mehr Info' },
-        { x: 19, y: 26, label: 'Brandenburger Tor' , additionalLabel: 'Mehr Info'},
-        { x: 25.5, y: 22.5, label: 'Ku`damm' , additionalLabel: 'Mehr Info' },
-        { x: 30.5, y: 24, label: 'Lichtenrade' , additionalLabel: 'Mehr Info' }
+        { x: 11, y: 41, label: 'CURRY WOLF' , additionalLabel: 'Steglitz',  additionalLabel2: 'Mehr Info' },
+        { x: 23, y: 34, label: 'CURRY WOLF' , additionalLabel: 'Potsdam' , additionalLabel2: 'Mehr Info' },
+        { x: 19, y: 26, label: 'CURRY WOLF' , additionalLabel: 'Brandenburger Tor' , additionalLabel2: 'Mehr Info'},
+        { x: 25.5, y: 22.5, label: 'CURRY WOLF' , additionalLabel: 'Ku`damm' , additionalLabel2: 'Mehr Info' },
+        { x: 30.5, y: 24, label: 'CURRY WOLF' , additionalLabel: 'Lichtenrade' , additionalLabel2: 'Mehr Info' }
     ];
 
 	const overlayLabels = [];
@@ -231,6 +286,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             label.innerHTML = `
             <span class="mainLabel">${positions[index].label}</span>
             <span class="additionalLabel">${positions[index].additionalLabel}</span>
+            <span class="additionalLabel2">${positions[index].additionalLabel2}</span>
         `;
         label.style.opacity = 0;
         videocontainer.appendChild(label);

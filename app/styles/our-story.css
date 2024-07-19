@@ -54,17 +54,19 @@
    
 }
 .our-story-box h2{
-    font-size: calc(32px + (44 - 20) * ((100vw - 320px) / (1920 - 320)));
-    line-height: calc(30px + (50 - 30) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(20px + (44 - 20) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(26px + (50 - 26) * ((100vw - 320px) / (1920 - 320)));
     font-family: 'BertholdBlock';
     color: #fff;
-    text-align: right;
-    word-break: break-all;
+    text-align: left;
+    overflow-wrap: break-word;
+    max-width: fit-content;
 }
 .our-story-box h2 span{
-    font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
-    line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+    font-size: calc(20px + (29 - 20) * ((100vw - 320px) / (1920 - 320)));
+    line-height: calc(20px + (29 - 20) * ((100vw - 320px) / (1920 - 320)));
     display: block;
+    text-align: right;
 }
 .our-story-box p{
     font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
@@ -126,11 +128,12 @@
     flex-direction: row-reverse;
 }
 .our-story-box:nth-child(3) p{
-    text-align: right;
+    text-align: right !important;
 }
 .our-story-box:nth-child(3) h2{
-    text-align: left;
+    text-align: left !important;
 }
+.our-story-box:nth-child(3) h2 span{text-align: left !important;}
 .our-story-box:nth-child(2) .story-wrap{
     transform: rotate(8deg);
 }
@@ -246,8 +249,11 @@
     .our-story-box .story-wrap{padding: 0 10px;}
     .line{height: calc(100% - 360px);top: 290px;}
     .our-story-box:nth-child(3) ul li,.our-story-box:nth-child(3) p{text-align: left;}
+    .our-story-box h2 span{text-align: left;}
 }
 @media (max-width: 767px) {
+    .our-story-box h2{max-width: initial;}
+    .our-story-box h2 span{text-align: center;}
     .line{display: none;}
     .our-story-box:nth-child(1) .story-left {
         opacity: 1 !important;
@@ -274,7 +280,7 @@
     .our-story-box:nth-child(2) p {
         text-align: left;
     }
-    .our-story-box:nth-child(3) h2,.our-story-box:nth-child(3) p,.our-story-box:nth-child(3) ul li,.our-story-box p,.our-story-box:nth-child(2) p{text-align: center;}
+    .our-story-box:nth-child(3) h2,.our-story-box:nth-child(3) p,.our-story-box:nth-child(3) ul li,.our-story-box p,.our-story-box:nth-child(2) p,.our-story-box:nth-child(3) h2 span{text-align: center !important;}
     .inner-white-box{padding: 10px;}
 }
 @media (max-width: 400px) {

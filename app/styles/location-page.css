@@ -82,12 +82,21 @@ section.thereedmainsection {
 span.mainLabel {
     text-shadow: 0px 2px 5px #00000040;
 	padding-bottom: 10px;
+	color: #fff;
+	/* font-family: 'Gotham-Book'; */
+	font-size: 14px;
+	
 }
 span.additionalLabel{
+	margin-bottom:15px;
+	
+}
+span.additionalLabel2{
 	font-size: 12px;
 	font-family: 'Gotham-Book';
 	font-weight: 600;
     color: #fff;
+	
 }
 
  

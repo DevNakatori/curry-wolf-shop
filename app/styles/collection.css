@@ -158,7 +158,7 @@ main {
  
  .banifits-wrap {
     display: flex;
-    column-gap: 20px;
+    column-gap: 12px;
  }
  
  .banifits-wrap .benifits-content {

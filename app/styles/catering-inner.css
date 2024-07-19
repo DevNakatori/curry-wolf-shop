@@ -206,9 +206,7 @@ div#faq {
 }
 
 .b-btn-wrap a {
-  /* min-width: 276px; */
   text-align: center;
-  /* padding: 7px 10px; */
 }
 
 .b-btn-wrap a:hover {
@@ -217,7 +215,7 @@ div#faq {
 }
 
 .c-brand-content p:last-child {
-  padding-bottom: 0;
+  padding-bottom: 0 !important;
 }
 
 .brandenburg .img-big-wrap {
@@ -257,6 +255,7 @@ div#faq {
   margin: 0 auto;
   background-size: 100%;
   transform: rotate(8deg);
+  z-index: 9;
 }
 .catering-inner .curywolf-catering-box .img-big-wrap {
   position: relative;
@@ -266,17 +265,42 @@ div#faq {
 .inner-white-box {
   padding: 10px;
   margin-top: 0px;
+  overflow: hidden;
 }
-
-.img-one img {
+.wolf-bestell .inner-white-box{
+  padding: 0px;
+}
+.wolf-bestell .img-one{
+  padding: 10px 10px 0 10px;
+}
+.wolf-bestell .inner-content{
+  padding: 15px 0;
+}
+.wolf-bestell .img-one img {
   width: 100%;
+    height: 310px;
+    transition: 0.3s ease;
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    -webkit-transition-duration: 500ms;
+    -moz-transition-duration: 500ms;
+    -o-transition-duration: 500ms;
+    transition-duration: 500ms;
 }
-
+.catering-inner .img-big-wrap .img-one img:hover {
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
 .white-box-content {
   font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
   line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
   font-family: 'BertholdBlock';
   text-align: center;
+  padding: 15px 0;
 }
 
 .reference {
@@ -602,15 +626,10 @@ div#faq {
      width: 100%;
      padding-right: 0;
   }
-
-  .c-brand-content p:nth-child(even) {
-     padding-bottom: 30px;
-  }
-
   .c-brand-content {
      padding: 30px 0 0;
   }
-
+  .c-brand-content p:nth-child(even){padding-bottom: 30px;}
   .brandenburg .brand-right {
      width: 100%;
   }
@@ -709,7 +728,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(2) a{
-    transform: translate(-94%, -31%);
+    transform: translate(-14%, -11%);
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) a{
@@ -783,9 +802,9 @@ div#faq {
     transform: rotate(6deg);
  }
 
- .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(2) a{
+ /* .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(2) a{
     transform: translate(-94%, -31%);
- }
+ } */
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) a{
     transform: translate(112%, -108%);
@@ -881,6 +900,7 @@ div#faq {
   position: absolute;
   bottom: 0px;
 }
+.reference h3{text-align: center;}
 }
 
 @media (max-width:575px) {
