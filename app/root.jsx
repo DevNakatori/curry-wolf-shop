@@ -43,12 +43,18 @@ export function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // Check if the pathname includes 'catering'
+    if (!pathname.includes('catering')) {
+      window.scrollTo(0, 0);
+    }
   }, [pathname]);
 
   useEffect(() => {
     const handleBeforeUnload = () => {
-      window.scrollTo(0, 0);
+      // Check if the pathname includes 'catering'
+      if (!pathname.includes('catering')) {
+        window.scrollTo(0, 0);
+      }
     };
     
     window.addEventListener('beforeunload', handleBeforeUnload);
@@ -56,7 +62,7 @@ export function ScrollToTop() {
     return () => {
       window.removeEventListener('beforeunload', handleBeforeUnload);
     };
-  }, []);
+  }, [pathname]);
 
   return null;
 }

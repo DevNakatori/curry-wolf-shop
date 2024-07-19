@@ -3,6 +3,7 @@ import { Await, NavLink } from '@remix-run/react';
 import { Suspense } from 'react';
 import { useRootLoaderData } from '~/lib/root-data';
 import shopLogo from '../assets/CurryWolf_Logo_footer.svg';
+
 /**
  * @param {HeaderProps}
  */
@@ -78,7 +79,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                 end
                 onClick={closeAside}
                 prefetch="intent"
-                style={activeLinkStyle}
+                className={({ isActive }) => isActive ? 'active' : ''}
                 to={url}
               >
                 {item.title}
@@ -109,7 +110,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                         end
                         onClick={closeAside}
                         prefetch="intent"
-                        style={activeLinkStyle}
+                        className={({ isActive }) => isActive ? 'active' : ''}
                         to={subUrl}
                       >
                         {subItem.title}
@@ -201,7 +202,6 @@ function CartToggle({ cart }) {
     </Suspense>
   );
 }
-
 
 const FALLBACK_HEADER_MENU = {
   id: 'gid://shopify/Menu/199655587896',
