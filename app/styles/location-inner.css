@@ -15,7 +15,7 @@ section.thereedmainsection {
  }
  .popup-left-img video#location-inner{
 	width: 100%;
-	height: 650px;
+	height: 740px;
 	object-fit: contain;
 	margin: 0px 0;
  }
@@ -140,7 +140,7 @@ section.thereedmainsection {
  }
  
  .popup-inner-left-box {
-	max-width: 947px;
+	max-width: 1037px;
 	margin: 0 auto;
 	text-align: center;
  }
@@ -217,11 +217,11 @@ section.thereedmainsection {
  }
  
  .popup-r-time ul li span {
-	width: 160px;
+	width: 180px;
  }
  
  .popup-h-title {
-	width: 212px;
+	width: 282px;
 	text-align: left;
 	padding-right: 83px;
  }
@@ -235,7 +235,7 @@ section.thereedmainsection {
  }
  
  .popup-r-time ul li {
-	font-size: 18px;
+	font-size: 16px;
 	line-height: 25px;
 	color: #fff;
 	font-family: 'Gotham-Book';
@@ -605,12 +605,12 @@ section.thereedmainsection {
 	}
  
 	.popup-inner-left-box {
-	   max-width: 797px;
+	   max-width: 865px;
 	   margin: inherit;
 	}
- 
+	.popup-r-time ul li span{width: 160px;}
 	.popup-h-title {
-	   width: 170px;
+	   width: 280px;
 	}
  
 	.popup-bottom-menu .foodmenu-one ul li {
@@ -624,16 +624,18 @@ section.thereedmainsection {
 	.popup-bottom-menu .foodmenu-one ul li {
 	   font-size: 14px;
 	}
+	.popup-r-time ul li{font-size: 12px;}
  }
  
  
  @media (max-width:1440px) {
+	.popup-left-img video#location-inner{height: 650px;}
+	.popup-h-title{width: 210px;}
+	.popup-h-title h2{font-size: 20px;}
 	.c-two-box:nth-child(2) .c-left img {
 	   width: 100%;
 	}
-	.popup-left-img video#location-inner{
-		height: 500px;
-	}
+	.popup-r-time ul li{font-size: 12px;}
 	.popup-inner-left-box {
 	   max-width: initial;
 	   padding-right: 50px;
@@ -703,10 +705,15 @@ section.thereedmainsection {
  
  }
  @media (max-width:1340px) {
+	.popup-left-img video#location-inner{height: 650px;}
 	.popup-r-time {
 		flex-direction: column;
 	 }
 	 .popup-opening-hours{justify-content: initial;}
+	 .popup-h-title h2 {
+        font-size: 18px;
+    }
+	.popup-h-title{width: 200px;}
  }
  @media (max-width:1199px) {
 	
@@ -969,12 +976,7 @@ section.thereedmainsection {
  
 	.inner a {
 	   font-size: 9px;
-	}
- 
-	.popup-left-img {
-	   padding-top: 30px;
-	}
- 
+	} 
 	.popup-r-time ul li span {
 	   width: auto;
 	   padding-right: 10px;
@@ -1009,6 +1011,7 @@ section.thereedmainsection {
 	.popup-l-img img {
         width: 80px;
     }
+	.popup-opening-hours{padding: 0 0 23px;}
  }
  
  @media (max-width:575px) {

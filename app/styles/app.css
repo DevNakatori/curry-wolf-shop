@@ -631,8 +631,6 @@ span.yellow-head {
 }
 .footer-inner ul li a {
 	width: auto;
-	font-size: 16px;
-	line-height: 22px;
 	font-weight: 400 !important;
 	color: #fede03;
 	font-family: 'Gotham-Book';
@@ -694,9 +692,7 @@ span.yellow-head {
 	width: 100%;
 	display: block;
 	padding-bottom: 5px;
-	font-size: 16px;
 	color: #fff;
-	line-height: 22px;
 	font-family: 'Gotham-Book';
 	font-weight: 400;
 	max-width: 210px;
@@ -782,9 +778,9 @@ img.footer-bg-img {
 	fill: #fede03;
 }
 /* / language dropdown / */
-.dropdown {
+.dropdown,.dropdown-wrap {
 	position: relative;
-	display: inline-block;
+	display: none;
 }
 .dropdown-toggle {
 	background-color: transparent;
@@ -800,7 +796,7 @@ img.footer-bg-img {
 	background: url(/app/assets/Vector.svg) no-repeat center / contain;
 	width: 14px;
 	height: 7px;
-	top: 11px;
+	top: 4px;
 }
 .dropdown-toggle:focus {
 	outline: none;
