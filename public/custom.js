@@ -86,6 +86,43 @@ if (window.innerWidth < 768) {
     }, 2000);
 }
 
+// same height 
+  
+function setEqualHeight() {
+    const boxes = document.querySelectorAll('.same-height');
+    if (boxes.length === 0) {
+        console.log('No elements found with the class "same-height"');
+        return;
+    }
+
+    let maxHeight = 0;
+    console.log('Resetting heights to auto');
+    boxes.forEach(box => {
+        box.style.height = 'auto';
+    });
+
+    console.log('Calculating max height');
+    boxes.forEach(box => {
+        const boxHeight = box.clientHeight;
+        console.log(`Box height: ${boxHeight}px`);
+        if (boxHeight > maxHeight) {
+            maxHeight = boxHeight;
+        }
+    });
+
+    console.log(`Setting all boxes to the max height: ${maxHeight}px`);
+    boxes.forEach(box => {
+        box.style.height = `${maxHeight}px`;
+    });
+}
+
+window.addEventListener('load', () => {
+    setTimeout(setEqualHeight, 100);
+});
+
+window.addEventListener('resize', setEqualHeight);
+
+
   // Smooth scroll
   document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('a').forEach(function(anchor) {
@@ -108,30 +145,5 @@ if (window.innerWidth < 768) {
   });
   
   
-  // same height 
   
-  function setEqualHeight() {
-    const boxes = document.querySelectorAll('.same-height');
-    let maxHeight = 0;
-  
-    boxes.forEach(box => {
-      box.style.height = 'auto';
-    });
-
-    boxes.forEach(box => {
-      const boxHeight = box.clientHeight;
-      if (boxHeight > maxHeight) {
-        maxHeight = boxHeight;
-      }
-    });
-  
-    boxes.forEach(box => {
-      box.style.height = `${maxHeight}px`;
-    });
-  }
-  window.addEventListener('load', () => {
-    setTimeout(setEqualHeight, 100);
-  });
-
-  window.addEventListener('resize', setEqualHeight);
     

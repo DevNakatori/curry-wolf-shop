@@ -8,7 +8,11 @@ main {
   .main-product-sec .product-container {
     padding: 0px 0px 20px 0px;
   }
-  
+  .left-inner-c {
+    display: flex;
+    border-bottom: 1px solid #fff;
+    margin-bottom: 40px;
+}
   .main-product-sec .product-title h1 {
     font-weight: 400;
     font-family: 'BertholdBlock';
@@ -54,8 +58,6 @@ main {
   }
   .info-box:nth-child(1) {
     padding-bottom: 26px;
-    border-bottom: 1px solid #fff;
-    margin-bottom: 50px;
 }
   .info-box {
     width: 100%;
@@ -472,7 +474,9 @@ main {
   }
   
   @media (max-width:1024px) {
-  
+    .left-inner-c{flex-direction: column;}
+    .info-box:nth-child(1){border-bottom: 1px solid #fff;}
+    .info-box:nth-child(2){padding-bottom: 20px;}
     .info-wrap {
        flex-wrap: wrap;
     }

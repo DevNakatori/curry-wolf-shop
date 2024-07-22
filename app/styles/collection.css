@@ -22,7 +22,7 @@ main {
    font-family: 'Gotham-Medium' !important;
    min-height: initial;}
    .collection .cart-btn {
-      margin-top: 25px;
+      margin-top: 0px;
   }
 .products-grid .product-g-wrap .tax-hint .cart-btn span:hover{color: #FEDE03 !important;}
 .collection .unit-price{display: flex;justify-content: center;}

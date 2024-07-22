@@ -224,7 +224,7 @@ export default function Product() {
       </div>
       <div className="container">
         <div className="go-back-pro-btn">
-          <a href='javascript:;' className="yellow-border-btn" onClick={() => navigate(-1)}>Go back to all products</a>
+          <a href='javascript:;' className="yellow-border-btn" onClick={() => navigate(-1)}>Zurück zu allen Produkten</a>
         </div>
         <div className="product-container">
           <div className="left-content">
@@ -232,7 +232,7 @@ export default function Product() {
               <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{renderProductTitle(product.title)}</h1>
             </div>
             <div className="left-bottom-content">
-            
+              <div className='left-inner-c'>
                 {preparationText && (
                   <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2>Zubereitung</h2>
@@ -241,12 +241,12 @@ export default function Product() {
                 )}
                 
                {nutritionalValuesText && (
-                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                     <h2>Nährwerte</h2>
                     <p>{nutritionalValuesText}</p>
                   </div>
                 )}
-
+            </div>
               <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="special-block">
                   <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
@@ -271,11 +271,11 @@ export default function Product() {
               </div>
               <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="cerified-box">
-                  <h4>Certified online shop</h4>
+                  <h4>Zertifizierter Online-shop</h4>
                   <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
                 </div>
                 <div className="certified-logo">
-                  <h4>More quickly shipment</h4>
+                  <h4>Schneller Versand</h4>
                   <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
                 </div>
               </div>
@@ -314,17 +314,17 @@ export default function Product() {
                 </Suspense>
               </div>
               {/* Display Metafield */}
-              <div className="metafield">
+              <div className="metafield" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               
               {ingredientsText && (
-                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                  <div className="ingridiant-box">
                     <h2>Zutaten</h2>
                     <p>{ingredientsText}</p>
                   </div>
                 )}
 
                   {additionalInformationText && (
-                    <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                    <div className="ingridiant-box">
                       <h2>Weitere Informationen</h2>
                       <p>{additionalInformationText}</p>
                     </div>
@@ -335,11 +335,11 @@ export default function Product() {
             </div>
             <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <div className="cerified-box">
-                <h4>Certified online shop</h4>
+                <h4>Zertifizierter Online-shop</h4>
                 <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
               </div>
               <div className="certified-logo">
-                <h4>More quickly shipment</h4>
+                <h4>Schneller Versand</h4>
                 <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
               </div>
             </div>
@@ -407,7 +407,7 @@ function ProductForm({ product, selectedVariant, variants }) {
             : []
         }
       >
-        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+        {selectedVariant?.availableForSale ? 'In den Warenkorb' : 'Ausverkauft'}
       </AddToCartButton>
     </div>
     </div>

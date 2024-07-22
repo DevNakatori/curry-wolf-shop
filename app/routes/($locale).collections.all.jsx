@@ -69,28 +69,28 @@
                 {/* <h4>Vorteile von Curry Wolf</h4> */}
                 <div className='banifits-wrap'>
                   <div className='benifits-content'>
-                    <img src={faceSmile} alt='face smile icon' />
+                    <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
                     <div className="">
                       <h4>Besondere Auswahl</h4>
                       <p>Familienmanufaktur mit eigener Rezeptur</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
-                    <img src={quickDelivery} alt='quick delivery icon' />
+                    <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_expressdelivery.svg?v=1721633600' alt='quick delivery icon' />
                     <div className="">
                       <h4>Schnelle Lieferung</h4>
                       <p>Wir liefern innerhalb von 2-4 Tagen*</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
-                    <img src={securePay} alt='secure pay icon' />
+                    <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_highquality.svg?v=1721633600' alt='secure pay icon' />
                     <div className="">
                       <h4>Sichere Bezahlung</h4>
                       <p>Sicher bezahlen per Paypal und Sofort.com</p>
                     </div>
                   </div>
                   <div className='benifits-content'>
-                    <img src={earthLogo} alt='earth icon' />
+                    <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_worldwideshipping.svg?v=1721633600' alt='earth icon' />
                     <div className="">
                       <h4>CO₂ neutraler Versand</h4>
                       <p>Der Versand erfolgt mit DHL GoGreen</p>  

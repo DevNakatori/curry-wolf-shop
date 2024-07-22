@@ -7,10 +7,6 @@ import {
   Money,
 } from '@shopify/hydrogen';
 import {useVariantUrl} from '~/lib/variants';
-import earthLogo from '../assets/earth.png';
-import securePay from '../assets/secure-pay.png';
-import quickDelivery from '../assets/quick-delivery.png';
-import faceSmile from '../assets/face-smile.png';
 import decorativegarland from '../assets/decorativegarland.png';
 import '../styles/collection.css';
 
@@ -85,28 +81,28 @@ export default function Collection() {
             {/* <h4>Vorteile von Curry Wolf</h4> */}
         <div className='banifits-wrap'>
         <div className='benifits-content'>
-          <img src={faceSmile} alt='face smile icon' />
+          <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
             <div className="">
               <h4>Besondere Auswahl</h4>
               <p>Familienmanufaktur mit eigener Rezeptur</p>
             </div>
         </div>
         <div className='benifits-content'>
-          <img src={quickDelivery} alt='quick delivery icon' />
+          <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_expressdelivery.svg?v=1721633600' alt='quick delivery icon' />
         <div className="">
           <h4>Schnelle Lieferung</h4>
           <p>Wir liefern innerhalb von 2-4 Tagen*</p>
         </div>
         </div>
         <div className='benifits-content'>
-          <img src={securePay} alt='secure pay icon' />
+          <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_highquality.svg?v=1721633600' alt='secure pay icon' />
           <div className="">
           <h4>Sichere Bezahlung</h4>
           <p>Sicher bezahlen per Paypal und Sofort.com</p>
           </div>
         </div>
         <div className='benifits-content'>
-          <img src={earthLogo} alt='earth icon' />
+          <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_worldwideshipping.svg?v=1721633600' alt='earth icon' />
           <div className="">
           <h4>CO₂ neutraler Versand</h4>
           <p>Der Versand erfolgt mit DHL GoGreen</p>  
@@ -147,7 +143,7 @@ export default function Collection() {
             <div className='c-right-wrap'>
                 <div className='right-inner'>
                     <div className='l-logo'>
-                        <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/trusted_shop_seal_2_1.png?v=1718372000" />
+                        <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/trusted_shop_seal_2_1.png?v=1718372000' />
                     </div>
                     <div className='r-content'>
                       <p>Zertifizierter online-shop</p>
@@ -155,7 +151,7 @@ export default function Collection() {
                 </div>
                 <div className='right-inner'>
                     <div className='l-logo'>
-                    <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/DHL-GoGreen-Logo_2_1.png?v=1718372000" />
+                    <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/DHL-GoGreen-Logo_2_1.png?v=1718372000' />
                     </div>
                     <div className='r-content'>
                       <p>Zertifizierter online-shop</p>
@@ -232,11 +228,11 @@ function ProductItem({product, loading}) {
   const variantNumber = product.variants.nodes[0].id.match(/\d+/);
   const variantId = variantNumber ? variantNumber[0] : null;
   // Assuming weight is in kilograms
-  const weight = variant.weight ? `Versandgewicht: ${variant.weight} kg` : 'Gewicht nicht verfügbar';
+  const weight = variant.weight ? `Shipping weight: ${variant.weight} kg` : 'Weight not available';
  // Adding the unit price
  const unitPrice = variant.unitPrice ? (
   <div className='unit-price'>
-    <Money data={variant.unitPrice} />
+    Unit Price: <Money data={variant.unitPrice} />
   </div>
 ) : null;
   const deliveryTime = product.tags.includes('app:expresshint') 
@@ -272,9 +268,9 @@ function ProductItem({product, loading}) {
           <div className='tax-hint'>
             <div className='same-height'>
         <small>
-        inkl. MwSt.
+                incl. VAT.,
             <a className="shipping_policy" href="/policies/shipping-policy">
-            zzgl. Versandkosten
+                  excl. Shipping costs
             </a>
           </small>
          
@@ -290,7 +286,7 @@ function ProductItem({product, loading}) {
         </div>
         </div>
         <div className='cart-btn'>
-          <span className='yellow-btn'>In den Warenkorb</span>
+          <span className='yellow-btn'>Add to cart</span>
         </div>
         </div>
         </div>

@@ -562,6 +562,9 @@ nav.header-ctas a {
 	color: #fff;
 	position: relative;
 }
+nav.header-ctas a.mobile-hide {
+    display: none;
+}
 nav.header-ctas a svg{
 	width: 32px;
 }

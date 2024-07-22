@@ -95,6 +95,7 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 		justify-content: center;
 		flex-wrap: wrap;
 		flex-flow: column;
+		height: 75px;
 	}
 	.cart-btn {
 		margin-top: 20px;
@@ -109,11 +110,14 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 			padding-bottom: 5px;
 		}
 		.collection-all-page .product-item .tax-hint .cart-btn span:hover{color: #FEDE03 !important;}
-	.collection-all-page .product-item .tax-hint > div  span{height: initial;font-size: 11px !important;font-family: 'Gotham-Book';line-height: 15px !important;}
-	.product-item small small{display: block;padding-bottom: 7px;}
+	.collection-all-page .product-item .tax-hint > div  span{height: initial;font-size: 11px !important;font-family: 'Gotham-Book';line-height: 11px !important;}
+	.product-item small small{display: block;padding-bottom: 3px;}
 	.pro-wrap-c > div {
 		display: flex;
 		align-items: center;
+	}
+	.collection .unit-price > div {
+		padding-top: 5px;
 	}
 	.product-item small,.product-item small a,.collection-all-page  .product-item  .tax-hint span{color: #fff !important;font-size: 11px !important; font-family: 'Gotham-Book' !important;}
 	@media (max-width:2000px) {
