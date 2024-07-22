@@ -13,10 +13,6 @@ import { getVariantUrl } from '~/lib/variants';
 import '../styles/product.css';
 import dhlLogo from '../assets/dhl.png';
 import certifiedBadge from '../assets/trustedlogo.png';
-import earthLogo from '../assets/earth.png';
-import securePay from '../assets/secure-pay.png';
-import quickDelivery from '../assets/quick-delivery.png';
-import faceSmile from '../assets/face-smile.png';
 import decorativegarland from '../assets/decorativegarland.png';
 import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
@@ -246,22 +242,22 @@ export default function Product() {
              
               <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="special-block">
-                  <img src={faceSmile} alt='face smile icon' />
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
                   <h4>Besondere Auswahl</h4>
                   <p>Familienmanufaktur mit eigener Rezeptur</p>
                 </div>
                 <div className="special-block">
-                  <img src={quickDelivery} alt='quick delivery icon' />
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_expressdelivery.svg?v=1721633600' alt='quick delivery icon' />
                   <h4>Schnelle Lieferung</h4>
                   <p>Wir liefern innerhalb von 2-4 Tagen*</p>
                 </div>
                 <div className="special-block">
-                  <img src={securePay} alt='secure pay icon' />
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_highquality.svg?v=1721633600' alt='secure pay icon' />
                   <h4>Sichere Bezahlung</h4>
                   <p>Sicher bezahlen per Paypal und Sofort.com</p>
                 </div>
                 <div className="special-block">
-                  <img src={earthLogo} alt='earth icon' />
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_worldwideshipping.svg?v=1721633600' alt='earth icon' />
                   <h4>CO₂ neutraler Versand</h4>
                   <p>Der Versand erfolgt mit DHL GoGreen</p>
                 </div>

@@ -15,7 +15,7 @@ main {
 .collection .c-weight {
    padding-bottom: 5px;
 }
-.collection  .products-grid .product-g-wrap .tax-hint span{min-height: initial;}
+.collection  .products-grid .product-g-wrap .tax-hint span{height: initial;}
 .collection .products-grid .product-g-wrap small a{margin: auto;}
 .collection .products-grid .product-g-wrap .tax-hint .cart-btn span{    color: #9B2220 !important;
    font-size: 16px !important;
@@ -125,11 +125,11 @@ main {
  .collection-banner {
     position: relative;
     text-align: center;
-    margin-top: -30px;
+    margin-top: 0px;
     padding-bottom: 30px;
  }
  nav.collection-menu.aos-init.aos-animate {
-   margin-top: 50px;
+   margin-top: 90px;
    background: #FEDE03;
 }
 
@@ -144,6 +144,7 @@ main {
     max-width: 100%;
     margin: 12px 0;
     height: initial;
+    text-align: left;
  }
  
  .benifits-content {
@@ -166,9 +167,14 @@ main {
     text-align: left;
     min-height: 130px;
  }
+
  .benifits-content img {
    margin-right: 20px;
+   width: 70px;
+   height: 70px;
+   object-fit: contain;
  }
+ .benifits-content:nth-child(2) img{width: 80px;height: 80px;}
  .banifits-wrap .benifits-content p {
     color: #ffff;
     max-width: 210px;
@@ -351,11 +357,6 @@ main {
     justify-content: end;
  }
  
- .previous-button {
-    text-align: center;
-    margin-top:50px;
- }
- 
  .loadmore-button {
     text-align: center;
     margin-bottom: 25px;
@@ -387,8 +388,11 @@ main {
      transform: translateX(80%);
    }
  }
+ @media (max-width:1900px) {
+   .collection-banner{margin-top: 40px;}
+ } 
  @media (max-width:1700px) {
-   .collection-banner{margin-top: 10px;}
+   .collection-banner{margin-top: 70px;}
  }
  @media (max-width:1540px) {
     .benifits .container {
@@ -399,15 +403,19 @@ main {
  }
  
  @media (max-width:1440px) {
-   .benifits-content img{width: 50px;}
+   .benifits-content img{width: 50px;        height: 50px;
+      object-fit: contain;}
     .products-grid .container,
     .collection-logo-sec .container {
        max-width: 1340px;
     }
     .collection-banner {
-      margin-top: 40px;
+      margin-top: 100px;
     }
     .products-grid .product-g-wrap h4{height: 55px;}
+    .banifits-wrap .benifits-content:nth-child(2) img{
+      width: 75px;
+       }
  }
  
  @media (max-width:1380px) {
@@ -434,7 +442,7 @@ main {
  
  @media (max-width:1199px) {
    .collection-banner {
-      margin-top: 70px;
+      margin-top: 140px;
   }
     .products-grid .product-g-wrap a {
        margin: 0 77px;
@@ -708,6 +716,8 @@ main {
     .benifits .container .benifits-inner-wrap{
       padding: 33px 0 10px;
     }
+    .banifits-wrap .benifits-content h4,.banifits-wrap .benifits-content p{text-align: center;}
+    .banifits-wrap .benifits-content:nth-child(2) img{width: 70px;}
  }
  
  @media (max-width:480px) {

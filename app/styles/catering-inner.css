@@ -247,11 +247,11 @@ div#faq {
   content: "";
   position: absolute;
   top: -50px;
-  background: url(/app/assets/pushpin.png) no-repeat center / contain;
+  background: url(/app/assets/pushpin-2.svg) no-repeat center / contain;
   left: 0px;
   right: 0;
-  width: 85px;
-  height: 104px;
+  width: 55px;
+  height: 94px;
   margin: 0 auto;
   background-size: 100%;
   transform: rotate(8deg);
@@ -511,7 +511,7 @@ div#faq {
 .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before,
 .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before,
 .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
-  background: url(/app/assets/pushpin-c.png) no-repeat center / contain;
+  background: url(/app/assets/pushpin.svg) no-repeat center / contain;
   width: 60px;
 }
 .inner-wolf-bestell .right-logo img{width: 220px;}

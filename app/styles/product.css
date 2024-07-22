@@ -192,6 +192,12 @@ main {
   }
   .smile-block .special-block img {
     width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+.smile-block .special-block:nth-child(2) img{
+  width: 70px;
+
 }
   .quantity-controls input::-webkit-outer-spin-button,
   .quantity-controls input::-webkit-inner-spin-button {
@@ -508,6 +514,7 @@ main {
   
     .smile-block .special-block img {
        width: 40px;
+       height: 40px;
     }
   
     .right-content .product-content .metafield h2 {
@@ -586,7 +593,9 @@ main {
        border-radius: 5px;
        /* color: #FEDE03; */
     }
-   
+    .smile-block .special-block:nth-child(2) img {
+      width: 60px;
+  }
     .product-quantity {
        margin-right: 0px;
        margin-bottom: 0px;
@@ -637,6 +646,8 @@ main {
   
     .smile-block .special-block img {
        width: 50px;
+       height: 50px;
+       object-fit: contain;
     }
   
     .smile-block .special-block {

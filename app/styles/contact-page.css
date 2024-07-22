@@ -114,7 +114,7 @@
 	content: "";
 	position: absolute;
 	top: -50px;
-	background: url(/app/assets/pushpin.png) no-repeat center / contain;
+	background: url(/app/assets/pushpin.svg) no-repeat center / contain;
 	left: 0px;
 	right: 0;
 	width: 90px;

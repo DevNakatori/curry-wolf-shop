@@ -270,7 +270,10 @@ section.thereedmainsection {
 	font-family: 'BertholdBlock';
 	margin: 0 auto;
  }
- 
+ .popup-top-title h2 span {
+    width: 90px;
+    transform: rotate(-20deg);
+}
  .popup-bottom-menu .foodmenu-one h3 {
 	margin: 26px 0 14px;
 	font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
@@ -516,11 +519,11 @@ section.thereedmainsection {
 	content: "";
 	position: absolute;
 	top: -50px;
-	background: url(/app/assets/pushpin.png) no-repeat center / contain;
+	background: url(/app/assets/pushpin.svg) no-repeat center / contain;
 	left: 0px;
 	right: 0;
 	width: 90px;
-	height: 104px;
+	height: 94px;
 	margin: 0 auto;
 	background-size: 100%;
 	transform: rotate(8deg);
@@ -548,8 +551,8 @@ section.thereedmainsection {
 	left: -33px;
  }
  .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before {
-    background: url(https://cdn.shopify.com/s/files/1/0661/7595/9260/files/pushpin-147918_12801_1.png?v=1716895195) no-repeat center / contain;
-    width: 110px;
+    background: url(/app/assets/pushpin.svg) no-repeat center / contain;
+    width:55px;
 }
  .curry-new-btn {
 	text-align: center;
@@ -847,7 +850,10 @@ section.thereedmainsection {
 	   border: 0;
 	}
  
-	.popup-r-time {}
+	.popup-top-title {
+		margin-top: 30px;
+	}
+	.popup-top-title h2 span{width: 80px;}
  
  }
  

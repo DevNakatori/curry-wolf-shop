@@ -146,11 +146,15 @@ function HeaderCtas({ isLoggedIn, cart }) {
       <img className='mobile-logo' src={shopLogo} alt='logo' />
       <CartToggle cart={cart} />
 
+      <div className='dropdown-wrap'>
+      <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/Flag-of-Germany-01.svg?v=1721643447" />
+      </div>
       <div className="dropdown">
-        <button className="dropdown-toggle" id="dropdownToggle">DE</button>
+        <button className="dropdown-toggle" id="dropdownToggle">
+          </button>
         <ul className="dropdown-menu" id="dropdownMenu">
-          <li className="dropdown-item" data-value="de-de">DE</li>
-          <li className="dropdown-item" data-value="en-de">EN</li>
+          <li className="dropdown-item" data-value="de-de"><img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/united-kingdom-flag-icon.svg?v=1721643633' /></li>
+          <li className="dropdown-item" data-value="en-de"><img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/Flag-of-Germany-01.svg?v=1721643447' /></li>
         </ul>
       </div>
     </nav>

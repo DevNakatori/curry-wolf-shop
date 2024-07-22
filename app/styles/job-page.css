@@ -196,11 +196,11 @@
 	content: "";
 	position: absolute;
 	top: -50px;
-	background: url(/app/assets/pushpin.png) no-repeat center / contain;
+	background: url(/app/assets/pushpin.svg) no-repeat center / contain;
 	left: 0px;
 	right: 0;
-	width: 103px;
-	height: 104px;
+	width: 70px;
+	height: 94px;
 	margin: 0 auto;
 	background-size: 100%;
 	transform: rotate(8deg);
@@ -265,13 +265,13 @@
  }
  
  .img-one:before {
-	width: 83px;
+	width: 65px;
  }
  
  .img-big-wrap:nth-child(2) .img-one:before,
  .img-big-wrap:nth-child(4) .img-one:before {
-	width: 104px;
-	background: url(/app/assets/pushpin-2.png) no-repeat center / contain;
+	width: 65px;
+	background: url(/app/assets/pushpin-2.svg) no-repeat center / contain;
  }
  .img-big-wrap:nth-child(5) .img-one{
 	transform: rotate(-11deg);
@@ -381,12 +381,12 @@
 	}
  
 	.img-one:before {
-	   width: 63px;
+	   width: 50px;
 	}
  
 	.img-big-wrap:nth-child(2) .img-one:before,
 	.img-big-wrap:nth-child(4) .img-one:before {
-	   width: 83px;
+	   width: 50px;
 	}
  
 	.img-big-wrap:nth-child(4) {
