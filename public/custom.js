@@ -127,7 +127,7 @@ window.addEventListener('resize', setEqualHeight);
   document.addEventListener('DOMContentLoaded', function() {
       document.querySelectorAll('a').forEach(function(anchor) {
           anchor.addEventListener('click', function(e) {
-              e.preventDefault();
+             // e.preventDefault();
               
               var targetId = this.getAttribute('href').substring(1);
               var targetElement = document.getElementById(targetId);
