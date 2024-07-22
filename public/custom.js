@@ -122,28 +122,6 @@ window.addEventListener('load', () => {
 
 window.addEventListener('resize', setEqualHeight);
 
-
-  // Smooth scroll
-  document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('a').forEach(function(anchor) {
-          anchor.addEventListener('click', function(e) {
-             // e.preventDefault();
-              
-              var targetId = this.getAttribute('href').substring(1);
-              var targetElement = document.getElementById(targetId);
-              
-              if (targetElement) {
-                  var offsetTop = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                  
-                  window.scrollTo({
-                      top: offsetTop - 50,
-                      behavior: 'smooth'
-                  });
-              }
-          });
-      });
-  });
-  
   
   
     

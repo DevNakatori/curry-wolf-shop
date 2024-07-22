@@ -405,7 +405,7 @@ main {
   }
   
   .right-bottom-content .cerified-box:nth-child(1) img {
-    width: 67px;
+    width: 100px;
     margin-top: 10px;
   }
   
@@ -439,6 +439,15 @@ main {
   button.f-button:hover{
     background: rgba(155, 34, 32, 0.9) !important;
   }
+  @media (min-width:768px) {
+    .product-form-main {
+      position: sticky;
+      top: 100px;
+      background:#9B2220;
+      z-index: 999;
+    }
+  }
+
   @media (max-width:1440px) {
     .product-media {
        bottom: -140px;

@@ -311,9 +311,7 @@ export default function Product() {
                       />
                     )}
                   </Await>
-                </Suspense>
-              </div>
-              {/* Display Metafield */}
+                    {/* Display Metafield */}
               <div className="metafield" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               
               {ingredientsText && (
@@ -332,11 +330,15 @@ export default function Product() {
                 
            
               </div>
+                </Suspense>
+
+              </div>
+            
             </div>
             <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <div className="cerified-box">
                 <h4>Zertifizierter Online-shop</h4>
-                <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                <img className="certified-logo" src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/png-clipart-trusted-shops-gmbh-e-commerce-logo-organization-certification-trust-no-one-text-trademark_copy.webp?v=1721658737" alt='certified logo' />
               </div>
               <div className="certified-logo">
                 <h4>Schneller Versand</h4>
