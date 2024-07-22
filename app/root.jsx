@@ -159,7 +159,8 @@ export default function App() {
               
                 <Scripts nonce={nonce} />
                 <script src="/aos.js"></script>
-                <script src="/custom.js" defer></script>
+                <script src="/custom.js"></script>
+                <script src="/language-switcher.js"></script>
             </body>
         </html>
     );
