@@ -143,7 +143,7 @@ export default function App() {
     const data = useLoaderData();
  return (
 
-        <html lang="en">
+        <html lang="de">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -183,7 +183,7 @@ export function ErrorBoundary() {
     }
 
     return (
-        <html lang="en">
+        <html lang="de">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width,initial-scale=1" />

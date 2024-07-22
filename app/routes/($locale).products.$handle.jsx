@@ -239,7 +239,14 @@ export default function Product() {
                     <p>{preparationText}</p>
                   </div>
                 )}
-             
+                
+               {nutritionalValuesText && (
+                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                    <h2>Nährwerte</h2>
+                    <p>{nutritionalValuesText}</p>
+                  </div>
+                )}
+
               <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                 <div className="special-block">
                   <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
@@ -308,13 +315,14 @@ export default function Product() {
               </div>
               {/* Display Metafield */}
               <div className="metafield">
-                {nutritionalValuesText && (
+              
+              {ingredientsText && (
                   <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Nährwerte</h2>
-                    <p>{nutritionalValuesText}</p>
+                    <h2>Zutaten</h2>
+                    <p>{ingredientsText}</p>
                   </div>
                 )}
-              
+
                   {additionalInformationText && (
                     <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
                       <h2>Weitere Informationen</h2>
@@ -322,12 +330,7 @@ export default function Product() {
                     </div>
                   )}
                 
-                {ingredientsText && (
-                  <div className="ingridiant-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
-                    <h2>Zutaten</h2>
-                    <p>{ingredientsText}</p>
-                  </div>
-                )}
+           
               </div>
             </div>
             <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
