@@ -232,11 +232,11 @@ function ProductItem({product, loading}) {
   const variantNumber = product.variants.nodes[0].id.match(/\d+/);
   const variantId = variantNumber ? variantNumber[0] : null;
   // Assuming weight is in kilograms
-  const weight = variant.weight ? `Shipping weight: ${variant.weight} kg` : 'Weight not available';
+  const weight = variant.weight ? `Versandgewicht: ${variant.weight} kg` : 'Gewicht nicht verfügbar';
  // Adding the unit price
  const unitPrice = variant.unitPrice ? (
   <div className='unit-price'>
-    Unit Price: <Money data={variant.unitPrice} />
+    <Money data={variant.unitPrice} />
   </div>
 ) : null;
   const deliveryTime = product.tags.includes('app:expresshint') 
@@ -272,9 +272,9 @@ function ProductItem({product, loading}) {
           <div className='tax-hint'>
             <div className='same-height'>
         <small>
-                incl. VAT.,
+        inkl. MwSt.
             <a className="shipping_policy" href="/policies/shipping-policy">
-                  excl. Shipping costs
+            zzgl. Versandkosten
             </a>
           </small>
          
@@ -290,7 +290,7 @@ function ProductItem({product, loading}) {
         </div>
         </div>
         <div className='cart-btn'>
-          <span className='yellow-btn'>Add to cart</span>
+          <span className='yellow-btn'>In den Warenkorb</span>
         </div>
         </div>
         </div>

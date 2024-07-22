@@ -176,18 +176,17 @@
     const titleSub = titleParts[1] ? `(${titleParts[1]}` : '';
 
     // Assuming weight is in kilograms
-    const weight = variant.weight ? `Shipping weight: ${variant.weight} kg` : 'Weight not available';
+    const weight = variant.weight ? `Versandgewicht: ${variant.weight} kg` : 'Gewicht nicht verfügbar';
 
     const unitPrice = variant.unitPrice ? (
       <div>
-        Unit price: <FormattedMoney money={variant.unitPrice} /> / {variant.unitPriceMeasurement.referenceUnit}
+         <FormattedMoney money={variant.unitPrice} /> / {variant.unitPriceMeasurement.referenceUnit}
       </div>
     ) : null;
 
     const deliveryTime = product.tags.includes('app:expresshint') 
       ? 'Lieferzeit: 1 Tag (*)' 
       : 'Lieferzeit: 2-4 Tage (*)';
-
     return (
     
       <Link
@@ -217,26 +216,29 @@
           <div className="tax-hint">
             <div className='same-height'>
             <small>
-                  incl. VAT.,
+            inkl. MwSt.
               <a className="shipping_policy" href="/policies/shipping-policy">
-                    excl. Shipping costs
+              zzgl. Versandkosten
               </a>
             </small>
           
         <div className='c-weight'>
           {weight}
           </div>
-          {unitPrice && (
-            <div className='pro-wrap-c'>
-              {unitPrice}
-            </div>
-          )}
+     
           <span>
           {deliveryTime}
           </span>
+
+          {unitPrice && (
+            <div className='pro-wrap-c unit-price'>
+              {unitPrice}
+            </div>
+          )}
+
           </div>
           <div className='cart-btn'>
-            <span className='yellow-btn'>Add to cart</span>
+            <span className='yellow-btn'>In den Warenkorb</span>
           </div>
           </div>
           </small>

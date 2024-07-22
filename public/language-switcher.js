@@ -55,3 +55,59 @@
     });
   });
   
+
+  document.addEventListener("DOMContentLoaded", function() {
+  
+    if (window.location.href.indexOf('en-de') !== -1) {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'EN';
+        }, 200);
+        const links = document.querySelectorAll('a[href*="/en"]');
+        links.forEach(link => {
+            const newHref = link.href.replace('/en', '/en-de');
+            link.setAttribute('data-new-href', newHref);
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); 
+                window.location.href = newHref; 
+            });
+        });
+    }
+  
+    else if (window.location.href.indexOf('de-de') !== -1) {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'DE';
+        }, 200);
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            if (link.href.indexOf('/de-de') === -1 && link.href.indexOf('/en') === -1) {
+                const newHref = link.href.replace(window.location.origin, window.location.origin + '/de-de');
+                link.setAttribute('data-new-href', newHref);
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref; 
+                });
+            }
+        });
+    }
+    
+    else {
+        setTimeout(function() {  
+        dropdownToggle.textContent = 'DE';
+        }, 200);
+        const newUrl = window.location.href.replace(window.location.origin, window.location.origin + '/de-de');
+        window.history.replaceState(null, '', newUrl);
+        const links = document.querySelectorAll('a[href]');
+        links.forEach(link => {
+            if (link.href.indexOf('/de-de') === -1 && link.href.indexOf('/en') === -1) {
+                const newHref = link.href.replace(window.location.origin, window.location.origin + '/de-de');
+                link.setAttribute('data-new-href', newHref);
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    window.location.href = newHref;
+                });
+            }
+        });
+    }
+});
+
+// url replace
