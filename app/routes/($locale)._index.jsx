@@ -47,7 +47,7 @@ export default function Page() {
         let scrollPosition = window.scrollY;
         let windowHeight = window.innerHeight;
 
-        if (scrollPosition > 100) {
+        if (scrollPosition > 500) {
           videoOverlay.style.opacity = 1;
         } else {
           videoOverlay.style.opacity = 0;

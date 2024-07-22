@@ -99,7 +99,7 @@ video#bgVideo {
  
  section {
    position: relative;
-   min-height:65vh;
+   min-height:80vh;
    display: grid;
    place-items: center;
    view-timeline: --section;
