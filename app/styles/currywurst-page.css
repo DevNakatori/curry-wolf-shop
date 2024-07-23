@@ -1,13 +1,13 @@
 .catering-inner{overflow: visible !important;}
 .main-currywurast-page h1 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 15px;
     margin-top: 40px;
  }
  .main-currywurast-page .sub-title {
-   text-align: center;
-   max-width: 1420px;
-   margin: 0 auto;
+   text-align: left;
+   /* max-width: 1420px; */
+   /* margin: 0 auto; */
 }
 .main-currywurast-page .curry-wrap {
    margin-bottom: 50px;
@@ -342,7 +342,7 @@
  }
  @media (max-width:1440px) {
    .container{max-width: 1170px;}
-   .main-currywurast-page .sub-title {max-width: 1020px;}
+   /* .main-currywurast-page .sub-title {max-width: 1020px;} */
    .c-right h2{min-height: 50px;}
     .c-two-box:nth-child(2) .c-left img {
        width: 100%;

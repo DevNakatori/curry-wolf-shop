@@ -419,15 +419,14 @@ div#faq {
 .curywolf-catering-box {
   display: flex;
   flex-wrap: wrap;
-  padding-bottom: 180px;
+  padding-bottom: 100px;
   padding-top: 120px;
-  /* border-bottom: 1px solid #fff; */
   justify-self: center;
   max-width: 1000px;
   margin: 0 auto;
 }
 .f-btn-wrap {
-  padding:80px 0 60px 0;
+  padding:60px 0 60px 0;
   text-align: center;
   display: flex;
   justify-content: center;
@@ -608,7 +607,7 @@ div#faq {
 }
 
 @media (max-width:767px) {
-  .f-btn-wrap{padding: 0px 0 40px 0;}
+  .f-btn-wrap{padding: 40px 0 40px 0;}
   .inner-wolf-bestell .left-content{max-width: initial;}
   .inner-wolf-bestell .left-content h1 {
      font-family: 'RubikOne-Regular';
@@ -728,7 +727,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(2) a{
-    transform: translate(-14%, -11%);
+    transform: translate(6%, -11%);
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) a{
@@ -768,18 +767,6 @@ div#faq {
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(7) .img-one {
     transform: rotate(-10deg);width: 190px;
  }
- .curywolf-catering-box {
-  max-width: 92%;
-  margin: 0 auto;
-}
-
-.curywolf-catering-box {
-  padding-bottom: 0px;
-}
-
-.curywolf-catering-box {
-  border-bottom: 0;
-}
 .curywolf-catering-box .img-big-wrap:nth-child(2) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one:before,
    .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one:before {
@@ -790,7 +777,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(1) a{
-    transform:translate(93%, 96%);
+    transform:translate(103%, 96%);
     z-index: 99;
  }
 
@@ -850,13 +837,7 @@ div#faq {
 .curywolf-catering-box {
   max-width: 92%;
   margin: 0 auto;
-}
-
-.curywolf-catering-box {
   padding-bottom: 0px;
-}
-
-.curywolf-catering-box {
   border-bottom: 0;
 }
 .catering-inner .curywolf-catering-box .img-big-wrap {
@@ -866,7 +847,7 @@ div#faq {
   width: 45px;
 }
 .img-one:before {
-  width: 65px;
+  width: 45px;
 }
 .catering-inner .curywolf-catering-box .img-one{padding-bottom: 10px;}
 .catering-inner{overflow: hidden;}
@@ -897,9 +878,11 @@ div#faq {
   bottom: 0px;
 }
 .reference h3{text-align: center;}
+.curywolf-catering-box{margin-bottom: -290px;}
 }
 
 @media (max-width:575px) {
+  .curywolf-catering-box{margin-bottom: -230px;}
   .inner-wolf-bestell {
      flex-wrap: wrap;
   }
@@ -915,7 +898,7 @@ div#faq {
      margin: 0 0 20px 0;
   }
   .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) a {
-    transform: translate(-2%, -20%);
+    transform: translate(-12%, -100%);
 }
 .f-btn-wrap{
   flex-wrap: wrap;
@@ -925,7 +908,7 @@ margin-bottom: 15px;
 }
 }
 @media (max-width:400px) {
-  .curywolf-catering-box .img-big-wrap:nth-child(2) {
+  /* .curywolf-catering-box .img-big-wrap:nth-child(2) {
     transform: translate(-91%, -31%);
- }
+ } */
 }

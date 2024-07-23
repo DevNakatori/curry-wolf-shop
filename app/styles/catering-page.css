@@ -635,7 +635,7 @@ div#faq {
    .main-catering-page .container {
       overflow: hidden;
    }
-   .c-bottom-btn{margin-bottom: 210px;text-align: center;}
+   .c-bottom-btn{margin-bottom: 190px;text-align: center;}
    .more-img-text {
       display: block;
    }
@@ -826,7 +826,10 @@ div#faq {
       transform: translate(102%, -138%);
       z-index: 0;
    }
-
+   .curywolf-catering-box .img-big-wrap:nth-child(3){
+      z-index: 999;
+   }
+   .curywolf-catering-box .img-big-wrap:nth-child(5){z-index: 99;}
    .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one {
       transform: rotate(-10deg);
    }
@@ -841,15 +844,16 @@ div#faq {
    }
 
    .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-      transform: translate(-80%, 50%);
+      transform: translate(-100%, 60%);
    }
+   .curywolf-catering-box .img-big-wrap:nth-child(6) {z-index: 99;}
 
    .curywolf-catering-box .img-big-wrap:nth-child(6) a{
-      transform: translate(-29%, -149%);
+      transform: translate(-29%, -139%);
       z-index: 9999;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(2){
-      z-index: 99;
+      z-index: 9999;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(6) .img-one {
       transform: rotate(-13deg);
@@ -901,7 +905,7 @@ div#faq {
       font-size: 13px;
       line-height: 15px;
       font-family: 'Chivo-Regular';
-      margin-top: -130px;
+      margin-top: -100px;
    }
 
    .reference h3 {
@@ -970,23 +974,29 @@ div#faq {
       flex-wrap: wrap;
    }
 
-   .inner-wolf-bestell {
+   /* .inner-wolf-bestell {
       padding-bottom: 50px;
       margin-bottom: 50px;
-   }
+   } */
 
    .inner-wolf-bestell h3 {
       margin: 0 0 25px 0;
    }
    .more-img-text p{
-      margin-top: -80px;
+      margin-top: -40px;
    }
+   .curywolf-catering-box .img-big-wrap:nth-child(6) a{
+      transform: translate(-29%, -149%);
+      z-index: 9999;
+   }
+   .c-bottom-btn {
+      margin-bottom: 160px;}
 }
 
 @media (max-width:400px) {
-   .curywolf-catering-box .img-big-wrap:nth-child(2) a{
+   /* .curywolf-catering-box .img-big-wrap:nth-child(2) a{
       transform: translate(-91%, -31%);
-   }
+   } */
 
    .img-one {
       width: 156px;
