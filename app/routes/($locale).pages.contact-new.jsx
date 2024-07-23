@@ -30,22 +30,19 @@ export async function loader({ params, context }) {
 
 export default function Page() {
   const { page } = useLoaderData();
-  const contentRef = useRef(null);
 
   useEffect(() => {
-    if (contentRef.current) {
-      const links = contentRef.current.querySelectorAll('a[href^="mailto:"], a[href^="tel:"]');
-      links.forEach(link => {
-        link.addEventListener('click', (e) => {
-          window.location.href = link.href;
+      const phoneInput = document.querySelector('input[name="phone"]');
+      if (phoneInput) {
+        phoneInput.addEventListener('input', (e) => {
+          e.target.value = e.target.value.replace(/\D/g, '');
         });
-      });
-    }
+      }   
   }, [page]);
 
   return (
     <div className="page contact-page">
-      <div ref={contentRef} dangerouslySetInnerHTML={{ __html: page.body }} />
+      <div dangerouslySetInnerHTML={{ __html: page.body }} />
     </div>
   );
 }
