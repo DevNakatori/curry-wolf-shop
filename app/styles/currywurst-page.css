@@ -1,10 +1,17 @@
 .catering-inner{overflow: visible !important;}
 .main-currywurast-page h1 {
     text-align: center;
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     margin-top: 40px;
  }
- 
+ .main-currywurast-page .sub-title {
+   text-align: center;
+   max-width: 1420px;
+   margin: 0 auto;
+}
+.main-currywurast-page .curry-wrap {
+   margin-bottom: 50px;
+}
  .our-currywurst-sec {
     display: flex;
     border-bottom: 1px solid #fff;
@@ -16,7 +23,9 @@
  .our-currywurst-sec .right-content .yellow-btn {
     margin-top: 15px;
  }
- 
+ .main-currywurast-page .curry-wrap .sub-title p{    font-size: calc(20px + (40 - 20) * ((100vw - 320px) / (1920 - 320)));
+   line-height: calc(20px + (50 - 20) * ((100vw - 320px) / (1920 - 320)));
+   font-family: 'BertholdBlock';}
  .prepare-food-sec {
     display: flex;
     padding-bottom: 45px;
@@ -333,6 +342,7 @@
  }
  @media (max-width:1440px) {
    .container{max-width: 1170px;}
+   .main-currywurast-page .sub-title {max-width: 1020px;}
    .c-right h2{min-height: 50px;}
     .c-two-box:nth-child(2) .c-left img {
        width: 100%;
@@ -348,7 +358,7 @@
       margin-top: -100px;
         margin-left: 64px;
     }
-    .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before{width: 100px;}
+    .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before{width: 60px;}
     .curry-image-content{column-gap: 50px;}
 
     .our-currywurst-sec .left-sec img{
@@ -405,7 +415,7 @@
     }
  
     .img-one:before {
-       width: 63px;
+       width: 60px;
     }
  
     .img-big-wrap {
@@ -420,7 +430,7 @@
    }
 
    .main-currywurast-page h1 {
-      margin-bottom: 40px;
+      margin-bottom: 20px;
    }
 
    .our-currywurst-sec .right-content {
@@ -460,9 +470,9 @@
     }
  
     .main-currywurast-page h1 {
-       margin-bottom: 40px;
+       margin-bottom: 20px;
     }
- 
+    .main-currywurast-page .curry-wrap{margin-bottom: 30px;}
     .our-currywurst-sec .right-content {
        width: 100%;
        padding-left: 0;
@@ -535,16 +545,17 @@
     }
  .curry-new-btn .yellow-btn{min-width: 100px;}
  .img-big-wrap:nth-child(1) .img-one::before, .img-big-wrap:nth-child(3) .img-one::before {
-   width: 85px;
+   width: 45px;
  }
  .prepare-food-sec .img-big-wrap:nth-child(2) .img-one:before {
-   width: 70px;
+   width:45px;
 }
 /* .follow-currywolf h2{font-size: 32px;line-height: 40px;} */
 .c-right a.yellow-border-btn{padding: 4px 4px;}
 .c-two-box:nth-child(2) .c-left img {
    width: 100%;
 }
+.img-one:before{width: 45px;}
 /* .prepare-food-sec .p-right {
    padding: 40px 0;
 } */

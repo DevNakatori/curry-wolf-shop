@@ -216,9 +216,9 @@
           <div className="tax-hint">
             <div className='same-height'>
             <small>
-            inkl. MwSt.
-              <a className="shipping_policy" href="/policies/shipping-policy">
-              zzgl. Versandkosten
+            inkl. MwSt. /
+                <a className="shipping_policy" href="/policies/shipping-policy">
+               zzgl. Versandkosten
               </a>
             </small>
           

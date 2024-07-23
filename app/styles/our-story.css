@@ -78,7 +78,7 @@
   
 }
 .our-story-box:nth-child(3) ul li{
-    text-align: right;
+    text-align: left;
 }
 .story-right ul li{
     color: #fff;
@@ -128,7 +128,7 @@
     flex-direction: row-reverse;
 }
 .our-story-box:nth-child(3) p{
-    text-align: right !important;
+    text-align: left !important;
 }
 .our-story-box:nth-child(3) h2{
     text-align: left !important;

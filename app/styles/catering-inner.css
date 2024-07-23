@@ -472,7 +472,7 @@ div#faq {
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(4) a{
-  transform: translate(12%, 10%);
+  transform: translate(42%, 10%);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(4) .img-one {
@@ -480,7 +480,7 @@ div#faq {
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-  transform: translate(14%, 52%);
+  transform: translate(64%, 22%);
 }
 
 .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
@@ -732,7 +732,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) a{
-    transform: translate(112%, -108%);
+    transform: translate(-8%, -108%);
     z-index: 0;
  }
 
@@ -750,7 +750,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-    transform: translate(-2%, -30%);
+    transform:translate(-12%, -100%);
  }
 
  .catering-inner .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(6) a{
@@ -790,7 +790,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(1) a{
-    transform: translate(83%, 96%);
+    transform:translate(93%, 96%);
     z-index: 99;
  }
 
@@ -806,10 +806,6 @@ div#faq {
     transform: translate(-94%, -31%);
  } */
 
- .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) a{
-    transform: translate(112%, -108%);
-    z-index: 0;
- }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one {
     transform: rotate(-10deg);
@@ -820,7 +816,7 @@ div#faq {
  }
 
  .catering-inner .curywolf-catering-box .img-big-wrap:nth-child(5) .img-one {
-    transform: rotate(9deg);
+    transform: rotate(-10deg);
 
  }
 

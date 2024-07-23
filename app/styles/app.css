@@ -1197,10 +1197,11 @@ img.footer-bg-img {
 		margin: 0;
 		padding: 0;
 		opacity: 1 !important;
+		transform: initial !important;
    }
 	img.footer-berline-logo{
-	   right: -20px;
-	   bottom: -20px;
+	   right: 0px;
+	   bottom: 10px;
    }
 	span.yellow-head {
 		margin-bottom: 15px;

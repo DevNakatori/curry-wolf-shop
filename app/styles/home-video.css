@@ -342,8 +342,8 @@ video#bgVideo {
  
  .slide img {
    width: 100% !important;
-   height: 380px;
-   margin-bottom: 5px;
+   height: 230px;
+   margin-bottom: 50px;
    object-fit: contain;
  }
  
@@ -631,7 +631,7 @@ video#bgVideo {
       border-right: 1px solid #fff;
       height: 200px;
       width: 1px;
-      top: 94px;
+      top: 44px;
       -webkit-animation: zoomeffect 5s;
       -moz-animation: zoomeffect 5s;
       animation: zoomeffect 5s;

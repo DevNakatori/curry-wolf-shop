@@ -5,8 +5,13 @@ section.thereedmainsection {
 	padding: 0;
  }
  .page.location-main {
-    background: linear-gradient(180deg, #D02523 36.82%, #9B2220 100%);
+    background: #d02523;
 }
+@supports (font: -apple-system-body) and (-webkit-appearance: none) {
+	.page.location-main {
+		background: #d52a28;
+	}
+  }
  .video_two,
  .video_one,
  .video-container {
@@ -17,6 +22,7 @@ section.thereedmainsection {
 	width: 90% !important;
 	margin: 0 auto !important;
  }
+ .curry-new-btn a.yellow-border-btn{text-transform: initial;}
  .overlayImage {
 	position: absolute;
 	width: 200px;
