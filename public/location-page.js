@@ -5,15 +5,15 @@
       const videocontainer = document.getElementById('video-container');
       const overlayImages = document.querySelectorAll('.overlayImage');
       const positions = [
-        { x: 11, y: 41, label: 'CURRY WOLF' , additionalLabel: 'Steglitz',  additionalLabel2: 'Mehr Info' },
+        { x: 11, y: 38, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Steglitz',  additionalLabel2: 'Mehr Info' },
 
-        { x: 23, y: 34, label: 'CURRY WOLF' , additionalLabel: 'Potsdam' , additionalLabel2: 'Mehr Info' },
+        { x: 23, y: 34, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Potsdam' , additionalLabel2: 'Mehr Info' },
 
-        { x: 19, y: 26, label: 'CURRY WOLF' , additionalLabel: 'Brandenburger Tor' , additionalLabel2: 'Mehr Info'},
+        { x: 19, y: 26, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Brandenburger Tor' , additionalLabel2: 'Mehr Info'},
 
-        { x: 25.5, y: 22.5, label: 'CURRY WOLF' , additionalLabel: 'Ku`damm' , additionalLabel2: 'Mehr Info' },
+        { x: 25.5, y: 22.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Ku`damm' , additionalLabel2: 'Mehr Info' },
 
-        { x: 30.5, y: 24, label: 'CURRY WOLF' , additionalLabel: 'Lichtenrade' , additionalLabel2: 'Mehr Info' }
+        { x: 30.5, y: 24, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Lichtenrade' , additionalLabel2: 'Mehr Info' }
       ];
   
       const overlayLabels = [];
@@ -26,8 +26,8 @@
               const xPos = rect.left + (rect.width * xPercentage / 100) - (image.width / 2);
               const yPos = rect.top + (rect.height * yPercentage / 100) - (image.height / 2);
               
-              const xPoss = rect.left + (rect.width * xPercentage / 100) - 60;
-              const yPoss = rect.top + (rect.height * yPercentage / 100) - 240;
+              const xPoss = rect.left + (rect.width * xPercentage / 100) - 100;
+              const yPoss = rect.top + (rect.height * yPercentage / 100) - 140;
   
               image.style.left = `${xPercentage}%`;
               image.style.top = `${yPercentage}%`;
@@ -100,30 +100,43 @@
   }
   
   if (detectMobile()) {
-      document.addEventListener('DOMContentLoaded', () => {
-          const parent = document.querySelector('.thereedmainsection');
-          const child = document.querySelector('.video-container');
-          let isDown = false;
-          let startX;
-          let scrollLeft;
-          parent.addEventListener('touchstart', (e) => {
-              isDown = true;
-              child.style.cursor = 'grabbing';
-              startX = e.touches[0].pageX - child.offsetLeft;
-              scrollLeft = parent.scrollLeft;
-          });
-          parent.addEventListener('touchend', () => {
-              isDown = false;
-              child.style.cursor = 'grab';
-          });
-          parent.addEventListener('touchmove', (e) => {
-              if (!isDown) return;
-              e.preventDefault();
-              const x = e.touches[0].pageX - child.offsetLeft;
-              const walk = (x - startX) * 2;
-              parent.scrollLeft = scrollLeft - walk;
-          });
-      });
+    document.addEventListener('DOMContentLoaded', () => 
+        {
+            const parent = document.querySelector('.thereedmainsection');
+            const child = document.querySelector('.video-container');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            const centerChild = () => 
+            {
+                const parentWidth = parent.offsetWidth;
+                const childWidth = child.offsetWidth;
+                const scrollPosition = (childWidth - parentWidth) / 2;
+                parent.scrollLeft = scrollPosition;
+            };
+            centerChild();
+            window.addEventListener('resize', centerChild);
+            parent.addEventListener('touchstart', (e) => 
+            {
+                isDown = true;
+                child.style.cursor = 'grabbing';
+                startX = e.touches[0].pageX - child.offsetLeft;
+                scrollLeft = parent.scrollLeft;
+            });
+            parent.addEventListener('touchend', () => 
+            {
+                isDown = false;
+                child.style.cursor = 'grab';
+            });
+            parent.addEventListener('touchmove', (e) => 
+            {
+                if (!isDown) return;
+                e.preventDefault();
+                const x = e.touches[0].pageX - child.offsetLeft;
+                const walk = (x - startX) * 2;
+                parent.scrollLeft = scrollLeft - walk;
+            });
+        });
       console.log("This is a mobile device.");
   } else {
       console.log("This is not a mobile device.");

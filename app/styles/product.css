@@ -439,12 +439,14 @@ main {
   button.f-button:hover{
     background: rgba(155, 34, 32, 0.9) !important;
   }
+  .quantity-controls input:focus-visible{outline: 0 !important;}
   @media (min-width:768px) {
     .product-form-main {
       position: sticky;
-      top: 100px;
+      top: 94px;
       background:#9B2220;
       z-index: 999;
+      display: block;
     }
   }
 

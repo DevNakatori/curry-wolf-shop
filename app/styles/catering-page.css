@@ -72,7 +72,7 @@
 
 .tab__label {
    justify-content: space-between;
-   padding: 20px 0;
+   padding: 15px 0;
    font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
    line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'Gotham-Book';
@@ -412,7 +412,7 @@ div#faq {
    line-height: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'BertholdBlock';
 }
-
+.curywolf-catering-box .img-big-wrap:nth-child(1){z-index: 9;}
 .img-big-wrap a:hover {
    text-decoration: none;
 }
@@ -830,7 +830,7 @@ div#faq {
       z-index: 0;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(3){
-      z-index: 999;
+      z-index: 99;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(5){z-index: 99;}
    .curywolf-catering-box .img-big-wrap:nth-child(3) .img-one {
@@ -856,7 +856,7 @@ div#faq {
       z-index: 9999;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(2){
-      z-index: 9999;
+      z-index: 99;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(6) .img-one {
       transform: rotate(-13deg);
