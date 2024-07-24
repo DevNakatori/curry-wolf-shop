@@ -412,7 +412,7 @@ div#faq {
    line-height: calc(18px + (28 - 18) * ((100vw - 320px) / (1920 - 320)));
    font-family: 'BertholdBlock';
 }
-.curywolf-catering-box .img-big-wrap:nth-child(1){z-index: 9;}
+.curywolf-catering-box .img-big-wrap:nth-child(1){z-index: initial;}
 .img-big-wrap a:hover {
    text-decoration: none;
 }
@@ -447,7 +447,7 @@ div#faq {
    transform: rotate(-13deg);
 }
 .curywolf-catering-box .img-big-wrap:nth-child(3){
-   z-index: 9;
+   z-index: initial;
 }
 .curywolf-catering-box .img-big-wrap:nth-child(4) a{
    transform: translate(10%, 28%);
@@ -767,9 +767,12 @@ div#faq {
    .logo-box {
       width: calc(100% / 5);
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 0px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
    }
-
+   .wolf-logo .w-right-logo{margin-bottom: 20px;}
    .logo-box img {
       width: 80%;
    }

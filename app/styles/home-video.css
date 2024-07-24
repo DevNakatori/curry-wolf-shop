@@ -892,8 +892,8 @@ video#bgVideo {
       order: 1;
       font-family: 'RubikOne-Regular';
       margin-bottom: 15px;
-      font-size: 14px;
-      line-height: 14px;
+      font-size: 7px;
+      line-height: 10px;
    }
  
    .second-time-video-text .slide.active .s-img {
@@ -903,10 +903,10 @@ video#bgVideo {
    .second-time-video-text .slide.active p {
       order: 3;
       margin-bottom: 7px;
-      font-size: 7px;
+      font-size:6px;
       line-height: 7px;
       height: auto !important;
-      max-width: 110px !important;
+      max-width: 80px !important;
    }
  
    .second-time-video-text .slide.active .yellow-btn {
@@ -981,7 +981,7 @@ video#bgVideo {
    margin-top: 100px;
    width: 210px;
  }
- .dots-container{bottom: 170px;}
+ .dots-container{bottom: 190px;}
  
  }
  
