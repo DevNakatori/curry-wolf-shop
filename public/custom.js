@@ -1,5 +1,22 @@
 
-  
+let lastScrollTop = 0;
+const indicatorDiv = document.getElementById('indicator');
+
+window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+        // Scroll Down
+        indicatorDiv.style.bottom = '-100px'; // Hide the div
+    } else {
+        // Scroll Up
+        indicatorDiv.style.bottom = '0'; // Show the div
+        indicatorDiv.style.opacity  = '0'; // Show the div
+    }
+
+    // Update lastScrollTop to currentScroll, ensuring it doesn't go negative
+    lastScrollTop = Math.max(0, currentScroll);
+});
   // Animation STARt
   AOS.init({
       duration: 1000,

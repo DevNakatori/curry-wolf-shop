@@ -54,7 +54,7 @@ export default function Page() {
         }
       });
     }
-
+    
     // Cleanup the event listener on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);

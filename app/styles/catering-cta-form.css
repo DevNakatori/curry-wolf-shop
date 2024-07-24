@@ -150,7 +150,7 @@
 .form-group-container{width: 100%;    display: flex;
     flex-wrap: wrap;    column-gap: 80px;}
 	.form-group {
-		width: calc(100% / 2 - 50px);
+		width: calc(100% / 2 - 40px);
 		margin-bottom: 40px;
 	}
 	.sub-btn button{cursor: pointer;}
@@ -347,12 +347,14 @@
 	   margin-bottom: 0px;
 	}
  }
- 
+ @media (max-width:1199px) {
+	.c-left-form form .form-group input.form-text{font-size: 14px;}
+ }
  @media (max-width:1024px) {
 	.contact-top-block .left-title h1 {
 	   margin-bottom: 60px;
 	}
- 
+	
 	.contact-top-block {
 	   padding-bottom: 80px;
 	}
@@ -391,10 +393,11 @@
     }
 	.contact-top-block .right-img {
 	   width: 100%;
-	   margin-bottom: 80px;
+	   margin-bottom: 130px;
 	   margin-top: 0;
 	   text-align: center;
 	}
+	.c-left-form{padding:30px 15px 30px;}
 	.contact-top-block {
 	   padding-bottom: 60px;
 	} 

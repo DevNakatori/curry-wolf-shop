@@ -402,7 +402,59 @@ video#bgVideo {
  .img-big-wrap:nth-child(2) {
    z-index: 9;
  }
+ .mouse-wrap {
+   display: flex;
+   justify-content: center;
+   position: fixed;
+   left: 0;
+   right: 0;
+   text-align: center;
+}
+
+ .mouse {
+   height: 60px;
+   width: 32px;
+   border: 3px solid #FBD42A;
+   border-radius: 32px;
+   position: relative;
+   bottom: 30px;
+}
+
+   .scrollWheel {
+     height: 20px;
+     width: 2px;
+     background: #FBD42A;
+     position: absolute;
+     left: 0;
+     right: 0;
+     margin: 0 auto;
+     top: 10px;
+     border-radius: 1px;
+     transform: scaleY(0);
+     animation: scroll 2s linear infinite;
+   }
  
+ @keyframes scroll {
+   0% {
+     transform: scaleY(0);
+     transform-origin: top;
+   }
+   25% {
+     transform: scaleY(1);
+     transform-origin: top;
+   }
+   26% {
+     transform-origin: bottom;
+   }
+   50% {
+     transform: scaleY(0);
+     transform-origin: bottom;
+   }
+   100% {
+     transform: scaleY(0);
+     transform-origin: bottom;
+   }
+ }
  @supports (animation-timeline: view()) {
    .support {
       display: none;
@@ -477,7 +529,7 @@ video#bgVideo {
       height: 280px;
    }
    .slide img{
-      height: 300px;
+      height: 210px;
    }
    .slide:nth-child(1) .s-img img {
       height: 280px;
@@ -514,6 +566,10 @@ video#bgVideo {
  }
  
  @media (max-width: 1199px) {
+   .slide img {
+      height: 160px;
+  }
+  .second-time-video-text .slide:before{height: 128px !important;}
    .first-time-video-text h1 img {
       width: 150px;
    }
@@ -774,6 +830,7 @@ video#bgVideo {
       order: 2;
       margin-bottom: 10px;
       width: 100%;
+      height: 80px;
    }
  
    .slide p {
@@ -834,7 +891,7 @@ video#bgVideo {
    .second-time-video-text .slide.active h3 {
       order: 1;
       font-family: 'RubikOne-Regular';
-      margin-bottom: 0px;
+      margin-bottom: 15px;
       font-size: 14px;
       line-height: 14px;
    }
@@ -849,6 +906,7 @@ video#bgVideo {
       font-size: 7px;
       line-height: 7px;
       height: auto !important;
+      max-width: 110px !important;
    }
  
    .second-time-video-text .slide.active .yellow-btn {
@@ -886,12 +944,6 @@ video#bgVideo {
    .slide {
       padding: 30px 20px 20px 20px;
    }
- 
-   .slide img {
-      height: 120px;
-   }
-
- 
    .img-big-wrap:nth-child(2) .img-one::before {
       width: 50px;
       height: 100px;
@@ -907,7 +959,7 @@ video#bgVideo {
  
  @media (max-width:480px) {
    .slide img {
-      height: 100px;
+      height: 60px;
    }
  
    .second-time-video-text .b-title {

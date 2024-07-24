@@ -535,7 +535,7 @@ a.header-menu-item.active {
 	display: flex;
 	grid-gap: 2.1875em;
 	margin-left: 2.5rem;
-	padding: 35px 0;
+	padding: 0px 0;
 }
 .header-menu-desktop a {
 	font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320))) !important;
@@ -546,7 +546,7 @@ a.header-menu-item.active {
 	line-height: 25px;
 	font-family: 'Gotham-Book';
 	font-weight: 400;
-	height: 92px;
+	height: 93px;
 
 }
 .header {

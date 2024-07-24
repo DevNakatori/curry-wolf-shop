@@ -97,8 +97,8 @@ main{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);}
 		flex-flow: column;
 		height: 75px;
 	}
-	.cart-btn {
-		margin-top: 20px;
+	.collection-all-page .cart-btn {
+		margin-top: 0px;
 		padding-bottom: 20px;
 	}
 	.collection-all-page .product-item .tax-hint .cart-btn span{color: #9B2220 !important;    font-size: 14px !important;
