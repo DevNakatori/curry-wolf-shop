@@ -1,29 +1,9 @@
-
-let lastScrollTop = 0;
-const indicatorDiv = document.getElementById('indicator');
-
-window.addEventListener('scroll', () => {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
-    if (currentScroll > lastScrollTop) {
-        // Scroll Down
-        indicatorDiv.style.bottom = '-100px'; // Hide the div
-    } else {
-        // Scroll Up
-        indicatorDiv.style.bottom = '0'; // Show the div
-        indicatorDiv.style.opacity  = '0'; // Show the div
-    }
-
-    // Update lastScrollTop to currentScroll, ensuring it doesn't go negative
-    lastScrollTop = Math.max(0, currentScroll);
-});
   // Animation STARt
   AOS.init({
       duration: 1000,
       once: true,
       mirror: false,
       })
-  
   // Animation STARt
   
   // Home pahe slider start
@@ -103,42 +83,6 @@ if (window.innerWidth < 768) {
     }, 2000);
 }
 
-// same height 
-  
-function setEqualHeight() {
-    const boxes = document.querySelectorAll('.same-height');
-    if (boxes.length === 0) {
-        console.log('No elements found with the class "same-height"');
-        return;
-    }
 
-    let maxHeight = 0;
-    console.log('Resetting heights to auto');
-    boxes.forEach(box => {
-        box.style.height = 'auto';
-    });
-
-    console.log('Calculating max height');
-    boxes.forEach(box => {
-        const boxHeight = box.clientHeight;
-        console.log(`Box height: ${boxHeight}px`);
-        if (boxHeight > maxHeight) {
-            maxHeight = boxHeight;
-        }
-    });
-
-    console.log(`Setting all boxes to the max height: ${maxHeight}px`);
-    boxes.forEach(box => {
-        box.style.height = `${maxHeight}px`;
-    });
-}
-
-window.addEventListener('load', () => {
-    setTimeout(setEqualHeight, 100);
-});
-
-window.addEventListener('resize', setEqualHeight);
-
-  
   
     

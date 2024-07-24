@@ -1,6 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import '../styles/location-inner.css';
+import { useEffect, useRef, useState } from 'react';
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -12,9 +13,6 @@ export const meta = ({data}) => {
  * @param {LoaderFunctionArgs}
  */
 export async function loader({params, context}) {
-//   if (!params.handle) {
-//     throw new Error('Missing page handle');
-//   }
   const handle = params.handle || 'brandenburg-gate';
   const {page} = await context.storefront.query(PAGE_QUERY, {
     variables: {
@@ -33,6 +31,28 @@ export async function loader({params, context}) {
 export default function Page() {
   /** @type {LoaderReturnData} */
   const {page} = useLoaderData();
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (isPlaying && videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      videoRef.current = videoElement;
+      setIsPlaying(true);
+    }
+
+    return () => {
+      if (videoElement) {
+        setIsPlaying(false);
+      }
+    };
+  }, []);
 
   return (
     <div className="page location-inner-main">

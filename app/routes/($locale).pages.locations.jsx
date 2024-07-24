@@ -1,6 +1,7 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData} from '@remix-run/react';
 import '../styles/location-page.css';
+import { useEffect, useRef, useState } from 'react';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -34,7 +35,28 @@ export async function loader({params, context}) {
 export default function Page() {
   /** @type {LoaderReturnData} */
   const {page} = useLoaderData();
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
 
+  useEffect(() => {
+    if (isPlaying && videoRef.current) {
+      videoRef.current.play();
+    }
+  }, [isPlaying]);
+
+  useEffect(() => {
+    const videoElement = document.querySelector('video');
+    if (videoElement) {
+      videoRef.current = videoElement;
+      setIsPlaying(true);
+    }
+
+    return () => {
+      if (videoElement) {
+        setIsPlaying(false);
+      }
+    };
+  }, []);
   return (
     <div className="page location-main">
       <main dangerouslySetInnerHTML={{__html: page.body}} />

@@ -139,10 +139,42 @@ export async function loader({ context }) {
 
 export default function App() {
     const nonce = useNonce();
-    /** @type {LoaderReturnData} */
     const data = useLoaderData();
- return (
+    const location = useLocation();
 
+    useEffect(() => {
+        function setEqualHeight() {
+            const boxes = document.querySelectorAll('.same-height');
+            if (boxes.length === 0) {
+                return;
+            }
+
+            let maxHeight = 0;
+            boxes.forEach(box => {
+                box.style.height = 'auto';
+            });
+
+            boxes.forEach(box => {
+                const boxHeight = box.clientHeight;
+                if (boxHeight > maxHeight) {
+                    maxHeight = boxHeight;
+                }
+            });
+
+            boxes.forEach(box => {
+                box.style.height = `${maxHeight}px`;
+            });
+        }
+
+        setEqualHeight();
+        window.addEventListener('resize', setEqualHeight);
+
+        return () => {
+            window.removeEventListener('resize', setEqualHeight);
+        };
+    }, [location]);
+
+ return (
         <html lang="de">
             <head>
                 <meta charSet="utf-8" />
@@ -156,7 +188,6 @@ export default function App() {
                 <Layout {...data}>
                     <Outlet />
                 </Layout>
-              
                 <Scripts nonce={nonce} />
                 <script src="/aos.js"></script>
                 <script src="/language-switcher.js"></script>
@@ -169,7 +200,6 @@ export default function App() {
 
 export function ErrorBoundary() {
     const error = useRouteError();
-    /** @type {LoaderReturnData} */
     const rootData = useLoaderData();
     const nonce = useNonce();
     let errorMessage = 'Unknown error';
@@ -278,7 +308,3 @@ const FOOTER_QUERY = `#graphql
   }
   ${MENU_FRAGMENT}
 `;
-
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @typedef {import('@remix-run/react').ShouldRevalidateFunction} ShouldRevalidateFunction */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
