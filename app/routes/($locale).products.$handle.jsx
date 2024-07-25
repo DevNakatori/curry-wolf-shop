@@ -1,6 +1,7 @@
-import {Suspense} from 'react';
-import {defer, redirect} from '@shopify/remix-oxygen';
-import {Await, Link, useLoaderData} from '@remix-run/react';
+import { Suspense, useState, useRef, useEffect, useLayoutEffect } from 'react';
+import { defer, redirect } from '@shopify/remix-oxygen';
+import { Await, Link, useLoaderData } from '@remix-run/react';
+import { useNavigate } from 'react-router-dom';
 import {
   Image,
   Money,
@@ -8,189 +9,350 @@ import {
   getSelectedProductOptions,
   CartForm,
 } from '@shopify/hydrogen';
-import {getVariantUrl} from '~/lib/variants';
+import { getVariantUrl } from '~/lib/variants';
+import '../styles/product.css';
+import dhlLogo from '../assets/dhl.png';
+import certifiedBadge from '../assets/trustedlogo.png';
+import decorativegarland from '../assets/decorativegarland.png';
+import { Fancybox } from "@fancyapps/ui";
+import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
-/**
- * @type {MetaFunction<typeof loader>}
- */
-export const meta = ({data, location}) => {
-  return [{title: `Hydrogen | ${data?.product.title ?? ''}`}];
+export const meta = ({ data }) => {
+  return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
 };
 
-/**
- * @param {LoaderFunctionArgs}
- */
-export async function loader({params, request, context}) {
-  const {handle} = params;
-  const {storefront} = context;
+export async function loader({ params, request, context }) {
+  const { handle } = params;
+  const { storefront } = context;
 
   const selectedOptions = getSelectedProductOptions(request).filter(
     (option) =>
-      // Filter out Shopify predictive search query params
       !option.name.startsWith('_sid') &&
       !option.name.startsWith('_pos') &&
       !option.name.startsWith('_psq') &&
       !option.name.startsWith('_ss') &&
       !option.name.startsWith('_v') &&
-      // Filter out third party tracking params
-      !option.name.startsWith('fbclid'),
+      !option.name.startsWith('fbclid')
   );
 
   if (!handle) {
     throw new Error('Expected product handle to be defined');
   }
 
-  // await the query for the critical product data
-  const {product} = await storefront.query(PRODUCT_QUERY, {
-    variables: {handle, selectedOptions},
+  const { product } = await storefront.query(PRODUCT_QUERY, {
+    variables: { handle, selectedOptions },
   });
 
   if (!product?.id) {
-    throw new Response(null, {status: 404});
+    throw new Response(null, { status: 404 });
   }
 
   const firstVariant = product.variants.nodes[0];
   const firstVariantIsDefault = Boolean(
     firstVariant.selectedOptions.find(
-      (option) => option.name === 'Title' && option.value === 'Default Title',
-    ),
+      (option) => option.name === 'Title' && option.value === 'Default Title'
+    )
   );
 
   if (firstVariantIsDefault) {
     product.selectedVariant = firstVariant;
   } else {
-    // if no selected variant was returned from the selected options,
-    // we redirect to the first variant's url with it's selected options applied
     if (!product.selectedVariant) {
-      throw redirectToFirstVariant({product, request});
+      throw redirectToFirstVariant({ product, request });
     }
   }
 
-  // In order to show which variants are available in the UI, we need to query
-  // all of them. But there might be a *lot*, so instead separate the variants
-  // into it's own separate query that is deferred. So there's a brief moment
-  // where variant options might show as available when they're not, but after
-  // this deffered query resolves, the UI will update.
   const variants = storefront.query(VARIANTS_QUERY, {
-    variables: {handle},
+    variables: { handle },
   });
 
-  return defer({product, variants});
+  return defer({
+    product,
+    variants,
+  });
 }
 
-/**
- * @param {{
- *   product: ProductFragment;
- *   request: Request;
- * }}
- */
-function redirectToFirstVariant({product, request}) {
-  const url = new URL(request.url);
-  const firstVariant = product.variants.nodes[0];
+function ProductMedia({ media }) {
+  const [mainImage, setMainImage] = useState(
+    media.find(item => item.__typename === 'MediaImage')
+  );
+  const videoRef = useRef(null);
 
-  return redirect(
-    getVariantUrl({
-      pathname: url.pathname,
-      handle: product.handle,
-      selectedOptions: firstVariant.selectedOptions,
-      searchParams: new URLSearchParams(url.search),
-    }),
-    {
-      status: 302,
-    },
+  useLayoutEffect(() => {
+    Fancybox.bind('[data-fancybox="main-image"]', {
+      // FancyBox options
+    });
+
+    return () => {
+      Fancybox.destroy();
+    };
+  }, [mainImage]);
+
+  const handleImageClick = (event) => {
+    event.preventDefault();
+  };
+
+  if (!media || media.length === 0) {
+    return null; // Return early if media array is empty or undefined
+  }
+
+  const restImages = media.filter(item => item.__typename === 'MediaImage' && item !== mainImage);
+
+  return (
+    <div className="product-media" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+      {mainImage && (
+        <div className="product-image" key={mainImage.id}>
+          <a
+            data-fancybox="main-image"
+            href={mainImage.image.url}
+            onClick={handleImageClick}
+          >
+            <Image
+              alt={mainImage.image.altText || 'Product Image'}
+              aspectRatio="1/1"
+              data={mainImage.image}
+              key={mainImage.image.id}
+              sizes="(min-width: 45em) 50vw, 100vw"
+            />
+          </a>
+        </div>
+      )}
+
+      {restImages.length > 0 && (
+        <div className="product-images-wrap">
+          {restImages.map(item => (
+            <div className="product-image" key={item.id} onClick={() => setMainImage(item)}>
+              <Image
+                alt={item.image.altText || 'Product Image'}
+                aspectRatio="1/1"
+                data={item.image}
+                key={item.image.id}
+                sizes="(min-width: 45em) 50vw, 100vw"
+              />
+            </div>
+          ))}
+        </div>
+      )}
+
+      {media.map(item => {
+        if (item.__typename === 'Video') {
+          const videoSource = item.sources.find(
+            source => source.mimeType === 'video/mp4'
+          );
+          return (
+            <div className="product-video" key={item.id}>
+              <video ref={videoRef} muted loop>
+                <source src={videoSource.url} type={videoSource.mimeType} />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          );
+        }
+        return null;
+      })}
+    </div>
   );
 }
 
 export default function Product() {
-  /** @type {LoaderReturnData} */
-  const {product, variants} = useLoaderData();
-  const {selectedVariant} = product;
+  const { product, variants } = useLoaderData();
+  const { selectedVariant } = product;
+
+  const getMetafieldText = (metafield) => {
+    if (!metafield) return '';
+
+    try {
+      const parsedValue = JSON.parse(metafield);
+      return parsedValue.children
+        ?.map((child) =>
+          child.children?.map((grandChild) => grandChild.value).join(' ')
+        )
+        .join(' ');
+    } catch (error) {
+      return '';
+    }
+  };
+
+  const preparationText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) => metafield?.namespace === 'custom' && metafield?.key === 'preparation'
+    )?.value
+  );
+
+  const additionalInformationText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'additional_information'
+    )?.value
+  );
+
+  const ingredientsText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'ingredients'
+    )?.value
+  );
+
+  const nutritionalValuesText = getMetafieldText(
+    product.metafields?.find(
+      (metafield) =>
+        metafield?.namespace === 'custom' && metafield?.key === 'nutritional_values'
+    )?.value
+  );
+
+  const navigate = useNavigate();
+
+  const renderProductTitle = (title) => {
+    const regex = /(.*?)(\((.*?)\))/;
+    const match = title.match(regex);
+    if (match) {
+      return (
+        <>
+          {match[1]}
+          <br />
+          <span>{match[2]}</span>
+        </>
+      );
+    }
+    return title;
+  };
+
   return (
-    <div className="product">
-      <ProductImage image={selectedVariant?.image} />
-      <ProductMain
-        selectedVariant={selectedVariant}
-        product={product}
-        variants={variants}
-      />
+    <div className='main-product-sec'>
+      <div className="food-decorative-garland">
+        <img src={decorativegarland} alt="food-decorative-garland" />
+      </div>
+      <div className="container">
+        <div className="go-back-pro-btn">
+          <a href='javascript:;' className="yellow-border-btn" onClick={() => navigate(-1)}>Zurück zu allen Produkten</a>
+        </div>
+        <div className="product-container">
+          <div className="left-content">
+            <div className="product-title mobile-hide">
+              <h1 data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">{renderProductTitle(product.title)}</h1>
+            </div>
+            <div className="left-bottom-content">
+              <div className='left-inner-c'>
+                {preparationText && (
+                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                    <h2>Zubereitung</h2>
+                    <p>{preparationText}</p>
+                  </div>
+                )}
+                
+               {nutritionalValuesText && (
+                  <div className="info-box" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                    <h2>Nährwerte</h2>
+                    <p>{nutritionalValuesText}</p>
+                  </div>
+                )}
+            </div>
+              <div className="smile-block" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                <div className="special-block">
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_bestseller.svg?v=1721633600' alt='face smile icon' />
+                  <h4>Besondere Auswahl</h4>
+                  <p>Familienmanufaktur mit eigener Rezeptur</p>
+                </div>
+                <div className="special-block">
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_expressdelivery.svg?v=1721633600' alt='quick delivery icon' />
+                  <h4>Schnelle Lieferung</h4>
+                  <p>Wir liefern innerhalb von 2-4 Tagen*</p>
+                </div>
+                <div className="special-block">
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_highquality.svg?v=1721633600' alt='secure pay icon' />
+                  <h4>Sichere Bezahlung</h4>
+                  <p>Sicher bezahlen per Paypal und Sofort.com</p>
+                </div>
+                <div className="special-block">
+                  <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icon_worldwideshipping.svg?v=1721633600' alt='earth icon' />
+                  <h4>CO₂ neutraler Versand</h4>
+                  <p>Der Versand erfolgt mit DHL GoGreen</p>
+                </div>
+              </div>
+              <div className="right-bottom-content desktop-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                <div className="cerified-box">
+                  <h4>Zertifizierter Online-shop</h4>
+                  <img className="certified-logo" src={certifiedBadge} alt='certified logo' />
+                </div>
+                <div className="certified-logo">
+                  <h4>Schneller Versand</h4>
+                  <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="center-content">
+            {product.media && <ProductMedia media={product.media.nodes} />}
+          </div>
+          <div className="right-content">
+            <div className="product-title desktop-hide"><h1 data-aos="fade-up" data-aos-duration="1500" className="aos-init aos-animate" data-aos-once="true">{renderProductTitle(product.title)}</h1></div>
+            <div className="product-content">
+              <div data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+                <ProductPrice selectedVariant={selectedVariant} />
+                <div dangerouslySetInnerHTML={{ __html: product.descriptionHtml }} />
+                <Suspense
+                  fallback={
+                    <ProductForm
+                      product={product}
+                      selectedVariant={selectedVariant}
+                      variants={[]}
+                    />
+                  }
+                >
+                  <Await
+                    errorElement="There was a problem loading product variants"
+                    resolve={variants}
+                  >
+                    {(data) => (
+                      <ProductForm
+                        product={product}
+                        selectedVariant={selectedVariant}
+                        variants={data.product?.variants.nodes || []}
+                      />
+                    )}
+                  </Await>
+                    {/* Display Metafield */}
+              <div className="metafield" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+              
+              {ingredientsText && (
+                  <div className="ingridiant-box">
+                    <h2>Zutaten</h2>
+                    <p>{ingredientsText}</p>
+                  </div>
+                )}
+
+                  {additionalInformationText && (
+                    <div className="ingridiant-box">
+                      <h2>Weitere Informationen</h2>
+                      <p>{additionalInformationText}</p>
+                    </div>
+                  )}
+                
+           
+              </div>
+                </Suspense>
+
+
+            <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
+              <div className="cerified-box">
+                <h4>Zertifizierter Online-shop</h4>
+                <img className="certified-logo" src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/png-clipart-trusted-shops-gmbh-e-commerce-logo-organization-certification-trust-no-one-text-trademark_copy.webp?v=1721658737" alt='certified logo' />
+              </div>
+              <div className="certified-logo">
+                <h4>Schneller Versand</h4>
+                <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
+              </div>
+            </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
 
-/**
- * @param {{image: ProductVariantFragment['image']}}
- */
-function ProductImage({image}) {
-  if (!image) {
-    return <div className="product-image" />;
-  }
-  return (
-    <div className="product-image">
-      <Image
-        alt={image.altText || 'Product Image'}
-        aspectRatio="1/1"
-        data={image}
-        key={image.id}
-        sizes="(min-width: 45em) 50vw, 100vw"
-      />
-    </div>
-  );
-}
-
-/**
- * @param {{
- *   product: ProductFragment;
- *   selectedVariant: ProductFragment['selectedVariant'];
- *   variants: Promise<ProductVariantsQuery>;
- * }}
- */
-function ProductMain({selectedVariant, product, variants}) {
-  const {title, descriptionHtml} = product;
-  return (
-    <div className="product-main">
-      <h1>{title}</h1>
-      <ProductPrice selectedVariant={selectedVariant} />
-      <br />
-      <Suspense
-        fallback={
-          <ProductForm
-            product={product}
-            selectedVariant={selectedVariant}
-            variants={[]}
-          />
-        }
-      >
-        <Await
-          errorElement="There was a problem loading product variants"
-          resolve={variants}
-        >
-          {(data) => (
-            <ProductForm
-              product={product}
-              selectedVariant={selectedVariant}
-              variants={data.product?.variants.nodes || []}
-            />
-          )}
-        </Await>
-      </Suspense>
-      <br />
-      <br />
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-      <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
-      <br />
-    </div>
-  );
-}
-
-/**
- * @param {{
- *   selectedVariant: ProductFragment['selectedVariant'];
- * }}
- */
-function ProductPrice({selectedVariant}) {
+function ProductPrice({ selectedVariant }) {
   return (
     <div className="product-price">
       {selectedVariant?.compareAtPrice ? (
@@ -205,29 +367,31 @@ function ProductPrice({selectedVariant}) {
           </div>
         </>
       ) : (
-        selectedVariant?.price && <Money data={selectedVariant?.price} />
+        selectedVariant?.price && <Money className='p-price' data={selectedVariant?.price} />
       )}
     </div>
   );
 }
 
-/**
- * @param {{
- *   product: ProductFragment;
- *   selectedVariant: ProductFragment['selectedVariant'];
- *   variants: Array<ProductVariantFragment>;
- * }}
- */
-function ProductForm({product, selectedVariant, variants}) {
+function ProductForm({ product, selectedVariant, variants }) {
+  const [quantity, setQuantity] = useState(1);
+
+  const handleQuantityChange = (newQuantity) => {
+    setQuantity(newQuantity);
+  };
+
   return (
+    <div className='product-form-main'>
     <div className="product-form">
       <VariantSelector
         handle={product.handle}
         options={product.options}
         variants={variants}
       >
-        {({option}) => <ProductOptions key={option.name} option={option} />}
+        {({ option }) => <ProductOptions key={option.name} option={option} />}
       </VariantSelector>
+      <br />
+      <ProductQuantity quantity={quantity} onQuantityChange={handleQuantityChange} />
       <br />
       <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
@@ -239,27 +403,25 @@ function ProductForm({product, selectedVariant, variants}) {
             ? [
                 {
                   merchandiseId: selectedVariant.id,
-                  quantity: 1,
+                  quantity,
                 },
               ]
             : []
         }
       >
-        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+        {selectedVariant?.availableForSale ? 'In den Warenkorb' : 'Ausverkauft'}
       </AddToCartButton>
+    </div>
     </div>
   );
 }
 
-/**
- * @param {{option: VariantOption}}
- */
-function ProductOptions({option}) {
+function ProductOptions({ option }) {
   return (
     <div className="product-options" key={option.name}>
       <h5>{option.name}</h5>
       <div className="product-options-grid">
-        {option.values.map(({value, isAvailable, isActive, to}) => {
+        {option.values.map(({ value, isAvailable, isActive, to }) => {
           return (
             <Link
               className="product-options-item"
@@ -283,18 +445,9 @@ function ProductOptions({option}) {
   );
 }
 
-/**
- * @param {{
- *   analytics?: unknown;
- *   children: React.ReactNode;
- *   disabled?: boolean;
- *   lines: CartLineInput[];
- *   onClick?: () => void;
- * }}
- */
-function AddToCartButton({analytics, children, disabled, lines, onClick}) {
+function AddToCartButton({ analytics, children, disabled, lines, onClick }) {
   return (
-    <CartForm route="/cart" inputs={{lines}} action={CartForm.ACTIONS.LinesAdd}>
+    <CartForm route="/cart" inputs={{ lines }} action={CartForm.ACTIONS.LinesAdd}>
       {(fetcher) => (
         <>
           <input
@@ -302,7 +455,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             type="hidden"
             value={JSON.stringify(analytics)}
           />
-          <button
+          <button className="yellow-btn"
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
@@ -312,6 +465,40 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
         </>
       )}
     </CartForm>
+  );
+}
+
+function ProductQuantity({ quantity, onQuantityChange }) {
+  const handleQuantityChange = (event) => {
+    const value = Math.max(1, parseInt(event.target.value, 10) || 1);
+    onQuantityChange(value);
+  };
+
+  const incrementQuantity = () => {
+    onQuantityChange(quantity + 1);
+  };
+
+  const decrementQuantity = () => {
+    onQuantityChange(Math.max(1, quantity - 1));
+  };
+
+  return (
+    <div className="product-quantity">
+      <label htmlFor="quantity">Quantity:</label>
+      <div className="quantity-controls">
+        <button type="button" onClick={decrementQuantity}>-</button>
+        <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          value={quantity}
+          onChange={handleQuantityChange}
+          min="1"
+          step="1"
+        />
+        <button type="button" onClick={incrementQuantity}>+</button>
+      </div>
+    </div>
   );
 }
 
@@ -344,7 +531,7 @@ const PRODUCT_VARIANT_FRAGMENT = `#graphql
       value
     }
     sku
-    title
+      title
     unitPrice {
       amount
       currencyCode
@@ -360,6 +547,11 @@ const PRODUCT_FRAGMENT = `#graphql
     handle
     descriptionHtml
     description
+    metafields(identifiers: [{namespace: "custom", key: "nutritional_values"}, {namespace: "custom", key: "additional_information"}, {namespace: "custom", key: "ingredients"}, {namespace: "custom", key: "preparation"}]) {
+      namespace
+      key
+      value
+    }
     options {
       name
       values
@@ -375,6 +567,28 @@ const PRODUCT_FRAGMENT = `#graphql
     seo {
       description
       title
+    }
+    media(first: 10) {
+      nodes {
+        __typename
+        ... on MediaImage {
+          id
+          image {
+            id
+            url
+            altText
+            width
+            height
+          }
+        }
+        ... on Video {
+          id
+          sources {
+            url
+            mimeType
+          }
+        }
+      }
     }
   }
   ${PRODUCT_VARIANT_FRAGMENT}
@@ -417,14 +631,3 @@ const VARIANTS_QUERY = `#graphql
     }
   }
 `;
-
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
-/** @typedef {import('@remix-run/react').FetcherWithComponents} FetcherWithComponents */
-/** @typedef {import('storefrontapi.generated').ProductFragment} ProductFragment */
-/** @typedef {import('storefrontapi.generated').ProductVariantsQuery} ProductVariantsQuery */
-/** @typedef {import('storefrontapi.generated').ProductVariantFragment} ProductVariantFragment */
-/** @typedef {import('@shopify/hydrogen').VariantOption} VariantOption */
-/** @typedef {import('@shopify/hydrogen/storefront-api-types').CartLineInput} CartLineInput */
-/** @typedef {import('@shopify/hydrogen/storefront-api-types').SelectedOption} SelectedOption */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */

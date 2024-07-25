@@ -6,7 +6,14 @@ import {useLoaderData, Link} from '@remix-run/react';
  */
 export async function loader({context}) {
   const data = await context.storefront.query(POLICIES_QUERY);
-  const policies = Object.values(data.shop || {});
+  const policies = Object.values(data.shop || {}).filter(Boolean);
+
+  const legalNoticePolicy = {
+    id: 'legal-notice-id',
+    title: 'Legal Notice',
+    handle: 'legal-notice',
+  };
+  policies.push(legalNoticePolicy);
 
   if (!policies.length) {
     throw new Response('No policies found', {status: 404});
@@ -23,14 +30,11 @@ export default function Policies() {
     <div className="policies">
       <h1>Policies</h1>
       <div>
-        {policies.map((policy) => {
-          if (!policy) return null;
-          return (
-            <fieldset key={policy.id}>
-              <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
-            </fieldset>
-          );
-        })}
+        {policies.map((policy) => (
+          <fieldset key={policy.id}>
+            <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
+          </fieldset>
+        ))}
       </div>
     </div>
   );

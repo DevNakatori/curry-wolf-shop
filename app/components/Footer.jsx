@@ -1,8 +1,7 @@
 import {NavLink} from '@remix-run/react';
 import {useRootLoaderData} from '~/lib/root-data';
 import {KeepInTouch} from '~/routes/footerData';
-import footerLogo from '../assets/footer-bg-logo.png';
-import footerLogoMob from '../assets/footer-mobile-logo.png';
+import footerLogo from '../assets/CurryWolf_Logo_footer.svg';
 /**
  * @param {FooterQuery & {shop: HeaderQuery['shop']}}
  */
@@ -17,13 +16,12 @@ export function Footer({menu, shop}) {
          <div className='footer-child'>
             <FooterMenu menu={menu} primaryDomainUrl={shop.primaryDomain.url} />
             <KeepInTouch />
-            <img className="footer-bg-img" src={footerLogo} alt='footer-logo' />
-            <img className="footer-mobile-img" src={footerLogoMob} alt='footer-logo' />
          </div>
         </>
       )}
     </div>
       </div>
+     
     </footer>
   
   );
@@ -44,9 +42,15 @@ function FooterMenu({menu, primaryDomainUrl}) {
   const {publicStoreDomain} = useRootLoaderData();
 
   return (
+    <div className='left-block-wrap'>
+      <div className='logo'>
+        <a href='/'>
+      <img className="footer-bg-img" data-aos="zoom-in" data-aos-duration="1500" data-aos-once="true" src={footerLogo} alt='footer-logo' />
+        </a>
+      </div>
     <nav className="footer-menu" role="navigation">
-      <span className='yellow-head'>Menu</span>
-        <ul>
+      <span className='yellow-head' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">Links</span>
+        <ul data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;
         // if the url is internal, we strip the domain
@@ -77,6 +81,7 @@ function FooterMenu({menu, primaryDomainUrl}) {
       })}
        </ul>
     </nav>
+    </div>
   );
 }
 

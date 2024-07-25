@@ -1,7 +1,7 @@
 import {CartForm, Image, Money} from '@shopify/hydrogen';
 import {Link} from '@remix-run/react';
 import {useVariantUrl} from '~/lib/variants';
-
+import '../styles/cart.css';
 /**
  * @param {CartMainProps}
  */
@@ -20,7 +20,7 @@ export function CartMain({layout, cart}) {
   );
 }
 
-/**
+/** 
  * @param {CartMainProps}
  */
 function CartDetails({layout, cart}) {
@@ -49,7 +49,7 @@ function CartLines({lines, layout}) {
   if (!lines) return null;
 
   return (
-    <div aria-labelledby="cart-lines">
+    <div className="cart-lines" aria-labelledby="cart-lines">
       <ul>
         {lines.nodes.map((line) => (
           <CartLineItem key={line.id} line={line} layout={layout} />
@@ -84,6 +84,7 @@ function CartLineItem({layout, line}) {
       )}
 
       <div>
+
         <Link
           prefetch="intent"
           to={lineItemUrl}
@@ -122,7 +123,7 @@ function CartCheckoutActions({checkoutUrl}) {
 
   return (
     <div>
-      <a href={checkoutUrl} target="_self">
+      <a className='yellow-btn checkout' href={checkoutUrl} target="_self">
         <p>Continue to Checkout &rarr;</p>
       </a>
       <br />
@@ -169,7 +170,9 @@ function CartLineRemoveButton({lineIds}) {
       action={CartForm.ACTIONS.LinesRemove}
       inputs={{lineIds}}
     >
-      <button type="submit">Remove</button>
+      <button type="submit">
+        <img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/icons8-delete.svg?v=1720091772'/>
+      </button>
     </CartForm>
   );
 }
@@ -253,7 +256,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
         started!
       </p>
       <br />
-      <Link
+      <Link className="yellow-btn"
         to="/collections"
         onClick={() => {
           if (layout === 'aside') {
@@ -296,10 +299,10 @@ function CartDiscounts({discountCodes}) {
 
       {/* Show an input to apply a discount */}
       <UpdateDiscountForm discountCodes={codes}>
-        <div>
-          <input type="text" name="discountCode" placeholder="Discount code" />
+        <div className="discount-box">
+          <input type="text" name="discountCode" placeholder="Discount code" className="form-input" />
           &nbsp;
-          <button type="submit">Apply</button>
+          <button className="yellow-btn" type="submit">Apply</button>
         </div>
       </UpdateDiscountForm>
     </div>

@@ -26,19 +26,19 @@ export async function loader({params, context}) {
     throw new Response('Not Found', {status: 404});
   }
 
-  return json({page});
+  return json({page, handle: params.handle});
 }
 
 export default function Page() {
   /** @type {LoaderReturnData} */
-  const {page} = useLoaderData();
+  const {page, handle} = useLoaderData();
 
   return (
-    <div className="page">
+    <div className={`page ${handle}`}>
       <header>
         <h1>{page.title}</h1>
       </header>
-      <main dangerouslySetInnerHTML={{__html: page.body}} />
+      <div dangerouslySetInnerHTML={{__html: page.body}} ></div>
     </div>
   );
 }

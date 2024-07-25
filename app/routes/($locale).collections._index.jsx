@@ -1,13 +1,14 @@
 import {useLoaderData, Link} from '@remix-run/react';
 import {json} from '@shopify/remix-oxygen';
 import {Pagination, getPaginationVariables, Image} from '@shopify/hydrogen';
-
+import '../styles/collection-list.css';
 /**
  * @param {LoaderFunctionArgs}
  */
+
 export async function loader({context, request}) {
   const paginationVariables = getPaginationVariables(request, {
-    pageBy: 4,
+    pageBy: 9,
   });
 
   const {collections} = await context.storefront.query(COLLECTIONS_QUERY, {
@@ -22,21 +23,25 @@ export default function Collections() {
   const {collections} = useLoaderData();
 
   return (
-    <div className="collections">
+    <div className="collections collection-list-page">
+      <div className="container">
       <h1>Collections</h1>
       <Pagination connection={collections}>
         {({nodes, isLoading, PreviousLink, NextLink}) => (
           <div>
-            <PreviousLink>
+            <PreviousLink className="yellow-btn bottom-spacing">
               {isLoading ? 'Loading...' : <span>↑ Load previous</span>}
-            </PreviousLink>
+            </PreviousLink >
             <CollectionsGrid collections={nodes} />
-            <NextLink>
+            <div className="load-more">
+            <NextLink className="yellow-btn">
               {isLoading ? 'Loading...' : <span>Load more ↓</span>}
             </NextLink>
+            </div>
           </div>
         )}
       </Pagination>
+    </div>
     </div>
   );
 }
@@ -72,6 +77,7 @@ function CollectionItem({collection, index}) {
       to={`/collections/${collection.handle}`}
       prefetch="intent"
     >
+      <div className="col-block">
       {collection?.image && (
         <Image
           alt={collection.image.altText || collection.title}
@@ -80,6 +86,7 @@ function CollectionItem({collection, index}) {
           loading={index < 3 ? 'eager' : undefined}
         />
       )}
+      </div>
       <h5>{collection.title}</h5>
     </Link>
   );

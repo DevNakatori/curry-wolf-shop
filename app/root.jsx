@@ -10,14 +10,16 @@ import {
     ScrollRestoration,
     isRouteErrorResponse,
 } from '@remix-run/react';
+import 'animate.css';
+import AOS from "aos";
+import "aos/dist/aos.css";
 import favicon from './assets/favicon.png';
 import resetStyles from './styles/reset.css?url';
 import appStyles from './styles/app.css?url';
 import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
-import homePageStyles from './styles/home-video.css?url';
 import React, { useEffect } from 'react';
-// import "../app/assets/js/homepage.js";
+import { useLocation } from "react-router-dom";
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -37,12 +39,49 @@ export const shouldRevalidate = ({ formMethod, currentUrl, nextUrl }) => {
     return false;
 };
 
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Check if the pathname includes 'catering'
+    if (!pathname.includes('catering')) {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname]);
+
+  useEffect(() => {
+    const handleBeforeUnload = () => {
+      // Check if the pathname includes 'catering'
+      if (!pathname.includes('catering')) {
+        window.scrollTo(0, 0);
+      }
+    };
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [pathname]);
+
+  return null;
+}
+
+export function AosInit() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+    AOS.refresh();
+  }, []);
+}
+
 export function links() {
     return [
         { rel: 'stylesheet', href: resetStyles },
         { rel: 'stylesheet', href: appStyles },
         { rel: 'stylesheet', href: fontStyles },
-        { rel: 'stylesheet', href: homePageStyles },
+       // { rel: 'stylesheet', href: homePageStyles },
         {
             rel: 'preconnect',
             href: 'https://cdn.shopify.com',
@@ -91,6 +130,7 @@ export async function loader({ context }) {
         },
         {
             headers: {
+              'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
                 'Set-Cookie': await context.session.commit(),
             },
         },
@@ -99,24 +139,43 @@ export async function loader({ context }) {
 
 export default function App() {
     const nonce = useNonce();
-    /** @type {LoaderReturnData} */
     const data = useLoaderData();
+    const location = useLocation();
 
     useEffect(() => {
-        const script = document.createElement('script');
+        function setEqualHeight() {
+            const boxes = document.querySelectorAll('.same-height');
+            if (boxes.length === 0) {
+                return;
+            }
 
-        script.src = "../app/assets/js/hero-animation.js";
-        script.async = true;
+            let maxHeight = 0;
+            boxes.forEach(box => {
+                box.style.height = 'auto';
+            });
 
-        document.body.appendChild(script);
+            boxes.forEach(box => {
+                const boxHeight = box.clientHeight;
+                if (boxHeight > maxHeight) {
+                    maxHeight = boxHeight;
+                }
+            });
+
+            boxes.forEach(box => {
+                box.style.height = `${maxHeight}px`;
+            });
+        }
+
+        setEqualHeight();
+        window.addEventListener('resize', setEqualHeight);
 
         return () => {
-            document.body.removeChild(script);
-        }
-    }, []);
+            window.removeEventListener('resize', setEqualHeight);
+        };
+    }, [location]);
 
-    return (
-        <html lang="en">
+ return (
+        <html lang="de">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -124,11 +183,16 @@ export default function App() {
                 <Links />
             </head>
             <body>
+            <ScrollToTop />
+            <AosInit />
                 <Layout {...data}>
                     <Outlet />
                 </Layout>
-                <ScrollRestoration nonce={nonce} />
                 <Scripts nonce={nonce} />
+                <script src="/aos.js"></script>
+                <script src="/language-switcher.js"></script>
+                <script src="/location-page.js"></script>
+                <script src="/custom.js"></script>
             </body>
         </html>
     );
@@ -136,7 +200,6 @@ export default function App() {
 
 export function ErrorBoundary() {
     const error = useRouteError();
-    /** @type {LoaderReturnData} */
     const rootData = useLoaderData();
     const nonce = useNonce();
     let errorMessage = 'Unknown error';
@@ -150,7 +213,7 @@ export function ErrorBoundary() {
     }
 
     return (
-        <html lang="en">
+        <html lang="de">
             <head>
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -245,7 +308,3 @@ const FOOTER_QUERY = `#graphql
   }
   ${MENU_FRAGMENT}
 `;
-
-/** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
-/** @typedef {import('@remix-run/react').ShouldRevalidateFunction} ShouldRevalidateFunction */
-/** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
