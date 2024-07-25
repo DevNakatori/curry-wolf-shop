@@ -131,7 +131,7 @@
           {data.menu.items.map((item, index) => (
             <li key={item.id}>
               <Link
-                to={item.url}
+                to={new URL(item.url).pathname}
                 className={index === 0 || item.url.includes(location.pathname) ? 'active' : ''}
               >
                 {item.title}
