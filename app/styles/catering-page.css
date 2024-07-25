@@ -850,12 +850,12 @@ div#faq {
    }
 
    .curywolf-catering-box .img-big-wrap:nth-child(5) a{
-      transform: translate(-90%, 110%);
+      transform: translate(-110%, 10%);
    }
    .curywolf-catering-box .img-big-wrap:nth-child(6) {z-index: 99;}
 
    .curywolf-catering-box .img-big-wrap:nth-child(6) a{
-      transform: translate(-59%, -89%);
+      transform: translate(-49%, 13%);
       z-index: 9999;
    }
    .curywolf-catering-box .img-big-wrap:nth-child(2){

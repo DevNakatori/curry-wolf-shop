@@ -61,6 +61,7 @@ section.thereedmainsection {
  }
 #video-container {
     position: relative;
+	z-index: 1;
 }
 .overlayLabel {
 	position: absolute;
