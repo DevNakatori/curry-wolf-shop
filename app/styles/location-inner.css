@@ -28,10 +28,7 @@ section.thereedmainsection {
 	overflow: hidden;
 	position: relative;
  }
- section.thereedmainsection video#video1{
-	width: 90% !important;
-	margin: 0 auto !important;
- }
+
  .overlayImage {
 	position: absolute;
 	width: 200px;
@@ -53,7 +50,7 @@ section.thereedmainsection {
  }
  
  section.thereedmainsection video {
-	width: 90%;
+	/* width: 90%; */
 	height: 100%;
 	/* object-fit: fill; */
 	position: relative;
