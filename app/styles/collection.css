@@ -10,10 +10,10 @@ main {
 }
 .collection small {
    display: block;
-   padding-bottom: 7px;
+   padding-bottom: 4px;
 }
 .collection .c-weight {
-   padding-bottom: 5px;
+   padding-bottom: 2px;
 }
 .collection  .products-grid .product-g-wrap .tax-hint span{height: initial;}
 .collection .products-grid .product-g-wrap small a{margin: auto;}

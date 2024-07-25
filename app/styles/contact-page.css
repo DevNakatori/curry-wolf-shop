@@ -13,6 +13,7 @@
 	display: flex;
 	padding-top: 50px;
 	padding-bottom: 110px;
+	align-items: center;
 	}
 	.contact-top-block .left-title {
 	width: 53%;
@@ -126,7 +127,7 @@
 	background: url(/app/assets/pushpin.svg) no-repeat center / contain;
 	left: 0px;
 	right: 0;
-	width: 90px;
+	width: 50px;
 	height: 104px;
 	margin: 0 auto;
 	background-size: 100%;
@@ -343,7 +344,7 @@
 	width: auto;
 	}
 	.img-one:before {
-	width: 63px;
+	width: 50px;
 	}
 	.inner-white-box {
 	padding: 10px;

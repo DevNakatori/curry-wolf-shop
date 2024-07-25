@@ -49,7 +49,7 @@ function FooterMenu({menu, primaryDomainUrl}) {
         </a>
       </div>
     <nav className="footer-menu" role="navigation">
-      <span className='yellow-head' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">Menu</span>
+      <span className='yellow-head' data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">Links</span>
         <ul data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
       {(menu || FALLBACK_FOOTER_MENU).items.map((item) => {
         if (!item.url) return null;

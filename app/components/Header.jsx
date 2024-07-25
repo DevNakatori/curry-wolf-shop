@@ -143,7 +143,9 @@ function HeaderCtas({ isLoggedIn, cart }) {
           </Await>
         </Suspense>
       </NavLink>
+      <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
       <img className='mobile-logo' src={shopLogo} alt='logo' />
+      </NavLink>
       <CartToggle cart={cart} />
 
       <div className='dropdown-wrap'>

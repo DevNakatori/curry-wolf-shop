@@ -86,29 +86,13 @@ export default function Page() {
         let scrollPosition = window.scrollY;
         let windowHeight = window.innerHeight;
 
-        if (scrollPosition > 500) {
+        if (scrollPosition > 180) {
           videoOverlay.style.opacity = 1;
         } else {
           videoOverlay.style.opacity = 0;
         }
       });
     }
-
-    // Scroll to 1100 on indicator click
-    const handleClick = () => {
-      window.scrollTo({
-        top: 1100,
-        behavior: 'smooth'
-      });
-    };
-
-    indicatorDiv.addEventListener('click', handleClick);
-
-    // Cleanup the event listeners on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-      indicatorDiv.removeEventListener('click', handleClick);
-    };
   }, []);
 
   return (

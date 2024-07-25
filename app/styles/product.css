@@ -1,6 +1,6 @@
 /* Product.css */
 main {
-  background: linear-gradient(180deg, #D02523 0%, #9B2220 51.59%);
+  background: #9b2220;
     margin-top: 0;
     /* overflow: hidden; */
   }
@@ -444,7 +444,7 @@ main {
     .product-form-main {
       position: sticky;
       top: 94px;
-      background:#a12220;
+      background:#9b2220;
       z-index: 999;
       display: block;
       position: -webkit-sticky;
