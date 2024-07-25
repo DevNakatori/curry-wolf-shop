@@ -7,7 +7,6 @@ import '../styles/job-detail.css';
 export const meta = ({data}) => {
   return [{title: `Curry Wolf | ${data?.page.title ?? ''}`}];
 };
-
 /**
  * @param {LoaderFunctionArgs}
  */
