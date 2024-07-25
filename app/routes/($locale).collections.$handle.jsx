@@ -174,7 +174,8 @@ function CustomMenu({ data }) {
       <ul>
         {data.menu.items.map(item => (
           <li key={item.id}>
-            <Link to={item.url} 
+            <Link to={new URL(item.url).pathname} 
+            
             className={item.url.includes(location.pathname) ? 'active' : ''} 
             >{item.title}</Link>
           </li>
