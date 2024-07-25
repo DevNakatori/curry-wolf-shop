@@ -414,16 +414,17 @@ video#bgVideo {
  .mouse {
    height: 60px;
    width: 32px;
-   border: 3px solid #FBD42A;
+   border: 3px solid #9B2220;
    border-radius: 32px;
    position: relative;
    bottom: 30px;
+   cursor: pointer;
 }
 
    .scrollWheel {
      height: 20px;
      width: 2px;
-     background: #FBD42A;
+     background: #9B2220;
      position: absolute;
      left: 0;
      right: 0;

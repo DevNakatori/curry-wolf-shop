@@ -286,7 +286,7 @@ function ProductItem({product, loading}) {
         </div>
         </div>
         <div className='cart-btn'>
-          <span className='yellow-btn'>Add to cart</span>
+          <span className='yellow-btn'>In den Warenkorb</span>
         </div>
         </div>
         </div>

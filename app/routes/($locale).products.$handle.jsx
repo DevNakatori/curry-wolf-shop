@@ -332,9 +332,7 @@ export default function Product() {
               </div>
                 </Suspense>
 
-              </div>
-            
-            </div>
+
             <div className="right-bottom-content mobile-hide" data-aos="fade-up" data-aos-duration="1500" data-aos-once="true">
               <div className="cerified-box">
                 <h4>Zertifizierter Online-shop</h4>
@@ -344,6 +342,8 @@ export default function Product() {
                 <h4>Schneller Versand</h4>
                 <img className="dhl-logo" src={dhlLogo} alt='dhl logo' />
               </div>
+            </div>
+            </div>
             </div>
           </div>
         </div>

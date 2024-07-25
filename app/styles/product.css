@@ -447,6 +447,7 @@ main {
       background:#a12220;
       z-index: 999;
       display: block;
+      position: -webkit-sticky;
     }
   }
 

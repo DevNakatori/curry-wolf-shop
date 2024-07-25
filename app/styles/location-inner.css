@@ -831,9 +831,9 @@ section.thereedmainsection {
 	   top: -30px;
 	}
  
-	.popup-payment {
+	/* .popup-payment {
 	   display: none;
-	}
+	} */
  
 	/* .popup-left h1 {
 	   font-size: 50px;
@@ -1039,6 +1039,9 @@ section.thereedmainsection {
 	   margin-top: 0px;
 	}
 	.popup-left-img video#location-inner{height: 250px;}
+	.popup-payment{flex-direction: column;}
+	.popup-payment h3{text-align: center;}
+	.popup-payment ul{padding-left: 0;padding-top: 20px;justify-content: center;}
  }
  
  @media (max-width:400px) {
