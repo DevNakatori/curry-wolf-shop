@@ -60,15 +60,11 @@ export default function Page() {
     const videocontainer = document.getElementById('video-container');
     const overlayImages = document.querySelectorAll('.overlayImage');
     const positions = [
-      { x: 15, y: 22, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Steglitz',  additionalLabel2: 'Mehr Info' },
-
-        { x: 9, y:35, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Potsdam' , additionalLabel2: 'Mehr Info' },
-
-        { x: 24, y: 17.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Brandenburger Tor' , additionalLabel2: 'Mehr Info'},
-
-        { x:22, y: 28, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Ku`damm' , additionalLabel2: 'Mehr Info' },
-
-        { x: 31, y: 29, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />' , additionalLabel: 'Lichtenrade' , additionalLabel2: 'Mehr Info' }
+      { x: 11, y: 38, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
+      { x: 23, y: 34, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
+      { x: 19, y: 26, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Brandenburger Tor', additionalLabel2: 'Mehr Info' },
+      { x: 25.5, y: 22.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Ku`damm', additionalLabel2: 'Mehr Info' },
+      { x: 30.5, y: 24, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Lichtenrade', additionalLabel2: 'Mehr Info' }
     ];
 
     const overlayLabels = [];
@@ -88,29 +84,31 @@ export default function Page() {
         image.style.top = `${yPercentage}%`;
         image.style.transform = `translate(${xPos}px, ${yPos}px)`;
 
-        const label = document.createElement('div');
-        label.classList.add('overlayLabel');
-        label.innerHTML = `
-          <span class="mainLabel">${positions[index].label}</span>
-          <span class="additionalLabel">${positions[index].additionalLabel}</span>
-          <span class="additionalLabel2">${positions[index].additionalLabel2}</span>
-        `;
-        label.style.opacity = 0;
-        videocontainer.appendChild(label);
-        overlayLabels.push(label);
+        if (!overlayLabels[index]) {
+          const label = document.createElement('div');
+          label.classList.add('overlayLabel');
+          label.innerHTML = `
+            <span class="mainLabel">${positions[index].label}</span>
+            <span class="additionalLabel">${positions[index].additionalLabel}</span>
+            <span class="additionalLabel2">${positions[index].additionalLabel2}</span>
+          `;
+          label.style.opacity = 0;
+          videocontainer.appendChild(label);
+          overlayLabels.push(label);
 
-        label.style.position = 'absolute';
-        label.style.left = `${xPercentage}%`;
-        label.style.top = `${yPercentage}%`;
-        label.style.transform = `translate(${xPoss}px, ${yPoss}px)`;
+          label.style.position = 'absolute';
+          label.style.left = `${xPercentage}%`;
+          label.style.top = `${yPercentage}%`;
+          label.style.transform = `translate(${xPoss}px, ${yPoss}px)`;
 
-        image.addEventListener('mouseenter', () => {
-          image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(-10px)`;
-        });
+          image.addEventListener('mouseenter', () => {
+            image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(-10px)`;
+          });
 
-        image.addEventListener('mouseleave', () => {
-          image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(0px)`;
-        });
+          image.addEventListener('mouseleave', () => {
+            image.style.transform = `translate(${xPos}px, ${yPos}px) translateY(0px)`;
+          });
+        }
       });
     }
 
