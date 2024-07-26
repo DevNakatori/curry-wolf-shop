@@ -1213,7 +1213,7 @@ img.footer-bg-img {
 	.header-menu-mobile a {
 		font-size: 18px;
 		font-weight: 400 !important;
-		line-height: 25px;
+		line-height: 25px !important;
 		pointer-events: inherit;
    }
 	img.mobile-logo, img.footer-mobile-img {
