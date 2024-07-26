@@ -139,13 +139,13 @@ aside li {
   body.no-scroll {
     overflow: hidden;
   }
-  .popup {
+  /* .popup {
 	background: white;
 	padding: 20px;
 	border-radius: 10px;
 	text-align: center;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  } */
   
   .popup button {
 	margin-top: 10px;

@@ -28,13 +28,18 @@ export default function Policies() {
 
   return (
     <div className="policies">
-      <h1>Policies</h1>
+
       <div className='policies-box'>
+      <div className='p-title'>
+      <h1>Policies</h1>
+      </div>
+      <div className='policies-inner'>
         {policies.map((policy) => (
           <fieldset key={policy.id}>
             <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>
           </fieldset>
         ))}
+        </div>
       </div>
     </div>
   );
