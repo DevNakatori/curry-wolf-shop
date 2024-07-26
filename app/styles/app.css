@@ -1217,6 +1217,7 @@ img.footer-bg-img {
 		pointer-events: inherit !important;
 		display: block;
 		width: 100%;
+		border: 1px solid #fff;
    }
 	img.mobile-logo, img.footer-mobile-img {
 		display: block;
