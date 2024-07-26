@@ -842,7 +842,7 @@ footer img.footer-bg-img {
    width: 130px !important;
 }
 .header-menu-mobile {
-	grid-gap: 1rem;
+	grid-gap: 1.3rem;
 }
 .footer-social {
 	width: 25%;
