@@ -988,10 +988,10 @@ div#faq {
    .inner-wolf-bestell h3 {
       margin: 0 0 25px 0;
    }
-   .curywolf-catering-box .img-big-wrap:nth-child(6) a{
+   /* .curywolf-catering-box .img-big-wrap:nth-child(6) a{
       transform: translate(-67%, -89%);
       z-index: 9999;
-   }
+   } */
 }
 
 @media (max-width:400px) {
