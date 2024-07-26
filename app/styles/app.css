@@ -114,7 +114,7 @@ aside li {
 	bottom: 0;
 	left: 0;
 	opacity: 0;
-	pointer-events: none;
+	/* pointer-events: none; */
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -1214,8 +1214,9 @@ img.footer-bg-img {
 		font-size: 18px;
 		font-weight: 400 !important;
 		line-height: 25px !important;
-		pointer-events: inherit;
+		pointer-events: inherit !important;
 		display: block;
+		width: 100%;
    }
 	img.mobile-logo, img.footer-mobile-img {
 		display: block;
