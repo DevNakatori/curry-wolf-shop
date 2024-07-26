@@ -95,6 +95,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                   to={url}
                   onClick={() => {
                     closeDrawer();
+                    console.log(isDrawerOpen)
                   }}
                 >
                   {item.title}
