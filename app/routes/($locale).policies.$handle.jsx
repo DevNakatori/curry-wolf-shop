@@ -1,22 +1,21 @@
-import {json} from '@shopify/remix-oxygen';
-import {Link, useLoaderData} from '@remix-run/react';
-import {useEffect} from 'react';
+import React, { useEffect } from 'react';
+import { json } from '@shopify/remix-oxygen';
+import { Link, useLoaderData } from '@remix-run/react';
 import '../styles/policies.css';
-import '../styles/font.css';
 
 /**
  * @type {MetaFunction<typeof loader>}
  */
-export const meta = ({data}) => {
-  return [{title: `Hydrogen | ${data?.policy.title ?? ''}`}];
+export const meta = ({ data }) => {
+  return [{ title: `Hydrogen | ${data?.policy.title ?? ''}` }];
 };
 
 /**
  * @param {LoaderFunctionArgs}
  */
-export async function loader({params, context}) {
+export async function loader({ params, context }) {
   if (!params.handle) {
-    throw new Response('No handle was passed in', {status: 404});
+    throw new Response('No handle was passed in', { status: 404 });
   }
 
   const policyName = params.handle.replace(/-([a-z])/g, (_, m1) =>
@@ -37,51 +36,53 @@ export async function loader({params, context}) {
   const policy = data.shop?.[policyName];
 
   if (!policy) {
-    throw new Response('Could not find the policy', {status: 404});
+    throw new Response('Could not find the policy', { status: 404 });
   }
 
-  return json({policy});
+  return json({ policy });
 }
 
 export default function Policy() {
   /** @type {LoaderReturnData} */
-  const {policy} = useLoaderData();
+  const { policy } = useLoaderData();
 
   useEffect(() => {
-    const tabContent = document.getElementsByClassName('tabContent');
-    const tab = document.getElementsByClassName('tab');
+    if (policy.handle === 'privacyPolicy') {
+      const tabContent = document.getElementsByClassName('tabContent');
+      const tab = document.getElementsByClassName('tab');
 
-    function hideTabsContent(a) {
-      for (let i = a; i < tabContent.length; i++) {
-        tabContent[i].classList.remove('show');
-        tabContent[i].classList.add('hide');
-        tab[i].classList.remove('whiteborder');
+      function hideTabsContent(a) {
+        for (let i = a; i < tabContent.length; i++) {
+          tabContent[i].classList.remove('show');
+          tabContent[i].classList.add('hide');
+          tab[i].classList.remove('whiteborder');
+        }
       }
-    }
 
-    function showTabsContent(b) {
-      if (tabContent[b].classList.contains('hide')) {
-        hideTabsContent(0);
-        tab[b].classList.add('whiteborder');
-        tabContent[b].classList.remove('hide');
-        tabContent[b].classList.add('show');
+      function showTabsContent(b) {
+        if (tabContent[b].classList.contains('hide')) {
+          hideTabsContent(0);
+          tab[b].classList.add('whiteborder');
+          tabContent[b].classList.remove('hide');
+          tabContent[b].classList.add('show');
+        }
       }
+
+      hideTabsContent(1);
+
+      document.getElementById('tabs').onclick = function (event) {
+        const target = event.target;
+        if (target.className === 'tab') {
+          for (let i = 0; i < tab.length; i++) {
+            if (target === tab[i]) {
+              showTabsContent(i);
+              break;
+            }
+          }
+        }
+      };
     }
-
-    hideTabsContent(1);
-
-    // document.getElementById('tabs').onclick = function (event) {
-    //   const target = event.target;
-    //   if (target.className === 'tab') {
-    //     for (let i = 0; i < tab.length; i++) {
-    //       if (target === tab[i]) {
-    //         showTabsContent(i);
-    //         break;
-    //       }
-    //     }
-    //   }
-    // };
-  }, []);
+  }, [policy.handle]);
 
   return (
     <div className="policy">
@@ -92,7 +93,7 @@ export default function Policy() {
         <div className="top-title">
           <h1>{policy.title}</h1>
         </div>
-        <div dangerouslySetInnerHTML={{__html: policy.body}} />
+        <div dangerouslySetInnerHTML={{ __html: policy.body }} />
       </div>
     </div>
   );
