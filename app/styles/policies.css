@@ -65,7 +65,7 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rg
 }
 .policy .yellow-border-btn{color: #FEDE03;}
 .policy .yellow-border-btn:hover{color: #9B2220;}
-.policy p,.policy span,.policy a,.policy ul li,.privacy-box .inner-tab .tab,.privacy-policy-content ul li,.privacy-policy-content address{font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+.policy,.policy p,.policy span,.policy a,.policy ul li,.privacy-box .inner-tab .tab,.privacy-policy-content ul li,.privacy-policy-content address{font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
 	line-height: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));color: #fff;font-family: 'Gotham-Book';}
 .privacy-policy-content .privacy-box:last-child{border-bottom: 0;}
 
@@ -74,6 +74,69 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rg
 	.term-sec h3{font-size:calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
 		line-height: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));color: #fff;}
 		.policies-box fieldset:last-child{display: none;}
+			.policy-sec{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+	}
+	.policy-sec p,.policy-sec ul li{
+		font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
+  font-family: 'Gotham-Book';
+   font-weight: 400;
+   color: #fff;
+	}
+	.policy-sec ul li{list-style-type: disc;padding-bottom: 15px; color: #fff;}
+	.policy-sec h2{font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+  font-family: 'BertholdBlock';margin: 15px 0; color: #fff;}
+  .policy-sec h3{
+	font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+  font-family: 'Gotham-Book';
+  margin: 15px 0;
+  color: #fff;
+  }
+  .policy-sec h4{
+	font-size: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(25px + (30 - 25) * ((100vw - 320px) / (1920 - 320)));
+	font-weight: 700;
+	font-family: 'Gotham-Book';
+	margin: 15px 0;
+	color: #fff;
+  }
+
+
+  .policy-sec{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+  }
+  .policy-sec p,.policy-sec ul li{
+	  font-size: calc(14px + (14 - 14) * ((100vw - 320px) / (1920 - 320)));
+line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
+font-family: 'Gotham-Book';
+ font-weight: 400;
+ color: #fff;
+  }
+  .policy-sec ul li{list-style-type: disc;padding-bottom: 15px; color: #fff;}
+  .policy-sec h2{font-size: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+font-weight: 700;
+line-height: calc(22px + (30 - 22) * ((100vw - 320px) / (1920 - 320)));
+font-family: 'BertholdBlock';margin: 15px 0; color: #fff;}
+.policy-sec h3{
+  font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+font-weight: 700;
+line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+font-family: 'Gotham-Book';
+margin: 15px 0;
+color: #fff;
+}
+.policy-sec h4{
+  font-size: calc(20px + (25 - 20) * ((100vw - 320px) / (1920 - 320)));
+  line-height: calc(25px + (30 - 25) * ((100vw - 320px) / (1920 - 320)));
+  font-weight: 700;
+  font-family: 'Gotham-Book';
+  margin: 15px 0;
+  color: #fff;
+}
+
 
 @media (max-width:1024px) {
 	.policies-box fieldset{width: 40%;}

@@ -87,7 +87,7 @@ export default function Policy() {
     <div className="policy">
       <div className="container">
         <div>
-          <Link className="yellow-border-btn" to="/policies">← Back to Policies</Link>
+          <Link className="yellow-border-btn" to="/policies">← Zu allen Richtlinien</Link>
         </div>
         <div className="top-title">
           <h1>{policy.title}</h1>
