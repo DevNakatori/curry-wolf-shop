@@ -4,6 +4,9 @@ import { Suspense } from 'react';
 import { useRootLoaderData } from '~/lib/root-data';
 import shopLogo from '../assets/CurryWolf_Logo_footer.svg';
 
+/**
+ * @param {HeaderProps}
+ */
 export function Header({ header, isLoggedIn, cart }) {
   const { shop, menu } = header;
   return (
@@ -25,6 +28,13 @@ export function Header({ header, isLoggedIn, cart }) {
   );
 }
 
+/**
+ * @param {{
+ *   menu: HeaderProps['header']['menu'];
+ *   primaryDomainUrl: HeaderQuery['shop']['primaryDomain']['url'];
+ *   viewport: Viewport;
+ * }}
+ */
 export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
   const { publicStoreDomain } = useRootLoaderData();
   const className = `header-menu-${viewport}`;
@@ -32,11 +42,8 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
 
   function closeAside(event) {
     if (viewport === 'mobile') {
-      event.preventDefault();
-      const href = event.currentTarget.getAttribute('href');
-      if (href) {
-        window.location.href = href;
-      }
+     // event.preventDefault();
+      window.location.href = event.currentTarget.href;
     }
   }
 
@@ -49,8 +56,8 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
   }
 
   function toggleSubmenu(event, id) {
-    event.preventDefault();
-    event.stopPropagation();
+ //   event.preventDefault();
+  //  event.stopPropagation();
     setOpenSubmenus((prevOpenSubmenus) => ({
       ...prevOpenSubmenus,
       [id]: !prevOpenSubmenus[id],
@@ -67,7 +74,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
 
         return (
           <div key={item.id} className="header-menu-item">
-            <div className="menu-item-wrapper">
+            <div className="menu-item-wrapper" onClick={(e) => toggleSubmenu(e, item.id)}>
               <NavLink
                 end
                 onClick={closeAside}
@@ -88,7 +95,6 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  onClick={(e) => toggleSubmenu(e, item.id)}
                 >
                   <path d="M6 9l6 6 6-6" />
                 </svg>
@@ -121,6 +127,9 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
   );
 }
 
+/**
+ * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'>}
+ */
 function HeaderCtas({ isLoggedIn, cart }) {
   return (
     <nav className="header-ctas" role="navigation">
@@ -135,14 +144,16 @@ function HeaderCtas({ isLoggedIn, cart }) {
         </Suspense>
       </NavLink>
       <NavLink prefetch="intent" to="/" style={activeLinkStyle} end>
-        <img className='mobile-logo' src={shopLogo} alt='logo' />
+      <img className='mobile-logo' src={shopLogo} alt='logo' />
       </NavLink>
       <CartToggle cart={cart} />
+
       <div className='dropdown-wrap'>
-        <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/Flag-of-Germany-01.svg?v=1721643447" />
+      <img src="https://cdn.shopify.com/s/files/1/0661/7595/9260/files/Flag-of-Germany-01.svg?v=1721643447" />
       </div>
       <div className="dropdown">
-        <button className="dropdown-toggle" id="dropdownToggle"></button>
+        <button className="dropdown-toggle" id="dropdownToggle">
+          </button>
         <ul className="dropdown-menu" id="dropdownMenu">
           <li className="dropdown-item" data-value="de-de"><img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/united-kingdom-flag-icon.svg?v=1721643633' /></li>
           <li className="dropdown-item" data-value="en-de"><img src='https://cdn.shopify.com/s/files/1/0661/7595/9260/files/Flag-of-Germany-01.svg?v=1721643447' /></li>
@@ -166,6 +177,9 @@ function HeaderMenuMobileToggle() {
   );
 }
 
+/**
+ * @param {{ count: number }}
+ */
 function CartBadge({ count }) {
   return (
     <a className='header-cart' href="#cart-aside">
@@ -179,6 +193,9 @@ function CartBadge({ count }) {
   );
 }
 
+/**
+ * @param {Pick<HeaderProps, 'cart'>}
+ */
 function CartToggle({ cart }) {
   return (
     <Suspense fallback={<CartBadge count={0} />}>
@@ -244,9 +261,21 @@ const FALLBACK_HEADER_MENU = {
   ],
 };
 
+/**
+ * @param {{
+ *   isActive: boolean;
+ *   isPending: boolean;
+ * }}
+ */
 function activeLinkStyle({ isActive, isPending }) {
   return {
     fontWeight: isActive ? 'bold' : undefined,
     color: isPending ? 'grey' : 'black',
   };
 }
+
+/** @typedef {Pick<LayoutProps, 'header' | 'cart' | 'isLoggedIn'>} HeaderProps */
+/** @typedef {'desktop' | 'mobile'} Viewport */
+
+/** @typedef {import('storefrontapi.generated').HeaderQuery} HeaderQuery */
+/** @typedef {import('./Layout').LayoutProps} LayoutProps */
