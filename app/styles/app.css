@@ -139,13 +139,13 @@ aside li {
   body.no-scroll {
     overflow: hidden;
   }
-  .popup {
+  /* .popup {
 	background: white;
 	padding: 20px;
 	border-radius: 10px;
 	text-align: center;
 	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
+  } */
   
   .popup button {
 	margin-top: 10px;
@@ -1212,8 +1212,9 @@ img.footer-bg-img {
    }
 	.header-menu-mobile a {
 		font-size: 18px;
-		line-height: 18px;
 		font-weight: 400 !important;
+		line-height: 25px !important;
+		pointer-events: inherit;
    }
 	img.mobile-logo, img.footer-mobile-img {
 		display: block;
