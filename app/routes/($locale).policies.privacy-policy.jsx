@@ -70,17 +70,17 @@ export default function Policy() {
 
     hideTabsContent(1);
 
-    // document.getElementById('tabs').onclick = function (event) {
-    //   const target = event.target;
-    //   if (target.className === 'tab') {
-    //     for (let i = 0; i < tab.length; i++) {
-    //       if (target === tab[i]) {
-    //         showTabsContent(i);
-    //         break;
-    //       }
-    //     }
-    //   }
-    // };
+    document.getElementById('tabs').onclick = function (event) {
+      const target = event.target;
+      if (target.className === 'tab') {
+        for (let i = 0; i < tab.length; i++) {
+          if (target === tab[i]) {
+            showTabsContent(i);
+            break;
+          }
+        }
+      }
+    };
   }, []);
 
   return (
