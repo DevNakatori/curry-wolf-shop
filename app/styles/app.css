@@ -264,6 +264,24 @@ header.header.header-scrolled {
 .page.thank-you h1{
 	margin: 0;
 }
+.page.thank-you{
+	background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+	text-align: center;
+	height: calc(100vh - 413px);
+	display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.page.thank-you h1{
+	margin: 0;
+}
+.page.thank-you > div{
+	color: #fff;
+    margin: 20px 10px;
+	font-size: calc(14px + (18 - 14) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
+}
 @media (min-width: 48em) {
 	.header-menu-mobile-toggle {
 		display: none;
