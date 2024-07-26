@@ -1,6 +1,7 @@
 .policy h1{margin: 0;}
 .policy{
 	background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+	padding-top: 50px;
 }
 .top-title{text-align: center;padding-bottom: 134px;}
 .top-title h1{color: #fff;}
@@ -31,7 +32,8 @@
 .privacy-box  .inner-tab .tab.whiteborder{background: linear-gradient(0deg, #FEDE03, #FEDE03),
 radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%) /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
 }
-
+.policy p,.policy span,.policy a,.policy ul li{font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(14px + (16- 14) * ((100vw - 320px) / (1920 - 320)));color: #fff;font-family: 'Gotham-Book';}
 
 
 @media (max-width:767px) {
@@ -51,5 +53,4 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rg
 	.privacy-inner-box .p-child-box,.privacy-policy-content .akz-wrap ul{width: auto;}
 	.privacy-policy-content .akz-wrap{flex-direction: column;}
 	.privacy-box .inner-tab .tab{padding: 9px 15px;}
-	.shop-popup{width: 90%;}
 }

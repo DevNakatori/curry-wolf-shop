@@ -47,6 +47,7 @@ export default function Policy() {
 
   return (
     <div className="policy">
+      <div className='container'>
       <div>
         <Link className='yellow-border-btn' to="/policies">← Back to Policies</Link>
       </div>
@@ -54,6 +55,7 @@ export default function Policy() {
       <h1>{policy.title}</h1>
       </div>
       <div dangerouslySetInnerHTML={{__html: policy.body}} />
+    </div>
     </div>
   );
 }
