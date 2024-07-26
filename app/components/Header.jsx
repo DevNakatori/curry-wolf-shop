@@ -40,13 +40,6 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
   const className = `header-menu-${viewport}`;
   const [openSubmenus, setOpenSubmenus] = useState({});
 
-  function closeAside(event) {
-    if (viewport === 'mobile') {
-     // event.preventDefault();
-      window.location.href = event.currentTarget.href;
-    }
-  }
-
   function getUrl(itemUrl) {
     return itemUrl.includes('myshopify.com') ||
       itemUrl.includes(publicStoreDomain) ||
@@ -56,8 +49,8 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
   }
 
   function toggleSubmenu(event, id) {
- //   event.preventDefault();
-  //  event.stopPropagation();
+    event.preventDefault();
+    event.stopPropagation();
     setOpenSubmenus((prevOpenSubmenus) => ({
       ...prevOpenSubmenus,
       [id]: !prevOpenSubmenus[id],
@@ -77,8 +70,12 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
             <div className="menu-item-wrapper" onClick={(e) => toggleSubmenu(e, item.id)}>
               <NavLink
                 end
+<<<<<<< HEAD
                 onClick={closeAside}
                 // prefetch="intent"
+=======
+                prefetch="intent"
+>>>>>>> 36dd15e9149885d2dc6005a5582b012458c0e8aa
                 className={({ isActive }) => isActive ? 'active' : ''}
                 // to={url}
               >
@@ -108,7 +105,6 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                     <li key={subItem.id}>
                       <NavLink
                         end
-                        onClick={closeAside}
                         prefetch="intent"
                         className={({ isActive }) => isActive ? 'active' : ''}
                         to={subUrl}
