@@ -1215,6 +1215,7 @@ img.footer-bg-img {
 		font-weight: 400 !important;
 		line-height: 25px !important;
 		pointer-events: inherit;
+		display: block;
    }
 	img.mobile-logo, img.footer-mobile-img {
 		display: block;
