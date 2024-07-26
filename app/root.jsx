@@ -20,18 +20,17 @@ import { Layout } from '~/components/Layout';
 import fontStyles from './styles/font.css?url';
 import React, { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import Popup from './components/Popup';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
  * @type {ShouldRevalidateFunction}
  */
 export const shouldRevalidate = ({ formMethod, currentUrl, nextUrl }) => {
-    // revalidate when a mutation is performed e.g add to cart, login...
     if (formMethod && formMethod !== 'GET') {
         return true;
     }
 
-    // revalidate when manually revalidating via useRevalidator
     if (currentUrl.toString() === nextUrl.toString()) {
         return true;
     }
@@ -43,7 +42,6 @@ export function ScrollToTop() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    // Check if the pathname includes 'catering'
     if (!pathname.includes('catering')) {
       window.scrollTo(0, 0);
     }
@@ -51,7 +49,6 @@ export function ScrollToTop() {
 
   useEffect(() => {
     const handleBeforeUnload = () => {
-      // Check if the pathname includes 'catering'
       if (!pathname.includes('catering')) {
         window.scrollTo(0, 0);
       }
@@ -81,7 +78,6 @@ export function links() {
         { rel: 'stylesheet', href: resetStyles },
         { rel: 'stylesheet', href: appStyles },
         { rel: 'stylesheet', href: fontStyles },
-       // { rel: 'stylesheet', href: homePageStyles },
         {
             rel: 'preconnect',
             href: 'https://cdn.shopify.com',
@@ -104,19 +100,17 @@ export async function loader({ context }) {
     const isLoggedInPromise = customerAccount.isLoggedIn();
     const cartPromise = cart.get();
 
-    // defer the footer query (below the fold)
     const footerPromise = storefront.query(FOOTER_QUERY, {
         cache: storefront.CacheLong(),
         variables: {
-            footerMenuHandle: 'footer-1', // Adjust to your footer menu handle
+            footerMenuHandle: 'footer-1',
         },
     });
 
-    // await the header query (above the fold)
     const headerPromise = storefront.query(HEADER_QUERY, {
         cache: storefront.CacheLong(),
         variables: {
-            headerMenuHandle: 'new-menu', // Adjust to your header menu handle
+            headerMenuHandle: 'new-menu',
         },
     });
 
@@ -185,6 +179,7 @@ export default function App() {
             <body>
             <ScrollToTop />
             <AosInit />
+            <Popup />
                 <Layout {...data}>
                     <Outlet />
                 </Layout>

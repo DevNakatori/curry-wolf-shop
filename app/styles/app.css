@@ -123,6 +123,45 @@ aside li {
 	visibility: hidden;
 	z-index: 10;
 }
+
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+  }
+  body.no-scroll {
+    overflow: hidden;
+  }
+  .popup {
+	background: white;
+	padding: 20px;
+	border-radius: 10px;
+	text-align: center;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .popup button {
+	margin-top: 10px;
+	padding: 10px 20px;
+	border: none;
+	background: #007bff;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
+  }
+  
+  .popup button:hover {
+	background: #0056b3;
+  }
+  
+
 .overlay .close-outside {
 	background: transparent;
 	border: none;
@@ -283,7 +322,7 @@ header.header.header-scrolled {
 	line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
 }
 .shop-popup {
-    display: none;
+    /* display: none; */
     position: fixed;
     left: 0;
     top: 50%;
@@ -1149,7 +1188,7 @@ img.footer-bg-img {
    
 }
 @media (max-width: 767px) {
-	.shop-popup{width: 90%;}
+	.shop-popup{width: 90%;max-width: 70%;}
 	.footer-sub-block:nth-child(2){padding-top: 20px;}
 	.footer-inner ul{columns: 1;
 		-webkit-columns:1;
