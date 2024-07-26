@@ -78,9 +78,9 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
               <NavLink
                 end
                 onClick={closeAside}
-                prefetch="intent"
+                // prefetch="intent"
                 className={({ isActive }) => isActive ? 'active' : ''}
-                to={url}
+                // to={url}
               >
                 {item.title}
               </NavLink>
