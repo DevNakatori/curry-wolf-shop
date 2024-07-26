@@ -1,6 +1,6 @@
 import {json} from '@shopify/remix-oxygen';
 import {useLoaderData, Link} from '@remix-run/react';
-
+import '../styles/policies.css';
 /**
  * @param {LoaderFunctionArgs}
  */
@@ -29,7 +29,7 @@ export default function Policies() {
   return (
     <div className="policies">
       <h1>Policies</h1>
-      <div>
+      <div className='policies-box'>
         {policies.map((policy) => (
           <fieldset key={policy.id}>
             <Link to={`/policies/${policy.handle}`}>{policy.title}</Link>

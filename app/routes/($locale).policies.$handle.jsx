@@ -1,7 +1,9 @@
 import {json} from '@shopify/remix-oxygen';
 import {Link, useLoaderData} from '@remix-run/react';
+import {useEffect} from 'react';
 import '../styles/policies.css';
 import '../styles/font.css';
+
 /**
  * @type {MetaFunction<typeof loader>}
  */
@@ -45,17 +47,53 @@ export default function Policy() {
   /** @type {LoaderReturnData} */
   const {policy} = useLoaderData();
 
+  useEffect(() => {
+    const tabContent = document.getElementsByClassName('tabContent');
+    const tab = document.getElementsByClassName('tab');
+
+    function hideTabsContent(a) {
+      for (let i = a; i < tabContent.length; i++) {
+        tabContent[i].classList.remove('show');
+        tabContent[i].classList.add('hide');
+        tab[i].classList.remove('whiteborder');
+      }
+    }
+
+    function showTabsContent(b) {
+      if (tabContent[b].classList.contains('hide')) {
+        hideTabsContent(0);
+        tab[b].classList.add('whiteborder');
+        tabContent[b].classList.remove('hide');
+        tabContent[b].classList.add('show');
+      }
+    }
+
+    hideTabsContent(1);
+
+    document.getElementById('tabs').onclick = function (event) {
+      const target = event.target;
+      if (target.className === 'tab') {
+        for (let i = 0; i < tab.length; i++) {
+          if (target === tab[i]) {
+            showTabsContent(i);
+            break;
+          }
+        }
+      }
+    };
+  }, []);
+
   return (
     <div className="policy">
-      <div className='container'>
-      <div>
-        <Link className='yellow-border-btn' to="/policies">← Back to Policies</Link>
+      <div className="container">
+        <div>
+          <Link className="yellow-border-btn" to="/policies">← Back to Policies</Link>
+        </div>
+        <div className="top-title">
+          <h1>{policy.title}</h1>
+        </div>
+        <div dangerouslySetInnerHTML={{__html: policy.body}} />
       </div>
-      <div className='top-title'>
-      <h1>{policy.title}</h1>
-      </div>
-      <div dangerouslySetInnerHTML={{__html: policy.body}} />
-    </div>
     </div>
   );
 }

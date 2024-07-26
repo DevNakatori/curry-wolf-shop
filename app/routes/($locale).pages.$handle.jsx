@@ -39,9 +39,6 @@ export default function Page() {
         <h1>{page.title}</h1>
       </header>
       <div dangerouslySetInnerHTML={{__html: page.body}} ></div>
-      <div className='thank-you-btn'>
-        <a className='yellow-btn' href='/'>Go back to home</a>
-      </div>
     </div>
   );
 }
