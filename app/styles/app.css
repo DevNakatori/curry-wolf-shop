@@ -1212,8 +1212,9 @@ img.footer-bg-img {
    }
 	.header-menu-mobile a {
 		font-size: 18px;
-		line-height: 18px;
 		font-weight: 400 !important;
+		line-height: 25px;
+		pointer-events: inherit;
    }
 	img.mobile-logo, img.footer-mobile-img {
 		display: block;
