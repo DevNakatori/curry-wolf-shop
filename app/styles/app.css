@@ -83,18 +83,21 @@ aside header .inner a {
 	opacity: 0 !important;
 	cursor: pointer;
 }
-aside header .outer:hover .inner:before, aside header .outer:hover .inner:after {
-	transform: rotate(0);
-}
-aside header .outer:hover .inner:before {
-	top: 0;
-}
-aside header .outer:hover .inner:after {
-	bottom: 0;
-}
-aside header .outer:hover a {
-	opacity: 1 !important;
-	text-decoration: none;
+
+@media (min-width: 768px) {
+	aside header .outer:hover .inner:before, aside header .outer:hover .inner:after {
+		transform: rotate(0);
+	}
+	aside header .outer:hover .inner:before {
+		top: 0;
+	}
+	aside header .outer:hover .inner:after {
+		bottom: 0;
+	}
+	aside header .outer:hover a {
+		opacity: 1 !important;
+		text-decoration: none;
+	}
 }
 aside main {
 	margin: 1rem;
@@ -181,12 +184,12 @@ aside li {
 	position: absolute;
 	width: 100%;
 }
-.overlay:target {
+.active {
 	opacity: 1;
 	pointer-events: auto;
 	visibility: visible;
 }
-.overlay:target aside {
+.active aside {
 	transform: translateX(calc(var(--aside-width) * -1));
 }
 .header {
