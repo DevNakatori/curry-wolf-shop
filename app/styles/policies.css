@@ -75,7 +75,6 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rg
 	line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));color: #fff;}
 	.term-sec h3{font-size:calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
 		line-height: calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));color: #fff;}
-		.policies-box fieldset:last-child{display: none;}
 			.policy-sec{background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
 	}
 	.policy-sec p,.policy-sec ul li{
