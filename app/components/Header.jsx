@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Await, NavLink } from '@remix-run/react';
+import { useCallback, useState } from 'react';
+import { Await, NavLink, useNavigate } from '@remix-run/react';
 import { Suspense } from 'react';
 import { useRootLoaderData } from '~/lib/root-data';
 import shopLogo from '../assets/CurryWolf_Logo_footer.svg';
@@ -7,7 +7,7 @@ import shopLogo from '../assets/CurryWolf_Logo_footer.svg';
 /**
  * @param {HeaderProps}
  */
-export function Header({ header, isLoggedIn, cart }) {
+export function Header({ header, isLoggedIn, cart , toggle, setToggle }) {
   const { shop, menu } = header;
   return (
     <header className="header">
@@ -27,8 +27,12 @@ export function Header({ header, isLoggedIn, cart }) {
             menu={menu}
             viewport="desktop"
             primaryDomainUrl={header.shop.primaryDomain.url}
+            toggle={toggle}
+            setToggle={setToggle}
+
           />
-          <HeaderCtas isLoggedIn={isLoggedIn} cart={cart} />
+          <HeaderCtas isLoggedIn={isLoggedIn} cart={cart}  toggle={toggle}
+            setToggle={setToggle}  />
         </div>
       </div>
     </header>
@@ -42,12 +46,12 @@ export function Header({ header, isLoggedIn, cart }) {
  *   viewport: Viewport;
  * }}
  */
-export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
+export function HeaderMenu({ menu, primaryDomainUrl, viewport ,toggle,setToggle }) {
   const { publicStoreDomain } = useRootLoaderData();
   const className = `header-menu-${viewport}`;
-  const [openSubmenus, setOpenSubmenus] = useState({});
+  const [openSubmenus, setOpenSubmenus] = useState(false);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-
+const navigate = useNavigate()
   function getUrl(itemUrl) {
     return itemUrl.includes('myshopify.com') ||
       itemUrl.includes(publicStoreDomain) ||
@@ -56,22 +60,18 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
       : itemUrl;
   }
 
-  function toggleSubmenu(event, id) {
-    event.preventDefault();
-    event.stopPropagation();
-    setOpenSubmenus((prevOpenSubmenus) => ({
-      ...prevOpenSubmenus,
-      [id]: !prevOpenSubmenus[id],
-    }));
-  }
 
-  function closeDrawer() {
-    setIsDrawerOpen(false);
-  }
+  const handleClick = useCallback((event, url) => {
+    if (viewport === 'mobile') {
+      event.preventDefault();
+      navigate(url);
+      setToggle(prevToggle => !prevToggle); 
+      setOpenSubmenus(false);
+    }
+  }, [viewport, navigate, setToggle, setOpenSubmenus]);
 
-  function toggleDrawer() {
-    setIsDrawerOpen(!isDrawerOpen);
-  }
+
+
 
   return (
     <>
@@ -83,26 +83,24 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
           if (!item.url) return null;
 
           const url = getUrl(item.url);
-          const isOpen = openSubmenus[item.id];
+          
 
           return (
             <div key={item.id} className="header-menu-item">
-              <div className="menu-item-wrapper" onClick={(e) => toggleSubmenu(e, item.id)}>
+              <div className="menu-item-wrapper">
                 <NavLink
                   end
                   prefetch="intent"
                   className={({ isActive }) => (isActive ? 'active' : '')}
                   to={url}
-                  onClick={() => {
-                    closeDrawer();
-                    console.log(isDrawerOpen)
-                  }}
+                  onClick={(e) => handleClick(e, url)}
                 >
                   {item.title}
                 </NavLink>
                 {item.items && item.items.length > 0 && (
                   <svg
-                    className={`submenu-arrow ${isOpen ? 'open' : ''}`}
+                  onClick={() =>  setOpenSubmenus(!openSubmenus)}
+                    className={`submenu-arrow ${openSubmenus ? 'open' : ''}`}
                     width="16"
                     height="16"
                     viewBox="0 0 24 24"
@@ -117,7 +115,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                 )}
               </div>
               {item.items && item.items.length > 0 && (
-                <ul className={`submenu ${viewport} ${isOpen ? 'open' : ''}`}>
+                <ul className={`submenu ${viewport} ${openSubmenus ? 'open' : ''}`}>
                   {item.items.map((subItem) => {
                     const subUrl = getUrl(subItem.url);
                     return (
@@ -127,7 +125,7 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
                           prefetch="intent"
                           className={({ isActive }) => (isActive ? 'active' : '')}
                           to={subUrl}
-                          onClick={closeDrawer}
+                          onClick={(e) => handleClick(e, subUrl)}
                         >
                           {subItem.title}
                         </NavLink>
@@ -147,10 +145,10 @@ export function HeaderMenu({ menu, primaryDomainUrl, viewport }) {
 /**
  * @param {Pick<HeaderProps, 'isLoggedIn' | 'cart'>}
  */
-function HeaderCtas({ isLoggedIn, cart }) {
+function HeaderCtas({ isLoggedIn, cart ,toggle ,setToggle}) {
   return (
     <nav className="header-ctas" role="navigation">
-      <HeaderMenuMobileToggle />
+      <HeaderMenuMobileToggle toggle ={toggle} setToggle={setToggle} />
       <NavLink prefetch="intent" className="mobile-hide" to="/account" style={activeLinkStyle}>
         <Suspense fallback="Sign in">
           <Await resolve={isLoggedIn} errorElement="Sign in">
@@ -189,9 +187,9 @@ function HeaderCtas({ isLoggedIn, cart }) {
   );
 }
 
-function HeaderMenuMobileToggle() {
+function HeaderMenuMobileToggle({toggle,setToggle}) {
   return (
-    <a className="header-menu-mobile-toggle" href="#mobile-menu-aside">
+    <a className="header-menu-mobile-toggle" onClick={()=>setToggle(!toggle)}>
       <h3>
         <svg width="24" height="14" viewBox="0 0 24 14" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0.0610352 1H23.1196" stroke="white" />

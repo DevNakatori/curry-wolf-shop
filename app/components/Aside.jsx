@@ -13,9 +13,9 @@
  *   id?: string;
  * }}
  */
-export function Aside({children, heading, id = 'aside'}) {
+export function Aside({children, heading, id = 'aside', toggle, setToggle}) {
   return (
-    <div aria-modal className="overlay" id={id} role="dialog">
+    <div aria-modal    className={`${toggle ? 'active' : ''} overlay`} id={id} role="dialog">
       <button
         className="close-outside"
         onClick={() => {
@@ -26,7 +26,7 @@ export function Aside({children, heading, id = 'aside'}) {
       <aside>
         <header>
           <h3>{heading}</h3>
-          <CloseAside />
+          <CloseAside toggle ={toggle} setToggle ={setToggle} />
         </header>
         <main>{children}</main>
       </aside>
@@ -34,13 +34,14 @@ export function Aside({children, heading, id = 'aside'}) {
   );
 }
 
-function CloseAside() {
+function CloseAside({toggle,setToggle}) {
+  console.log(toggle)
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
     <div className="close-popup" id="closeBtn">
     <div className="outer">
       <div className="inner">
-        <a className="close" href="#" onChange={() => history.go(-1)}>Back</a>
+        <a className="close" href="#" onClick={() =>setToggle(!toggle)}><span>Back</span></a>
         </div>
       </div>
     </div>
