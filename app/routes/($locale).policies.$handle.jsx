@@ -7,7 +7,7 @@ import '../styles/policies.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({ data }) => {
-  return [{ title: `Hydrogen | ${data?.policy.title ?? ''}` }];
+  return [{ title: `Curry Wolf | ${data?.policy.title ?? ''}` }];
 };
 
 /**
@@ -37,6 +37,24 @@ export async function loader({ params, context }) {
 
   if (!policy) {
     throw new Response('Could not find the policy', { status: 404 });
+  }
+
+  // Replace the policy title with the German name
+  switch (policy.handle) {
+    case 'terms-of-service':
+      policy.title = 'Allgemeine Geschäftsbedingungen';
+      break;
+    case 'refund-policy':
+      policy.title = 'Widerrufsrecht';
+      break;
+    case 'shipping-policy':
+      policy.title = 'Zahlung und Versand';
+      break;
+    case 'privacy-policy':
+      policy.title = 'Datenschutz';
+      break;
+    default:
+      break;
   }
 
   return json({ policy });
