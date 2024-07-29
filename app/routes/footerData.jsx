@@ -21,7 +21,7 @@ export function KeepInTouch() {
             <p className="footer-flex footer-location">
               <span>Curry Wolf Berlin GmbH</span>
               <span>Rankestrasse 36<br></br>10789 Berlin</span>
-              <span>Germany</span>
+              <span>Deutschland</span>
             </p>
         </div>  
       </div>

@@ -59,8 +59,6 @@ export default function Page() {
   useEffect(() => {
     let lastScrollTop = 0;
     const indicatorDiv = document.getElementById('indicator');
-
-    // Initially make the scroll indicator visible
     indicatorDiv.style.bottom = '0';
     indicatorDiv.style.opacity = '1';
 
@@ -94,7 +92,6 @@ export default function Page() {
       });
     }
 
-    // Cleanup the event listeners on component unmount
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -108,13 +105,15 @@ export default function Page() {
         const dotsContainer = document.getElementById('dots-container');
         const totalSlides = slides.length;
         let currentIndex = 1;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let animationID = 0;
 
         if (dotsContainer.children.length === 0) {
-          // Clear any existing clones
           sliderWrapper.innerHTML = '';
           slides.forEach((slide) => sliderWrapper.appendChild(slide));
-
-          // Clone the first and last slides
           const firstSlideClone = slides[0].cloneNode(true);
           const lastSlideClone = slides[totalSlides - 1].cloneNode(true);
 
@@ -123,8 +122,6 @@ export default function Page() {
         }
 
         const allSlides = document.querySelectorAll('.slide');
-
-        // Clear existing dots
         dotsContainer.innerHTML = '';
 
         for (let i = 0; i < Math.min(totalSlides, 3); i++) {
@@ -162,6 +159,69 @@ export default function Page() {
           });
           updateDots();
         }
+
+        function setPositionByIndex() {
+          currentTranslate = currentIndex * -window.innerWidth;
+          prevTranslate = currentTranslate;
+          setSliderPosition();
+        }
+
+        function setSliderPosition() {
+          sliderWrapper.style.transform = `translateX(${currentTranslate}px)`;
+        }
+
+        function animation() {
+          setSliderPosition();
+          if (isDragging) requestAnimationFrame(animation);
+        }
+
+        function touchStart(index) {
+          return function (event) {
+            currentIndex = index;
+            startPos = getPositionX(event);
+            isDragging = true;
+            animationID = requestAnimationFrame(animation);
+            sliderWrapper.style.cursor = 'grabbing';
+          };
+        }
+
+        function touchEnd() {
+          isDragging = false;
+          cancelAnimationFrame(animationID);
+
+          const movedBy = currentTranslate - prevTranslate;
+
+          if (movedBy < -100 && currentIndex < totalSlides - 1) currentIndex += 1;
+          if (movedBy > 100 && currentIndex > 0) currentIndex -= 1;
+
+          setPositionByIndex();
+          sliderWrapper.style.cursor = 'grab';
+        }
+
+        function touchMove(event) {
+          if (isDragging) {
+            const currentPosition = getPositionX(event);
+            currentTranslate = prevTranslate + currentPosition - startPos;
+          }
+        }
+
+        function getPositionX(event) {
+          return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+        }
+
+        slides.forEach((slide, index) => {
+          const slideImage = slide.querySelector('img');
+          slideImage.addEventListener('dragstart', (e) => e.preventDefault());
+
+          slide.addEventListener('touchstart', touchStart(index));
+          slide.addEventListener('touchend', touchEnd);
+          slide.addEventListener('touchmove', touchMove);
+
+          slide.addEventListener('mousedown', touchStart(index));
+          slide.addEventListener('mouseup', touchEnd);
+          slide.addEventListener('mouseleave', touchEnd);
+          slide.addEventListener('mousemove', touchMove);
+        });
 
         sliderWrapper.addEventListener('transitionend', () => {
           if (currentIndex >= totalSlides + 1) {
