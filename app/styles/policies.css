@@ -66,9 +66,11 @@ radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.63) 0%, rg
 .policy .yellow-border-btn{color: #FEDE03;}
 .policy .yellow-border-btn:hover{color: #9B2220;}
 .policy,.policy p,.policy span,.policy a,.policy ul li,.privacy-box .inner-tab .tab,.privacy-policy-content ul li,.privacy-policy-content address{font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
-	line-height: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));color: #fff;font-family: 'Gotham-Book';}
+	line-height: calc(18px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));color: #fff;font-family: 'Gotham-Book'; list-style: disc;}
 .privacy-policy-content .privacy-box:last-child{border-bottom: 0;}
-
+.policy ul{list-style: none;margin: revert;padding: revert;}
+ .policy ul li{padding-bottom: 15px;} 
+.policy-sec p,.policy p{padding: 10px 0px;}
 .term-sec h2{font-family: 'Block Berthold';font-size:calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
 	line-height: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));color: #fff;}
 	.term-sec h3{font-size:calc(16px + (22 - 16) * ((100vw - 320px) / (1920 - 320)));
