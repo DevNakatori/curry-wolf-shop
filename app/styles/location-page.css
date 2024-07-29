@@ -368,7 +368,7 @@ span.additionalLabel2{
 	   position: absolute !important;
 	   cursor: grab !important;
 	   height: 100%;
-	   overflow: auto !important;
+	   overflow: initial !important;
 	}
  
 	div#video-container:active {
