@@ -398,6 +398,12 @@ span.additionalLabel2{
  }
  
  @media (max-width:767px) {
+
+	.overlayImage {width: 120px;height: 120px;}
+	.overlayLabel {font-size: 2.8vw;width: 125px;height: 90px;}
+	span.mainLabel img {width: 46px;}
+	span.mainLabel {top: -5px;}
+
 	.footer-menu span.yellow-head{margin-bottom: 15px;}
 	.c-right p{height: initial !important;}
 	.c-two-box:nth-child(1) {
