@@ -8,9 +8,28 @@
 	--color-light: #fff;
 	--color-red: #D02523;
 }
-/* img {
-	border-radius: 4px;
-} */
+.route-error {
+    height: calc(100vh - 140px);
+    background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column;
+    align-items: center;
+	padding: 70px 0;
+}
+.error-oops footer.footer {
+    display: none;
+}
+.route-error .thank-you-btn{margin-top: 20px;}
+.thank-you-btn a{border-radius: 5px;}
+.route-error h2,.route-error h1{
+	color: #fff;
+	font-size: calc(30px + (120 - 30) * ((100vw - 320px) / (1920 - 320)));
+	line-height: calc(30px + (120 - 30) * ((100vw - 320px) / (1920 - 320)));
+	font-family: 'BertholdBlock';
+	margin: 0;
+}
 aside {
 	background: #9B2220;
 	box-shadow: 0 0 50px rgba(0, 0, 0, 0.3);
@@ -53,7 +72,7 @@ aside header .outer {
 	width: 28px;
 	cursor: pointer;
 }
-aside header .inner {
+/* aside header .inner {
 	width: inherit;
 	text-align: center;
 }
@@ -65,7 +84,7 @@ aside header .inner:before, aside header .inner:after{
 	background: #fff;
 	left: 0;
 	transition: all .3s ease-in;
-}
+} */
 aside header .inner:before{
 	top: 44%;
 	transform: rotate(45deg);
@@ -83,21 +102,20 @@ aside header .inner a {
 	opacity: 0 !important;
 	cursor: pointer;
 }
-
 @media (min-width: 768px) {
-	aside header .outer:hover .inner:before, aside header .outer:hover .inner:after {
+	/* aside header .outer:hover .inner:before, aside header .outer:hover .inner:after {
 		transform: rotate(0);
-	}
-	aside header .outer:hover .inner:before {
+	} */
+	/* aside header .outer:hover .inner:before {
 		top: 0;
 	}
 	aside header .outer:hover .inner:after {
 		bottom: 0;
-	}
-	aside header .outer:hover a {
+	} */
+	/* aside header .outer:hover a {
 		opacity: 1 !important;
 		text-decoration: none;
-	}
+	} */
 }
 aside main {
 	margin: 1rem;
@@ -117,7 +135,6 @@ aside li {
 	bottom: 0;
 	left: 0;
 	opacity: 0;
-	/* pointer-events: none; */
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -142,14 +159,6 @@ aside li {
   body.no-scroll {
     overflow: hidden;
   }
-  /* .popup {
-	background: white;
-	padding: 20px;
-	border-radius: 10px;
-	text-align: center;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  } */
-  
   .popup button {
 	margin-top: 10px;
 	padding: 10px 20px;
@@ -189,9 +198,17 @@ aside li {
 	pointer-events: auto;
 	visibility: visible;
 }
+.overlay:target{
+	opacity: 1;
+	pointer-events: auto;
+	visibility: visible;
+}
 .active aside {
 	transform: translateX(calc(var(--aside-width) * -1));
 }
+.overlay:target aside {
+	transform: translateX(calc(var(--aside-width) * -1));
+  }
 .header {
 	align-items: center;
 	background: var(--color-red);
@@ -328,12 +345,10 @@ header.header.header-scrolled {
 	line-height: calc(20px + (20 - 20) * ((100vw - 320px) / (1920 - 320)));
 }
 .shop-popup {
-    /* display: none; */
     position: fixed;
     left: 0;
     top: 50%;
     width: 100%;
-    /* height: 100%; */
     background-color: rgba(168, 10, 21, 1);
     z-index: 1000;
     justify-content: center;
@@ -408,12 +423,6 @@ header.header.transparent {
 	background: transparent;
 	box-shadow: unset;
 }
-/* .footer {
-	background: var(--color-red);
-	margin-top: auto;
-	z-index: 1;
-}
-*/
 .footer-menu a {
 	color: var(--color-light);
 }
@@ -603,11 +612,6 @@ header.header.transparent {
 	font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
 	line-height: calc(20px + (24 - 20) * ((100vw - 320px) / (1920 - 320)));
 	font-weight: 500;
-   /* background: linear-gradient(0deg, #FEDE03, #FEDE03), radial-gradient(63.11% 63.11% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-color: transparent;
-	*/
 	padding: 0.450vw 2vw;
 	border-radius: 25px;
 	text-decoration: none;
@@ -674,6 +678,7 @@ a.header-menu-item.active {
 	height: 93px;
 
 }
+.header-menu-desktop a.active{text-decoration: underline;}
 .header {
 	padding: 15px 0;
 }
@@ -1194,6 +1199,15 @@ img.footer-bg-img {
    
 }
 @media (max-width: 767px) {
+
+	.route-error .thank-you-btn {
+		margin-top: 10px;
+	}
+	.route-error h1{
+		margin-bottom: 10px;
+		margin-top: 0rem;
+	}
+	.route-error{padding: 0;}
 	.shop-popup{width: 90%;max-width: 70%;}
 	.footer-sub-block:nth-child(2){padding-top: 20px;}
 	.footer-inner ul{columns: 1;

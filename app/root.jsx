@@ -217,16 +217,19 @@
                   <Meta />
                   <Links />
               </head>
-              <body>
+              <body class="error-oops">
                   <Layout {...rootData}>
                       <div className="route-error">
-                          <h1>Oops</h1>
+                          <h1>Oops!</h1>
                           <h2>{errorStatus}</h2>
                           {errorMessage && (
                               <fieldset>
                                   <pre>{errorMessage}</pre>
                               </fieldset>
                           )}
+                          <div class="thank-you-btn">
+                            <a href="/" class="yellow-btn">Zurück zur Startseite</a>
+                          </div>
                       </div>
                   </Layout>
                   <ScrollRestoration nonce={nonce} />

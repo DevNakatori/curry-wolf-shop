@@ -108,6 +108,8 @@ export default function Page() {
         const dotsContainer = document.getElementById('dots-container');
         const totalSlides = slides.length;
         let currentIndex = 1;
+        let startX = 0;
+        let endX = 0;
 
         if (dotsContainer.children.length === 0) {
           // Clear any existing clones
@@ -179,6 +181,30 @@ export default function Page() {
               sliderWrapper.style.transition = 'transform 0.5s ease';
             }, 50);
           }
+        });
+
+          // Touch events for swipe functionality
+          sliderWrapper.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+        });
+
+        sliderWrapper.addEventListener('touchmove', (e) => {
+            endX = e.touches[0].clientX;
+        });
+
+        sliderWrapper.addEventListener('touchend', () => {
+            const diffX = startX - endX;
+            if (diffX > 50) {
+                // Swipe left (next slide)
+                currentIndex++;
+                sliderWrapper.style.transition = 'transform 0.5s ease';
+                updateSlider();
+            } else if (diffX < -50) {
+                // Swipe right (previous slide)
+                currentIndex--;
+                sliderWrapper.style.transition = 'transform 0.5s ease';
+                updateSlider();
+            }
         });
 
         updateSlider();
