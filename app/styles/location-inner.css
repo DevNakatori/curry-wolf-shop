@@ -4,7 +4,7 @@ section.thereedmainsection {
 	overflow: hidden;
 	padding: 0;
  }
- 
+
  .popup-inner-left-box h1 {
 	font-size: calc(32px + (76 - 30) * ((100vw - 320px) / (1920 - 320)));
 	line-height: calc(40px + (95 - 40) * ((100vw - 320px) / (1920 - 320)));
@@ -591,7 +591,13 @@ section.thereedmainsection {
  .popup-payment li img {
 	width: 50px;
  }
- 
+ @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+	@media only screen and (max-width: 767px) {
+ .popup-container {
+    background: #d52a28;
+}
+	}
+}
  @media (min-width:1920px) {
 	.p-top-btn {
 	   top: -50px;
