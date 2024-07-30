@@ -9,7 +9,7 @@
 	--color-red: #D02523;
 }
 .route-error {
-    height: calc(100vh - 413px);
+    height: calc(100vh - 140px);
     background: linear-gradient(180deg, #D02523 0%, #9B2220 67.26%);
     display: flex;
     align-items: center;
@@ -17,6 +17,9 @@
     flex-flow: column;
     align-items: center;
 	padding: 70px 0;
+}
+.error-oops footer.footer {
+    display: none;
 }
 .route-error .thank-you-btn{margin-top: 20px;}
 .thank-you-btn a{border-radius: 5px;}
