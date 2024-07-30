@@ -26,7 +26,7 @@ export function Aside({children, heading, id = 'aside', toggle, setToggle}) {
       <aside>
         <header>
           <h3>{heading}</h3>
-          <CloseAside toggle ={toggle} setToggle ={setToggle} />
+          <CloseAside toggle ={toggle} setToggle ={setToggle} heading={heading} />
         </header>
         <main>{children}</main>
       </aside>
@@ -34,14 +34,14 @@ export function Aside({children, heading, id = 'aside', toggle, setToggle}) {
   );
 }
 
-function CloseAside({toggle,setToggle}) {
+function CloseAside({toggle,setToggle,heading}) {
   console.log(toggle)
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
     <div className="close-popup" id="closeBtn">
     <div className="outer">
       <div className="inner">
-        <a className="close" href="#" onClick={() =>setToggle(!toggle)}><span>Back</span></a>
+      {heading ==="CART"?  <a className="close" href="#" onClick={() => history.go(-1)}><span>Back</span></a>:(<a className="close" href="#" onClick={() =>setToggle(!toggle)}><span>Back</span></a>)}
         </div>
       </div>
     </div>
