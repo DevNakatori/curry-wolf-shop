@@ -227,6 +227,9 @@
                                   <pre>{errorMessage}</pre>
                               </fieldset>
                           )}
+                          <div class="thank-you-btn">
+                            <a href="/" class="yellow-btn">Zurück zur Startseite</a>
+                          </div>
                       </div>
                   </Layout>
                   <ScrollRestoration nonce={nonce} />

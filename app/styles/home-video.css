@@ -933,6 +933,8 @@ video#bgVideo {
       font-size: 8px;
       margin: 0 auto;
       width: 0;
+      height: 15px;
+      line-height: 15px;
    }
  
    .second-time-video-text .slide p {

@@ -561,6 +561,7 @@ div#faq {
 
    .ref-title h4 {
       font-size: 14px;
+      line-height: 14px;
    }
 
    .img-one:before {
@@ -643,25 +644,25 @@ div#faq {
       display: block;
    }
 
-   .ref-box p {
+   /* .ref-box p {
       font-size: 14px;
       line-height: 16px;
       font-family: 'Chivo-Regular';
-   }
+   } */
 
-   .ref-title h4 {
+   /* .ref-title h4 {
       font-size: 14px;
       line-height: 16px;
       font-family: 'Neue-Haas-Grotesk-Display-Pro';
-   }
+   } */
 
-   .inner-wolf-bestell .left-content h1 {
+   /* .inner-wolf-bestell .left-content h1 {
       font-family: 'RubikOne-Regular';
-   }
+   } */
 
-   .inner-wolf-bestell h3 {
+   /* .inner-wolf-bestell h3 {
       font-family: 'Neue-Haas-Grotesk-Display-Pro';
-   }
+   } */
 
    .brandenburg {
       flex-wrap: wrap;
