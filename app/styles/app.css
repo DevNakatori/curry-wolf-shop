@@ -22,7 +22,7 @@
     display: none;
 }
 .route-error .thank-you-btn{margin-top: 20px;}
-.thank-you-btn a{border-radius: 5px;}
+.thank-you-btn a{border-radius: 5px;text-transform: none;}
 .route-error h2,.route-error h1{
 	color: #fff;
 	font-size: calc(30px + (120 - 30) * ((100vw - 320px) / (1920 - 320)));

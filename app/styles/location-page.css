@@ -399,10 +399,11 @@ span.additionalLabel2{
  
  @media (max-width:767px) {
 
-	.overlayImage {width: 120px;height: 120px;}
+	.overlayImage {width: 80px;height: 80px;}
+    span.additionalLabel2{font-size: 2vw;}
 	section.thereedmainsection,section.thereedmainsection video{height: 450px;}
-	.overlayLabel {font-size: 2.5vw;width: 110px;height: 90px;}
-	span.mainLabel img {width: 46px;}
+	.overlayLabel {font-size: 2vw;width: 110px;height: 90px;}
+	span.mainLabel img {width: 36px;}
 	span.mainLabel {top: -5px;}
 
 	.footer-menu span.yellow-head{margin-bottom: 15px;}
