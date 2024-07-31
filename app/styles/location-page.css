@@ -404,7 +404,7 @@ span.additionalLabel2{
 	section.thereedmainsection,section.thereedmainsection video{height: 450px;}
 	.overlayLabel {font-size: 2vw;width: 110px;height: 90px;}
 	span.mainLabel img {width: 36px;}
-	span.mainLabel {top: -5px;}
+	span.mainLabel {top: 4px;left: -13px;}
 
 	.footer-menu span.yellow-head{margin-bottom: 15px;}
 	.c-right p{height: initial !important;}
