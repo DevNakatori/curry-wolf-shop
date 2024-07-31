@@ -61,11 +61,11 @@ export default function Page() {
     const overlayImages = document.querySelectorAll('.overlayImage');
     const positions = window.innerWidth < 768 ? [
 
-      { x: 20, y: 24, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
-      { x: 14 , y: 39, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
-      { x: 25, y: 18.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Brandenburger Tor', additionalLabel2: 'Mehr Info' },
-      { x: 23, y: 32, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Kudamm', additionalLabel2: 'Mehr Info' },
-      { x: 29, y: 35, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Lichtenrade', additionalLabel2: 'Mehr Info' }
+      { x: 20, y: 21, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
+      { x: 14 , y: 36, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
+      { x: 25, y: 15.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Brandenburger Tor', additionalLabel2: 'Mehr Info' },
+      { x: 23, y: 29, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Kudamm', additionalLabel2: 'Mehr Info' },
+      { x: 29, y: 30, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Lichtenrade', additionalLabel2: 'Mehr Info' }
 
     ] :
     [
