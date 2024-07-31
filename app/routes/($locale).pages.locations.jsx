@@ -59,7 +59,20 @@ export default function Page() {
     const video2 = document.getElementById('video2');
     const videocontainer = document.getElementById('video-container');
     const overlayImages = document.querySelectorAll('.overlayImage');
-    const positions = [
+    const positions = window.innerWidth < 768 ? [
+
+      { x: 15, y: 22, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
+
+      { x: 9 , y: 35, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
+
+      { x: 24, y: 17.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Brandenburger Tor', additionalLabel2: 'Mehr Info' },
+
+      { x: 22, y: 28, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Kudamm', additionalLabel2: 'Mehr Info' },
+
+      { x: 31, y: 29, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Lichtenrade', additionalLabel2: 'Mehr Info' }
+
+    ] :
+    [
       { x: 15, y: 22, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
       { x: 9 , y: 35, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
       { x: 24, y: 17.5, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Brandenburger Tor', additionalLabel2: 'Mehr Info' },

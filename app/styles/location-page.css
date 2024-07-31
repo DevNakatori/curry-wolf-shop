@@ -400,7 +400,8 @@ span.additionalLabel2{
  @media (max-width:767px) {
 
 	.overlayImage {width: 120px;height: 120px;}
-	.overlayLabel {font-size: 2.8vw;width: 125px;height: 90px;}
+	section.thereedmainsection,section.thereedmainsection video{height: 450px;}
+	.overlayLabel {font-size: 2.5vw;width: 110px;height: 90px;}
 	span.mainLabel img {width: 46px;}
 	span.mainLabel {top: -5px;}
 
@@ -423,6 +424,7 @@ span.additionalLabel2{
  }
  
  @media (max-width:575px) {
+	
 	.c-right a.yellow-btn{padding: 2px;}
 	.c-two-box {
 	   flex-direction: column;
@@ -448,6 +450,7 @@ span.additionalLabel2{
 	   margin-top: 0px;
 	}
 	.c-right p{max-width: initial;}
+	
  }
  
  @media (max-width:400px) {
