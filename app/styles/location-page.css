@@ -400,7 +400,7 @@ span.additionalLabel2{
  @media (max-width:767px) {
 
 	.overlayImage {width: 80px;height: 80px;}
-    span.additionalLabel2{font-size: 2vw;}
+    span.additionalLabel2{font-size: 1.5vw;}
 	section.thereedmainsection,section.thereedmainsection video{height: 450px;}
 	.overlayLabel {font-size: 2vw;width: 110px;height: 90px;}
 	span.mainLabel img {width: 36px;}

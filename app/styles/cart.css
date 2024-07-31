@@ -155,6 +155,7 @@
 	background: #fff;
 	left: 0;
 	transition: all .3s ease-in;
+	width: 30px;
 }
 
 #cart-aside .inner:before {
