@@ -90,8 +90,8 @@ export default function Page() {
         const xPoss = rect.left + (rect.width * xPercentage / 100) - 100;
         const yPoss = rect.top + (rect.height * yPercentage / 100) - 140;
 
-        const xPoss = rect.left + (rect.width * xPercentage / 100) - (isMobile ? 100 : 50);
-        const yPoss = rect.top + (rect.height * yPercentage / 100) - (isMobile ? 140 : 70);
+        // const xPoss = rect.left + (rect.width * xPercentage / 100) - (isMobile ? 100 : 50);
+        // const yPoss = rect.top + (rect.height * yPercentage / 100) - (isMobile ? 140 : 70);
 
         image.style.left = `${xPercentage}%`;
         image.style.top = `${yPercentage}%`;
