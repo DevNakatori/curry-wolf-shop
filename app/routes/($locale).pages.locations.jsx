@@ -59,7 +59,8 @@ export default function Page() {
     const video2 = document.getElementById('video2');
     const videocontainer = document.getElementById('video-container');
     const overlayImages = document.querySelectorAll('.overlayImage');
-    const positions = window.innerWidth < 768 ? [
+    const isMobile  = window.innerWidth < 768; 
+    const positions = isMobile ? [
 
       { x: 20, y: 21, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Steglitz', additionalLabel2: 'Mehr Info' },
       { x: 14 , y: 32, label: '<img src="https://cdn.shopify.com/oxygen-v2/32730/22017/45614/725053/assets/CurryWolf_Logo_footer-BNigDRwe.svg" />', additionalLabel: 'Potsdam', additionalLabel2: 'Mehr Info' },
@@ -88,6 +89,9 @@ export default function Page() {
 
         const xPoss = rect.left + (rect.width * xPercentage / 100) - 100;
         const yPoss = rect.top + (rect.height * yPercentage / 100) - 140;
+
+        const xPoss = rect.left + (rect.width * xPercentage / 100) - (isMobile ? 100 : 50);
+        const yPoss = rect.top + (rect.height * yPercentage / 100) - (isMobile ? 140 : 70);
 
         image.style.left = `${xPercentage}%`;
         image.style.top = `${yPercentage}%`;
