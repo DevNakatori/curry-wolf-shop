@@ -179,7 +179,7 @@ export default function Page() {
                 setTimeout(() => {
                     image.style.opacity = 1;
                     overlayLabels[index].style.opacity = 1;
-                }, index * 10);
+                }, index * 500);
             });
         }
 
@@ -189,12 +189,12 @@ export default function Page() {
             video1.style.display = 'none';
             video2.style.display = 'block';
             video2.play();
-            positionOverlayImages();
-            showImagesSequentially();
+            // positionOverlayImages();
+            //showImagesSequentially();
         });
 
 
-        // window.addEventListener('resize', () => {
+        //  window.addEventListener('resize', () => {
         //     positionOverlayImages();
         //     showImagesSequentially();
         // });
