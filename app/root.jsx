@@ -1,4 +1,5 @@
   import { useNonce } from '@shopify/hydrogen';
+  import {useShopifyCookies} from '@shopify/hydrogen-react';
   import { defer } from '@shopify/remix-oxygen';
   import {
       Links,
@@ -132,6 +133,7 @@
   }
 
   export default function App() {
+    useShopifyCookies({hasUserConsent: true, domain: 'curry-wolf.de'});
       const nonce = useNonce();
       const data = useLoaderData();
       const location = useLocation();
@@ -185,6 +187,7 @@
                   <Layout {...data}>
                       <Outlet />
                   </Layout>
+                  <Scripts async src="https://www.googletagmanager.com/gtag/js?id=G-RMTF34SVQM" />
                   <Scripts nonce={nonce} />
                   <script src="/aos.js"></script>
                   <script src="/language-switcher.js"></script>
