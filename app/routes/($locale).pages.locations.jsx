@@ -179,7 +179,7 @@ export default function Page() {
                 setTimeout(() => {
                     image.style.opacity = 1;
                     overlayLabels[index].style.opacity = 1;
-                }, index * 500);
+                }, index * 100);
             });
         }
 
@@ -191,10 +191,11 @@ export default function Page() {
             video2.play();
         });
 
-        // window.addEventListener('resize', () => {
-        //     positionOverlayImages();
-        //     showImagesSequentially();
-        // });
+
+        window.addEventListener('resize', () => {
+            positionOverlayImages();
+            showImagesSequentially();
+        });
 
         function detectMobile() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -243,14 +244,14 @@ export default function Page() {
             setTimeout(function () {
                 showImagesSequentially();
                 positionOverlayImages();
-            }, 2000);
+            }, 1000);
         } else {
             console.log("This is not a mobile device.");
             // positionOverlayImages();
             setTimeout(function () {
                 showImagesSequentially();
                 positionOverlayImages();
-            }, 2000);
+            }, 1000);
         }
     }, []);
 
