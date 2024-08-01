@@ -189,9 +189,12 @@ export default function Page() {
             video1.style.display = 'none';
             video2.style.display = 'block';
             video2.play();
+            // positionOverlayImages();
+            //showImagesSequentially();
         });
 
-        // window.addEventListener('resize', () => {
+
+        //  window.addEventListener('resize', () => {
         //     positionOverlayImages();
         //     showImagesSequentially();
         // });
