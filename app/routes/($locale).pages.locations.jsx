@@ -246,14 +246,14 @@ export default function Page() {
             setTimeout(function () {
                 showImagesSequentially();
                 positionOverlayImages();
-            }, 0);
+            }, 2000);
         } else {
             console.log("This is not a mobile device.");
             // positionOverlayImages();
             setTimeout(function () {
                 showImagesSequentially();
                 positionOverlayImages();
-            }, 0);
+            }, 2000);
         }
     }, []);
 
