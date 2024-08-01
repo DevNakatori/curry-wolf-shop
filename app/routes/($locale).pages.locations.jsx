@@ -191,10 +191,10 @@ export default function Page() {
             video2.play();
         });
 
-        window.addEventListener('resize', () => {
-            positionOverlayImages();
-            showImagesSequentially();
-        });
+        // window.addEventListener('resize', () => {
+        //     positionOverlayImages();
+        //     showImagesSequentially();
+        // });
 
         function detectMobile() {
             var userAgent = navigator.userAgent || navigator.vendor || window.opera;

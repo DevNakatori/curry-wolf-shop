@@ -6,3 +6,5 @@ node_modules
 /.mf
 .env
 .shopify
+vite.config
+vite.config.js.timestamp-1722493573829-f5e79de72f499.mjs
