@@ -38,7 +38,7 @@ section.thereedmainsection video#video1 {
     transform: translate(-50%, -50%);
     z-index: 1;
     cursor: pointer;
-    transition: all 1s;
+    transition: all 1.0s;
 }
 
 .overlayImage img {
