@@ -8,14 +8,22 @@ import {createContentSecurityPolicy} from '@shopify/hydrogen';
  * @param {number} responseStatusCode
  * @param {Headers} responseHeaders
  * @param {EntryContext} remixContext
+ * @param {context} AppLoadContext
  */
+
 export default async function handleRequest(
   request,
   responseStatusCode,
   responseHeaders,
   remixContext,
+  context,
 ) {
-  const {nonce, header, NonceProvider} = createContentSecurityPolicy();
+  const {nonce, header, NonceProvider} = createContentSecurityPolicy({
+    shop: {
+      checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
+      storeDomain: context.env.PUBLIC_STORE_DOMAIN,
+    }
+  });
 
   const body = await renderToReadableStream(
     <NonceProvider>

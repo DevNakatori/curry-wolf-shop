@@ -21,6 +21,7 @@
     "@shopify/hydrogen": "2024.4.1",
     "@shopify/hydrogen-react": "^2024.4.2",
     "@shopify/remix-oxygen": "^2.0.4",
+    "analytics": "^0.8.14",
     "animate.css": "^4.1.1",
     "aos": "^2.3.4",
     "graphql": "^16.6.0",
@@ -29,7 +30,8 @@
     "jquery": "^3.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "use-analytics": "^1.1.0"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "5.0.2",
