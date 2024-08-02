@@ -22,7 +22,10 @@ export default async function handleRequest(
     shop: {
       checkoutDomain: context.env.PUBLIC_CHECKOUT_DOMAIN,
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
-    }
+    },
+    scriptSrc: [
+      `https://www.googletagmanager.com`
+    ]
   });
 
   const body = await renderToReadableStream(
@@ -46,7 +49,10 @@ export default async function handleRequest(
 
   responseHeaders.set('Content-Type', 'text/html');
   responseHeaders.set('Content-Security-Policy', header);
-
+  responseHeaders.set(
+    'Content-Security-Policy',
+    `script-src 'self' https://www.googletagmanager.com 'nonce-${nonce}'`
+  );
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,

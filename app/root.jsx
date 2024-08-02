@@ -22,6 +22,8 @@
   import React, { useEffect } from 'react';
   import { useLocation } from "react-router-dom";
   import Popup from './components/Popup';
+  import * as gtag from './util/gtag';
+
 
   /**
    * This is important to avoid re-fetching root queries on sub-navigations
@@ -126,6 +128,7 @@
           {
               headers: {
                 'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
+                'Access-Control-Allow-Origin' : '*',
                   'Set-Cookie': await context.session.commit(),
               },
           },
@@ -137,6 +140,13 @@
       const nonce = useNonce();
       const data = useLoaderData();
       const location = useLocation();
+      const gaTrackingId = 'G-RMTF34SVQM';
+
+      useEffect(() => {
+        if (gaTrackingId?.length) {
+          gtag.pageview(location.pathname, gaTrackingId);
+        }
+      }, [location, gaTrackingId]);
 
       useEffect(() => {
           function setEqualHeight() {
@@ -177,6 +187,32 @@
               <head>
                   <meta charSet="utf-8" />
                   <meta name="viewport" content="width=device-width,initial-scale=1" />
+                  {!gaTrackingId ? null : (
+                      <>
+                        
+                        <script
+                          async
+                          nonce={nonce}
+                          src={`https://www.googletagmanager.com/gtag/js?id=${gaTrackingId}`}
+                        />
+                        <script
+                          async
+                          id="gtag-init"
+                          nonce={nonce}
+                          dangerouslySetInnerHTML={{
+                            __html: `
+                            window.dataLayer = window.dataLayer || [];
+                            function gtag(){dataLayer.push(arguments);}
+                            gtag('js', new Date());
+
+                            gtag('config', '${gaTrackingId}', {
+                              page_path: window.location.pathname,
+                            });
+                          `,
+                          }}
+                        />
+                      </>
+                    )}
                   <Meta />
                   <Links />
               </head>
@@ -187,11 +223,9 @@
                   <Layout {...data}>
                       <Outlet />
                   </Layout>
-                  <Scripts async src="https://www.googletagmanager.com/gtag/js?id=G-RMTF34SVQM" />
                   <Scripts nonce={nonce} />
                   <script src="/aos.js"></script>
                   <script src="/language-switcher.js"></script>
-                  <script src="/location-page.js"></script>
                   <script src="/custom.js"></script>
               </body>
           </html>
@@ -220,7 +254,7 @@
                   <Meta />
                   <Links />
               </head>
-              <body class="error-oops">
+              <body className="error-oops">
                   <Layout {...rootData}>
                       <div className="route-error">
                           <h1>Oops!</h1>
@@ -230,8 +264,8 @@
                                   <pre>{errorMessage}</pre>
                               </fieldset>
                           )}
-                          <div class="thank-you-btn">
-                            <a href="/" class="yellow-btn">Zurück zur Startseite</a>
+                          <div className="thank-you-btn">
+                            <a href="/" className="yellow-btn">Zurück zur Startseite</a>
                           </div>
                       </div>
                   </Layout>

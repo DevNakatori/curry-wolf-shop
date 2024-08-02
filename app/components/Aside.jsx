@@ -35,7 +35,6 @@ export function Aside({children, heading, id = 'aside', toggle, setToggle}) {
 }
 
 function CloseAside({toggle,setToggle,heading}) {
-  console.log(toggle)
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
     <div className="close-popup" id="closeBtn">
