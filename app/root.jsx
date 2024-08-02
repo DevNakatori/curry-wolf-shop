@@ -126,11 +126,10 @@
               publicStoreDomain,
           },
           {
-              headers: {
-                'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
-                'Access-Control-Allow-Origin' : '*',
-                  'Set-Cookie': await context.session.commit(),
-              },
+              // headers: {
+              //   'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
+              //     'Set-Cookie': await context.session.commit(),
+              // },
           },
       );
   }
