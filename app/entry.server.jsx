@@ -8,9 +8,8 @@ import {createContentSecurityPolicy} from '@shopify/hydrogen';
  * @param {number} responseStatusCode
  * @param {Headers} responseHeaders
  * @param {EntryContext} remixContext
- * @param {context} AppLoadContext
+ * @param {AppLoadContext} context
  */
-
 export default async function handleRequest(
   request,
   responseStatusCode,
@@ -24,7 +23,8 @@ export default async function handleRequest(
       storeDomain: context.env.PUBLIC_STORE_DOMAIN,
     },
     scriptSrc: [
-      `https://www.googletagmanager.com`
+      `https://www.googletagmanager.com`,
+      `https://cdn.shopify.com` // Added the necessary script source here
     ]
   });
 
@@ -49,10 +49,7 @@ export default async function handleRequest(
 
   responseHeaders.set('Content-Type', 'text/html');
   responseHeaders.set('Content-Security-Policy', header);
-  responseHeaders.set(
-    'Content-Security-Policy',
-    `script-src 'self' https://www.googletagmanager.com 'nonce-${nonce}'`
-  );
+
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,
@@ -60,3 +57,4 @@ export default async function handleRequest(
 }
 
 /** @typedef {import('@shopify/remix-oxygen').EntryContext} EntryContext */
+/** @typedef {import('@shopify/remix-oxygen').AppLoadContext} AppLoadContext */
