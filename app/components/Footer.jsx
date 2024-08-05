@@ -21,7 +21,6 @@ export function Footer({menu, shop}) {
       )}
     </div>
       </div>
-     
     </footer>
   
   );

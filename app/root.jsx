@@ -186,6 +186,23 @@
               <head>
                   <meta charSet="utf-8" />
                   <meta name="viewport" content="width=device-width,initial-scale=1" />
+                  <script
+                  async
+                  id="hotjar"
+                  nonce={nonce}
+                  dangerouslySetInnerHTML={{
+                    __html: `
+                    (function(h,o,t,j,a,r){
+                        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                        h._hjSettings={hjid:5081562,hjsv:6};
+                        a=o.getElementsByTagName('head')[0];
+                        r=o.createElement('script');r.async=1;
+                        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                        a.appendChild(r);
+                    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                  `,
+                  }}
+                  />
                   {!gaTrackingId ? null : (
                       <>
                         
@@ -214,6 +231,12 @@
                     )}
                   <Meta />
                   <Links />
+                  {/* <script 
+                  async
+                  defer
+                  nonce={nonce} 
+                  src={`https://integrations.etrusted.com/applications/widget.js/v2`}  
+                /> */}
               </head>
               <body>
                   <ScrollToTop />
@@ -222,7 +245,29 @@
                   <Layout {...data}>
                       <Outlet />
                   </Layout>
-                  <Scripts nonce={nonce} />
+                  {/* <etrusted-widget data-etrusted-widget-id="wdg-2e85f348-ed56-48db-89c0-58c5d7fbc6b8"></etrusted-widget> */}
+                  <script async  
+                    data-desktop-y-offset="0"  
+                    data-mobile-y-offset="0"  
+                    data-desktop-disable-reviews="false"  
+                    data-desktop-enable-custom="false"  
+                    data-desktop-position="left"  
+                    data-desktop-custom-width="156"  
+                    data-desktop-enable-fadeout="false"  
+                    data-disable-mobile="false"  
+                    data-disable-trustbadge="false"  
+                    data-mobile-custom-width="156"  
+                    data-mobile-disable-reviews="false"  
+                    data-mobile-enable-custom="false"  
+                    data-mobile-position="left"  
+                    data-mobile-enable-topbar="false"  
+                    data-mobile-enable-fadeout="true"
+                    data-color-scheme="light"
+                    charset="UTF-8"  
+                    nonce={nonce} 
+                    src={`//widgets.trustedshops.com/js/X7C31CAC2688E2716F5D2E3220C01EE91.js`} />  
+                    <ScrollRestoration nonce={nonce} />
+                    <Scripts nonce={nonce} />
                   <script src="/aos.js"></script>
                   <script src="/language-switcher.js"></script>
                   <script src="/custom.js"></script>
