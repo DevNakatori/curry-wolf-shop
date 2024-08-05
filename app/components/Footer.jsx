@@ -65,7 +65,7 @@ function FooterMenu({menu, primaryDomainUrl}) {
               {item.title}
             </a>
         ) : (
-          <li>
+          <li key={item.url}>
           <NavLink
             end
             key={item.id}

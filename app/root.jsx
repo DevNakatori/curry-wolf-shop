@@ -231,12 +231,23 @@
                     )}
                   <Meta />
                   <Links />
-                  {/* <script 
-                  async
-                  defer
-                  nonce={nonce} 
-                  src={`https://integrations.etrusted.com/applications/widget.js/v2`}  
-                /> */}
+                  <script
+                    async
+                    id="hotjar"
+                    nonce={nonce}
+                    dangerouslySetInnerHTML={{
+                      __html: `
+                      (function(h,o,t,j,a,r){
+                          h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+                          h._hjSettings={hjid:5081562,hjsv:6};
+                          a=o.getElementsByTagName('head')[0];
+                          r=o.createElement('script');r.async=1;
+                          r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+                          a.appendChild(r);
+                      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+                    `,
+                    }}
+                  />
               </head>
               <body>
                   <ScrollToTop />
@@ -263,7 +274,7 @@
                     data-mobile-enable-topbar="false"  
                     data-mobile-enable-fadeout="true"
                     data-color-scheme="light"
-                    charset="UTF-8"  
+                    charSet="UTF-8"  
                     nonce={nonce} 
                     src={`//widgets.trustedshops.com/js/X7C31CAC2688E2716F5D2E3220C01EE91.js`} />  
                     <ScrollRestoration nonce={nonce} />

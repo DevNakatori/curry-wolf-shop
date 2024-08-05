@@ -51,7 +51,7 @@ export default async function handleRequest(
   responseHeaders.set('Content-Security-Policy', header);
   responseHeaders.set(
     'Content-Security-Policy',
-    `script-src 'self' https://www.googletagmanager.com  https://widgets.trustedshops.com https://static.hotjar.com 'nonce-${nonce}'`
+    `script-src 'self' https://www.googletagmanager.com  https://widgets.trustedshops.com *.hotjar.com 'nonce-${nonce}'`
   );
   return new Response(body, {
     headers: responseHeaders,
