@@ -33,7 +33,6 @@ export async function loader({params, context}) {
 export default function Page() {
   /** @type {LoaderReturnData} */
   const {page} = useLoaderData();
-
   return (
     <div className="page catering-inner">
       <main dangerouslySetInnerHTML={{__html: page.body}} />
