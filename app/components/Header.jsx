@@ -60,7 +60,7 @@ const navigate = useNavigate()
       : itemUrl;
   }
 
-console.log(menu)
+
   const handleClick = useCallback((event, url) => {
     if (viewport === 'mobile') {
       event.preventDefault();
