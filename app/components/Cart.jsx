@@ -252,8 +252,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
     <div hidden={hidden}>
       <br />
       <p>
-        Looks like you haven&rsquo;t added anything yet, let&rsquo;s get you
-        started!
+      Sieht so aus, als hätten Sie noch nichts in den Einkaufswagen gelegt. Lassen Sie uns beginnen!
       </p>
       <br />
       <Link className="yellow-btn"
@@ -264,7 +263,7 @@ export function CartEmpty({hidden = false, layout = 'aside'}) {
           }
         }}
       >
-        Continue shopping →
+        Weiter shoppen →
       </Link>
     </div>
   );

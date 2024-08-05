@@ -24,7 +24,8 @@ export default async function handleRequest(
     },
     scriptSrc: [
       `https://www.googletagmanager.com`,
-      `https://cdn.shopify.com` // Added the necessary script source here
+      `https://integrations.etrusted.com`,
+      `https://static.hotjar.com`
     ]
   });
 
@@ -46,10 +47,12 @@ export default async function handleRequest(
   if (isbot(request.headers.get('user-agent'))) {
     await body.allReady;
   }
-
   responseHeaders.set('Content-Type', 'text/html');
   responseHeaders.set('Content-Security-Policy', header);
-
+  responseHeaders.set(
+    'Content-Security-Policy',
+    `script-src 'self' https://www.googletagmanager.com  https://widgets.trustedshops.com https://static.hotjar.com 'nonce-${nonce}'`
+  );
   return new Response(body, {
     headers: responseHeaders,
     status: responseStatusCode,
