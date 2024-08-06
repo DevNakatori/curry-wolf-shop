@@ -26,7 +26,8 @@ export default async function handleRequest(
       `https://www.googletagmanager.com`,
       `https://cdn.shopify.com`, // Added the necessary script source here
       `https://integrations.etrusted.com`,
-      `https://static.hotjar.com`
+      `https://static.hotjar.com`,
+      `https://script.hotjar.com`
     ]
   });
 
