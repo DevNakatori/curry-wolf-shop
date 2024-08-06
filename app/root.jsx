@@ -24,7 +24,6 @@ import { useLocation } from "react-router-dom";
 import Popup from './components/Popup';
 import * as gtag from './util/gtag';
 
-
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
  * @type {ShouldRevalidateFunction}
@@ -140,6 +139,8 @@ export default function App() {
     const data = useLoaderData();
     const location = useLocation();
     const gaTrackingId = 'G-RMTF34SVQM';
+
+    
 
     useEffect(() => {
       if (gaTrackingId?.length) {
@@ -259,7 +260,7 @@ export default function App() {
                   data-color-scheme="light"
                   charSet="UTF-8"  
                   nonce={nonce} 
-                  src={`//widgets.trustedshops.com/js/X7C31CAC2688E2716F5D2E3220C01EE91.js`} />  
+                  src={`https://widgets.trustedshops.com/js/X7C31CAC2688E2716F5D2E3220C01EE91.js`} />  
                   <ScrollRestoration nonce={nonce} />
                   <Scripts nonce={nonce} />
                 <script src="/aos.js"></script>
