@@ -7,7 +7,9 @@ import '../styles/home-video.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({ data }) => {
-  return [{ title: 'Curry Wolf | Home' }];
+  return [{ title: 'Curry Wolf | Home',
+            description: 'Für eingefleischte Berliner ECHT GUTE BERLINER CURRYWURST Für dem Wolfshunger. Fünfmal in Berlin und Potsdam an den besten Plätzen der Stadt. Standorte Wolf bestellt. Schwein gehabt. Catering ist Geschmacks - und Vertrauenssache - deshalb CURRY WOLF Catering Feine Geschmacksache 😋'
+   }];
 };
 
 /**
