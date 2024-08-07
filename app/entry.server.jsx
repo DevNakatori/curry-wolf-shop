@@ -26,7 +26,8 @@ export default async function handleRequest(
       `https://www.googletagmanager.com`,
       `https://cdn.shopify.com`, // Added the necessary script source here
       `https://integrations.etrusted.com`,
-      `https://static.hotjar.com`
+      `https://static.hotjar.com`,
+      `https://script.hotjar.com`
     ]
   });
 
@@ -52,7 +53,7 @@ export default async function handleRequest(
   responseHeaders.set('Content-Security-Policy', header);
   responseHeaders.set(
     'Content-Security-Policy',
-    `script-src 'self' https://www.googletagmanager.com  https://widgets.trustedshops.com https://static.hotjar.com https://script.hotjar.com 'nonce-${nonce}'`
+    `script-src 'self' https://* 'unsafe-inline' 'unsafe-eval' 'nonce-${nonce}'`
   );
   return new Response(body, {
     headers: responseHeaders,
