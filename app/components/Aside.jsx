@@ -37,12 +37,26 @@ export function Aside({children, heading, id = 'aside', toggle, setToggle}) {
 function CloseAside({toggle,setToggle,heading}) {
   return (
     /* eslint-disable-next-line jsx-a11y/anchor-is-valid */
-    <div className="close-popup" id="closeBtn">
+    <div
+    className="close-popup"
+    id="closeBtn"
+    onClick={
+      heading === 'CART' ? () => history.go(-1) : () => setToggle(!toggle)
+    }
+  >
     <div className="outer">
       <div className="inner">
-      {heading ==="CART"?  <a className="close" href="#" onClick={() => history.go(-1)}><span>Back</span></a>:(<a className="close" href="#" onClick={() =>setToggle(!toggle)}><span>Back</span></a>)}
-        </div>
+        {heading === 'CART' ? (
+          <a className="close" href="#">
+            <span>Back</span>
+          </a>
+        ) : (
+          <a className="close" href="#">
+            <span>Back</span>
+          </a>
+        )}
       </div>
     </div>
+  </div>
   );
 }
