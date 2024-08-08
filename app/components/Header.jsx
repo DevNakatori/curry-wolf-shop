@@ -93,7 +93,7 @@ const navigate = useNavigate()
                   prefetch="intent"
                   className={({ isActive }) => (isActive ? 'active' : '')}
                   to={new URL(item.url).pathname}
-                  // onClick={(e) => handleClick(e, url)}
+                  onClick={(e) => handleClick(e, url)}
                 >
                   {item.title}
                 </NavLink>
