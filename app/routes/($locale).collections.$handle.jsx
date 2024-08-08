@@ -14,7 +14,9 @@ import '../styles/collection.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
-  return [{title: `Curry Wolf | ${data?.collection.title ?? ''} Collection`}];
+  return [{title: `Curry Wolf | ${data?.collection.title ?? ''} Collection`},
+    {name :"description","content": data.collection.seo.description }
+  ];
 };
 
 /**

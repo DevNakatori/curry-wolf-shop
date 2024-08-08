@@ -7,7 +7,9 @@ import '../styles/policies.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({ data }) => {
-  return [{ title: `Curry Wolf | ${data?.policy.title ?? ''}` }];
+  return [{title: `Curry Wolf | ${data?.policy.title ?? ''}`},
+    {name :"description","content": data.policy.seo.description }
+  ];
 };
 
 /**
