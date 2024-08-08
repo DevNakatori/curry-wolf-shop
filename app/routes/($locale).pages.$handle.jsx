@@ -6,7 +6,7 @@ import {useLoaderData} from '@remix-run/react';
  */
 export const meta = ({data}) => {
   return [{title: `Curry Wolf | ${data?.page.title ?? ''}`},
-          {description: data.page.seo.description }
+    {name :"description","content": data.page.seo.description }
   ];
 };
 

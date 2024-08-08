@@ -19,7 +19,7 @@ import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export const meta = ({ data }) => {
   return [{title: `Curry Wolf | ${data?.product.title ?? ''}`},
-    {description: data.product.seo.description }
+    {name :"description","content": data.product.seo.description }
   ];
 };
 
