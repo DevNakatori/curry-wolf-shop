@@ -1,15 +1,15 @@
-import { json } from '@shopify/remix-oxygen';
+import { defer, json } from '@shopify/remix-oxygen';
 import { useLoaderData } from '@remix-run/react';
 import React, { useEffect, useRef, useState } from 'react';
 import '../styles/home-video.css';
+import { AnalyticsPageType } from '@shopify/hydrogen';
 
 /**
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({ data }) => {
-  return [
-    { title: data.page.seo.title },
-    { description: data.page.seo.description  }
+  return [{title: `Curry Wolf | ${data?.page.title ?? ''}`},
+    {description: data.page.seo.description }
   ];
 };
 
@@ -29,7 +29,12 @@ export async function loader({ params, context }) {
     throw new Response('Not Found', { status: 404 });
   }
 
-  return json({ page });
+  return defer({
+    page,
+    analytics: {
+      pageType: AnalyticsPageType.home,
+    },
+  });
 }
 
 export default function Page() {
@@ -244,7 +249,3 @@ const PAGE_QUERY = `#graphql
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
-
-
-
-

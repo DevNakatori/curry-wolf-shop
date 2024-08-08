@@ -23,6 +23,8 @@ import React, { useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 import Popup from './components/Popup';
 import * as gtag from './util/gtag';
+import { Analytics } from 'analytics';
+import { ShopifySalesChannel, Seo } from '@shopify/hydrogen';
 
 /**
  * This is important to avoid re-fetching root queries on sub-navigations
@@ -117,20 +119,25 @@ export async function loader({ context }) {
     });
 
     return defer(
-        {
-            cart: cartPromise,
-            footer: footerPromise,
-            header: await headerPromise,
-            isLoggedIn: isLoggedInPromise,
-            publicStoreDomain,
-        },
-        {
-            // headers: {
-            //   'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
-            //     'Set-Cookie': await context.session.commit(),
-            // },
-        },
-    );
+      {
+          cart: cartPromise,
+          footer: footerPromise,
+          header: await headerPromise,
+          isLoggedIn: isLoggedInPromise,
+          publicStoreDomain,
+          selectedLocale: context.storefront.i18n,
+          analytics: {
+            shopifySalesChannel: ShopifySalesChannel.hydrogen,
+            shopId: context.env.SHOP_ID,
+          },
+      },
+      {
+          // headers: {
+          //   'Content-Security-Policy': "default-src 'self'; connect-src 'self' https://api.web3forms.com; script-src 'self'; style-src 'self';",
+          //     'Set-Cookie': await context.session.commit(),
+          // },
+      },
+  );
 }
 
 export default function App() {
