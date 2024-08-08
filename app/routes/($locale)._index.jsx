@@ -7,9 +7,10 @@ import '../styles/home-video.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({ data }) => {
-  return [{ title: 'Curry Wolf | Home',
-            description: 'Für eingefleischte Berliner ECHT GUTE BERLINER CURRYWURST Für dem Wolfshunger. Fünfmal in Berlin und Potsdam an den besten Plätzen der Stadt. Standorte Wolf bestellt. Schwein gehabt. Catering ist Geschmacks - und Vertrauenssache - deshalb CURRY WOLF Catering Feine Geschmacksache 😋'
-   }];
+  return [
+    { title: data.page.seo.title },
+    { description: data.page.seo.description  }
+  ];
 };
 
 /**
@@ -243,3 +244,7 @@ const PAGE_QUERY = `#graphql
 /** @typedef {import('@shopify/remix-oxygen').LoaderFunctionArgs} LoaderFunctionArgs */
 /** @template T @typedef {import('@remix-run/react').MetaFunction<T>} MetaFunction */
 /** @typedef {import('@shopify/remix-oxygen').SerializeFrom<typeof loader>} LoaderReturnData */
+
+
+
+
