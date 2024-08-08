@@ -5,7 +5,9 @@ import '../styles/job-page.css';
  * @type {MetaFunction<typeof loader>}
  */
 export const meta = ({data}) => {
-  return [{title: `Curry Wolf | ${data?.page.title ?? ''}`}];
+  return [{title: `Curry Wolf | ${data?.page.title ?? ''}`},
+    {description: data.page.seo.description }
+  ];
 };
 
 /**

@@ -18,7 +18,9 @@ import { Fancybox } from "@fancyapps/ui";
 import "@fancyapps/ui/dist/fancybox/fancybox.css";
 
 export const meta = ({ data }) => {
-  return [{ title: `Curry Wolf | ${data?.product.title ?? ''}` }];
+  return [{title: `Curry Wolf | ${data?.product.title ?? ''}`},
+    {description: data.product.seo.description }
+  ];
 };
 
 export async function loader({ params, request, context }) {
