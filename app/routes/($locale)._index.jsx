@@ -9,7 +9,7 @@ import { AnalyticsPageType } from '@shopify/hydrogen';
  */
 export const meta = ({ data }) => {
   return [{title: `Curry Wolf | ${data?.page.title ?? ''}`},
-    {description: data.page.seo.description }
+    {name :"description","content": data.page.seo.description }
   ];
 };
 
